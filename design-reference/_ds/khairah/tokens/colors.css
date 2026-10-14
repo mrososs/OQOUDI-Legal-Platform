@@ -1,0 +1,111 @@
+/* ============================================================
+   KHAIRAH HOLDING — COLOR TOKENS
+   A robust institutional palette: deep corporate navy (primary),
+   steel-blue support (from the logo ribbon), slate ink,
+   charcoal ground, stone-gray neutrals.
+   ============================================================ */
+
+:root {
+  /* ---- Brand: Deep Corporate Navy (primary) ---- */
+  --navy-50:  #EDF2F8;
+  --navy-100: #DCE6F1;
+  --navy-200: #B9CCE2;
+  --navy-300: #8FACCB;
+  --navy-400: #5F84AC;
+  --navy-500: #34618F;
+  --navy-600: #2A5179;
+  --navy-700: #1F4063;   /* primary accent — buttons, links */
+  --navy-800: #173350;   /* nav & footer text, headings on light */
+  --navy-900: #102740;   /* CTA / marquee bands */
+  --navy-950: #0B1C2F;
+
+  /* ---- Brand: Rich Charcoal (footer ground) ---- */
+  --charcoal-800: #33373B;
+  --charcoal-900: #26292D;   /* footer bar */
+  --charcoal-950: #1D2023;
+
+  /* ---- Brand: Steel Blue (supporting, from logo ribbon) ---- */
+  --steel-50:  #EEF3F5;
+  --steel-100: #E3EAEE;
+  --steel-200: #C8D6DD;
+  --steel-300: #A8BEC9;
+  --steel-400: #87A2B2;   /* logo ribbon highlight */
+  --steel-500: #7A9FAE;   /* primary accent */
+  --steel-600: #5E8092;
+  --steel-700: #4A6B7C;
+  --steel-800: #3A5666;
+
+  /* ---- Brand: Slate / Charcoal (ink) ---- */
+  --slate-950: #0F1E28;
+  --slate-900: #122430;
+  --slate-800: #1C3545;   /* logo + primary headings */
+  --slate-700: #294759;
+  --slate-600: #3C5C6E;
+  --slate-500: #527081;
+
+  /* ---- Neutrals: soft gray-blue ---- */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #F8F9FA;   /* content section background */
+  --neutral-100: #F1F4F6;
+  --neutral-200: #DBE2E6;   /* navigation containers / pills */
+  --neutral-300: #C5D0D6;
+  --neutral-400: #9FAEB6;
+  --neutral-500: #74838B;
+  --neutral-600: #5A686F;
+  --neutral-700: #3F4A50;
+
+  /* ---- Semantic status (muted to match palette) ---- */
+  --positive-500: #4E8A6B;
+  --positive-100: #E2EEE8;
+  --caution-500:  #B98A3E;
+  --caution-100:  #F3EADA;
+  --critical-500: #B05249;
+  --critical-100: #F2E0DE;
+  --info-500:     #5E8092;
+  --info-100:     #E3EAEE;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components
+     ============================================================ */
+
+  /* Surfaces */
+  --surface-page:     var(--neutral-50);
+  --surface-card:     var(--neutral-0);
+  --surface-raised:   var(--neutral-0);
+  --surface-sunken:   var(--neutral-100);
+  --surface-nav:      var(--neutral-200);   /* pill nav container */
+  --surface-inverse:  var(--navy-900);
+  --surface-footer:   var(--charcoal-900);  /* rich charcoal footer bar */
+  --surface-accent-soft: var(--navy-50);
+
+  /* Text */
+  --text-strong:   var(--navy-900);   /* headings */
+  --text-body:     var(--slate-700);
+  --text-muted:    var(--neutral-500);
+  --text-subtle:   var(--neutral-400);
+  --text-accent:   var(--navy-700);
+  --text-on-accent:  var(--neutral-0);
+  --text-on-inverse: var(--neutral-50);
+
+  /* Accent / interactive */
+  --accent:          var(--navy-700);
+  --accent-hover:    var(--navy-800);
+  --accent-active:   var(--navy-900);
+  --accent-contrast: var(--neutral-0);
+
+  /* Supporting accent (steel, logo ribbon) */
+  --accent-soft:     var(--steel-500);
+
+  /* Borders & lines */
+  --border-subtle:  var(--neutral-200);
+  --border-default: var(--neutral-300);
+  --border-strong:  var(--neutral-400);
+  --border-accent:  var(--navy-500);
+  --divider:        var(--neutral-200);
+
+  /* Focus */
+  --focus-ring: color-mix(in srgb, var(--navy-600) 45%, transparent);
+
+  /* Image placeholder fill (brand convention) */
+  --placeholder-fill: var(--steel-300);
+}

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>عقودي — عرض الشاشات والتوثيق</title>
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/base.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/components/components.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+  <style>
+    body{margin:0;background:#15233B}
+    a{color:#85663A;text-decoration:none} a:hover{color:#1C2D4A}
+  </style>
+  <script src="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/_ds_bundle.js"></script>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+  <section data-label="الغلاف" data-screen-label="01 Cover" data-speaker-notes="افتتاحية العرض: منصة عقودي بتجاربها الثلاث." dir="rtl" style="background:#1C2D4A;color:#E9D5B5;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;align-items:center;gap:120px;padding:0 140px">
+    <div style="width:520px;height:520px;background:#E9D5B5;border-radius:40px;padding:40px;box-sizing:border-box;flex-shrink:0"><img src="assets/oqoudi-logo-1200.png" alt="شعار عقودي" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <span style="font-size:30px;font-weight:600;color:#D2B583">عرض الشاشات والتوثيق</span>
+      <h1 style="font-family:'Cairo',sans-serif;font-size:96px;font-weight:800;line-height:1.25;margin:0;color:#fff">عقودي</h1>
+      <p style="font-size:40px;line-height:1.6;margin:0;color:#E9D5B5;max-width:900px;text-wrap:pretty">منصة العقود والخدمات القانونية المصرية: الموقع العام، حساب العميل، ولوحة المحامين.</p>
+      <div style="display:flex;gap:48px;padding-top:24px;border-top:1px solid rgba(233,213,181,.25);font-size:28px">
+        <span>٤٢ شاشة</span><span>٣ تجارب</span><span>نموذج تفاعلي</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="عن المنصة" data-screen-label="02 Platform" data-speaker-notes="ثلاث تجارب تعمل على بيانات مشتركة." dir="rtl" style="background:#FBF6EC;color:#1C2D4A;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;gap:56px;padding:110px 120px">
+    <div style="display:flex;flex-direction:column;gap:20px;max-width:1300px">
+      <span style="font-size:28px;font-weight:600;color:#85663A">عن المنصة</span>
+      <h2 style="font-family:'Cairo',sans-serif;font-size:64px;font-weight:800;margin:0;line-height:1.3">ثلاث تجارب مترابطة على بيانات واحدة</h2>
+      <p style="font-size:30px;line-height:1.7;margin:0;color:#3A4356;text-wrap:pretty">ما يطلبه العميل في الموقع يظهر في لوحة المحامي، وما يسلّمه المحامي يظهر في حساب العميل مباشرة.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+      <sc-for list="{{ parts }}" as="p" hint-placeholder-count="3">
+        <div style="background:#fff;border:1px solid #E7E0D2;border-radius:24px;padding:48px;display:flex;flex-direction:column;gap:20px">
+          <span style="width:72px;height:72px;border-radius:50%;background:#1C2D4A;color:#E9D5B5;font-family:'Cairo',sans-serif;font-size:34px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ p.n }}</span>
+          <h3 style="font-family:'Cairo',sans-serif;font-size:40px;font-weight:800;margin:0">{{ p.title }}</h3>
+          <span style="font-size:26px;color:#85663A;font-weight:600">{{ p.who }}</span>
+          <p style="font-size:26px;line-height:1.7;margin:0;color:#3A4356">{{ p.desc }}</p>
+          <span style="font-size:24px;color:#6E6858;border-top:1px solid #E7E0D2;padding-top:18px">{{ p.count }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-label="هيكل المعلومات" data-screen-label="03 IA" data-speaker-notes="خريطة الشاشات في كل تجربة." dir="rtl" style="background:#FBF6EC;color:#1C2D4A;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;gap:28px;padding:60px 120px">
+    <div style="display:flex;gap:24px;align-items:baseline">
+      <h2 style="font-family:'Cairo',sans-serif;font-size:56px;font-weight:800;margin:0">خريطة الشاشات</h2>
+      <span style="font-size:28px;font-weight:600;color:#85663A">هيكل المعلومات · ٤٢ شاشة</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+      <sc-for list="{{ ia }}" as="col" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:0;border-top:4px solid #1C2D4A;padding-top:20px">
+          <h3 style="font-family:'Cairo',sans-serif;font-size:34px;font-weight:800;margin:0 0 12px">{{ col.title }}</h3>
+          <sc-for list="{{ col.items }}" as="it" hint-placeholder-count="10">
+            <div style="font-size:24px;line-height:1.4;padding:5px 0;border-bottom:1px solid #E7E0D2;display:flex;gap:14px"><span style="color:#B8935A;font-weight:700;min-width:36px">{{ it.n }}</span><span>{{ it.t }}</span></div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-label="القسم ١ — الموقع العام" data-screen-label="04 Section public" data-speaker-notes="الموقع العام: ١٦ شاشة." dir="rtl" style="background:#1C2D4A;color:#E9D5B5;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;justify-content:center;gap:28px;padding:0 160px">
+    <span style="font-family:'Cairo',sans-serif;font-size:180px;font-weight:800;color:#B8935A;line-height:1">٠١</span>
+    <h2 style="font-family:'Cairo',sans-serif;font-size:96px;font-weight:800;margin:0;color:#fff">الموقع العام</h2>
+    <p style="font-size:36px;line-height:1.6;margin:0;max-width:1200px;text-wrap:pretty">واجهة الزوار والعملاء: اكتشاف الخدمات، قراءة تفاصيلها، تعبئة نموذج الطلب، والدفع أو حجز الاستشارة.</p>
+    <span style="font-size:28px;color:#D2B583">١٦ شاشة</span>
+  </section>
+
+  <sc-for list="{{ pub }}" as="s" hint-placeholder-count="1">
+    <section data-label="{{ s.label }}" data-speaker-notes="{{ s.desc }}" dir="rtl" style="background:#FBF6EC;color:#1C2D4A;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;padding:64px 60px 0">
+      <div style="flex:1;display:grid;grid-template-columns:560px 1180px;gap:60px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:24px;padding-top:12px">
+          <div style="display:flex;gap:16px;align-items:center;font-size:24px"><span style="background:#1C2D4A;color:#E9D5B5;border-radius:999px;padding:6px 20px;font-weight:600">{{ s.part }}</span><span style="color:#6E6858">{{ s.counter }}</span></div>
+          <h2 style="font-family:'Cairo',sans-serif;font-size:48px;font-weight:800;margin:0;line-height:1.3;text-wrap:pretty">{{ s.title }}</h2>
+          <p style="font-size:26px;line-height:1.7;margin:0;color:#3A4356;text-wrap:pretty">{{ s.desc }}</p>
+          <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #E7E0D2;padding-top:24px">
+            <sc-for list="{{ s.pts }}" as="pt" hint-placeholder-count="3">
+              <div style="display:flex;gap:14px;font-size:24px;line-height:1.55"><span style="color:#B8935A;font-weight:700">✓</span><span>{{ pt }}</span></div>
+            </sc-for>
+          </div>
+          <a href="{{ s.href }}" target="_blank" style="font-size:24px;font-weight:600;color:#85663A">فتح الشاشة في النموذج ←</a>
+        </div>
+        <div style="border-radius:20px;overflow:hidden;border:1px solid #E7E0D2;box-shadow:0 18px 44px rgba(28,45,74,.13);background:#fff"><img src="{{ s.img }}" alt="{{ s.title }}" style="width:100%;display:block"></div>
+      </div>
+      <div style="height:96px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#6E6858"><span>عقودي · عرض الشاشات والتوثيق</span><span>{{ s.part }}</span></div>
+    </section>
+  </sc-for>
+
+  <section data-label="القسم ٢ — حساب العميل" data-screen-label="Section client" data-speaker-notes="حساب العميل: ١١ شاشة." dir="rtl" style="background:#1C2D4A;color:#E9D5B5;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;justify-content:center;gap:28px;padding:0 160px">
+    <span style="font-family:'Cairo',sans-serif;font-size:180px;font-weight:800;color:#B8935A;line-height:1">٠٢</span>
+    <h2 style="font-family:'Cairo',sans-serif;font-size:96px;font-weight:800;margin:0;color:#fff">حساب العميل</h2>
+    <p style="font-size:36px;line-height:1.6;margin:0;max-width:1200px;text-wrap:pretty">مساحة العميل المسجل لمتابعة طلباته ومواعيده ومدفوعاته، واستلام المستندات والردود من المحامي.</p>
+    <span style="font-size:28px;color:#D2B583">١١ شاشة</span>
+  </section>
+
+  <sc-for list="{{ cli }}" as="s" hint-placeholder-count="1">
+    <section data-label="{{ s.label }}" data-speaker-notes="{{ s.desc }}" dir="rtl" style="background:#FBF6EC;color:#1C2D4A;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;padding:64px 60px 0">
+      <div style="flex:1;display:grid;grid-template-columns:560px 1180px;gap:60px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:24px;padding-top:12px">
+          <div style="display:flex;gap:16px;align-items:center;font-size:24px"><span style="background:#1C2D4A;color:#E9D5B5;border-radius:999px;padding:6px 20px;font-weight:600">{{ s.part }}</span><span style="color:#6E6858">{{ s.counter }}</span></div>
+          <h2 style="font-family:'Cairo',sans-serif;font-size:48px;font-weight:800;margin:0;line-height:1.3;text-wrap:pretty">{{ s.title }}</h2>
+          <p style="font-size:26px;line-height:1.7;margin:0;color:#3A4356;text-wrap:pretty">{{ s.desc }}</p>
+          <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #E7E0D2;padding-top:24px">
+            <sc-for list="{{ s.pts }}" as="pt" hint-placeholder-count="3">
+              <div style="display:flex;gap:14px;font-size:24px;line-height:1.55"><span style="color:#B8935A;font-weight:700">✓</span><span>{{ pt }}</span></div>
+            </sc-for>
+          </div>
+          <a href="{{ s.href }}" target="_blank" style="font-size:24px;font-weight:600;color:#85663A">فتح الشاشة في النموذج ←</a>
+        </div>
+        <div style="border-radius:20px;overflow:hidden;border:1px solid #E7E0D2;box-shadow:0 18px 44px rgba(28,45,74,.13);background:#fff"><img src="{{ s.img }}" alt="{{ s.title }}" style="width:100%;display:block"></div>
+      </div>
+      <div style="height:96px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#6E6858"><span>عقودي · عرض الشاشات والتوثيق</span><span>{{ s.part }}</span></div>
+    </section>
+  </sc-for>
+
+  <section data-label="القسم ٣ — لوحة المحامين" data-screen-label="Section lawyer" data-speaker-notes="لوحة المحامين: ١٥ شاشة." dir="rtl" style="background:#1C2D4A;color:#E9D5B5;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;justify-content:center;gap:28px;padding:0 160px">
+    <span style="font-family:'Cairo',sans-serif;font-size:180px;font-weight:800;color:#B8935A;line-height:1">٠٣</span>
+    <h2 style="font-family:'Cairo',sans-serif;font-size:96px;font-weight:800;margin:0;color:#fff">لوحة المحامين</h2>
+    <p style="font-size:36px;line-height:1.6;margin:0;max-width:1200px;text-wrap:pretty">أداة المحامين ومديري المنصة لإدارة الطلبات والتسليمات والاستشارات، وإعداد الخدمات ونماذجها وأسعارها.</p>
+    <span style="font-size:28px;color:#D2B583">١٥ شاشة</span>
+  </section>
+
+  <sc-for list="{{ law }}" as="s" hint-placeholder-count="1">
+    <section data-label="{{ s.label }}" data-speaker-notes="{{ s.desc }}" dir="rtl" style="background:#FBF6EC;color:#1C2D4A;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;padding:64px 60px 0">
+      <div style="flex:1;display:grid;grid-template-columns:560px 1180px;gap:60px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:24px;padding-top:12px">
+          <div style="display:flex;gap:16px;align-items:center;font-size:24px"><span style="background:#1C2D4A;color:#E9D5B5;border-radius:999px;padding:6px 20px;font-weight:600">{{ s.part }}</span><span style="color:#6E6858">{{ s.counter }}</span></div>
+          <h2 style="font-family:'Cairo',sans-serif;font-size:48px;font-weight:800;margin:0;line-height:1.3;text-wrap:pretty">{{ s.title }}</h2>
+          <p style="font-size:26px;line-height:1.7;margin:0;color:#3A4356;text-wrap:pretty">{{ s.desc }}</p>
+          <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #E7E0D2;padding-top:24px">
+            <sc-for list="{{ s.pts }}" as="pt" hint-placeholder-count="3">
+              <div style="display:flex;gap:14px;font-size:24px;line-height:1.55"><span style="color:#B8935A;font-weight:700">✓</span><span>{{ pt }}</span></div>
+            </sc-for>
+          </div>
+          <a href="{{ s.href }}" target="_blank" style="font-size:24px;font-weight:600;color:#85663A">فتح الشاشة في النموذج ←</a>
+        </div>
+        <div style="border-radius:20px;overflow:hidden;border:1px solid #E7E0D2;box-shadow:0 18px 44px rgba(28,45,74,.13);background:#fff"><img src="{{ s.img }}" alt="{{ s.title }}" style="width:100%;display:block"></div>
+      </div>
+      <div style="height:96px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#6E6858"><span>عقودي · عرض الشاشات والتوثيق</span><span>{{ s.part }}</span></div>
+    </section>
+  </sc-for>
+
+  <section data-label="الرحلات الأساسية" data-screen-label="Flows" data-speaker-notes="أربع رحلات تربط العميل بالمحامي." dir="rtl" style="background:#FBF6EC;color:#1C2D4A;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;gap:32px;padding:70px 120px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px">
+      <div style="display:flex;gap:24px;align-items:baseline"><h2 style="font-family:'Cairo',sans-serif;font-size:56px;font-weight:800;margin:0">من الطلب إلى التسليم</h2><span style="font-size:28px;font-weight:600;color:#85663A">الرحلات الأساسية</span></div>
+      <div style="display:flex;gap:32px;font-size:24px;color:#6E6858"><span style="display:flex;gap:10px;align-items:center"><span style="width:20px;height:20px;border-radius:50%;background:#fff;border:1px solid #D5CCBA"></span>خطوة العميل</span><span style="display:flex;gap:10px;align-items:center"><span style="width:20px;height:20px;border-radius:50%;background:#EFE2CB;border:1px solid #B8935A"></span>خطوة المحامي</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ flows }}" as="f" hint-placeholder-count="4">
+        <div style="background:#fff;border:1px solid #E7E0D2;border-radius:20px;padding:20px 32px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:16px;align-items:center"><span style="width:48px;height:48px;border-radius:50%;background:#1C2D4A;color:#E9D5B5;font-weight:700;font-size:24px;display:flex;align-items:center;justify-content:center">{{ f.n }}</span><h3 style="font-family:'Cairo',sans-serif;font-size:32px;font-weight:800;margin:0">{{ f.title }}</h3></div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+            <sc-for list="{{ f.steps }}" as="st" hint-placeholder-count="6">
+              <div style="display:flex;gap:10px;align-items:center"><span style="padding:6px 18px;border-radius:999px;border:1px solid {{ st.bd }};background:{{ st.bg }};font-size:24px;white-space:nowrap">{{ st.label }}</span><sc-if value="{{ st.notLast }}"><span style="color:#A79E8C;font-size:24px">←</span></sc-if></div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-label="دورة حياة الطلب" data-screen-label="Lifecycle" data-speaker-notes="حالة الخدمة منفصلة عن حالة الدفع." dir="rtl" style="background:#FBF6EC;color:#1C2D4A;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;gap:48px;padding:100px 120px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:1400px">
+      <span style="font-size:28px;font-weight:600;color:#85663A">دورة حياة الطلب</span>
+      <h2 style="font-family:'Cairo',sans-serif;font-size:56px;font-weight:800;margin:0">حالة الخدمة منفصلة عن حالة الدفع</h2>
+      <p style="font-size:28px;line-height:1.7;margin:0;color:#3A4356">يرى العميل صياغة مبسطة لكل حالة مع الإجراء المطلوب منه.</p>
+    </div>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+      <sc-for list="{{ mainFlow }}" as="m" hint-placeholder-count="6">
+        <div style="display:flex;gap:14px;align-items:center"><span style="padding:12px 26px;border-radius:999px;background:{{ m.bg }};color:{{ m.fg }};font-size:28px;font-weight:600">{{ m.label }}</span><sc-if value="{{ m.notLast }}"><span style="color:#A79E8C;font-size:28px">←</span></sc-if></div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+      <sc-for list="{{ sideStates }}" as="x" hint-placeholder-count="3">
+        <div style="background:#fff;border:1px solid #E7E0D2;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px"><strong style="font-size:30px;color:{{ x.fg }}">{{ x.label }}</strong><span style="font-size:24px;line-height:1.7;color:#3A4356">{{ x.d }}</span></div>
+      </sc-for>
+    </div>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;border-top:1px solid #E7E0D2;padding-top:32px">
+      <strong style="font-size:28px;margin-left:12px">حالات الدفع:</strong>
+      <sc-for list="{{ payStates }}" as="p" hint-placeholder-count="5"><span style="padding:8px 22px;border-radius:999px;background:{{ p.bg }};color:{{ p.fg }};font-size:24px;font-weight:600">{{ p.label }}</span></sc-for>
+    </div>
+  </section>
+
+  <section data-label="الهوية البصرية" data-screen-label="Identity" data-speaker-notes="الألوان والخطوط المستخرجة من شعار عقودي." dir="rtl" style="background:#FBF6EC;color:#1C2D4A;font-family:'IBM Plex Sans Arabic',sans-serif;display:grid;grid-template-columns:1fr 1fr;gap:80px;padding:100px 120px;align-content:start">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <span style="font-size:28px;font-weight:600;color:#85663A">الهوية البصرية</span>
+      <h2 style="font-family:'Cairo',sans-serif;font-size:56px;font-weight:800;margin:0;line-height:1.3">ألوان وخطوط مستخرجة من شعار عقودي</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <sc-for list="{{ swatches }}" as="c" hint-placeholder-count="6">
+          <div style="background:#fff;border:1px solid #E7E0D2;border-radius:16px;overflow:hidden"><div style="height:110px;background:{{ c.v }}"></div><div style="padding:14px 16px;display:flex;flex-direction:column;gap:4px"><strong style="font-size:24px">{{ c.name }}</strong><span style="font-size:24px;color:#6E6858" dir="ltr">{{ c.v }}</span></div></div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;padding-top:110px">
+      <div style="font-family:'Cairo',sans-serif;font-size:80px;font-weight:800;line-height:1.2">Cairo للعناوين</div>
+      <div style="font-size:40px;line-height:1.5">IBM Plex Sans Arabic لنصوص الواجهة والفقرات</div>
+      <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #E7E0D2;padding-top:24px;font-size:26px;line-height:1.7;color:#3A4356">
+        <span>اتجاه كامل من اليمين إلى اليسار وأرقام عربية في كل الشاشات.</span>
+        <span>أزرار بزوايا ٨ بكسل، بطاقات بزوايا ٢٠ بكسل، وظلال هادئة.</span>
+        <span>تصميم متجاوب يعيد ترتيب الصفحات على الجوال.</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="مراحل لاحقة" data-screen-label="Future" data-speaker-notes="ما يحتاج تكاملًا تقنيًا في مرحلة التطوير." dir="rtl" style="background:#FBF6EC;color:#1C2D4A;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;gap:44px;padding:100px 120px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:28px;font-weight:600;color:#85663A">مرحلة التطوير</span>
+      <h2 style="font-family:'Cairo',sans-serif;font-size:56px;font-weight:800;margin:0">ما يتطلب تكاملًا تقنيًا لاحقًا</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+      <sc-for list="{{ future }}" as="f" hint-placeholder-count="6">
+        <div style="background:#fff;border:1px solid #E7E0D2;border-radius:20px;padding:34px;display:flex;flex-direction:column;gap:14px"><strong style="font-family:'Cairo',sans-serif;font-size:32px">{{ f.t }}</strong><span style="font-size:24px;line-height:1.7;color:#3A4356">{{ f.d }}</span></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-label="الختام" data-screen-label="Closing" data-speaker-notes="روابط النموذج التفاعلي." dir="rtl" style="background:#1C2D4A;color:#E9D5B5;font-family:'IBM Plex Sans Arabic',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;text-align:center">
+    <div style="width:260px;height:260px;background:#E9D5B5;border-radius:32px;padding:24px;box-sizing:border-box"><img src="assets/oqoudi-logo-1200.png" alt="شعار عقودي" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+    <h2 style="font-family:'Cairo',sans-serif;font-size:72px;font-weight:800;margin:0;color:#fff">جرّب النموذج التفاعلي</h2>
+    <div style="display:flex;gap:24px">
+      <a href="Public Website.dc.html" target="_blank" style="font-size:30px;font-weight:600;color:#1C2D4A;background:#E9D5B5;border-radius:10px;padding:18px 36px">الموقع العام</a>
+      <a href="Client Portal.dc.html" target="_blank" style="font-size:30px;font-weight:600;color:#1C2D4A;background:#E9D5B5;border-radius:10px;padding:18px 36px">حساب العميل</a>
+      <a href="Lawyer Dashboard.dc.html" target="_blank" style="font-size:30px;font-weight:600;color:#1C2D4A;background:#E9D5B5;border-radius:10px;padding:18px 36px">لوحة المحامين</a>
+    </div>
+  </section>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const ar = v => String(v).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+    const P = 'Public Website.dc.html', C = 'Client Portal.dc.html', L = 'Lawyer Dashboard.dc.html';
+    const build = (part, key, base, rows) => rows.map(([title, hash, desc, pts], i) => ({
+      part, title, desc, pts, href: base + hash,
+      img: 'screens/' + String(i + 1).padStart(2, '0') + '-' + key + '.png',
+      counter: 'شاشة ' + ar(i + 1) + ' من ' + ar(rows.length),
+      label: part + ' · ' + title
+    }));
+    const pub = build('الموقع العام', 'pub', P, [
+      ['الرئيسية: الغلاف', '#/', 'الانطباع الأول عن المنصة: غلاف بهوية عقودي ورسالتها، مع قائمة تنقل تصل إلى كل الأقسام.', ['قائمة تنقل موحدة لخدمات الأفراد والشركات والاستشارات', 'زر تسجيل الدخول والوصول المباشر إلى حساب العميل', 'تتحول القائمة إلى قائمة جانبية على الجوال']],
+      ['الرئيسية: البحث والتصنيفات', '#/', 'يبدأ الزائر بالبحث عن خدمة أو باختيار نوع احتياجه من ثلاثة تصنيفات رئيسية.', ['بحث باقتراحات سريعة مثل عقد إيجار وتأسيس شركة', 'أربع مزايا ثقة: سعر ومدة معلنان، متابعة، تسليم آمن، تقييمات حقيقية', 'بطاقات التصنيفات مع عدد الخدمات في كل منها']],
+      ['الرئيسية: الخدمات والاستشارات', '#/', 'عرض الخدمات الأكثر طلبًا، وطريقتين للحصول على رأي محام: استشارة كتابية أو اجتماع مرئي.', ['بطاقات خدمة بالسعر والمدة والتقييم', 'قسم مخصص للاستشارات الكتابية والمرئية', 'روابط مباشرة إلى صفحة كل خدمة']],
+      ['دليل خدمات الأفراد', '#/services/individuals', 'قائمة خدمات الأفراد مع أدوات تساعد على الوصول للخدمة المناسبة بسرعة.', ['تبويبات للتنقل بين التصنيفات', 'بحث وتصفية حسب نوع السعر: ثابت أو حسب العرض', 'ترتيب حسب الأكثر طلبًا أو السعر']],
+      ['دليل خدمات الشركات', '#/services/companies', 'خدمات الشركات مثل التأسيس ومراجعة عقود التوريد والعمل، بنفس بنية الدليل.', ['شارة التصنيف على كل بطاقة', 'عرض السعر أو عبارة «حسب العرض»', 'حالة تحميل وحالة عدم وجود نتائج']],
+      ['دليل الاستشارات القانونية', '#/services/consultations', 'الاستشارات الكتابية والمرئية في تصنيف مستقل يسهل الوصول إليه.', ['مدة الرد أو مدة الاجتماع على البطاقة', 'السعر معلن قبل الطلب', 'الانتقال إلى الحجز مباشرة']],
+      ['تفاصيل الخدمة', '#/service/contract-drafting', 'صفحة الخدمة تعرض كل ما يحتاجه العميل قبل أن يطلب.', ['السعر والمدة وزر بدء الطلب', 'إضافات اختيارية تُحتسب في الإجمالي', 'مسار التنقل للعودة إلى التصنيف']],
+      ['تفاصيل الخدمة: الأقسام', '#/service/contract-drafting', 'أقسام الصفحة يتحكم المحامي في ظهورها وترتيبها من لوحة الإدارة.', ['ما تشمله الخدمة وما ستستلمه', 'المستندات المطلوبة من العميل', 'خطوات التنفيذ والأسئلة الشائعة']],
+      ['نموذج طلب الخدمة', '#/request/contract-drafting', 'نموذج من خطوتين: تفاصيل الطلب ثم الدفع. حقول النموذج يبنيها المحامي لكل خدمة.', ['حقول ديناميكية وأقسام مرتبة', 'تحقق فوري من الحقول الإلزامية', 'رفع المرفقات ومراجعة الملخص قبل الدفع']],
+      ['حجز استشارة مرئية', '#/request/video-consultation', 'ثلاث خطوات: اختيار الموعد، ثم التفاصيل، ثم الدفع.', ['تقويم يوضح الأيام والأوقات المتاحة', 'ملخص الطلب والسعر بجانب التقويم', 'كل الأوقات بتوقيت القاهرة']],
+      ['استشارة كتابية', '#/request/written-consultation', 'يصف العميل مسألته ويرفق مستنداته، ثم يدفع ليصله رد مكتوب من المحامي.', ['حقل وصف المسألة مع حد أدنى للتفاصيل', 'رفع مستندات داعمة', 'مدة الرد معلنة مسبقًا']],
+      ['تأكيد الدفع', '#/confirm/DQ-10231', 'تأكيد واضح بعد نجاح الدفع، مع شرح ما سيحدث بعد ذلك.', ['رقم الطلب والخدمة والمبلغ المدفوع', 'الخطوات التالية بالترتيب', 'زر متابعة الطلب في الحساب']],
+      ['من نحن', '#/about', 'تعريف بالمنصة وطريقة عملها وفريق المحامين.', ['رسالة المنصة وقيمها', 'محتوى قابل للتعديل من الإدارة', 'روابط إلى الخدمات والتواصل']],
+      ['الأسئلة الشائعة', '#/faq', 'إجابات عن الأسئلة المتكررة مقسمة إلى مجموعات.', ['مجموعات حسب الموضوع', 'أسئلة قابلة للفتح والطي', 'رابط للتواصل عند عدم وجود إجابة']],
+      ['تواصل معنا', '#/contact', 'نموذج تواصل وبيانات الاتصال بالمنصة.', ['نموذج بالاسم والهاتف والرسالة', 'تحقق من صحة رقم الهاتف المصري', 'بيانات الاتصال وساعات العمل']],
+      ['الدخول والتسجيل', '#/auth', 'شاشة واحدة لتسجيل الدخول أو إنشاء حساب جديد.', ['تبويبا الدخول وإنشاء حساب', 'اختيار نوع الحساب: فرد أو شركة', 'رسائل خطأ واضحة لكل حقل']]
+    ]);
+    const cli = build('حساب العميل', 'cli', C, [
+      ['نظرة عامة', '#/overview', 'الصفحة الأولى بعد الدخول: ما يحتاج إجراء من العميل، والموعد القادم، والطلبات النشطة.', ['تنبيهات بالإجراءات المطلوبة مثل مراجعة تسليم', 'بطاقة الموعد القادم', 'الطلبات النشطة بمراحلها وآخر الإشعارات']],
+      ['طلباتي', '#/orders', 'كل طلبات العميل في قائمة واحدة مع حالة الخدمة وحالة الدفع.', ['تبويبات: النشطة، المكتملة، الكل', 'شريط مرحلة لكل طلب', 'زر طلب خدمة جديدة']],
+      ['تفاصيل طلب: تسليم مستند', '#/order/DQ-10231', 'طلب صياغة عقد بعد أن سلّم المحامي المستند.', ['شريط مراحل الطلب من الاستلام إلى الاكتمال', 'تحميل الإصدارات المسلّمة', 'قبول التسليم أو طلب تعديل، والرسائل مع المحامي']],
+      ['موعد استشارة مرئية', '#/order/DQ-10244', 'تفاصيل موعد الاجتماع ورابط الدخول عند إضافته.', ['التاريخ والوقت والمدة', 'رابط Google Meet يظهر بعد أن ينشره المحامي', 'تنبيه عند عدم إضافة الرابط بعد']],
+      ['استشارة كتابية', '#/order/DQ-10247', 'متابعة الاستشارة الكتابية وقراءة رد المحامي داخل المنصة.', ['عرض المسألة والمرفقات', 'قراءة الرد عند وصوله', 'الرسائل مع المحامي']],
+      ['طلب فشل دفعه', '#/order/DQ-10252', 'حالة فشل الدفع مع توضيح أنه لم يُخصم أي مبلغ.', ['رسالة واضحة بسبب الفشل', 'زر إعادة محاولة الدفع', 'الطلب محفوظ ببياناته']],
+      ['طلب مكتمل ومقيَّم', '#/order/DQ-10198', 'طلب انتهى وقيّمه العميل.', ['كل المراحل مكتملة', 'التقييم بالنجوم والتعليق', 'المستندات متاحة للتحميل']],
+      ['المواعيد', '#/appointments', 'مواعيد الاستشارات المرئية القادمة والسابقة.', ['التاريخ والوقت لكل موعد', 'حالة رابط الاجتماع', 'الانتقال إلى تفاصيل الطلب']],
+      ['المدفوعات والإيصالات', '#/payments', 'سجل كل عمليات الدفع.', ['رقم الطلب والخدمة والتاريخ والمبلغ', 'حالة الدفع لكل عملية', 'عرض الإيصال']],
+      ['الإشعارات', '#/notifications', 'كل التحديثات على طلبات العميل.', ['إشعار عند كل تغيير في حالة الطلب', 'تمييز غير المقروء', 'رابط مباشر إلى الطلب المعني']],
+      ['حماية الخصوصية', '#/order/DQ-10249', 'محاولة فتح طلب يخص عميلًا آخر تعرض رسالة منع وصول.', ['لا تظهر أي بيانات من الطلب', 'رسالة توضح السبب', 'زر العودة إلى طلباتي']]
+    ]);
+    const law = build('لوحة المحامين', 'law', L, [
+      ['نظرة عامة', '#/overview', 'لوحة اليوم: المؤشرات، والطلبات التي تحتاج إجراء، واستشارات اليوم.', ['مؤشرات الطلبات الجديدة وقيد التنفيذ والإيرادات', 'قائمة ما يحتاج إجراء الآن', 'أحدث الطلبات في جدول']],
+      ['الطلبات', '#/requests', 'جدول كل الطلبات مع أدوات بحث وتصفية.', ['بحث برقم الطلب أو اسم العميل', 'تصفية حسب حالة الخدمة وحالة الدفع', 'تمييز الطلبات المتأخرة']],
+      ['تفاصيل طلب ورفع تسليم', '#/request/DQ-10231', 'كل بيانات الطلب في مكان واحد، مع رفع المستند للعميل.', ['بيانات العميل وإجابات النموذج والمرفقات', 'رفع إصدار جديد مع ملاحظة', 'تغيير الحالة والرسائل مع العميل']],
+      ['محرر رابط الاجتماع', '#/request/DQ-10244', 'يضيف المحامي رابط Google Meet للاستشارة المرئية وينشره للعميل.', ['تفاصيل الموعد', 'لصق الرابط مع التحقق من صحته', 'نشر الرابط ليظهر في حساب العميل']],
+      ['الرد على استشارة كتابية', '#/request/DQ-10247', 'محرر الرد المكتوب على مسألة العميل.', ['قراءة المسألة والمرفقات', 'كتابة الرد وإرفاق ملفات', 'إرسال الرد للعميل']],
+      ['تقويم الاستشارات', '#/calendar', 'عرض أسبوعي لكل الاستشارات المرئية المحجوزة.', ['المواعيد المحجوزة في أماكنها', 'الأوقات غير المتاحة', 'تنبيه للمواعيد بلا رابط اجتماع']],
+      ['الخدمات', '#/services', 'قائمة كل خدمات المنصة وحالتها.', ['الحالة: منشورة أو مسودة', 'السعر وعدد الأقسام وإصدار النموذج', 'إضافة خدمة جديدة']],
+      ['محرر الخدمة: المعلومات الأساسية', '#/service/contract-drafting', 'تعديل اسم الخدمة ووصفها وتصنيفها ومدتها.', ['الاسم والوصف المختصر', 'التصنيف والمدة', 'حفظ كمسودة أو نشر']],
+      ['محرر الخدمة: التسعير', '#/service/contract-drafting', 'تحديد طريقة تسعير الخدمة والإضافات الاختيارية.', ['سعر ثابت أو حسب العرض', 'إضافات اختيارية بأسعارها', 'معاينة السعر كما يراه العميل']],
+      ['محرر الخدمة: أقسام الصفحة', '#/service/contract-drafting', 'التحكم في الأقسام التي تظهر في صفحة الخدمة.', ['تفعيل أو إخفاء كل قسم', 'إعادة ترتيب الأقسام', 'تعديل محتوى كل قسم']],
+      ['منشئ النموذج', '#/service/contract-drafting', 'بناء نموذج الطلب الخاص بكل خدمة دون برمجة.', ['أنواع حقول متعددة: نص، قائمة، تاريخ، ملف', 'ترتيب الحقول وتقسيمها إلى أقسام', 'تحديد الحقول الإلزامية']],
+      ['التسعير', '#/pricing', 'إدارة أسعار كل الخدمات من شاشة واحدة.', ['تعديل السعر مباشرة في الجدول', 'نوع التسعير لكل خدمة', 'حفظ التغييرات دفعة واحدة']],
+      ['المدفوعات', '#/payments', 'متابعة كل العمليات المالية على المنصة.', ['إجمالي المدفوعات والمسترد', 'جدول العمليات وحالاتها', 'تصفية حسب حالة الدفع']],
+      ['التقييمات', '#/reviews', 'تقييمات العملاء على الخدمات المكتملة.', ['متوسط التقييم وتوزيعه', 'كل تقييم بالخدمة والتاريخ', 'الرد على التقييمات']],
+      ['الإعدادات', '#/settings', 'إعدادات المنصة العامة مقسمة إلى تبويبات.', ['بيانات المنصة والتواصل', 'إعدادات المواعيد والإشعارات', 'إدارة المستخدمين والصلاحيات']]
+    ]);
+    const flow = (n, title, steps) => ({ n, title, steps: steps.map(([label, who], i) => ({ label, bd: who ? '#B8935A' : '#D5CCBA', bg: who ? '#EFE2CB' : '#fff', notLast: i < steps.length - 1 })) });
+    const tones = { neutral: ['#F3EEE4', '#3D3A33'], caution: ['#F6EBD6', '#8A6420'], accent: ['#EEF1F6', '#1C2D4A'], positive: ['#E3EEE6', '#3A6E53'], critical: ['#F4E1DE', '#9A3F37'] };
+    const tone = (t) => ({ bg: tones[t][0], fg: tones[t][1] });
+    return {
+      parts: [
+        { n: '١', title: 'الموقع العام', who: 'الزوار والعملاء', desc: 'اكتشاف الخدمات، قراءة التفاصيل، تعبئة النموذج، والدفع أو حجز الاستشارة.', count: '١٦ شاشة' },
+        { n: '٢', title: 'حساب العميل', who: 'العميل المسجل', desc: 'متابعة الطلبات والمواعيد والمدفوعات، واستلام المستندات والردود.', count: '١١ شاشة' },
+        { n: '٣', title: 'لوحة المحامين', who: 'المحامون ومديرو المنصة', desc: 'إدارة الطلبات والتسليمات والاستشارات، وإعداد الخدمات ونماذجها وأسعارها.', count: '١٥ شاشة' }
+      ],
+      ia: [pub, cli, law].map((list, k) => ({ title: ['الموقع العام', 'حساب العميل', 'لوحة المحامين'][k], items: list.map((s, i) => ({ n: ar(String(i + 1).padStart(2, '0')), t: s.title })) })),
+      pub, cli, law,
+      flows: [
+        flow('١', 'خدمة صياغة عقد', [['اكتشاف الخدمة'], ['صفحة التفاصيل'], ['النموذج والمرفقات'], ['الدفع'], ['متابعة الطلب'], ['مراجعة الطلب', 1], ['رفع العقد', 1], ['القبول أو طلب تعديل'], ['التقييم']]),
+        flow('٢', 'استشارة عبر اجتماع (٣٠ دقيقة)', [['اختيار الموعد'], ['الدفع والتأكيد'], ['ظهور الحجز في التقويم', 1], ['نشر رابط Google Meet', 1], ['ظهور الرابط للعميل'], ['إنهاء الاستشارة', 1]]),
+        flow('٣', 'استشارة كتابية', [['وصف المسألة والمرفقات'], ['الدفع'], ['كتابة الرد', 1], ['قراءة الرد'], ['التقييم']]),
+        flow('٤', 'إعداد خدمة من الإدارة', [['قائمة الخدمات', 1], ['المعلومات الأساسية', 1], ['السعر', 1], ['أقسام الصفحة', 1], ['منشئ النموذج', 1], ['النشر', 1]])
+      ],
+      mainFlow: [['طلب جديد', 'neutral'], ['بانتظار الدفع', 'caution'], ['قيد المراجعة', 'accent'], ['قيد التنفيذ', 'accent'], ['تم التسليم', 'positive'], ['مكتمل', 'positive']].map(([label, t], i, a) => Object.assign({ label, notLast: i < a.length - 1 }, tone(t))),
+      sideStates: [
+        { label: 'بانتظار معلومات العميل', fg: '#8A6420', d: 'يطلب المحامي توضيحًا عبر الرسائل، وتعود الحالة إلى «قيد المراجعة» عند رد العميل.' },
+        { label: 'مطلوب تعديل', fg: '#8A6420', d: 'بعد التسليم يطلب العميل تعديلًا، فيرفع المحامي إصدارًا جديدًا مع الاحتفاظ بالسابق.' },
+        { label: 'ملغي', fg: '#9A3F37', d: 'يمكن الإلغاء قبل بدء التنفيذ، وتتغير حالة الدفع إلى «مسترد» عند رد المبلغ.' }
+      ],
+      payStates: [['غير مدفوع', 'neutral'], ['مدفوع', 'positive'], ['فشل الدفع', 'critical'], ['مسترد', 'neutral'], ['مسترد جزئيًا', 'caution']].map(([label, t]) => Object.assign({ label }, tone(t))),
+      swatches: [['كحلي عقودي', '#1C2D4A'], ['كحلي غامق', '#15233B'], ['ذهبي', '#B8935A'], ['ذهبي غامق', '#85663A'], ['بيج', '#E9D5B5'], ['خلفية', '#FBF6EC']].map(([name, v]) => ({ name, v })),
+      future: [
+        { t: 'بوابة الدفع', d: 'تدفقات البطاقة والمحفظة وفوري ونتائج النجاح والفشل مصممة، والربط بمزود فعلي لاحقًا.' },
+        { t: 'Google Meet', d: 'الرابط يُضاف يدويًا حاليًا، والإنشاء التلقائي عبر Google Calendar مرحلة لاحقة.' },
+        { t: 'تخزين الملفات', d: 'الرفع والتحميل محاكاة، ويحتاج تخزينًا مشفرًا بروابط مؤقتة وصلاحيات لكل طلب.' },
+        { t: 'المصادقة', d: 'شاشات الدخول والتسجيل مصممة، والتحقق برسالة نصية واستعادة كلمة المرور تتطلب خادمًا.' },
+        { t: 'الإشعارات خارج المنصة', d: 'الإشعارات داخل المنصة تعمل، والبريد والرسائل النصية وواتساب تتطلب مزودًا.' },
+        { t: 'الفواتير الإلكترونية', d: 'الإيصالات توضيحية، والفوترة الضريبية تتطلب ربطًا بالنظام المحاسبي.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

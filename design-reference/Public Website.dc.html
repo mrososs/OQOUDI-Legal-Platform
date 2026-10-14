@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>عقودي — الموقع العام</title>
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/tokens/base.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/components/components.css">
+  <link rel="stylesheet" href="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+  <style>
+    :root{--ink-900:#1C2D4A;--ink-800:#253A5C;--ink-700:#34496B;--gold-50:#F7F0E4;--gold-100:#EFE2CB;--gold-200:#E3CFAB;--gold-300:#D2B583;--gold-400:#B8935A;--gold-500:#A07C46;--gold-600:#85663A;--gold-700:#66502F;--cream-50:#FBF6EC;--cream-100:#E9D5B5;--orange-400:#B8935A;--orange-700:#85663A;
+      --neutral-50:#FAF7F1;--neutral-100:#F3EEE4;--neutral-200:#E7E0D2;--neutral-300:#D5CCBA;--neutral-400:#A79E8C;--neutral-500:#6E6858;--neutral-600:#565042;--neutral-700:#3D3A33;
+      --navy-50:#EEF1F6;--navy-500:#4A5F82;--navy-600:#34496B;--navy-700:#1C2D4A;--navy-800:#15233B;--navy-900:#1C2D4A;--steel-100:#EEF1F6;--steel-700:#34496B;
+      --positive-500:#3A6E53;--positive-100:#E3EEE6;--caution-500:#8A6420;--caution-100:#F6EBD6;--critical-500:#9A3F37;--critical-100:#F4E1DE;
+      --surface-page:#FAF7F1;--surface-nav:#EFE6D6;--surface-inverse:#1C2D4A;--surface-footer:#15233B;--surface-accent-soft:#F7F0E4;
+      --text-strong:#1C2D4A;--text-body:#3A4356;--text-muted:#6E6858;--text-subtle:#A79E8C;--text-accent:#85663A;
+      --accent:#1C2D4A;--accent-hover:#15233B;--accent-active:#0F1A2E;--accent-contrast:#F3E6CF;--accent-soft:#B8935A;--border-accent:#A07C46;--focus-ring:rgba(184,147,90,.5);--placeholder-fill:#E3CFAB;
+      --shadow-xs:0 1px 2px rgba(28,45,74,.06);--shadow-sm:0 2px 8px rgba(28,45,74,.07);--shadow-md:0 8px 24px rgba(28,45,74,.09);--shadow-lg:0 18px 44px rgba(28,45,74,.13);
+      --font-sans:'IBM Plex Sans Arabic','IBM Plex Sans',system-ui,sans-serif;--font-arabic:'IBM Plex Sans Arabic',system-ui,sans-serif;--font-heading:'Cairo','IBM Plex Sans Arabic',sans-serif;--font-display:'Cairo','IBM Plex Sans Arabic',sans-serif;}
+    body{margin:0;background:#FAF7F1}
+    a{color:#85663A;text-decoration:none} a:hover{color:#1C2D4A}
+    h1,h2,h3,h4{letter-spacing:0}
+    @keyframes dqpulse{0%,100%{opacity:.55}50%{opacity:1}}
+  </style>
+  <script src="_ds/khairah-holding-design-system-52a24769-6fe7-457d-8bc4-435164b5de58/_ds_bundle.js"></script>
+  <script src="dq-store.js"></script>
+</helmet>
+<div dir="rtl" lang="ar" style="font-family:var(--font-sans);color:var(--text-body);background:var(--surface-page);min-height:100vh;display:flex;flex-direction:column">
+
+  <header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:1240px;margin:0 auto;padding:10px clamp(16px,4vw,40px);display:flex;align-items:center;gap:20px">
+      <a href="#/" onClick="{{ goHome }}" style="display:flex;align-items:center;flex-shrink:0" aria-label="عقودي — الرئيسية">
+        <img src="assets/oqoudi-logo-tight.png" alt="عقودي" style="height:72px;width:72px;object-fit:contain;display:block">
+      </a>
+      <sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+        <div style="flex:1;display:flex;justify-content:center">
+          <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.PillNav" items="{{ navItems }}" active-id="{{ navActive }}" on-select="{{ onNav }}" hint-size="640px,46px"></x-import>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="ghost" size="sm" onClick="{{ goAuth }}" hint-size="96px,36px">تسجيل الدخول</x-import>
+          <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" size="sm" as="a" href="Client Portal.dc.html" hint-size="80px,36px">حسابي</x-import>
+        </div>
+      </sc-if>
+      <sc-if value="{{ mob }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1"></div>
+        <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" size="sm" as="a" href="Client Portal.dc.html" hint-size="70px,36px">حسابي</x-import>
+        <button onClick="{{ toggleMenu }}" aria-label="القائمة" style="width:44px;height:44px;border-radius:8px;border:1px solid var(--border-default);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-900)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </sc-if>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav style="border-top:1px solid var(--border-subtle);background:#fff;padding:8px 16px 16px;display:flex;flex-direction:column">
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+          <button onClick="{{ n.go }}" style="text-align:right;background:none;border:none;border-bottom:1px solid var(--border-subtle);padding:14px 4px;font:inherit;font-size:16px;color:var(--text-strong);cursor:pointer">{{ n.label }}</button>
+        </sc-for>
+        <button onClick="{{ goAuth }}" style="text-align:right;background:none;border:none;padding:14px 4px;font:inherit;font-size:16px;color:var(--text-accent);cursor:pointer">تسجيل الدخول / إنشاء حساب</button>
+      </nav>
+    </sc-if>
+  </header>
+
+  <main style="flex:1">
+
+    <!-- HOME -->
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <section data-screen-label="Home" style="background:#15233B;position:relative">
+        <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);margin:0">عقودي — منصة العقود والخدمات القانونية المصرية</h1>
+        <img src="assets/oqoudi-cover.png" alt="عقودي — منصة العقود والخدمات القانونية المصرية. توثيق آمن ودقيق لحقوقك وأعمالك، مع عقودي حقوقك وعقودك في أمان" style="display:block;width:100%;max-width:1600px;margin:0 auto;aspect-ratio:4128/1872;object-fit:cover">
+      </section>
+      <section style="max-width:1080px;margin:0 auto;padding:clamp(24px,4vw,40px) clamp(16px,4vw,40px) clamp(40px,6vw,64px)">
+        <div class="kh-card" style="box-shadow:var(--shadow-md);border-color:transparent;display:flex;flex-direction:column;gap:18px;padding:clamp(18px,3vw,28px)">
+          <p style="font-size:17px;line-height:1.8;margin:0;color:var(--text-body);text-wrap:pretty">اختر الخدمة، واملأ نموذجها، وادفع بأمان، ثم تابع عمل المحامي خطوة بخطوة واستلم العقد أو الرد داخل حسابك.</p>
+          <form onSubmit="{{ onSearch }}" style="display:flex;gap:8px;background:#fff;border:1.5px solid var(--border-default);border-radius:14px;padding:6px">
+            <div style="display:flex;align-items:center;padding:0 10px;color:var(--text-muted)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+            </div>
+            <input value="{{ q }}" onChange="{{ onQ }}" placeholder="ابحث عن خدمة: عقد إيجار، تأسيس شركة، إنذار…" aria-label="ابحث عن خدمة" style="flex:1;min-width:0;border:none;outline:none;font:inherit;font-size:16px;background:transparent;color:var(--text-strong)">
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" type="submit" hint-size="76px,44px">بحث</x-import>
+          </form>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+              <span style="font-size:13px;color:var(--text-muted)">الأكثر طلبًا:</span>
+              <sc-for list="{{ quick }}" as="c" hint-placeholder-count="3">
+                <button onClick="{{ c.go }}" style="border:1px solid var(--border-default);background:transparent;border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;color:var(--text-body);cursor:pointer;white-space:nowrap">{{ c.label }}</button>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" onClick="{{ goServices }}" hint-size="150px,44px">تصفح الخدمات ←</x-import>
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="secondary" onClick="{{ goMeeting }}" hint-size="180px,44px">احجز استشارة ٣٠ دقيقة</x-import>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);background:#fff">
+        <div style="max-width:1240px;margin:0 auto;padding:28px clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">
+          <sc-for list="{{ trust }}" as="t" hint-placeholder-count="4">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:36px;height:36px;border-radius:10px;background:var(--gold-50);border:1px solid var(--gold-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-600)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <div>
+                <div style="font-weight:600;color:var(--text-strong);font-size:15px">{{ t.title }}</div>
+                <div style="font-size:13px;color:var(--text-muted);line-height:1.6">{{ t.text }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1240px;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(16px,4vw,40px) 0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:var(--gold-600);margin-bottom:8px">التصنيفات</div>
+            <h2 style="font-family:var(--font-heading);font-size:clamp(26px,3vw,36px);font-weight:700;margin:0">ابدأ من نوع احتياجك</h2>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+          <sc-for list="{{ cats }}" as="c" hint-placeholder-count="3">
+            <button onClick="{{ c.open }}" class="kh-card kh-card--interactive" style="text-align:right;font:inherit;display:flex;flex-direction:column;gap:14px;padding:28px">
+              <div style="width:48px;height:48px;border-radius:12px;background:var(--ink-900);color:var(--cream-100);display:flex;align-items:center;justify-content:center">
+                <sc-if value="{{ c.isInd }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></sc-if>
+                <sc-if value="{{ c.isCo }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="4" y="2" width="16" height="20" rx="2"></rect><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"></path></svg></sc-if>
+                <sc-if value="{{ c.isCon }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg></sc-if>
+              </div>
+              <div style="font-family:var(--font-heading);font-size:22px;font-weight:700;color:var(--text-strong)">{{ c.label }}</div>
+              <div style="font-size:15px;line-height:1.7;color:var(--text-body)">{{ c.desc }}</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px;border-top:1px solid var(--border-subtle)">
+                <span style="font-size:13px;color:var(--text-muted)">{{ c.count }}</span>
+                <span style="font-size:14px;font-weight:600;color:var(--text-accent)">عرض الخدمات ←</span>
+              </div>
+            </button>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1240px;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(16px,4vw,40px) 0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:var(--gold-600);margin-bottom:8px">الخدمات الأكثر طلبًا</div>
+            <h2 style="font-family:var(--font-heading);font-size:clamp(26px,3vw,36px);font-weight:700;margin:0">أسعار ومدد واضحة قبل أن تطلب</h2>
+          </div>
+          <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="secondary" onClick="{{ goServices }}" hint-size="150px,44px">جميع الخدمات</x-import>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:20px">
+          <sc-for list="{{ featured }}" as="x" hint-placeholder-count="6">
+            <article class="kh-card" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Badge" variant="neutral" hint-size="90px,22px">{{ x.catLabel }}</x-import>
+                <span style="font-size:13px;color:var(--text-muted)"><span style="color:var(--orange-400)">★</span> {{ x.rating }} {{ x.ratingN }}</span>
+              </div>
+              <button onClick="{{ x.open }}" style="all:unset;cursor:pointer;font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--text-strong)">{{ x.title }}</button>
+              <p style="margin:0;font-size:14px;line-height:1.7;color:var(--text-body);flex:1">{{ x.short }}</p>
+              <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:8px;padding-top:12px;border-top:1px solid var(--border-subtle)">
+                <div>
+                  <div style="font-size:18px;font-weight:700;color:var(--text-strong)">{{ x.price }}</div>
+                  <div style="font-size:12px;color:var(--text-muted)">{{ x.days }}</div>
+                </div>
+                <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="ghost" size="sm" onClick="{{ x.open }}" hint-size="90px,36px">التفاصيل ←</x-import>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="margin-top:clamp(56px,8vw,104px);background:var(--ink-900);color:var(--cream-100)">
+        <div style="max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:32px">
+          <div style="max-width:640px">
+            <div style="font-size:14px;font-weight:600;color:var(--gold-300);margin-bottom:8px">الاستشارات القانونية</div>
+            <h2 style="font-family:var(--font-heading);font-size:clamp(26px,3vw,36px);font-weight:700;margin:0 0 12px;color:#fff">طريقتان للحصول على رأي محامٍ</h2>
+            <p style="margin:0;font-size:16px;line-height:1.8;color:var(--gold-200)">اختر الرد المكتوب إن كانت مسألتك تحتاج دراسة مستندات، أو الاجتماع المرئي إن أردت نقاشًا مباشرًا.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px">
+            <sc-for list="{{ consults }}" as="c" hint-placeholder-count="2">
+              <div style="border:1px solid rgba(177,154,118,.35);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:18px;background:rgba(255,255,255,.03)">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+                  <div style="display:flex;gap:14px;align-items:center">
+                    <div style="width:44px;height:44px;border-radius:12px;background:var(--cream-100);color:var(--ink-900);display:flex;align-items:center;justify-content:center">
+                      <sc-if value="{{ c.isWritten }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></sc-if>
+                      <sc-if value="{{ c.isMeeting }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg></sc-if>
+                    </div>
+                    <div>
+                      <div style="font-family:var(--font-heading);font-size:20px;font-weight:700;color:#fff">{{ c.title }}</div>
+                      <div style="font-size:13px;color:var(--gold-300)">{{ c.days }}</div>
+                    </div>
+                  </div>
+                  <div style="font-size:20px;font-weight:700;color:var(--cream-100)">{{ c.price }}</div>
+                </div>
+                <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px">
+                  <sc-for list="{{ c.steps }}" as="st" hint-placeholder-count="4">
+                    <li style="display:flex;gap:12px;align-items:center;font-size:15px;color:var(--gold-100)"><span style="width:24px;height:24px;border-radius:50%;border:1px solid var(--gold-400);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold-300);flex-shrink:0">{{ st.n }}</span>{{ st.t }}</li>
+                  </sc-for>
+                </ol>
+                <div style="margin-top:auto">
+                  <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="inverse" onClick="{{ c.order }}" hint-size="150px,44px">{{ c.cta }}</x-import>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <section style="max-width:1240px;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(16px,4vw,40px) 0">
+        <div style="font-size:14px;font-weight:600;color:var(--gold-600);margin-bottom:8px">كيف تعمل المنصة</div>
+        <h2 style="font-family:var(--font-heading);font-size:clamp(26px,3vw,36px);font-weight:700;margin:0 0 32px">أربع خطوات، وكل خطوة ظاهرة لك</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:1px solid var(--border-default)">
+          <sc-for list="{{ how }}" as="h" hint-placeholder-count="4">
+            <div style="padding:24px 0 0;padding-inline-end:24px;display:flex;flex-direction:column;gap:10px">
+              <div style="font-family:var(--font-heading);font-size:32px;font-weight:800;color:var(--gold-400)">{{ h.n }}</div>
+              <div style="font-size:18px;font-weight:700;color:var(--text-strong)">{{ h.t }}</div>
+              <div style="font-size:14px;line-height:1.7;color:var(--text-body)">{{ h.d }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1240px;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(16px,4vw,40px) 0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:var(--gold-600);margin-bottom:8px">آراء العملاء</div>
+            <h2 style="font-family:var(--font-heading);font-size:clamp(26px,3vw,36px);font-weight:700;margin:0">تقييمات بعد اكتمال الخدمة فقط</h2>
+          </div>
+          <div style="font-size:15px;color:var(--text-body)"><span style="color:var(--orange-400)">★</span> <strong style="color:var(--text-strong)">{{ overall.avg }}</strong> من ٥ · {{ overall.n }}</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+          <sc-for list="{{ homeReviews }}" as="r" hint-placeholder-count="3">
+            <figure class="kh-card" style="margin:0;display:flex;flex-direction:column;gap:14px">
+              <div style="color:var(--orange-400);letter-spacing:2px;font-size:16px">{{ r.stars }}</div>
+              <blockquote style="margin:0;font-size:16px;line-height:1.8;color:var(--text-strong)">{{ r.text }}</blockquote>
+              <figcaption style="font-size:13px;color:var(--text-muted);margin-top:auto">{{ r.name }} · {{ r.service }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1240px;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,5vw,64px)">
+        <div>
+          <div style="font-size:14px;font-weight:600;color:var(--gold-600);margin-bottom:8px">أسئلة شائعة</div>
+          <h2 style="font-family:var(--font-heading);font-size:clamp(26px,3vw,36px);font-weight:700;margin:0 0 16px">قبل أن تبدأ</h2>
+          <p style="font-size:16px;line-height:1.8;margin:0 0 20px">إن لم تجد إجابتك، راسلنا وسنرد خلال يوم عمل.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="secondary" onClick="{{ goFaq }}" hint-size="140px,44px">كل الأسئلة</x-import>
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="ghost" onClick="{{ goContact }}" hint-size="120px,44px">تواصل معنا</x-import>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;border-top:1px solid var(--border-default)">
+          <sc-for list="{{ homeFaq }}" as="f" hint-placeholder-count="4">
+            <div style="border-bottom:1px solid var(--border-default)">
+              <button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width:100%;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:20px 0;background:none;border:none;font:inherit;font-size:17px;font-weight:600;color:var(--text-strong);text-align:right;cursor:pointer">{{ f.q }}<span style="font-size:22px;color:var(--gold-600);flex-shrink:0">{{ f.sign }}</span></button>
+              <sc-if value="{{ f.open }}"><p style="margin:0;padding:0 0 20px;font-size:15px;line-height:1.8;color:var(--text-body)">{{ f.a }}</p></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- SERVICES DIRECTORY / CATEGORY -->
+    <sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Services directory" style="background:#fff;border-bottom:1px solid var(--border-subtle)">
+        <div style="max-width:1240px;margin:0 auto;padding:clamp(28px,5vw,56px) clamp(16px,4vw,40px) 24px;display:flex;flex-direction:column;gap:18px">
+          <div style="font-size:13px;color:var(--text-muted)"><a href="#/" onClick="{{ goHome }}">الرئيسية</a> / {{ dirTitle }}</div>
+          <h1 style="font-family:var(--font-heading);font-size:clamp(28px,4vw,44px);font-weight:800;margin:0">{{ dirTitle }}</h1>
+          <p style="margin:0;font-size:16px;max-width:640px;line-height:1.8">{{ dirDesc }}</p>
+          <div style="overflow-x:auto;overflow-y:hidden;padding-bottom:4px">
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.PillNav" items="{{ catTabs }}" active-id="{{ cat }}" on-select="{{ onCat }}" hint-size="520px,46px"></x-import>
+          </div>
+        </div>
+      </section>
+      <section style="max-width:1240px;margin:0 auto;padding:24px clamp(16px,4vw,40px) 80px;display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <div style="flex:1 1 280px;display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--border-default);border-radius:12px;padding:0 12px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+            <input value="{{ q }}" onChange="{{ onQ }}" placeholder="ابحث باسم الخدمة" aria-label="ابحث باسم الخدمة" style="flex:1;border:none;outline:none;font:inherit;font-size:15px;padding:12px 0;background:transparent">
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <sc-for list="{{ priceFilters }}" as="p" hint-placeholder-count="3">
+              <button onClick="{{ p.pick }}" style="border:1px solid {{ p.bd }};background:{{ p.bg }};color:{{ p.fg }};border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;cursor:pointer">{{ p.label }}</button>
+            </sc-for>
+          </div>
+          <div style="width:200px">
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Select" options="{{ sortOptions }}" value="{{ sort }}" onChange="{{ onSort }}" aria-label="الترتيب" hint-size="200px,46px"></x-import>
+          </div>
+        </div>
+        <div style="font-size:14px;color:var(--text-muted)">{{ resultCount }}</div>
+        <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:20px">
+            <sc-for list="{{ skeletons }}" as="k" hint-placeholder-count="6">
+              <div class="kh-card" style="height:230px;display:flex;flex-direction:column;gap:12px;animation:dqpulse 1.2s ease-in-out infinite">
+                <div style="width:40%;height:18px;border-radius:6px;background:var(--neutral-200)"></div>
+                <div style="width:70%;height:22px;border-radius:6px;background:var(--neutral-200)"></div>
+                <div style="width:100%;height:40px;border-radius:6px;background:var(--neutral-100)"></div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ showResults }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:20px">
+            <sc-for list="{{ directory }}" as="x" hint-placeholder-count="6">
+              <article class="kh-card kh-card--interactive" onClick="{{ x.open }}" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                  <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Badge" variant="neutral" hint-size="90px,22px">{{ x.catLabel }}</x-import>
+                  <span style="font-size:13px;color:var(--text-muted)"><span style="color:var(--orange-400)">★</span> {{ x.rating }} {{ x.ratingN }}</span>
+                </div>
+                <h3 style="font-family:var(--font-heading);font-size:20px;font-weight:700;margin:0">{{ x.title }}</h3>
+                <p style="margin:0;font-size:14px;line-height:1.7;flex:1">{{ x.short }}</p>
+                <div style="display:flex;justify-content:space-between;align-items:flex-end;padding-top:12px;border-top:1px solid var(--border-subtle)">
+                  <div>
+                    <div style="font-size:18px;font-weight:700;color:var(--text-strong)">{{ x.price }}</div>
+                    <div style="font-size:12px;color:var(--text-muted)">{{ x.days }}</div>
+                  </div>
+                  <span style="font-size:14px;font-weight:600;color:var(--text-accent)">عرض الخدمة ←</span>
+                </div>
+              </article>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ emptyResults }}" hint-placeholder-val="{{ false }}">
+          <div class="kh-card" style="text-align:center;padding:56px 24px;display:flex;flex-direction:column;align-items:center;gap:12px">
+            <div style="font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--text-strong)">لا توجد خدمات مطابقة</div>
+            <p style="margin:0;color:var(--text-muted)">جرّب كلمة أخرى، أو اطلب استشارة كتابية ليحدد المحامي الخدمة المناسبة لك.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="secondary" onClick="{{ clearFilters }}" hint-size="130px,44px">مسح البحث</x-import>
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" onClick="{{ goWritten }}" hint-size="150px,44px">استشارة كتابية</x-import>
+            </div>
+          </div>
+        </sc-if>
+      </section>
+    </sc-if>
+
+    <!-- SERVICE DETAIL -->
+    <sc-if value="{{ isService }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Service detail" style="background:#fff;border-bottom:1px solid var(--border-subtle)">
+        <div style="max-width:1240px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(16px,4vw,40px) 32px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-size:13px;color:var(--text-muted)"><a href="#/" onClick="{{ goHome }}">الرئيسية</a> / <a href="#/services" onClick="{{ sv.goCat }}">{{ sv.catLabel }}</a> / {{ sv.title }}</div>
+          <h1 style="font-family:var(--font-heading);font-size:clamp(28px,4vw,46px);font-weight:800;margin:0">{{ sv.title }}</h1>
+          <p style="margin:0;font-size:18px;line-height:1.8;max-width:720px">{{ sv.short }}</p>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px">
+            <span><span style="color:var(--orange-400)">★</span> <strong style="color:var(--text-strong)">{{ sv.rating }}</strong> {{ sv.ratingN }}</span>
+            <span style="color:var(--neutral-300)">|</span>
+            <span>مدة الإنجاز: <strong style="color:var(--text-strong)">{{ sv.days }}</strong></span>
+            <sc-if value="{{ sv.isQuote }}"><x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Badge" variant="caution" hint-size="110px,22px">السعر حسب العرض</x-import></sc-if>
+          </div>
+        </div>
+      </section>
+      <section style="max-width:1240px;margin:0 auto;padding:32px clamp(16px,4vw,40px) 96px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+        <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
+          <sc-if value="{{ sv.hasToc }}">
+            <nav style="display:flex;gap:6px;flex-wrap:wrap">
+              <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="6">
+                <a href="#/service" onClick="{{ sec.jump }}" style="font-size:13px;padding:6px 12px;border-radius:999px;background:var(--surface-nav);color:var(--text-body)">{{ sec.title }}</a>
+              </sc-for>
+            </nav>
+          </sc-if>
+          <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="5">
+            <section id="{{ sec.anchor }}" class="kh-card" style="display:flex;flex-direction:column;gap:14px;scroll-margin-top:100px">
+              <h2 style="font-family:var(--font-heading);font-size:22px;font-weight:700;margin:0">{{ sec.title }}</h2>
+              <sc-if value="{{ sec.isText }}"><p style="margin:0;font-size:16px;line-height:1.9">{{ sec.text }}</p></sc-if>
+              <sc-if value="{{ sec.isList }}">
+                <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px">
+                  <sc-for list="{{ sec.items }}" as="it" hint-placeholder-count="3">
+                    <li style="display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.7"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:4px"><path d="M20 6 9 17l-5-5"></path></svg>{{ it.t }}</li>
+                  </sc-for>
+                </ul>
+              </sc-if>
+              <sc-if value="{{ sec.isSteps }}">
+                <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0">
+                  <sc-for list="{{ sec.items }}" as="it" hint-placeholder-count="4">
+                    <li style="display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--border-subtle)"><span style="width:28px;height:28px;border-radius:50%;background:var(--ink-900);color:var(--cream-100);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0">{{ it.n }}</span><span style="font-size:15px;line-height:1.8">{{ it.t }}</span></li>
+                  </sc-for>
+                </ol>
+              </sc-if>
+              <sc-if value="{{ sec.isDuration }}">
+                <div style="display:flex;gap:12px;align-items:center;background:var(--gold-50);border-radius:12px;padding:16px">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold-600)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                  <div><div style="font-weight:700;color:var(--text-strong)">{{ sv.days }}</div><div style="font-size:13px;color:var(--text-muted)">تبدأ المدة بعد اكتمال الدفع والمستندات المطلوبة.</div></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ sec.isPricing }}">
+                <div style="display:flex;flex-direction:column;gap:8px;font-size:15px">
+                  <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border-subtle)"><span>{{ sv.title }}</span><strong style="color:var(--text-strong)">{{ sv.price }}</strong></div>
+                  <sc-for list="{{ sv.addons }}" as="ad" hint-placeholder-count="2">
+                    <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border-subtle)"><span>إضافة اختيارية: {{ ad.label }}</span><span>+ {{ ad.priceLabel }}</span></div>
+                  </sc-for>
+                  <div style="font-size:13px;color:var(--text-muted)">الأسعار شاملة الرسوم المهنية ولا تشمل الرسوم الحكومية أو التوثيق.</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ sec.isFaq }}">
+                <div style="display:flex;flex-direction:column">
+                  <sc-for list="{{ sec.faqs }}" as="f" hint-placeholder-count="2">
+                    <div style="border-bottom:1px solid var(--border-subtle)">
+                      <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;gap:12px;padding:14px 0;background:none;border:none;font:inherit;font-size:16px;font-weight:600;color:var(--text-strong);text-align:right;cursor:pointer">{{ f.q }}<span style="color:var(--gold-600)">{{ f.sign }}</span></button>
+                      <sc-if value="{{ f.open }}"><p style="margin:0;padding:0 0 14px;font-size:15px;line-height:1.8">{{ f.a }}</p></sc-if>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+              <sc-if value="{{ sec.isReviews }}">
+                <sc-if value="{{ sv.hasReviews }}">
+                  <div style="display:flex;flex-direction:column;gap:0">
+                    <sc-for list="{{ sv.reviews }}" as="r" hint-placeholder-count="2">
+                      <div style="padding:14px 0;border-bottom:1px solid var(--border-subtle);display:flex;flex-direction:column;gap:6px">
+                        <div style="display:flex;justify-content:space-between;gap:8px"><span style="font-weight:600;color:var(--text-strong)">{{ r.name }}</span><span style="font-size:12px;color:var(--text-muted)">{{ r.date }}</span></div>
+                        <div style="color:var(--orange-400);letter-spacing:2px">{{ r.stars }}</div>
+                        <p style="margin:0;font-size:15px;line-height:1.7">{{ r.text }}</p>
+                        <sc-if value="{{ r.hasReply }}"><div style="background:var(--neutral-100);border-radius:10px;padding:10px 14px;font-size:14px"><strong style="color:var(--text-strong)">رد عقودي:</strong> {{ r.reply }}</div></sc-if>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ sv.noReviews }}"><p style="margin:0;color:var(--text-muted)">لا توجد تقييمات لهذه الخدمة بعد. تظهر التقييمات بعد اكتمال الطلبات فقط.</p></sc-if>
+              </sc-if>
+            </section>
+          </sc-for>
+        </div>
+        <aside style="flex:1 1 320px;max-width:100%;position:sticky;top:100px">
+          <div class="kh-card" style="box-shadow:var(--shadow-md);border-color:transparent;display:flex;flex-direction:column;gap:16px">
+            <div>
+              <div style="font-size:13px;color:var(--text-muted)">{{ sv.priceCaption }}</div>
+              <div style="font-family:var(--font-heading);font-size:32px;font-weight:800;color:var(--text-strong)">{{ sv.price }}</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+              <div style="display:flex;justify-content:space-between"><span style="color:var(--text-muted)">مدة الإنجاز</span><strong style="color:var(--text-strong)">{{ sv.days }}</strong></div>
+              <div style="display:flex;justify-content:space-between"><span style="color:var(--text-muted)">طريقة التسليم</span><strong style="color:var(--text-strong)">{{ sv.delivery }}</strong></div>
+            </div>
+            <sc-if value="{{ sv.hasAddons }}">
+              <div style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid var(--border-subtle)">
+                <div style="font-size:14px;font-weight:600;color:var(--text-strong)">إضافات اختيارية</div>
+                <sc-for list="{{ sv.addons }}" as="ad" hint-placeholder-count="2">
+                  <button onClick="{{ ad.toggle }}" role="checkbox" aria-checked="{{ ad.on }}" style="display:flex;gap:10px;align-items:center;justify-content:space-between;border:1.5px solid {{ ad.bd }};background:{{ ad.bg }};border-radius:10px;padding:10px 12px;font:inherit;font-size:14px;cursor:pointer;text-align:right;color:var(--text-body)">
+                    <span style="display:flex;gap:10px;align-items:center"><span style="width:18px;height:18px;border-radius:4px;border:1.5px solid var(--ink-900);background:{{ ad.box }};color:var(--cream-100);font-size:12px;display:flex;align-items:center;justify-content:center">{{ ad.mark }}</span>{{ ad.label }}</span>
+                    <span style="color:var(--text-strong);font-weight:600">+ {{ ad.priceLabel }}</span>
+                  </button>
+                </sc-for>
+              </div>
+            </sc-if>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border-subtle)">
+              <span style="font-weight:600">الإجمالي</span>
+              <span style="font-size:20px;font-weight:700;color:var(--text-strong)">{{ sv.total }}</span>
+            </div>
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" size="lg" block="{{ true }}" onClick="{{ sv.start }}" hint-size="100%,52px">{{ sv.cta }}</x-import>
+            <div style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--text-muted);line-height:1.6">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="flex-shrink:0;margin-top:2px"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <span>{{ sv.note }}</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </sc-if>
+
+    <!-- REQUEST FLOW -->
+    <sc-if value="{{ isRequest }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Request flow" style="max-width:1080px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(16px,4vw,40px) 96px;display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="flex:1 1 320px">
+            <div style="font-size:13px;color:var(--text-muted)"><a href="#/service" onClick="{{ sv.open }}">← العودة إلى {{ sv.title }}</a></div>
+            <h1 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,34px);font-weight:800;margin:6px 0 0">{{ reqTitle }}</h1>
+          </div>
+          <div style="display:flex;gap:0;align-items:center">
+            <sc-for list="{{ stepper }}" as="st" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="width:28px;height:28px;border-radius:50%;background:{{ st.bg }};color:{{ st.fg }};border:1.5px solid {{ st.bd }};display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">{{ st.n }}</span>
+                <span style="font-size:14px;font-weight:{{ st.w }};color:{{ st.tc }}">{{ st.label }}</span>
+                <sc-if value="{{ st.notLast }}"><span style="width:28px;height:1px;background:var(--border-default);margin:0 8px"></span></sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+          <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
+
+            <sc-if value="{{ stepSlot }}">
+              <div class="kh-card" style="display:flex;flex-direction:column;gap:20px">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+                  <h2 style="font-family:var(--font-heading);font-size:20px;font-weight:700;margin:0">اختر يوم الاجتماع</h2>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.IconButton" size="sm" label="الشهر السابق" onClick="{{ cal.prev }}" disabled="{{ cal.noPrev }}" hint-size="36px,36px">→</x-import>
+                    <span style="font-weight:600;color:var(--text-strong);min-width:120px;text-align:center">{{ cal.label }}</span>
+                    <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.IconButton" size="sm" label="الشهر التالي" onClick="{{ cal.next }}" disabled="{{ cal.noNext }}" hint-size="36px,36px">←</x-import>
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px">
+                  <sc-for list="{{ cal.heads }}" as="h" hint-placeholder-count="7">
+                    <div style="text-align:center;font-size:12px;color:var(--text-muted);padding:4px 0">{{ h }}</div>
+                  </sc-for>
+                  <sc-for list="{{ cal.cells }}" as="d" hint-placeholder-count="35">
+                    <button onClick="{{ d.pick }}" disabled="{{ d.disabled }}" aria-label="{{ d.aria }}" style="height:52px;border-radius:10px;border:1.5px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};font:inherit;font-size:15px;font-weight:{{ d.w }};cursor:{{ d.cursor }};visibility:{{ d.vis }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:{{ d.deco }}">{{ d.label }}<span style="width:4px;height:4px;border-radius:50%;background:{{ d.dot }}"></span></button>
+                  </sc-for>
+                </div>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--text-muted)">
+                  <span style="display:flex;gap:6px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:var(--gold-500)"></span>مواعيد متاحة</span>
+                  <span style="display:flex;gap:6px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:var(--neutral-300)"></span>غير متاح (عطلة أو مكتمل)</span>
+                  <span>جميع الأوقات بتوقيت القاهرة</span>
+                </div>
+                <sc-if value="{{ cal.hasDate }}">
+                  <div style="border-top:1px solid var(--border-subtle);padding-top:18px;display:flex;flex-direction:column;gap:12px">
+                    <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><h3 style="font-size:17px;font-weight:700;margin:0">{{ cal.dayLabel }}</h3><span style="font-size:13px;color:var(--text-muted)">كل موعد ٣٠ دقيقة بالضبط</span></div>
+                    <sc-if value="{{ cal.hasSlots }}">
+                      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px">
+                        <sc-for list="{{ cal.slots }}" as="sl" hint-placeholder-count="8">
+                          <button onClick="{{ sl.pick }}" disabled="{{ sl.disabled }}" style="padding:12px 8px;border-radius:10px;border:1.5px solid {{ sl.bd }};background:{{ sl.bg }};color:{{ sl.fg }};font:inherit;font-size:14px;font-weight:600;cursor:{{ sl.cursor }};text-decoration:{{ sl.deco }}">{{ sl.label }}<span style="display:block;font-size:11px;font-weight:400;opacity:.8">حتى {{ sl.end }}</span></button>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ cal.noSlots }}"><div style="background:var(--neutral-100);border-radius:10px;padding:16px;font-size:14px">لا توجد مواعيد متاحة في هذا اليوم. اختر يومًا آخر.</div></sc-if>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ stepForm }}">
+              <sc-if value="{{ formAlert }}">
+                <div role="alert" style="background:var(--critical-100);color:var(--critical-500);border-radius:12px;padding:14px 16px;font-size:14px;font-weight:600">{{ formAlert }}</div>
+              </sc-if>
+              <div class="kh-card" style="display:flex;flex-direction:column;gap:20px">
+                <sc-for list="{{ fields }}" as="f" hint-placeholder-count="6">
+                  <div style="display:flex;flex-direction:column;gap:6px">
+                    <sc-if value="{{ f.isSection }}">
+                      <div style="padding-top:8px;border-top:1px solid var(--border-subtle);margin-top:4px">
+                        <h2 style="font-family:var(--font-heading);font-size:18px;font-weight:700;margin:12px 0 2px">{{ f.label }}</h2>
+                        <sc-if value="{{ f.hasHelp }}"><p style="margin:0;font-size:13px;color:var(--text-muted)">{{ f.help }}</p></sc-if>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ f.isHelp }}"><p style="margin:0;font-size:14px;color:var(--text-muted);background:var(--neutral-100);padding:12px 14px;border-radius:10px">{{ f.label }}</p></sc-if>
+                    <sc-if value="{{ f.isInput }}">
+                      <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="{{ f.labelFull }}" type="{{ f.inputType }}" placeholder="{{ f.placeholder }}" value="{{ f.value }}" onChange="{{ f.onInput }}" error="{{ f.error }}" hint-size="100%,74px"></x-import>
+                    </sc-if>
+                    <sc-if value="{{ f.isSelect }}">
+                      <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Select" label="{{ f.labelFull }}" options="{{ f.selectOptions }}" value="{{ f.value }}" onChange="{{ f.onInput }}" error="{{ f.error }}" hint-size="100%,74px"></x-import>
+                    </sc-if>
+                    <sc-if value="{{ f.isTextarea }}">
+                      <label class="kh-field__label">{{ f.labelFull }}</label>
+                      <textarea class="kh-input" rows="5" placeholder="{{ f.placeholder }}" value="{{ f.value }}" onChange="{{ f.onInput }}" style="resize:vertical;font:inherit;line-height:1.7;border-color:{{ f.border }}"></textarea>
+                    </sc-if>
+                    <sc-if value="{{ f.isRadio }}">
+                      <span class="kh-field__label">{{ f.labelFull }}</span>
+                      <div role="radiogroup" style="display:flex;gap:8px;flex-wrap:wrap">
+                        <sc-for list="{{ f.optionList }}" as="o" hint-placeholder-count="2">
+                          <button role="radio" aria-checked="{{ o.selected }}" onClick="{{ o.onPick }}" style="display:flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;border:1.5px solid {{ o.bd }};background:#fff;font:inherit;font-size:14px;color:var(--text-strong);cursor:pointer"><span style="width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink-900);display:flex;align-items:center;justify-content:center"><span style="width:8px;height:8px;border-radius:50%;background:{{ o.dot }}"></span></span>{{ o.label }}</button>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ f.isCheckbox }}">
+                      <span class="kh-field__label">{{ f.labelFull }}</span>
+                      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px">
+                        <sc-for list="{{ f.optionList }}" as="o" hint-placeholder-count="4">
+                          <button role="checkbox" aria-checked="{{ o.selected }}" onClick="{{ o.onPick }}" style="display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;border:1.5px solid {{ o.bd }};background:#fff;font:inherit;font-size:14px;color:var(--text-strong);cursor:pointer;text-align:right"><span style="width:18px;height:18px;border-radius:4px;border:1.5px solid var(--ink-900);background:{{ o.dot }};color:var(--cream-100);font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ o.mark }}</span>{{ o.label }}</button>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ f.isMulti }}">
+                      <span class="kh-field__label">{{ f.labelFull }}</span>
+                      <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        <sc-for list="{{ f.optionList }}" as="o" hint-placeholder-count="4">
+                          <button aria-pressed="{{ o.selected }}" onClick="{{ o.onPick }}" style="padding:8px 16px;border-radius:999px;border:1.5px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};font:inherit;font-size:14px;cursor:pointer">{{ o.label }}</button>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ f.isFile }}">
+                      <span class="kh-field__label">{{ f.labelFull }}</span>
+                      <label onDrop="{{ f.onDrop }}" onDragOver="{{ f.onDragOver }}" style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px 16px;border:1.5px dashed {{ f.border }};border-radius:14px;background:var(--neutral-50);cursor:pointer;text-align:center">
+                        <input type="file" multiple="{{ true }}" accept="{{ f.acceptAttr }}" onChange="{{ f.onFiles }}" style="display:none">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--gold-600)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5"></path><path d="M12 3v12"></path></svg>
+                        <span style="font-size:15px;font-weight:600;color:var(--text-strong)">اسحب الملفات هنا أو اضغط للاختيار</span>
+                        <span style="font-size:12px;color:var(--text-muted)">{{ f.acceptLabel }} · حتى {{ f.maxLabel }} للملف</span>
+                      </label>
+                      <div style="display:flex;gap:12px;font-size:12px">
+                        <button onClick="{{ f.onSample }}" style="background:none;border:none;padding:0;font:inherit;color:var(--text-accent);cursor:pointer;text-decoration:underline">إرفاق ملف تجريبي</button>
+                        <button onClick="{{ f.onBadSample }}" style="background:none;border:none;padding:0;font:inherit;color:var(--text-muted);cursor:pointer;text-decoration:underline">تجربة ملف غير مسموح</button>
+                      </div>
+                      <sc-if value="{{ f.hasFiles }}">
+                        <div style="display:flex;flex-direction:column;gap:6px">
+                          <sc-for list="{{ f.fileList }}" as="fl" hint-placeholder-count="1">
+                            <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border-subtle);border-radius:10px;padding:10px 12px">
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-600)" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>
+                              <span style="flex:1;font-size:14px;color:var(--text-strong)">{{ fl.name }}</span>
+                              <span style="font-size:12px;color:var(--text-muted)">{{ fl.size }}</span>
+                              <button onClick="{{ fl.onRemove }}" aria-label="إزالة الملف" style="background:none;border:none;font-size:18px;color:var(--text-muted);cursor:pointer;padding:0 4px">×</button>
+                            </div>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+                    </sc-if>
+                    <sc-if value="{{ f.isTextarea }}"><sc-if value="{{ f.hasError }}"><span class="kh-field__hint kh-field__hint--error">{{ f.error }}</span></sc-if></sc-if>
+                    <sc-if value="{{ f.isRadio }}"><sc-if value="{{ f.hasError }}"><span class="kh-field__hint kh-field__hint--error">{{ f.error }}</span></sc-if></sc-if>
+                    <sc-if value="{{ f.isCheckbox }}"><sc-if value="{{ f.hasError }}"><span class="kh-field__hint kh-field__hint--error">{{ f.error }}</span></sc-if></sc-if>
+                    <sc-if value="{{ f.isMulti }}"><sc-if value="{{ f.hasError }}"><span class="kh-field__hint kh-field__hint--error">{{ f.error }}</span></sc-if></sc-if>
+                    <sc-if value="{{ f.isFile }}"><sc-if value="{{ f.hasError }}"><span class="kh-field__hint kh-field__hint--error">{{ f.error }}</span></sc-if></sc-if>
+                    <sc-if value="{{ f.fieldHelp }}"><span class="kh-field__hint">{{ f.help }}</span></sc-if>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ stepPay }}">
+              <div class="kh-card" style="display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;justify-content:space-between;align-items:center"><h2 style="font-family:var(--font-heading);font-size:20px;font-weight:700;margin:0">مراجعة بيانات الطلب</h2><button onClick="{{ backStep }}" style="background:none;border:none;font:inherit;color:var(--text-accent);cursor:pointer">تعديل</button></div>
+                <sc-if value="{{ hasMeeting }}">
+                  <div style="display:flex;gap:12px;align-items:center;background:var(--gold-50);border-radius:12px;padding:14px 16px">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold-600)" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+                    <div><div style="font-weight:700;color:var(--text-strong)">{{ meetingLabel }}</div><div style="font-size:13px;color:var(--text-muted)">اجتماع عبر Google Meet · ٣٠ دقيقة · بتوقيت القاهرة</div></div>
+                  </div>
+                </sc-if>
+                <dl style="margin:0;display:flex;flex-direction:column">
+                  <sc-for list="{{ answers }}" as="a" hint-placeholder-count="4">
+                    <div style="display:grid;grid-template-columns:minmax(120px,200px) 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-subtle);font-size:14px"><dt style="color:var(--text-muted)">{{ a.k }}</dt><dd style="margin:0;color:var(--text-strong);line-height:1.7">{{ a.v }}</dd></div>
+                  </sc-for>
+                </dl>
+                <sc-if value="{{ hasAllFiles }}"><div style="font-size:14px"><span style="color:var(--text-muted)">المرفقات:</span> {{ allFiles }}</div></sc-if>
+              </div>
+              <sc-if value="{{ needsPay }}">
+                <div class="kh-card" style="display:flex;flex-direction:column;gap:16px">
+                  <h2 style="font-family:var(--font-heading);font-size:20px;font-weight:700;margin:0">طريقة الدفع</h2>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px">
+                    <sc-for list="{{ payMethods }}" as="m" hint-placeholder-count="3">
+                      <button onClick="{{ m.pick }}" role="radio" aria-checked="{{ m.on }}" style="text-align:right;padding:14px;border-radius:12px;border:1.5px solid {{ m.bd }};background:{{ m.bg }};font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:4px"><span style="font-weight:700;color:var(--text-strong);font-size:15px">{{ m.label }}</span><span style="font-size:12px;color:var(--text-muted)">{{ m.sub }}</span></button>
+                    </sc-for>
+                  </div>
+                  <sc-if value="{{ payCard }}">
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+                      <div style="grid-column:1/-1"><x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="رقم البطاقة" inputMode="numeric" dir="ltr" placeholder="0000 0000 0000 0000" value="{{ card.num }}" onChange="{{ card.onNum }}" error="{{ card.eNum }}" hint-size="100%,74px"></x-import></div>
+                      <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="تاريخ الانتهاء" dir="ltr" placeholder="MM/YY" value="{{ card.exp }}" onChange="{{ card.onExp }}" error="{{ card.eExp }}" hint-size="100%,74px"></x-import>
+                      <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="رمز التحقق CVV" dir="ltr" placeholder="123" value="{{ card.cvv }}" onChange="{{ card.onCvv }}" error="{{ card.eCvv }}" hint-size="100%,74px"></x-import>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ payWallet }}">
+                    <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="رقم المحفظة" dir="ltr" placeholder="+20 1X XXXX XXXX" value="{{ card.wallet }}" onChange="{{ card.onWallet }}" error="{{ card.eWallet }}" hint-size="100%,74px"></x-import>
+                  </sc-if>
+                  <sc-if value="{{ payFawry }}">
+                    <div style="background:var(--neutral-100);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.7">بعد التأكيد يظهر لك رقم مرجعي صالح لمدة ٤٨ ساعة للدفع في أي منفذ فوري. يبدأ العمل على طلبك بعد تأكيد الدفع.</div>
+                  </sc-if>
+                  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px dashed var(--gold-300);border-radius:12px;padding:10px 14px;font-size:13px">
+                    <span style="color:var(--text-muted)">محاكاة نتيجة الدفع (للنموذج الأولي فقط):</span>
+                    <sc-for list="{{ outcomes }}" as="oc" hint-placeholder-count="2">
+                      <button onClick="{{ oc.pick }}" style="padding:5px 12px;border-radius:999px;border:1px solid {{ oc.bd }};background:{{ oc.bg }};color:{{ oc.fg }};font:inherit;font-size:13px;cursor:pointer">{{ oc.label }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ payError }}">
+                <div role="alert" style="background:var(--critical-100);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px">
+                  <strong style="color:var(--critical-500)">تعذّر إتمام الدفع</strong>
+                  <span style="font-size:14px;color:var(--text-body);line-height:1.7">{{ payError }}</span>
+                </div>
+              </sc-if>
+            </sc-if>
+
+            <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="ghost" onClick="{{ backStep }}" hint-size="100px,44px">→ رجوع</x-import>
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" size="lg" onClick="{{ nextStep }}" disabled="{{ nextDisabled }}" hint-size="200px,52px">{{ nextLabel }}</x-import>
+            </div>
+          </div>
+
+          <aside style="flex:1 1 300px;max-width:100%;position:sticky;top:100px">
+            <div class="kh-card" style="display:flex;flex-direction:column;gap:12px">
+              <div style="font-size:13px;color:var(--text-muted)">ملخص الطلب</div>
+              <div style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--text-strong)">{{ sv.title }}</div>
+              <sc-if value="{{ hasMeeting }}"><div style="font-size:14px">{{ meetingLabel }}</div></sc-if>
+              <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;padding-top:12px;border-top:1px solid var(--border-subtle)">
+                <div style="display:flex;justify-content:space-between"><span>سعر الخدمة</span><span>{{ sv.price }}</span></div>
+                <sc-for list="{{ chosenAddons }}" as="ad" hint-placeholder-count="0">
+                  <div style="display:flex;justify-content:space-between"><span>{{ ad.label }}</span><span>+ {{ ad.priceLabel }}</span></div>
+                </sc-for>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border-subtle)"><strong>الإجمالي</strong><strong style="font-size:20px;color:var(--text-strong)">{{ sv.total }}</strong></div>
+              <div style="font-size:12px;color:var(--text-muted);line-height:1.6">تطلب باسم {{ me }}. سيُحفظ هذا الطلب بنموذجه وسعره الحاليين حتى لو تغيّرا لاحقًا.</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- CONFIRMATION -->
+    <sc-if value="{{ isConfirm }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Payment confirmation" style="max-width:720px;margin:0 auto;padding:clamp(40px,7vw,88px) clamp(16px,4vw,40px) 96px">
+        <div class="kh-card" style="display:flex;flex-direction:column;gap:20px;padding:clamp(24px,4vw,40px);box-shadow:var(--shadow-md);border-color:transparent">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--positive-100);color:var(--positive-500);display:flex;align-items:center;justify-content:center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+          </div>
+          <div>
+            <h1 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,32px);font-weight:800;margin:0 0 8px">{{ conf.title }}</h1>
+            <p style="margin:0;font-size:16px;line-height:1.8">{{ conf.lead }}</p>
+          </div>
+          <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;background:var(--neutral-100);border-radius:14px;padding:16px">
+            <div><dt style="font-size:12px;color:var(--text-muted)">رقم الطلب</dt><dd style="margin:0;font-weight:700;color:var(--text-strong)" dir="ltr">{{ conf.id }}</dd></div>
+            <div><dt style="font-size:12px;color:var(--text-muted)">الخدمة</dt><dd style="margin:0;font-weight:700;color:var(--text-strong)">{{ conf.service }}</dd></div>
+            <div><dt style="font-size:12px;color:var(--text-muted)">{{ conf.amountLabel }}</dt><dd style="margin:0;font-weight:700;color:var(--text-strong)">{{ conf.total }}</dd></div>
+            <sc-if value="{{ conf.hasReceipt }}"><div><dt style="font-size:12px;color:var(--text-muted)">رقم الإيصال</dt><dd style="margin:0;font-weight:700;color:var(--text-strong)" dir="ltr">{{ conf.receipt }}</dd></div></sc-if>
+          </dl>
+          <sc-if value="{{ conf.isMeeting }}">
+            <div style="border:1px solid var(--gold-200);background:var(--gold-50);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px">
+              <strong style="color:var(--text-strong)">{{ conf.meeting }}</strong>
+              <span style="font-size:14px;line-height:1.7">رابط Google Meet: <strong style="color:var(--caution-500)">بانتظار إضافة المحامي</strong>. سيظهر الرابط في صفحة الموعد داخل حسابك وستصلك إشارة فور إضافته.</span>
+            </div>
+          </sc-if>
+          <div>
+            <div style="font-weight:700;color:var(--text-strong);margin-bottom:10px">ماذا يحدث الآن؟</div>
+            <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px">
+              <sc-for list="{{ conf.next }}" as="n" hint-placeholder-count="3">
+                <li style="display:flex;gap:12px;font-size:15px;line-height:1.7"><span style="width:24px;height:24px;border-radius:50%;background:var(--ink-900);color:var(--cream-100);font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">{{ n.n }}</span>{{ n.t }}</li>
+              </sc-for>
+            </ol>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" size="lg" as="a" href="{{ conf.href }}" hint-size="200px,52px">متابعة الطلب في حسابي ←</x-import>
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="ghost" size="lg" onClick="{{ goServices }}" hint-size="140px,52px">خدمات أخرى</x-import>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ABOUT -->
+    <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="About" style="max-width:1240px;margin:0 auto;padding:clamp(40px,7vw,88px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <span style="font-size:14px;font-weight:600;color:var(--gold-600)">من نحن</span>
+          <h1 style="font-family:var(--font-heading);font-size:clamp(30px,4vw,46px);font-weight:800;margin:0;line-height:1.3">عقودي — منصة العقود والخدمات القانونية المصرية</h1>
+          <p style="margin:0;font-size:17px;line-height:1.9">نقدم خدمات قانونية للأفراد والشركات في مصر عبر منصة رقمية واحدة: تعرف السعر والمدة قبل الطلب، وتتابع عمل المحامي، وتستلم مستنداتك في حسابك الخاص.</p>
+          <p style="margin:0;font-size:17px;line-height:1.9">نؤمن بأن الوضوح جزء من الخدمة القانونية. لذلك نعرض ما تشمله كل خدمة، وما المطلوب منك، ومتى تتوقع التسليم.</p>
+        </div>
+        <div style="background:var(--cream-100);border-radius:28px;padding:32px;display:flex;justify-content:center"><img src="assets/oqoudi-logo-1200.png" alt="شعار عقودي" style="width:min(100%,380px);display:block"></div>
+      </section>
+      <section style="max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+        <sc-for list="{{ values }}" as="v" hint-placeholder-count="3">
+          <div class="kh-card" style="display:flex;flex-direction:column;gap:10px"><div style="font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--text-strong)">{{ v.t }}</div><p style="margin:0;font-size:15px;line-height:1.8">{{ v.d }}</p></div>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <!-- FAQ -->
+    <sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="FAQ" style="max-width:860px;margin:0 auto;padding:clamp(40px,7vw,88px) clamp(16px,4vw,40px) 96px">
+        <span style="font-size:14px;font-weight:600;color:var(--gold-600)">الأسئلة الشائعة</span>
+        <h1 style="font-family:var(--font-heading);font-size:clamp(30px,4vw,44px);font-weight:800;margin:8px 0 32px">كل ما تحتاج معرفته عن المنصة</h1>
+        <sc-for list="{{ faqGroups }}" as="g" hint-placeholder-count="3">
+          <div style="margin-bottom:32px">
+            <h2 style="font-size:18px;font-weight:700;margin:0 0 4px;color:var(--gold-700)">{{ g.title }}</h2>
+            <div style="border-top:1px solid var(--border-default)">
+              <sc-for list="{{ g.items }}" as="f" hint-placeholder-count="3">
+                <div style="border-bottom:1px solid var(--border-default)">
+                  <button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width:100%;display:flex;justify-content:space-between;gap:16px;padding:18px 0;background:none;border:none;font:inherit;font-size:16px;font-weight:600;color:var(--text-strong);text-align:right;cursor:pointer">{{ f.q }}<span style="font-size:20px;color:var(--gold-600)">{{ f.sign }}</span></button>
+                  <sc-if value="{{ f.open }}"><p style="margin:0;padding:0 0 18px;font-size:15px;line-height:1.8">{{ f.a }}</p></sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <!-- CONTACT -->
+    <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Contact" style="max-width:1240px;margin:0 auto;padding:clamp(40px,7vw,88px) clamp(16px,4vw,40px) 96px;display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,64px)">
+        <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:18px">
+          <span style="font-size:14px;font-weight:600;color:var(--gold-600)">تواصل معنا</span>
+          <h1 style="font-family:var(--font-heading);font-size:clamp(30px,4vw,44px);font-weight:800;margin:0">نرد على الاستفسارات خلال يوم عمل</h1>
+          <p style="margin:0;font-size:16px;line-height:1.8">للاستفسارات العامة فقط. لطلب خدمة أو استشارة استخدم صفحة الخدمة لتصل بياناتك للمحامي بأمان.</p>
+          <dl style="margin:0;display:flex;flex-direction:column;gap:14px;font-size:15px">
+            <div><dt style="font-size:13px;color:var(--text-muted)">الهاتف</dt><dd style="margin:0;font-weight:600;color:var(--text-strong)" dir="ltr">+20 2 2345 6789</dd></div>
+            <div><dt style="font-size:13px;color:var(--text-muted)">البريد الإلكتروني</dt><dd style="margin:0;font-weight:600;color:var(--text-strong)" dir="ltr">hello@oqoudi.example</dd></div>
+            <div><dt style="font-size:13px;color:var(--text-muted)">مواعيد العمل</dt><dd style="margin:0;font-weight:600;color:var(--text-strong)">السبت – الخميس، ١٠ ص – ٤ م (بتوقيت القاهرة)</dd></div>
+            <div><dt style="font-size:13px;color:var(--text-muted)">العنوان</dt><dd style="margin:0;font-weight:600;color:var(--text-strong)">القاهرة، جمهورية مصر العربية</dd></div>
+          </dl>
+        </div>
+        <div style="flex:1 1 420px">
+          <sc-if value="{{ contactSent }}">
+            <div class="kh-card" style="display:flex;flex-direction:column;gap:10px;padding:32px">
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Badge" variant="positive" dot="{{ true }}" hint-size="90px,22px">تم الإرسال</x-import>
+              <div style="font-family:var(--font-heading);font-size:22px;font-weight:700;color:var(--text-strong)">شكرًا لتواصلك</div>
+              <p style="margin:0">استلمنا رسالتك وسنرد عليك عبر البريد أو الهاتف خلال يوم عمل.</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ contactForm }}" hint-placeholder-val="{{ true }}">
+            <form onSubmit="{{ submitContact }}" class="kh-card" style="display:flex;flex-direction:column;gap:16px;padding:28px">
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="الاسم *" value="{{ ct.name }}" onChange="{{ ct.onName }}" error="{{ ct.eName }}" hint-size="100%,74px"></x-import>
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="رقم الهاتف *" dir="ltr" placeholder="+20 1X XXXX XXXX" value="{{ ct.phone }}" onChange="{{ ct.onPhone }}" error="{{ ct.ePhone }}" hint-size="100%,74px"></x-import>
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="البريد الإلكتروني" type="email" dir="ltr" value="{{ ct.email }}" onChange="{{ ct.onEmail }}" error="{{ ct.eEmail }}" hint-size="100%,74px"></x-import>
+              <div class="kh-field">
+                <label class="kh-field__label">رسالتك *</label>
+                <textarea class="kh-input" rows="5" value="{{ ct.msg }}" onChange="{{ ct.onMsg }}" style="font:inherit;resize:vertical;border-color:{{ ct.msgBorder }}"></textarea>
+                <sc-if value="{{ ct.eMsg }}"><span class="kh-field__hint kh-field__hint--error">{{ ct.eMsg }}</span></sc-if>
+              </div>
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" size="lg" type="submit" hint-size="140px,52px">إرسال الرسالة</x-import>
+            </form>
+          </sc-if>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- AUTH -->
+    <sc-if value="{{ isAuth }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Login / Register" style="max-width:480px;margin:0 auto;padding:clamp(32px,6vw,72px) clamp(16px,4vw,24px) 96px">
+        <div class="kh-card" style="display:flex;flex-direction:column;gap:20px;padding:clamp(24px,4vw,36px);box-shadow:var(--shadow-md);border-color:transparent">
+          <div style="display:flex;justify-content:center"><img src="assets/oqoudi-logo-tight.png" alt="عقودي" style="width:96px;height:96px;object-fit:contain"></div>
+          <div style="display:flex;justify-content:center">
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.PillNav" items="{{ authTabs }}" active-id="{{ authTab }}" on-select="{{ onAuthTab }}" hint-size="260px,46px"></x-import>
+          </div>
+          <sc-if value="{{ authErrorMsg }}"><div role="alert" style="background:var(--critical-100);color:var(--critical-500);border-radius:10px;padding:12px 14px;font-size:14px">{{ authErrorMsg }}</div></sc-if>
+          <form onSubmit="{{ submitAuth }}" style="display:flex;flex-direction:column;gap:14px">
+            <sc-if value="{{ isRegister }}">
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="الاسم الكامل *" value="{{ au.name }}" onChange="{{ au.onName }}" error="{{ au.eName }}" hint-size="100%,74px"></x-import>
+              <div class="kh-field">
+                <span class="kh-field__label">نوع الحساب</span>
+                <div style="display:flex;gap:8px">
+                  <sc-for list="{{ au.types }}" as="t" hint-placeholder-count="2">
+                    <button type="button" onClick="{{ t.pick }}" style="flex:1;padding:10px;border-radius:10px;border:1.5px solid {{ t.bd }};background:{{ t.bg }};font:inherit;font-size:14px;cursor:pointer;color:var(--text-strong)">{{ t.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="رقم الهاتف *" dir="ltr" placeholder="+20 1X XXXX XXXX" value="{{ au.phone }}" onChange="{{ au.onPhone }}" error="{{ au.ePhone }}" hint-size="100%,74px"></x-import>
+            </sc-if>
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="البريد الإلكتروني *" type="email" dir="ltr" value="{{ au.email }}" onChange="{{ au.onEmail }}" error="{{ au.eEmail }}" hint-size="100%,74px"></x-import>
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Input" label="كلمة المرور *" type="password" dir="ltr" value="{{ au.pass }}" onChange="{{ au.onPass }}" error="{{ au.ePass }}" hint-size="100%,74px"></x-import>
+            <sc-if value="{{ isLogin }}"><a href="#/auth" style="font-size:13px">نسيت كلمة المرور؟</a></sc-if>
+            <x-import component-from-global-scope="KhairahHoldingDesignSystem_52a247.Button" variant="primary" size="lg" block="{{ true }}" type="submit" disabled="{{ authBusy }}" hint-size="100%,52px">{{ authCta }}</x-import>
+          </form>
+          <p style="margin:0;font-size:12px;color:var(--text-muted);text-align:center;line-height:1.6">بياناتك ومستنداتك تظهر لك وللمحامي المكلف فقط.</p>
+        </div>
+      </section>
+    </sc-if>
+  </main>
+
+  <footer style="background:var(--surface-footer);color:var(--gold-200)">
+    <div style="max-width:1240px;margin:0 auto;padding:56px clamp(16px,4vw,40px) 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="width:104px;height:104px;background:var(--cream-100);border-radius:16px;padding:8px"><img src="assets/oqoudi-logo-tight.png" alt="عقودي" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+        <p style="margin:0;font-size:14px;line-height:1.8">منصة العقود والخدمات القانونية المصرية. القاهرة، مصر.</p>
+      </div>
+      <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-weight:700;color:#fff;font-size:15px">{{ col.title }}</div>
+          <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="4">
+            <a href="{{ l.href }}" onClick="{{ l.go }}" style="color:var(--gold-200);font-size:14px">{{ l.label }}</a>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+    <div style="max-width:1240px;margin:0 auto;padding:18px clamp(16px,4vw,40px) 28px;border-top:1px solid rgba(177,154,118,.25);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--gold-300)">
+      <span>© ٢٠٢٦ عقودي</span>
+      <span>الأسعار والبيانات المعروضة توضيحية لأغراض النموذج الأولي.</span>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { route: 'home', svc: null, cat: 'all', q: '', priceF: 'all', sort: 'popular', loading: false, step: 0, values: {}, errors: {}, formAlert: '', addons: [], date: null, time: null, month: '2026-10', pay: 'card', outcome: 'success', paying: false, payError: '', orderId: null, open: {}, mob: false, menu: false, authTab: 'login', au: { type: 'فرد' }, auErr: {}, authBusy: false, ct: {}, ctErr: {}, contactSent: false, card: {}, cardErr: {} };
+
+  componentDidMount() {
+    const boot = () => { if (!window.DQ) return setTimeout(boot, 40); this.unsub = DQ.subscribe(() => this.forceUpdate()); this.readHash(); };
+    boot();
+    this.onR = () => this.setState({ mob: window.innerWidth < 1180 }); this.onR();
+    window.addEventListener('resize', this.onR);
+    this.onPop = () => this.readHash(); window.addEventListener('popstate', this.onPop); window.addEventListener('hashchange', this.onPop);
+  }
+  componentWillUnmount() { this.unsub && this.unsub(); window.removeEventListener('resize', this.onR); window.removeEventListener('popstate', this.onPop); window.removeEventListener('hashchange', this.onPop); }
+
+  readHash() {
+    const p = (location.hash || '').replace(/^#\/?/, '').split('/').map(decodeURIComponent);
+    this.apply(p[0] || 'home', p[1]);
+  }
+  apply(route, arg) {
+    const st = { route, menu: false };
+    if (route === 'service') { st.svc = arg; st.addons = []; st.open = {}; }
+    if (route === 'request') { Object.assign(st, { svc: arg, step: 0, values: {}, errors: {}, formAlert: '', date: null, time: null, payError: '', orderId: null, paying: false }); }
+    if (route === 'services') { st.cat = arg || 'all'; st.loading = true; clearTimeout(this.lt); this.lt = setTimeout(() => this.setState({ loading: false }), 450); }
+    if (route === 'confirm') st.orderId = arg;
+    this.setState(st);
+  }
+  nav(path, e) {
+    if (e && e.preventDefault) e.preventDefault();
+    history.pushState(null, '', '#/' + path);
+    const p = path.split('/'); this.apply(p[0] || 'home', p[1]);
+    window.scrollTo(0, 0);
+  }
+
+  renderVals() {
+    const D = window.DQ, s = this.state;
+    if (!D) return { desk: true, isHome: true };
+    const R = r => s.route === r;
+    const cl = id => (D.CATS.find(c => c.id === id) || {}).label;
+    const pub = D.state.services.filter(x => x.status === 'published');
+    const card = x => { const rt = D.rating(x.id); return { id: x.id, title: x.title, short: x.short, price: D.priceLabel(x), days: x.days, catLabel: cl(x.cat), rating: rt.n ? D.toAr(rt.avg.toFixed(1)) : 'جديدة', ratingN: rt.n ? '(' + D.num(rt.n) + ')' : '', open: () => this.nav('service/' + x.id) }; };
+    const pillSel = (on) => ({ bd: on ? 'var(--ink-900)' : 'var(--border-default)', bg: on ? 'var(--ink-900)' : '#fff', fg: on ? 'var(--cream-100)' : 'var(--text-body)' });
+    const toggle = k => () => this.setState(st => ({ open: Object.assign({}, st.open, { [k]: !st.open[k] }) }));
+    const faqVM = (list, pre) => list.map((f, i) => { const k = pre + i; const o = !!s.open[k]; return { q: f[0], a: f[1], open: o, sign: o ? '−' : '+', toggle: toggle(k) }; });
+
+    const navItems = [['home', 'الرئيسية', ''], ['individuals', 'خدمات الأفراد', 'services/individuals'], ['companies', 'خدمات الشركات', 'services/companies'], ['consultations', 'الاستشارات', 'services/consultations'], ['about', 'من نحن', 'about'], ['faq', 'الأسئلة الشائعة', 'faq'], ['contact', 'تواصل معنا', 'contact']]
+      .map(([id, label, path]) => ({ id, label, href: '#/' + path, go: () => this.nav(path) }));
+    const navActive = R('services') ? s.cat : (R('service') || R('request')) ? ((D.svc(s.svc) || {}).cat) : s.route;
+
+    // directory
+    let dir = pub.filter(x => s.cat === 'all' || x.cats.includes(s.cat));
+    if (s.q.trim()) dir = dir.filter(x => (x.title + x.short).includes(s.q.trim()));
+    if (s.priceF !== 'all') dir = dir.filter(x => x.priceType === s.priceF);
+    if (s.sort === 'asc') dir = dir.slice().sort((a, b) => a.price - b.price);
+    if (s.sort === 'desc') dir = dir.slice().sort((a, b) => b.price - a.price);
+    const catObj = D.CATS.find(c => c.id === s.cat);
+
+    // service
+    const sv0 = D.svc(s.svc) || pub[0];
+    const isMeeting = sv0.kind === 'meeting', isQuote = sv0.priceType === 'quote';
+    const addonVM = (sv0.addons || []).map(a => { const on = s.addons.includes(a.id); return { label: a.label, priceLabel: D.egp(a.price), on, mark: on ? '✓' : '', box: on ? 'var(--ink-900)' : 'transparent', bd: on ? 'var(--ink-900)' : 'var(--border-default)', bg: on ? 'var(--gold-50)' : '#fff', toggle: () => this.setState(st => ({ addons: on ? st.addons.filter(x => x !== a.id) : st.addons.concat(a.id) })) }; });
+    const total = sv0.price + (sv0.addons || []).filter(a => s.addons.includes(a.id)).reduce((m, a) => m + a.price, 0);
+    const rt = D.rating(sv0.id);
+    const svReviews = D.state.reviews.filter(r => r.service === sv0.id).map(r => ({ name: r.name, stars: D.stars(r.stars), text: r.text, date: D.fmtDate(r.at), hasReply: !!r.reply, reply: r.reply }));
+    const sections = sv0.sections.filter(x => x.on).map(sec => {
+      const k = sec.key, c = sv0.content[k];
+      const arr = Array.isArray(c) ? c : [];
+      return { key: k, anchor: 'sec-' + k, title: D.SECTION_LABELS[k], isText: k === 'about' && !!c, text: typeof c === 'string' ? c : '', isList: ['who', 'included', 'deliverables', 'docs'].includes(k) && arr.length > 0, isSteps: k === 'steps' && arr.length > 0, items: arr.map((t, i) => ({ t: typeof t === 'string' ? t : '', n: D.toAr(i + 1) })), isDuration: k === 'duration', isPricing: k === 'pricing', isFaq: k === 'faq' && arr.length > 0, faqs: k === 'faq' ? faqVM(arr, 'svc-') : [], isReviews: k === 'reviews',
+        jump: e => { e.preventDefault(); const el = document.getElementById('sec-' + k); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' }); } };
+    }).filter(x => x.isText || x.isList || x.isSteps || x.isDuration || x.isPricing || x.isFaq || x.isReviews);
+    const sv = { id: sv0.id, title: sv0.title, short: sv0.short, price: D.priceLabel(sv0), days: sv0.days, catLabel: cl(sv0.cat), isQuote, rating: rt.n ? D.toAr(rt.avg.toFixed(1)) : 'جديدة', ratingN: rt.n ? '(' + D.num(rt.n) + ' تقييم)' : '', addons: addonVM, hasAddons: addonVM.length > 0, total: (isQuote ? 'يبدأ من ' : '') + D.egp(total), reviews: svReviews, hasReviews: svReviews.length > 0, noReviews: !svReviews.length, hasToc: sections.length > 3,
+      priceCaption: isQuote ? 'السعر التقديري' : 'سعر الخدمة', delivery: isMeeting ? 'Google Meet' : sv0.kind === 'written' ? 'رد مكتوب في حسابك' : 'ملفات في حسابك',
+      cta: isMeeting ? 'اختر موعدًا' : isQuote ? 'اطلب عرض سعر' : sv0.kind === 'written' ? 'ابدأ الاستشارة' : 'ابدأ الطلب',
+      note: isQuote ? 'لن تدفع الآن. يصلك عرض سعر نهائي في حسابك قبل الدفع.' : 'تدفع بعد مراجعة بيانات طلبك. يمكنك متابعة كل خطوة من حسابك.',
+      start: () => this.nav('request/' + sv0.id), open: e => this.nav('service/' + sv0.id, e), goCat: e => this.nav('services/' + sv0.cat, e) };
+
+    // request flow
+    const stepKeys = isMeeting ? ['slot', 'form', 'pay'] : ['form', 'pay'];
+    const stepNames = isMeeting ? ['الموعد', 'التفاصيل', 'الدفع'] : ['التفاصيل', isQuote ? 'الإرسال' : 'الدفع'];
+    const cur = stepKeys[s.step] || 'form';
+    const stepper = stepNames.map((label, i) => { const done = i < s.step, on = i === s.step; return { label, n: done ? '✓' : D.toAr(i + 1), bg: done || on ? 'var(--ink-900)' : '#fff', fg: done || on ? 'var(--cream-100)' : 'var(--text-muted)', bd: done || on ? 'var(--ink-900)' : 'var(--border-default)', tc: on ? 'var(--text-strong)' : 'var(--text-muted)', w: on ? 700 : 500, notLast: i < stepNames.length - 1 }; });
+    const fieldsDef = D.form(sv0.id);
+    const setV = (id, v) => this.setState(st => ({ values: Object.assign({}, st.values, { [id]: v }), errors: Object.assign({}, st.errors, { [id]: '' }) }));
+    const setE = (id, e) => this.setState(st => ({ errors: Object.assign({}, st.errors, { [id]: e }) }));
+    const fields = D.fieldVM(fieldsDef, s.values, s.errors, setV, setE).map(f => Object.assign(f, { fieldHelp: f.showHelp && !f.isSection && !f.isHelp }));
+
+    // calendar
+    const [Y, M] = s.month.split('-').map(Number);
+    const first = new Date(Date.UTC(Y, M - 1, 1)); const daysIn = new Date(Date.UTC(Y, M, 0)).getUTCDate();
+    const off = (first.getUTCDay() + 1) % 7; const cells = [];
+    for (let i = 0; i < off; i++) cells.push({ label: '', vis: 'hidden', disabled: true, pick: null, bd: 'transparent', bg: 'transparent', fg: 'transparent', dot: 'transparent', cursor: 'default', w: 400, deco: 'none', aria: '' });
+    for (let d = 1; d <= daysIn; d++) {
+      const ymd = Y + '-' + String(M).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+      const sl = D.slots(ymd); const avail = sl.some(x => x.available); const sel = s.date === ymd; const blocked = D.state.settings.blocked.includes(ymd);
+      cells.push({ label: D.toAr(d), vis: 'visible', disabled: !avail, pick: () => this.setState({ date: ymd, time: null }), aria: D.fmtDay(ymd) + (avail ? '' : ' — غير متاح'),
+        bd: sel ? 'var(--ink-900)' : avail ? 'var(--gold-200)' : 'transparent', bg: sel ? 'var(--ink-900)' : avail ? '#fff' : 'var(--neutral-100)', fg: sel ? 'var(--cream-100)' : avail ? 'var(--text-strong)' : 'var(--text-subtle)', dot: avail ? (sel ? 'var(--cream-100)' : 'var(--gold-500)') : 'transparent', cursor: avail ? 'pointer' : 'not-allowed', w: sel ? 700 : 500, deco: blocked ? 'line-through' : 'none' });
+    }
+    const daySlots = s.date ? D.slots(s.date) : [];
+    const cal = { label: new Intl.DateTimeFormat('ar-EG', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(first), heads: ['سبت', 'أحد', 'اثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة'], cells,
+      noPrev: s.month <= '2026-10', noNext: s.month >= '2026-12',
+      prev: () => this.setState({ month: M === 1 ? (Y - 1) + '-12' : Y + '-' + String(M - 1).padStart(2, '0') }), next: () => this.setState({ month: M === 12 ? (Y + 1) + '-01' : Y + '-' + String(M + 1).padStart(2, '0') }),
+      hasDate: !!s.date, dayLabel: s.date ? D.fmtDay(s.date) : '', hasSlots: daySlots.length > 0, noSlots: !!s.date && !daySlots.some(x => x.available),
+      slots: daySlots.map(x => { const sel = s.time === x.time; return { label: x.label, end: x.end, disabled: !x.available, pick: () => this.setState({ time: x.time }), bd: sel ? 'var(--ink-900)' : x.available ? 'var(--border-default)' : 'transparent', bg: sel ? 'var(--ink-900)' : x.available ? '#fff' : 'var(--neutral-100)', fg: sel ? 'var(--cream-100)' : x.available ? 'var(--text-strong)' : 'var(--text-subtle)', cursor: x.available ? 'pointer' : 'not-allowed', deco: x.available ? 'none' : 'line-through' }; }) };
+    const meetingLabel = s.date && s.time ? D.fmtDay(s.date) + '، ' + D.fmtTime(s.time) + ' – ' + D.fmtTime(D.addMin(s.time, 30)) : '';
+
+    // pay step
+    const answers = D.answersFrom(fieldsDef, s.values).map(([k, v]) => ({ k, v }));
+    const allFilesArr = [].concat(...fieldsDef.filter(f => f.type === 'file').map(f => s.values[f.id] || []));
+    const cardSet = k => e => { const v = e.target.value; this.setState(st => ({ card: Object.assign({}, st.card, { [k]: v }), cardErr: Object.assign({}, st.cardErr, { [k]: '' }) })); };
+    const payMethods = [['card', 'بطاقة بنكية', 'ميزة، فيزا، ماستركارد'], ['wallet', 'محفظة إلكترونية', 'محافظ الهاتف المحمول'], ['fawry', 'فوري', 'الدفع نقدًا برقم مرجعي']].map(([id, label, sub]) => { const on = s.pay === id; return { id, label, sub, on, bd: on ? 'var(--ink-900)' : 'var(--border-default)', bg: on ? 'var(--gold-50)' : '#fff', pick: () => this.setState({ pay: id, payError: '' }) }; });
+    const outcomes = [['success', 'دفع ناجح'], ['fail', 'رفض البطاقة']].map(([id, label]) => Object.assign({ label, pick: () => this.setState({ outcome: id }) }, pillSel(s.outcome === id)));
+
+    const nextStep = () => {
+      if (cur === 'slot') { if (s.date && s.time) this.setState({ step: s.step + 1 }); window.scrollTo(0, 0); return; }
+      if (cur === 'form') {
+        const errs = {}; let n = 0;
+        fieldsDef.forEach(f => { const e = D.validate(f, s.values[f.id]); if (e) { errs[f.id] = e; n++; } });
+        if (n) { this.setState({ errors: errs, formAlert: 'يرجى مراجعة ' + D.toAr(n) + (n > 2 ? ' حقول' : ' حقل') + ' قبل المتابعة.' }); window.scrollTo(0, 0); return; }
+        this.setState({ step: s.step + 1, formAlert: '' }); window.scrollTo(0, 0); return;
+      }
+      if (isQuote) { const id = D.createOrder({ service: sv0.id, values: s.values, addons: [], total }); this.nav('confirm/' + id); return; }
+      const ce = {}; const c = s.card;
+      if (s.pay === 'card') { if ((c.num || '').replace(/\D/g, '').length !== 16) ce.num = 'أدخل رقم بطاقة مكونًا من ١٦ رقمًا.'; if (!/^\d{2}\/\d{2}$/.test(c.exp || '')) ce.exp = 'الصيغة MM/YY'; if (!/^\d{3}$/.test(c.cvv || '')) ce.cvv = '٣ أرقام'; }
+      if (s.pay === 'wallet' && !/^(\+20|0)1[0125]\d{8}$/.test((c.wallet || '').replace(/\s/g, ''))) ce.wallet = 'أدخل رقم محفظة مصريًا صحيحًا.';
+      if (Object.keys(ce).length) { this.setState({ cardErr: ce }); return; }
+      this.setState({ paying: true, payError: '' });
+      setTimeout(() => {
+        let id = s.orderId; if (!id) id = D.createOrder({ service: sv0.id, values: s.values, addons: s.addons, total, meeting: isMeeting ? { date: s.date, time: s.time } : null });
+        const ok = s.outcome === 'success'; D.pay(id, ok);
+        if (ok) this.nav('confirm/' + id); else this.setState({ paying: false, orderId: id, payError: 'رفض البنك المصدر العملية. لم يُخصم أي مبلغ. جرّب بطاقة أخرى أو وسيلة دفع مختلفة — طلبك ' + id + ' محفوظ في حسابك بحالة «بانتظار الدفع».' });
+      }, 1300);
+    };
+    const nextLabel = s.paying ? 'جارٍ تأكيد الدفع…' : cur === 'slot' ? 'متابعة إلى التفاصيل' : cur === 'form' ? 'متابعة إلى المراجعة' : isQuote ? 'إرسال طلب عرض السعر' : s.payError ? 'إعادة المحاولة · ' + D.egp(total) : 'ادفع ' + D.egp(total);
+
+    // confirm
+    const co = s.orderId && D.order(s.orderId);
+    const cs = co ? D.svc(co.service) : sv0;
+    const conf = co ? { id: co.id, service: cs.title, total: D.egp(co.total), receipt: co.receipt || '', hasReceipt: !!co.receipt, amountLabel: co.pay === 'paid' ? 'المبلغ المدفوع' : 'السعر التقديري', isMeeting: !!co.meeting, meeting: co.meeting ? D.fmtDay(co.meeting.date) + '، ' + D.fmtTime(co.meeting.time) + ' – ' + D.fmtTime(D.addMin(co.meeting.time, 30)) : '', href: 'Client Portal.dc.html#/order/' + co.id,
+      title: co.status === 'new' ? 'تم إرسال طلب عرض السعر' : co.meeting ? 'تم تأكيد حجز الاستشارة' : 'تم الدفع واستلام طلبك',
+      lead: co.status === 'new' ? 'سيراجع المحامي طلبك ويرسل عرض سعر نهائي إلى حسابك.' : 'أرسلنا إشعارًا إلى المحامي المختص. تابع حالة طلبك من حسابك في أي وقت.',
+      next: (co.status === 'new' ? ['يراجع المحامي بياناتك ومستنداتك', 'يصلك عرض السعر النهائي في حسابك', 'تدفع ويبدأ التنفيذ'] : co.meeting ? ['يراجع المحامي سياق الاجتماع والملفات', 'يضيف المحامي رابط Google Meet في صفحة الموعد', 'تدخل الاجتماع من حسابك في الموعد المحدد'] : cs.kind === 'written' ? ['يراجع المحامي المسألة والمرفقات', 'يكتب المحامي الرد ويرفق أي مستندات', 'تقرأ الرد بأمان داخل حسابك'] : ['يراجع المحامي بيانات طلبك', 'قد يطلب توضيحًا عبر الرسائل', 'يصلك المستند في حسابك لتقبله أو تطلب تعديلًا']).map((t, i) => ({ t, n: D.toAr(i + 1) })) } : { next: [] };
+
+    // contact
+    const ctSet = k => e => { const v = e.target.value; this.setState(st => ({ ct: Object.assign({}, st.ct, { [k]: v }), ctErr: Object.assign({}, st.ctErr, { [k]: '' }) })); };
+    const ct = Object.assign({}, s.ct, { onName: ctSet('name'), onPhone: ctSet('phone'), onEmail: ctSet('email'), onMsg: ctSet('msg'), eName: s.ctErr.name || '', ePhone: s.ctErr.phone || '', eEmail: s.ctErr.email || '', eMsg: s.ctErr.msg || '', msgBorder: s.ctErr.msg ? 'var(--critical-500)' : 'var(--border-default)' });
+    const submitContact = e => { e.preventDefault(); const c = s.ct, er = {}; if (!(c.name || '').trim()) er.name = 'هذا الحقل مطلوب.'; if (!/^(\+20|0)1[0125]\d{8}$/.test((c.phone || '').replace(/\s/g, ''))) er.phone = 'أدخل رقم هاتف مصريًا صحيحًا، مثل ‎+20 100 123 4567'; if (c.email && !/^\S+@\S+\.\S+$/.test(c.email)) er.email = 'صيغة البريد غير صحيحة.'; if ((c.msg || '').trim().length < 10) er.msg = 'اكتب رسالة من ١٠ أحرف على الأقل.'; if (Object.keys(er).length) this.setState({ ctErr: er }); else this.setState({ contactSent: true }); };
+
+    // auth
+    const auSet = k => e => { const v = e.target.value; this.setState(st => ({ au: Object.assign({}, st.au, { [k]: v }), auErr: Object.assign({}, st.auErr, { [k]: '' }) })); };
+    const reg = s.authTab === 'register';
+    const au = Object.assign({}, s.au, { onName: auSet('name'), onPhone: auSet('phone'), onEmail: auSet('email'), onPass: auSet('pass'), eName: s.auErr.name || '', ePhone: s.auErr.phone || '', eEmail: s.auErr.email || '', ePass: s.auErr.pass || '',
+      types: ['فرد', 'شركة'].map(t => Object.assign({ label: t, pick: () => this.setState(st => ({ au: Object.assign({}, st.au, { type: t }) })) }, { bd: s.au.type === t ? 'var(--ink-900)' : 'var(--border-default)', bg: s.au.type === t ? 'var(--gold-50)' : '#fff' })) });
+    const submitAuth = e => { e.preventDefault(); const a = s.au, er = {}; if (!/^\S+@\S+\.\S+$/.test(a.email || '')) er.email = 'أدخل بريدًا إلكترونيًا صحيحًا.'; if ((a.pass || '').length < 8) er.pass = 'كلمة المرور ٨ أحرف على الأقل.'; if (reg) { if (!(a.name || '').trim()) er.name = 'هذا الحقل مطلوب.'; if (!/^(\+20|0)1[0125]\d{8}$/.test((a.phone || '').replace(/\s/g, ''))) er.phone = 'أدخل رقم هاتف مصريًا صحيحًا.'; }
+      if (Object.keys(er).length) return this.setState({ auErr: er }); this.setState({ authBusy: true }); setTimeout(() => { location.href = 'Client Portal.dc.html'; }, 700); };
+
+    const general = [
+      ['الطلب والدفع', [['متى أدفع؟', 'بعد تعبئة نموذج الخدمة ومراجعة بياناتك. للخدمات حسب العرض، تدفع بعد استلام عرض السعر النهائي.'], ['ما وسائل الدفع المتاحة؟', 'البطاقات البنكية والمحافظ الإلكترونية وفوري. ربط بوابة الدفع الفعلية مرحلة تنفيذ لاحقة.'], ['هل يمكنني استرداد المبلغ؟', 'يمكن إلغاء الطلب واسترداد المبلغ قبل بدء التنفيذ. بعد البدء يُحدد الاسترداد حسب ما أُنجز.']]],
+      ['التسليم والتعديل', [['أين أستلم المستندات؟', 'داخل حسابك فقط، في صفحة الطلب، مع سجل بكل إصدار وتاريخ تسليمه.'], ['كيف أطلب تعديلًا؟', 'من صفحة الطلب بعد التسليم، اضغط «طلب تعديل» واكتب ملاحظاتك.']]],
+      ['الاستشارات', [['ما الفرق بين الاستشارة الكتابية والمرئية؟', 'الكتابية رد مكتوب مفصل خلال ٤٨ ساعة عمل، والمرئية اجتماع مدته ٣٠ دقيقة بالضبط عبر Google Meet.'], ['متى يصلني رابط الاجتماع؟', 'يضيفه المحامي يدويًا قبل الموعد ويظهر في صفحة الموعد داخل حسابك مع إشعار.']]]
+    ];
+    const ov = D.rating();
+
+    return {
+      desk: !s.mob, mob: s.mob, menuOpen: s.mob && s.menu, toggleMenu: () => this.setState({ menu: !s.menu }),
+      navItems, navActive, onNav: id => this.nav((navItems.find(n => n.id === id) || {}).href.slice(2)),
+      goHome: e => this.nav('', e), goServices: () => this.nav('services/all'), goMeeting: () => this.nav('service/video-consultation'), goWritten: () => this.nav('service/written-consultation'), goAuth: () => this.nav('auth'), goFaq: () => this.nav('faq'), goContact: () => this.nav('contact'),
+      isHome: R('home') || R(''), isServices: R('services'), isService: R('service'), isRequest: R('request'), isConfirm: R('confirm'), isAbout: R('about'), isFaq: R('faq'), isContact: R('contact'), isAuth: R('auth'),
+      q: s.q, onQ: e => this.setState({ q: e.target.value }), onSearch: e => { e.preventDefault(); this.nav('services/all'); },
+      quick: [['عقد إيجار', 'عقد'], ['تأسيس شركة', 'تأسيس'], ['استشارة', 'استشارة']].map(([label, q]) => ({ label, go: () => { this.setState({ q }); this.nav('services/all'); } })),
+      trust: [{ title: 'سعر ومدة معلنان مسبقًا', text: 'تعرف التكلفة وما تشمله الخدمة قبل أن تطلب.' }, { title: 'متابعة كل مرحلة', text: 'سجل زمني يوضح ما يحدث وما المطلوب منك.' }, { title: 'تسليم رقمي آمن', text: 'مستنداتك في حسابك فقط، مع إصدارات وتواريخ.' }, { title: 'تقييمات من طلبات مكتملة', text: 'لا يمكن لأحد تعديل تقييمات العملاء.' }],
+      cats: D.CATS.map(c => ({ label: c.label, desc: c.desc, count: D.toAr(pub.filter(x => x.cats.includes(c.id)).length) + ' خدمات', open: () => this.nav('services/' + c.id), isInd: c.id === 'individuals', isCo: c.id === 'companies', isCon: c.id === 'consultations' })),
+      featured: pub.filter(x => x.featured && !x.kind).slice(0, 4).concat(pub.filter(x => x.featured && x.kind)).slice(0, 6).map(card),
+      consults: ['written-consultation', 'video-consultation'].map(id => { const x = D.svc(id); return { title: x.title, price: D.egp(x.price), days: x.days, isWritten: x.kind === 'written', isMeeting: x.kind === 'meeting', steps: (x.content.steps || []).map((t, i) => ({ t, n: D.toAr(i + 1) })), cta: x.kind === 'meeting' ? 'اختر موعدًا' : 'اكتب استشارتك', order: () => this.nav('service/' + id) }; }),
+      how: [['١', 'اختر الخدمة', 'تصفح الخدمات واقرأ ما تشمله كل خدمة وسعرها ومدتها.'], ['٢', 'املأ النموذج', 'كل خدمة لها نموذج خاص بها، مع رفع المستندات المطلوبة.'], ['٣', 'ادفع وتابع', 'ادفع بأمان وتابع حالة طلبك ورسائل المحامي من حسابك.'], ['٤', 'استلم وقيّم', 'حمّل المستند أو اقرأ الرد، اقبله أو اطلب تعديلًا، ثم قيّم الخدمة.']].map(([n, t, d]) => ({ n, t, d })),
+      overall: { avg: D.toAr(ov.avg.toFixed(1)), n: D.num(ov.n) + ' تقييم' },
+      homeReviews: D.state.reviews.filter(r => r.stars >= 4).slice(0, 3).map(r => ({ name: r.name, text: r.text, stars: D.stars(r.stars), service: D.svc(r.service).title })),
+      homeFaq: faqVM(general[0][1].concat(general[2][1]).slice(0, 4), 'home-'),
+      faqGroups: general.map((g, gi) => ({ title: g[0], items: faqVM(g[1], 'g' + gi + '-') })),
+
+      cat: s.cat, catTabs: [{ id: 'all', label: 'الكل' }].concat(D.CATS.map(c => ({ id: c.id, label: c.label }))), onCat: id => this.nav('services/' + id),
+      dirTitle: catObj ? catObj.label : 'جميع الخدمات', dirDesc: catObj ? catObj.desc : 'خدمات قانونية بأسعار ومدد واضحة للأفراد والشركات، مع استشارات كتابية ومرئية.',
+      priceFilters: [['all', 'كل الأسعار'], ['fixed', 'سعر ثابت'], ['quote', 'حسب العرض']].map(([id, label]) => Object.assign({ label, pick: () => this.setState({ priceF: id }) }, pillSel(s.priceF === id))),
+      sort: s.sort, onSort: e => this.setState({ sort: e.target.value }), sortOptions: [{ value: 'popular', label: 'الأكثر طلبًا' }, { value: 'asc', label: 'السعر: من الأقل' }, { value: 'desc', label: 'السعر: من الأعلى' }],
+      loading: s.loading, skeletons: [1, 2, 3, 4, 5, 6], directory: dir.map(card), showResults: !s.loading && dir.length > 0, emptyResults: !s.loading && !dir.length,
+      resultCount: s.loading ? 'جارٍ التحميل…' : D.toAr(dir.length) + ' خدمة', clearFilters: () => this.setState({ q: '', priceF: 'all' }),
+
+      sv, sections,
+      reqTitle: isMeeting ? 'حجز استشارة مرئية' : isQuote ? 'طلب عرض سعر: ' + sv0.title : sv0.kind === 'written' ? 'استشارة قانونية كتابية' : 'طلب خدمة: ' + sv0.title,
+      stepper, stepSlot: cur === 'slot', stepForm: cur === 'form', stepPay: cur === 'pay', cal, fields, formAlert: s.formAlert,
+      hasMeeting: isMeeting && !!meetingLabel, meetingLabel, answers, hasAllFiles: allFilesArr.length > 0, allFiles: allFilesArr.map(f => f.name).join('، '),
+      needsPay: !isQuote, payMethods, payCard: s.pay === 'card', payWallet: s.pay === 'wallet', payFawry: s.pay === 'fawry', outcomes, payError: s.payError,
+      card: Object.assign({}, s.card, { onNum: cardSet('num'), onExp: cardSet('exp'), onCvv: cardSet('cvv'), onWallet: cardSet('wallet'), eNum: s.cardErr.num || '', eExp: s.cardErr.exp || '', eCvv: s.cardErr.cvv || '', eWallet: s.cardErr.wallet || '' }),
+      chosenAddons: addonVM.filter(a => a.on), me: D.ME.full,
+      backStep: () => { if (s.step === 0) this.nav('service/' + sv0.id); else this.setState({ step: s.step - 1 }); },
+      nextStep, nextLabel, nextDisabled: s.paying || (cur === 'slot' && !(s.date && s.time)),
+
+      conf,
+      values: [{ t: 'الوضوح قبل الطلب', d: 'لكل خدمة صفحة توضح نطاقها وسعرها ومدتها والمستندات المطلوبة.' }, { t: 'السرية', d: 'مستنداتك ورسائلك متاحة لك وللمحامي المكلف بطلبك فقط.' }, { t: 'متابعة مستمرة', d: 'سجل زمني لكل طلب يوضح ما تم وما الخطوة التالية.' }],
+      ct, submitContact, contactSent: s.contactSent, contactForm: !s.contactSent,
+      authTabs: [{ id: 'login', label: 'تسجيل الدخول' }, { id: 'register', label: 'حساب جديد' }], authTab: s.authTab, onAuthTab: id => this.setState({ authTab: id, auErr: {} }), isRegister: reg, isLogin: !reg, au, submitAuth, authBusy: s.authBusy, authCta: s.authBusy ? 'جارٍ الدخول…' : reg ? 'إنشاء الحساب' : 'دخول', authErrorMsg: '',
+
+      footerCols: [
+        { title: 'الخدمات', links: [['خدمات الأفراد', 'services/individuals'], ['خدمات الشركات', 'services/companies'], ['استشارة كتابية', 'service/written-consultation'], ['استشارة مرئية', 'service/video-consultation']].map(([label, p]) => ({ label, href: '#/' + p, go: e => this.nav(p, e) })) },
+        { title: 'عقودي', links: [['من نحن', 'about'], ['الأسئلة الشائعة', 'faq'], ['تواصل معنا', 'contact']].map(([label, p]) => ({ label, href: '#/' + p, go: e => this.nav(p, e) })) },
+        { title: 'الحسابات', links: [{ label: 'حساب العميل', href: 'Client Portal.dc.html', go: null }, { label: 'لوحة المحامين', href: 'Lawyer Dashboard.dc.html', go: null }, { label: 'تسجيل الدخول', href: '#/auth', go: e => this.nav('auth', e) }] }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

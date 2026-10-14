@@ -1,0 +1,31 @@
+/* ============================================================
+   KHAIRAH HOLDING — RADII, SHADOWS, MOTION
+   The brand signature is the soft, medium-rounded pill.
+   ============================================================ */
+
+:root {
+  /* ---- Radii ---- */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;    /* cards / panels */
+  --radius-xl:   28px;    /* buttons & nav pills (brand signature) */
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* ---- Shadows — soft, low-contrast, cool-tinted ---- */
+  --shadow-xs:  0 1px 2px rgba(28, 53, 69, 0.06);
+  --shadow-sm:  0 2px 8px rgba(28, 53, 69, 0.07);
+  --shadow-md:  0 6px 20px rgba(28, 53, 69, 0.09);
+  --shadow-lg:  0 16px 40px rgba(28, 53, 69, 0.12);
+  --shadow-focus: 0 0 0 3px var(--focus-ring);
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);  /* @kind other */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);   /* @kind other */
+  --duration-fast:   140ms;  /* @kind other */
+  --duration-normal: 220ms;  /* @kind other */
+  --duration-slow:   360ms;  /* @kind other */
+
+  --transition-base: all var(--duration-normal) var(--ease-standard);
+}
