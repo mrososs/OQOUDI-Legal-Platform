@@ -1,0 +1,1299 @@
+{
+  "brand": {
+    "name": "Oqoudi",
+    "tagline": "The Egyptian contracts and legal services platform",
+    "homeLabel": "Oqoudi — Home"
+  },
+  "nav": {
+    "home": "Home",
+    "individuals": "For individuals",
+    "companies": "For companies",
+    "consultations": "Consultations",
+    "about": "About us",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "login": "Sign in",
+    "myAccount": "My account",
+    "menu": "Menu",
+    "main": "Main navigation",
+    "loginOrRegister": "Sign in / Create account",
+    "signOut": "Sign out"
+  },
+  "footer": {
+    "services": "Services",
+    "writtenConsultation": "Written consultation",
+    "videoConsultation": "Video consultation",
+    "accounts": "Accounts",
+    "clientAccount": "Client account",
+    "lawyerDashboard": "Lawyer dashboard",
+    "about": "The Egyptian contracts and legal services platform. Cairo, Egypt.",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "close": "Close",
+    "loading": "Loading…",
+    "breadcrumbs": "Breadcrumbs",
+    "choose": "Choose",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "send": "Send",
+    "back": "Back",
+    "viewAll": "View all",
+    "all": "All",
+    "download": "Download",
+    "arrowPrev": "←",
+    "arrowNext": "→",
+    "yes": "Yes",
+    "no": "No",
+    "optional": "Optional",
+    "none": "—"
+  },
+  "home": {
+    "metaTitle": "Oqoudi — Egyptian contracts and legal services",
+    "metaDescription": "Order contract drafting, reviews or a legal consultation from lawyers in Egypt at a published price and timeline, and track it until delivery.",
+    "h1": "Oqoudi — the Egyptian contracts and legal services platform",
+    "coverAlt": "Oqoudi — the Egyptian contracts and legal services platform. Secure, precise documentation of your rights and business.",
+    "lead": "Choose a service, fill in its form, pay securely, then follow the lawyer’s work step by step and receive your contract or answer in your account.",
+    "searchPlaceholder": "Search services: lease, company formation, legal notice…",
+    "searchLabel": "Search services",
+    "searchCta": "Search",
+    "popular": "Popular:",
+    "browseArrow": "Browse services →",
+    "bookMeeting": "Book a 30-minute consultation",
+    "quick": {
+      "lease": "Lease agreement",
+      "leaseQuery": "lease",
+      "company": "Company formation",
+      "companyQuery": "company",
+      "consultation": "Consultation",
+      "consultationQuery": "consultation"
+    },
+    "trust": {
+      "price": {
+        "title": "Price and timeline up front",
+        "text": "Know the cost and scope before you order."
+      },
+      "tracking": {
+        "title": "Follow every stage",
+        "text": "A timeline shows what is happening and what we need from you."
+      },
+      "delivery": {
+        "title": "Secure digital delivery",
+        "text": "Your documents live only in your account, with versions and dates."
+      },
+      "reviews": {
+        "title": "Reviews from completed orders",
+        "text": "Nobody can edit customer reviews."
+      }
+    },
+    "categories": {
+      "eyebrow": "Categories",
+      "title": "Start from what you need",
+      "count": "{n} services",
+      "cta": "View services →"
+    },
+    "featured": {
+      "eyebrow": "Most requested",
+      "title": "Clear prices and timelines before you order",
+      "all": "All services"
+    },
+    "consult": {
+      "eyebrow": "Legal consultations",
+      "title": "Two ways to get a lawyer’s opinion",
+      "lead": "Choose a written answer if your matter needs documents studied, or a video meeting for a direct discussion.",
+      "pickTime": "Pick a time",
+      "writeIt": "Write your question",
+      "written_consultation": {
+        "step1": "Describe the matter and attach files",
+        "step2": "Pay the consultation fee",
+        "step3": "Track the request",
+        "step4": "Read the answer securely in your account"
+      },
+      "video_consultation": {
+        "step1": "Choose a day and time",
+        "step2": "Add context and files",
+        "step3": "Pay the consultation fee",
+        "step4": "Get the meeting link in your account"
+      }
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "Four steps, each one visible to you",
+      "step1": {
+        "title": "Choose a service",
+        "text": "Browse services and read what each includes, its price and timeline."
+      },
+      "step2": {
+        "title": "Fill in the form",
+        "text": "Every service has its own form, with document uploads."
+      },
+      "step3": {
+        "title": "Pay and follow",
+        "text": "Pay securely and follow your order and the lawyer’s messages."
+      },
+      "step4": {
+        "title": "Receive and review",
+        "text": "Download the document or read the answer, accept it or ask for a revision, then rate the service."
+      }
+    },
+    "reviews": {
+      "eyebrow": "Customer reviews",
+      "title": "Reviews only after completed service",
+      "outOf5": "out of 5",
+      "count": "{n} reviews",
+      "empty": "Reviews will appear here once the first orders are completed."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Before you start",
+      "lead": "Can’t find your answer? Message us and we’ll reply within one business day.",
+      "all": "All questions"
+    }
+  },
+  "services": {
+    "startsFrom": "From {price}",
+    "newService": "New",
+    "details": "Details",
+    "detailsArrow": "Details →",
+    "viewServiceArrow": "View service →",
+    "tocLabel": "Page sections",
+    "durationNote": "The timeline starts once payment and required documents are complete.",
+    "optionalAddon": "Optional add-on: {name}",
+    "pricingNote": "Prices include professional fees and exclude government or notarisation fees.",
+    "estimatedPrice": "Estimated price",
+    "servicePrice": "Service price",
+    "duration": "Timeline",
+    "durationLabel": "Timeline:",
+    "deliveryMethod": "Delivery",
+    "optionalAddons": "Optional add-ons",
+    "total": "Total",
+    "deliveryMeet": "Google Meet",
+    "deliveryWritten": "Written answer in your account",
+    "deliveryFiles": "Files in your account",
+    "ctaMeeting": "Pick a time",
+    "ctaQuote": "Request a quote",
+    "ctaWritten": "Start consultation",
+    "ctaStart": "Start order",
+    "noteQuote": "You won’t pay now. You’ll receive a final quote in your account before paying.",
+    "notePay": "You pay after reviewing your order details. Follow every step from your account.",
+    "ratingCount": "({n} reviews)",
+    "quoteBadge": "Price on quote"
+  },
+  "sections": {
+    "about": "About the service",
+    "who": "Who it is for",
+    "included": "What’s included",
+    "deliverables": "What you receive",
+    "docs": "Required documents",
+    "steps": "How it works",
+    "duration": "Timeline",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "reviews": "Customer reviews"
+  },
+  "reviews": {
+    "starsAria": "{n} out of 5 stars",
+    "platformReply": "Oqoudi reply:",
+    "noneForService": "No reviews for this service yet. Reviews appear only after orders are completed."
+  },
+  "directory": {
+    "all": "All",
+    "allTitle": "All services",
+    "allDescription": "Legal services with clear prices and timelines for individuals and companies, plus written and video consultations.",
+    "categoriesLabel": "Service categories",
+    "searchPlaceholder": "Search by service name",
+    "priceLabel": "Price type",
+    "priceAll": "All prices",
+    "priceFixed": "Fixed price",
+    "priceQuote": "On quote",
+    "sortLabel": "Sort",
+    "sortPopular": "Most requested",
+    "sortAsc": "Price: low to high",
+    "sortDesc": "Price: high to low",
+    "resultCount": "{n} services",
+    "emptyTitle": "No matching services",
+    "emptyText": "Try another word, or request a written consultation and a lawyer will point you to the right service.",
+    "clear": "Clear search"
+  },
+  "upload": {
+    "dropTitle": "Drag files here or click to choose",
+    "limits": "{types} · up to {max} MB per file",
+    "typeNotAllowed": "“{name}” is not an allowed file type. Allowed: {types}",
+    "tooLarge": "“{name}” is larger than {max} MB",
+    "tooMany": "Maximum {max} files.",
+    "failed": "Could not upload “{name}”. Please try again.",
+    "remove": "Remove file {name}",
+    "uploading": "Uploading…"
+  },
+  "formErrors": {
+    "required": "This field is required.",
+    "requiredChoice": "Please choose a value.",
+    "requiredFile": "Please attach at least one file.",
+    "minLength": "Please write at least {min} characters.",
+    "maxLength": "Please keep it under {max} characters.",
+    "min": "The value is below the minimum ({min}).",
+    "max": "The value is above the maximum ({max}).",
+    "invalidNumber": "Enter a valid number.",
+    "invalidDate": "Enter a valid date.",
+    "invalidOption": "Invalid choice.",
+    "tooManyFiles": "Maximum {max} files.",
+    "invalidValue": "Invalid value.",
+    "email": "Enter a valid email address.",
+    "phone": "Enter a valid Egyptian mobile number, e.g. +20 100 123 4567",
+    "password": "Password must be at least 8 characters with letters and digits.",
+    "passwordMatch": "Passwords do not match."
+  },
+  "calendar": {
+    "wd0": "Sat",
+    "wd1": "Sun",
+    "wd2": "Mon",
+    "wd3": "Tue",
+    "wd4": "Wed",
+    "wd5": "Thu",
+    "wd6": "Fri"
+  },
+  "booking": {
+    "pickDay": "Choose the meeting day",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
+    "unavailable": "unavailable",
+    "legendAvailable": "Available times",
+    "legendUnavailable": "Unavailable (day off or full)",
+    "cairoTime": "All times in Cairo time",
+    "exact30": "Each slot is exactly 30 minutes",
+    "until": "until {time}",
+    "noSlots": "No available times on this day. Choose another day."
+  },
+  "request": {
+    "steps": {
+      "slot": "Time",
+      "details": "Details",
+      "send": "Submit",
+      "pay": "Payment"
+    },
+    "titleMeeting": "Book a video consultation",
+    "titleQuote": "Quote request: {service}",
+    "titleWritten": "Written legal consultation",
+    "titleService": "Order: {service}",
+    "backTo": "← Back to {service}",
+    "back": "← Back",
+    "toDetails": "Continue to details",
+    "toReview": "Continue to review",
+    "sendQuote": "Send quote request",
+    "pay": "Pay {amount}",
+    "retryPay": "Try again · {amount}",
+    "sending": "Sending…",
+    "redirecting": "Redirecting to payment…",
+    "fixFields": "Please review {n} field before continuing. | Please review {n} fields before continuing.",
+    "errorTitle": "We couldn’t complete that",
+    "savedButPaymentFailed": "Your order {order} is saved in your account as “Awaiting payment”. {reason}",
+    "quoteInfo": "You won’t pay now. A lawyer will review your request and send a final quote to your account."
+  },
+  "checkout": {
+    "summary": "Order summary",
+    "servicePrice": "Service price",
+    "snapshotNote": "Ordering as {name}. This order keeps its current form and price even if they change later.",
+    "paymentMethod": "Payment method",
+    "methods": {
+      "card": {
+        "label": "Bank card",
+        "sub": "Meeza, Visa, Mastercard"
+      },
+      "wallet": {
+        "label": "Mobile wallet",
+        "sub": "Mobile phone wallets"
+      },
+      "fawry": {
+        "label": "Fawry",
+        "sub": "Pay cash with a reference number"
+      }
+    },
+    "fawryInfo": "After confirming you get a reference number to pay at any Fawry outlet. Work starts once payment is confirmed.",
+    "hostedNotice": "You’ll be redirected to the payment provider’s secure page. We never store your card details.",
+    "reviewTitle": "Review your request",
+    "meetingMeta": "Google Meet · 30 minutes · Cairo time",
+    "attachments": "Attachments:",
+    "payTitle": "Complete payment",
+    "backToOrder": "← Back to order",
+    "failedTitle": "Payment failed",
+    "failedBody": "The issuing bank declined the payment. Nothing was charged. Try another card or payment method.",
+    "notPayableTitle": "No payment needed right now",
+    "notPayableBody": "The order is already paid, awaiting a quote, or no longer payable."
+  },
+  "confirm": {
+    "quoteTitle": "Quote request sent",
+    "meetingTitle": "Consultation booked",
+    "paidTitle": "Payment received — your order is in",
+    "pendingTitle": "Confirming payment",
+    "failedTitle": "Payment not completed",
+    "quoteLead": "A lawyer will review your request and send a final quote to your account.",
+    "paidLead": "We notified the assigned lawyer. Track your order from your account anytime.",
+    "pendingLead": "Waiting for the payment provider’s confirmation. This page updates automatically.",
+    "failedLead": "Nothing was charged. Your order {order} is saved and you can try again.",
+    "orderNumber": "Order number",
+    "service": "Service",
+    "amountPaid": "Amount paid",
+    "amount": "Amount",
+    "receipt": "Receipt number",
+    "meetingLinkPending": "Google Meet link: awaiting the lawyer. It will appear on your appointment page and you’ll be notified.",
+    "whatNext": "What happens next?",
+    "retry": "Retry payment",
+    "trackOrder": "Track order in my account →",
+    "otherServices": "Other services",
+    "next": {
+      "quote": {
+        "1": "A lawyer reviews your details and documents",
+        "2": "You receive the final quote in your account",
+        "3": "You pay and work begins"
+      },
+      "meeting": {
+        "1": "The lawyer reviews your meeting context and files",
+        "2": "The lawyer adds the Google Meet link to your appointment",
+        "3": "Join the meeting from your account at the scheduled time"
+      },
+      "written": {
+        "1": "The lawyer reviews your matter and attachments",
+        "2": "The lawyer writes the answer and attaches any documents",
+        "3": "You read the answer securely in your account"
+      },
+      "standard": {
+        "1": "The lawyer reviews your order",
+        "2": "They may ask for clarification via messages",
+        "3": "You receive the document to accept or request a revision"
+      }
+    }
+  },
+  "simulator": {
+    "banner": "Development payment simulator — no real payment happens. The result reaches the platform as a signed webhook, exactly like a real provider.",
+    "title": "Payment page (simulated)",
+    "reference": "Reference",
+    "notPending": "This attempt is no longer awaiting payment.",
+    "success": "Successful payment",
+    "failure": "Card declined"
+  },
+  "privacy": {
+    "title": "You can’t access this order",
+    "text": "This order doesn’t exist or belongs to another account. You only see your own orders and documents."
+  },
+  "portal": {
+    "nav": {
+      "label": "Client account menu",
+      "overview": "Overview",
+      "orders": "My orders",
+      "appointments": "Appointments",
+      "payments": "Payments",
+      "notifications": "Notifications"
+    },
+    "individualAccount": "Client account · Individual",
+    "companyAccount": "Client account · Company",
+    "newRequest": "New request",
+    "openDashboard": "Lawyer dashboard"
+  },
+  "dash": {
+    "title": "Lawyer dashboard",
+    "roleAdmin": "Admin",
+    "roleLawyer": "Lawyer",
+    "myClientAccount": "My client account",
+    "publicSite": "Public website",
+    "nav": {
+      "label": "Lawyer dashboard menu",
+      "overview": "Overview",
+      "requests": "Requests",
+      "calendar": "Calendar",
+      "services": "Services",
+      "pricing": "Pricing",
+      "payments": "Payments",
+      "reviews": "Reviews",
+      "settings": "Settings"
+    }
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "OQ400": "Invalid request.",
+    "OQ401": "Please sign in first.",
+    "OQ403": "You don’t have permission to do this.",
+    "OQ403_NO_ACCOUNT": "No client account is linked to you.",
+    "OQ404": "Not found.",
+    "OQ404_ORDER": "Order not found or you don’t have access.",
+    "OQ404_SERVICE": "This service is not available right now.",
+    "OQ404_DOCUMENT": "Document not found or you don’t have access.",
+    "OQ409_TRANSITION": "This action isn’t possible in the order’s current status.",
+    "OQ409_FORM_OUTDATED": "This service’s form was updated. Reload the page and fill it in again.",
+    "OQ409_SLOT_UNAVAILABLE": "That time is no longer available. Choose another.",
+    "OQ409_SLOT_TAKEN": "That time was just booked. Choose another.",
+    "OQ409_NOT_PAYABLE": "This order can’t be paid right now.",
+    "OQ409_QUOTE_PENDING": "Waiting for the final quote before payment.",
+    "OQ409_BOOKING_NOT_CONFIRMED": "The booking isn’t confirmed yet.",
+    "OQ409_RESCHEDULE_TOO_LATE": "You can’t reschedule less than 24 hours before the appointment.",
+    "OQ409_REVIEW_NOT_ELIGIBLE": "You can review only after the order is completed.",
+    "OQ409_REVIEW_EXISTS": "You already reviewed this order.",
+    "OQ409_SELF_DEMOTION": "You can’t remove your own admin role.",
+    "OQ422": "Invalid data.",
+    "OQ422_VALIDATION": "Please review the highlighted fields.",
+    "OQ422_ADDON_INVALID": "One of the selected add-ons is unavailable.",
+    "OQ422_DOCUMENT_INVALID": "One of the files is invalid. Please upload it again.",
+    "OQ422_DOCUMENT_REQUIRED": "Attach at least one file.",
+    "OQ422_SLOT_REQUIRED": "Choose the meeting time.",
+    "OQ422_MEET_URL": "The link must look like https://meet.google.com/abc-defg-hij",
+    "OQ422_AMOUNT": "Enter a valid amount.",
+    "OQ422_RATING": "Choose a rating from 1 to 5.",
+    "OQ422_FORM_EMPTY": "Add at least one field to the form before publishing.",
+    "OQ422_UPLOAD_TYPE": "File type not allowed.",
+    "OQ422_UPLOAD_SIZE": "File is too large.",
+    "OQ422_LAWYER_INVALID": "The selected lawyer is not available.",
+    "OQ429": "Too many attempts. Please wait a moment and try again.",
+    "OQ429_TOO_MANY_UPLOADS": "Too many uploads today. Try later.",
+    "OQ500": "Server error. Please try again.",
+    "OQ503_PAYMENTS": "Payments are unavailable right now. Please try later.",
+    "OQ409_SLUG_TAKEN": "This slug is already used by another service. Choose a different one."
+  },
+  "auth": {
+    "tabsLabel": "Sign in or create an account",
+    "loginTab": "Sign in",
+    "registerTab": "New account",
+    "loginTitle": "Sign in",
+    "registerTitle": "Create account",
+    "privacyNote": "Your data and documents are visible only to you and the assigned lawyer.",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 8 characters with letters and digits.",
+    "fullName": "Full name",
+    "accountType": "Account type",
+    "kind": {
+      "individual": "Individual",
+      "company": "Company"
+    },
+    "companyName": "Company name",
+    "phone": "Phone number",
+    "forgot": "Forgot your password?",
+    "signIn": "Sign in",
+    "signingIn": "Signing in…",
+    "createAccount": "Create account",
+    "creating": "Creating account…",
+    "invalidCredentials": "Incorrect email or password.",
+    "emailNotConfirmed": "Your email isn’t confirmed yet. Open the confirmation email.",
+    "resendConfirmation": "Resend confirmation email",
+    "confirmationResent": "Confirmation email sent again.",
+    "registerFailed": "We couldn’t create the account. Check your details and try again.",
+    "checkEmailBadge": "Check your inbox",
+    "checkEmailTitle": "Confirm your email",
+    "checkEmailText": "We sent a confirmation link to {email}. Open it to activate your account, then sign in.",
+    "forgotTitle": "Reset your password",
+    "forgotLead": "Enter your email and we’ll send you a link to set a new password.",
+    "sendResetLink": "Send reset link",
+    "resetSent": "If this email is registered, you’ll receive a reset link within minutes.",
+    "backToLogin": "Back to sign in",
+    "resetTitle": "Set a new password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "savePassword": "Save password",
+    "resetDone": "Password changed. Taking you to your account…",
+    "resetFailed": "Couldn’t change the password. Request a new link.",
+    "samePassword": "Choose a password different from your current one.",
+    "resetLinkInvalid": "The reset link is invalid or expired.",
+    "confirmTitle": "Email confirmation",
+    "confirming": "Confirming your email…",
+    "confirmFailed": "The confirmation link is invalid or expired. Sign in to request a new one."
+  },
+  "faqPage": {
+    "title": "Everything you need to know",
+    "noAnswer": "Didn’t find your answer?"
+  },
+  "contactPage": {
+    "title": "We reply within one business day",
+    "lead": "General enquiries only. To order a service or consultation, use the service page so your details reach the lawyer securely.",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Working hours",
+    "address": "Address",
+    "name": "Name",
+    "message": "Your message",
+    "send": "Send message",
+    "sentBadge": "Sent",
+    "sentTitle": "Thank you for reaching out",
+    "sentText": "We received your message and will reply by email or phone within one business day."
+  },
+  "status": {
+    "new": {
+      "label": "New request",
+      "client": "Request received",
+      "hint": "We received your request. A lawyer will review it and send a quote if needed."
+    },
+    "awaiting_payment": {
+      "label": "Awaiting payment",
+      "client": "Awaiting payment",
+      "hint": "Complete payment so the lawyer can start reviewing your request."
+    },
+    "under_review": {
+      "label": "Under review",
+      "client": "Under review",
+      "hint": "The lawyer is reviewing your details and attachments. Nothing needed from you."
+    },
+    "in_progress": {
+      "label": "In progress",
+      "client": "Work in progress",
+      "hint": "The lawyer is working on your order. We’ll notify you on delivery."
+    },
+    "awaiting_info": {
+      "label": "Awaiting customer info",
+      "client": "Information needed",
+      "hint": "The lawyer asked for more information. Check the messages and reply."
+    },
+    "delivered": {
+      "label": "Delivered",
+      "client": "Delivered — your decision",
+      "hint": "Review the delivered document, then accept it or request a revision."
+    },
+    "revision": {
+      "label": "Revision requested",
+      "client": "Revision in progress",
+      "hint": "The lawyer received your revision request and is preparing a new version."
+    },
+    "completed": {
+      "label": "Completed",
+      "client": "Completed",
+      "hint": "The service is complete. Your files remain available."
+    },
+    "cancelled": {
+      "label": "Cancelled",
+      "client": "Cancelled",
+      "hint": "This order was cancelled."
+    }
+  },
+  "pay": {
+    "prefix": "Payment:",
+    "unpaid": "Unpaid",
+    "failed": "Payment failed",
+    "paid": "Paid",
+    "refunded": "Refunded",
+    "partially_refunded": "Partially refunded"
+  },
+  "flow": {
+    "aria": "Order stage: {step}",
+    "payment": "Payment",
+    "review": "Review",
+    "work": "Work",
+    "delivery": "Delivery",
+    "completion": "Completion"
+  },
+  "actors": {
+    "customer": "Customer",
+    "lawyer": "Lawyer",
+    "admin": "Platform admin",
+    "system": "System"
+  },
+  "events": {
+    "staffOnly": "Internal",
+    "statusChanged": "Status changed to “{status}”",
+    "receipt": "Receipt {n}",
+    "order_created": "Order created",
+    "order_assigned": "Assigned to a lawyer",
+    "order_quote_issued": "Quote issued",
+    "payment_started": "Payment attempt started",
+    "payment_succeeded": "Payment successful",
+    "payment_failed": "Payment failed",
+    "delivery_published": "Version {version} delivered",
+    "response_published": "The lawyer sent the written answer",
+    "booking_confirmed": "Appointment confirmed",
+    "booking_rescheduled": "Appointment rescheduled",
+    "booking_conflict": "Slot conflict after the hold expired",
+    "meeting_link_published": "The lawyer added the meeting link",
+    "meeting_link_updated": "The lawyer updated the meeting link",
+    "review_submitted": "Customer left a review",
+    "refund_requested": "Refund requested"
+  },
+  "notifications": {
+    "order_quote_requested": "New quote request: {service} ({order})",
+    "order_quote_issued": "Your quote for “{service}” is ready: {amount}. You can pay now.",
+    "payment_succeeded": "Payment received for “{service}”. Review has started.",
+    "payment_failed": "Payment failed for “{service}”. You can try again.",
+    "payment_needs_refund": "A payment on order {order} needs a refund.",
+    "order_assigned": "New order assigned to you: {service} ({order})",
+    "order_unassigned": "Paid order without an assigned lawyer: {order}",
+    "order_status_changed": "Update on your order {order}: {status}",
+    "order_info_requested": "The lawyer needs more information on “{service}”. Check the messages.",
+    "order_info_provided": "The customer sent the requested information on {order}.",
+    "order_message_received": "New message on order {order}",
+    "order_delivered": "Version {version} of “{service}” was delivered. Review it, then accept or request a revision.",
+    "order_revision_requested": "The customer requested a revision on {order}.",
+    "order_accepted": "The customer accepted the delivery; order {order} is complete.",
+    "order_completed": "Your order “{service}” is complete. We’d love your review.",
+    "order_response_published": "The lawyer answered your consultation “{service}”. Read it in your account.",
+    "order_cancelled": "Order {order} was cancelled.",
+    "booking_confirmed": "Your video consultation on {when} is confirmed. The link will appear here once added.",
+    "booking_rescheduled": "Your consultation moved to {when}.",
+    "booking_conflict": "Slot conflict after payment on order {order}. Rescheduling needed.",
+    "meeting_link_published": "Your meeting link for {when} is now available in your account.",
+    "review_submitted": "New review {rating}/5 on {service}."
+  },
+  "messages": {
+    "empty": "No messages yet.",
+    "placeholder": "Write your message…",
+    "attach": "Attach files",
+    "hideAttach": "Hide attachments"
+  },
+  "documents": {
+    "downloadAria": "Download {name}"
+  },
+  "account": {
+    "greeting": "Hello, {name}",
+    "actionsTitle": "Needs your action ({n})",
+    "cta": {
+      "awaiting_payment": "Complete payment",
+      "delivered": "Review delivery",
+      "awaiting_info": "Reply to lawyer"
+    },
+    "activeOrders": "Active orders",
+    "noActive": "No active orders right now.",
+    "nextMeeting": "Next appointment",
+    "meetingMeta": "Video consultation · 30 minutes",
+    "joinMeeting": "Join meeting",
+    "linkPending": "The meeting link is waiting for the lawyer.",
+    "meetingDetailsArrow": "Appointment details →",
+    "recentNotifications": "Latest notifications",
+    "noNotifications": "No notifications yet.",
+    "orders": {
+      "title": "My orders",
+      "tabsLabel": "Filter orders",
+      "tabs": {
+        "active": "Active",
+        "completed": "Completed",
+        "all": "All"
+      },
+      "emptyTitle": "No orders here",
+      "emptyText": "When you order a service it will appear here with its status and updates.",
+      "browse": "Browse services"
+    },
+    "order": {
+      "back": "← My orders",
+      "created": "Created {date}",
+      "tabsLabel": "Order sections",
+      "tabs": {
+        "documents": "Documents",
+        "messages": "Messages",
+        "messagesCount": "Messages ({n})",
+        "details": "Order details",
+        "timeline": "History"
+      },
+      "calloutAction": "Needed from you: {status}",
+      "calloutNow": "What’s happening: {status}",
+      "quotePending": "The lawyer will review your request and send a final quote to your account. You won’t pay before receiving it.",
+      "quoteReady": "Your final quote is ready: {amount}. Complete payment to start.",
+      "cancelReason": "Cancellation reason: {reason}",
+      "accept": "Accept delivery",
+      "revise": "Request revision",
+      "pay": "Complete payment · {amount}",
+      "retryPay": "Retry payment · {amount}",
+      "rate": "Rate the service",
+      "yourRating": "Your rating:",
+      "cancel": "Cancel order",
+      "payFailed": "The last payment attempt failed: declined by the issuing bank. Nothing was charged.",
+      "version": "Version {v}",
+      "latest": "Latest",
+      "deliveredAt": "Delivered {date}",
+      "lawyerNote": "Lawyer’s note: {note}",
+      "noDocsTitle": "No documents delivered yet",
+      "noDocs": {
+        "standard": "The document will appear here as soon as the lawyer uploads it, and you’ll be notified.",
+        "written": "The lawyer’s answer will appear at the top of this page once sent.",
+        "meeting": "Video consultations have no documents; the lawyer may attach a summary afterwards."
+      },
+      "myFiles": "My attachments",
+      "noFiles": "You didn’t attach any files.",
+      "snapshotNote": "This order keeps the service form and price that applied when you submitted it; later service changes don’t affect it.",
+      "messagesHint": "Your reply returns the order to review."
+    },
+    "summary": {
+      "title": "Order summary",
+      "service": "Service",
+      "amount": "Amount",
+      "payment": "Payment",
+      "receipt": "Receipt",
+      "lawyer": "Assigned lawyer",
+      "lawyerPending": "Assigned after payment",
+      "duration": "Timeline",
+      "created": "Ordered on",
+      "privacy": "This order’s data and documents are visible only to you and the assigned lawyer."
+    },
+    "response": {
+      "title": "Lawyer’s answer",
+      "visibility": "Visible only to you · {date}",
+      "by": "Prepared by {name}"
+    },
+    "meeting": {
+      "title": "Appointment details",
+      "date": "Date",
+      "time": "Time (Cairo)",
+      "duration": "Duration",
+      "exact": "Exactly 30 minutes",
+      "linkReady": "Google Meet link ready",
+      "join": "Join meeting",
+      "copy": "Copy",
+      "copied": "Meeting link copied",
+      "pendingTitle": "The meeting link is waiting for the lawyer",
+      "pendingText": "The link will appear here and you’ll be notified. Nothing needed from you now.",
+      "reschedule": "Reschedule",
+      "rescheduleNote": "Available until 24 hours before the appointment",
+      "tooLate": "Rescheduling isn’t possible less than 24 hours before. Message the lawyer if you need a change.",
+      "state": {
+        "cancelled": "Cancelled",
+        "completed": "Finished",
+        "ready": "Confirmed · link ready",
+        "pending": "Confirmed · awaiting link",
+        "held": "Held · awaiting payment"
+      }
+    },
+    "modals": {
+      "reviseTitle": "Request a revision",
+      "reviseText": "Describe clearly what to change. A new version will appear on this page and the previous one is kept.",
+      "reviseLabel": "Revision notes",
+      "revisePlaceholder": "e.g. Please change the notice period in clause 7 to 60 days.",
+      "reviseSubmit": "Send revision request",
+      "cancelTitle": "Cancel this order?",
+      "cancelText": "The order will be cancelled and this can’t be undone. Nothing has been charged for this order.",
+      "cancelReason": "Reason (optional)",
+      "cancelKeep": "Keep order",
+      "cancelConfirm": "Confirm cancellation",
+      "rescheduleTitle": "Reschedule appointment",
+      "rescheduleText": "Choose a new time. Your current slot is released once you confirm.",
+      "rescheduleConfirm": "Confirm time",
+      "rateTitle": "Rate the service",
+      "rateQuestion": "How was your experience with “{service}”?",
+      "rateHint1": "Poor",
+      "rateHint2": "Below expectations",
+      "rateHint3": "Acceptable",
+      "rateHint4": "Good",
+      "rateHint5": "Excellent",
+      "rateRequired": "Choose a number of stars.",
+      "rateComment": "Your comments (optional)",
+      "rateLater": "Later",
+      "ratePublish": "Publish review"
+    },
+    "toasts": {
+      "accepted": "Delivery accepted — the order is complete.",
+      "revisionSent": "Revision request sent to the lawyer.",
+      "cancelled": "Order cancelled.",
+      "rescheduled": "Your consultation was rescheduled.",
+      "reviewed": "Thanks for your review. It’s now on the service page."
+    },
+    "appointments": {
+      "title": "Appointments",
+      "upcoming": "Upcoming",
+      "past": "Past",
+      "emptyTitle": "No appointments",
+      "empty": "Book a 30-minute video consultation from the consultations page.",
+      "meta": "Video consultation · 30 minutes",
+      "book": "Book a consultation"
+    },
+    "payments": {
+      "title": "Payments & receipts",
+      "totalPaid": "Total paid",
+      "cols": {
+        "order": "Order",
+        "service": "Service",
+        "date": "Date",
+        "method": "Method",
+        "amount": "Amount",
+        "status": "Status",
+        "receipt": "Receipt"
+      },
+      "status": {
+        "initiated": "Started",
+        "pending": "Confirming",
+        "succeeded": "Successful",
+        "failed": "Failed",
+        "expired": "Expired",
+        "cancelled": "Cancelled"
+      },
+      "completePay": "Complete payment",
+      "empty": "No payments yet.",
+      "note": "Receipts are informational. Tax e-invoices will be issued once accounting is integrated."
+    },
+    "notifications": {
+      "markAll": "Mark all as read",
+      "empty": "No notifications."
+    }
+  },
+  "dashOps": {
+    "allRequests": "All requests",
+    "noLink": "No link",
+    "linkAdded": "Link added",
+    "addLink": "Add link",
+    "overdue": "Overdue",
+    "noOrders": "No orders yet.",
+    "noMatches": "No orders match the current filters.",
+    "count": "{n} orders",
+    "table": {
+      "order": "Order",
+      "customer": "Customer",
+      "service": "Service",
+      "date": "Date",
+      "status": "Status",
+      "payment": "Payment",
+      "amount": "Amount"
+    },
+    "filters": {
+      "allPayments": "All payment statuses",
+      "search": "Search by order number, customer or service"
+    },
+    "attentionTitle": "Needs your attention",
+    "attentionEmpty": "Nothing pending right now.",
+    "soonTitle": "Today’s and tomorrow’s consultations",
+    "soonEmpty": "No upcoming consultations.",
+    "recentTitle": "Latest orders",
+    "kpi": {
+      "new": "New requests",
+      "newSub": "Need review",
+      "progress": "In progress",
+      "progressSub": "{n} revision requests",
+      "customer": "Waiting on customer",
+      "customerSub": "{n} failed payments",
+      "completed": "Completed",
+      "completedSub": "This month",
+      "today": "Today’s consultations",
+      "links": "Meetings without link",
+      "linksSub": "Add a Google Meet link",
+      "linksDone": "All links added",
+      "revenue": "Revenue collected",
+      "revenueSub": "This month"
+    },
+    "att": {
+      "link": "Add the meeting link: {customer} — {when}",
+      "revision": "Revision requested by {customer} on {service}",
+      "quote": "New quote request: {service} — {customer}",
+      "review": "Awaiting review: {service} — {customer}",
+      "written": "Written consultation awaiting answer — {customer}"
+    },
+    "backToRequests": "← Requests",
+    "changeStatus": "Change status",
+    "apply": "Apply",
+    "requestInfo": "Request more information",
+    "requestInfoHelp": "The message is sent to the customer and the status becomes “Awaiting customer info”. It returns to “Under review” automatically when they reply.",
+    "requestInfoLabel": "What do you need from the customer?",
+    "sendAndRequest": "Send and request info",
+    "deliverables": "Deliverables",
+    "versionsCount": "{n} versions",
+    "noDeliveries": "No version delivered yet.",
+    "versionN": "Version {n}",
+    "uploadVersion": "Upload version {n} of the document",
+    "uploadHint": "PDF or DOCX · visible to the customer on delivery · earlier versions are kept",
+    "noteForCustomer": "Note for the customer (optional)",
+    "deliverVersion": "Deliver version {n} to the customer",
+    "awaitingDecision": "Waiting for the customer to accept or request a revision.",
+    "writtenReply": "Written answer",
+    "responseSent": "Sent to the customer {when}",
+    "replyLabel": "Answer",
+    "replyPlaceholder": "Write the legal analysis, the customer’s options and the recommended steps…",
+    "replyLength": "{n} characters",
+    "attachDocument": "Attach a document (optional)",
+    "sendReply": "Send answer to customer",
+    "meetingTitle": "Appointment and meeting link",
+    "linkPublished": "Published to customer",
+    "linkMissing": "Link not added",
+    "day": "Day",
+    "timeCairo": "Time (Cairo)",
+    "duration": "Duration",
+    "thirtyMinutes": "30 minutes",
+    "bookingNotConfirmed": "The booking isn’t confirmed yet (awaiting payment). Add the link once it is confirmed.",
+    "noBooking": "No booking is linked to this order.",
+    "meetStep1": "Create a meeting in",
+    "meetStep2": "Paste the link here",
+    "meetStep3": "Save and publish to the customer",
+    "publishLink": "Save and publish",
+    "updateLink": "Update link",
+    "manualLinkNote": "Automatic link creation via Google Calendar is a future phase. Links are added manually for now.",
+    "markCompleted": "Mark as completed",
+    "reschedule": "Reschedule",
+    "customer": "Customer",
+    "ordersCount": "{n} orders",
+    "answers": "Form answers",
+    "formVersionLine": "Form version {v} · price at order time {price}",
+    "customerFiles": "Customer files",
+    "noFiles": "No attachments.",
+    "fromMessages": "From messages",
+    "notesTitle": "Internal notes",
+    "notesHint": "Not visible to the customer.",
+    "addNote": "Add a note…",
+    "adminActions": "Admin actions",
+    "issueQuote": "Issue quote",
+    "quoteAmount": "Final amount (EGP)",
+    "quoteNote": "Note for the customer (optional)",
+    "sendQuote": "Send quote",
+    "assignLawyer": "Responsible lawyer",
+    "unassigned": "Unassigned",
+    "assign": "Assign",
+    "cancelOrder": "Cancel order",
+    "cancelConfirm": "The order will be cancelled and the customer notified. If paid, a refund request is recorded.",
+    "cancelReason": "Reason",
+    "cancelRefundNote": "Paid order: a refund request will be created and processed through the payment provider.",
+    "messagesTitle": "Messages with the customer",
+    "timelineTitle": "Activity log",
+    "toast": {
+      "status": "Order status updated",
+      "infoRequested": "Information request sent",
+      "delivered": "Version delivered to the customer",
+      "responseSent": "Answer sent to the customer",
+      "linkSaved": "Meeting link published",
+      "rescheduled": "Appointment rescheduled",
+      "completed": "Consultation completed",
+      "noteAdded": "Note saved",
+      "quoteSent": "Quote sent to the customer",
+      "assigned": "Order assigned",
+      "cancelled": "Order cancelled"
+    },
+    "cal": {
+      "title": "Consultation calendar",
+      "prevWeek": "Previous week",
+      "nextWeek": "Next week",
+      "legendLinked": "Booked · link added",
+      "legendNoLink": "Booked · no link",
+      "legendUnavailable": "Unavailable",
+      "blockedDay": "Unavailable day",
+      "dayOff": "Day off",
+      "blocked": "Blocked",
+      "held": "Temporary hold",
+      "noHours": "Working hours are not set yet.",
+      "pendingLinks": "Meetings without a link",
+      "allLinked": "All upcoming meetings have links.",
+      "blockedTitle": "Unavailable days and times",
+      "noBlocked": "No blocked days this week.",
+      "manageHours": "Manage working hours and blocked days"
+    }
+  },
+  "admin": {
+    "common": {
+      "arabic": "Arabic",
+      "english": "English (optional)",
+      "egp": "EGP",
+      "remove": "Remove",
+      "up": "Move up",
+      "down": "Move down"
+    },
+    "kinds": {
+      "standard": "Legal service",
+      "written_consultation": "Written consultation",
+      "video_consultation": "Video consultation"
+    },
+    "status": {
+      "published": "Published",
+      "draft": "Draft",
+      "archived": "Archived"
+    },
+    "roles": {
+      "customer": "Customer",
+      "lawyer": "Lawyer",
+      "admin": "Admin"
+    },
+    "issues": {
+      "invalid": "Invalid value",
+      "required": "This field is required",
+      "too_long": "Text is too long",
+      "price": "Enter a valid EGP amount (e.g. 600 or 600.50)",
+      "invalid_slug": "Lowercase letters, digits and dashes only, e.g. contract-drafting",
+      "slug_taken": "This slug is already taken",
+      "consultation_fixed": "Consultations are fixed-price only",
+      "quote_estimate": "Enter an estimate greater than zero",
+      "quote_no_addons": "Quote-based services can't have paid add-ons",
+      "meeting_duration": "Choose the meeting duration",
+      "sections_unique": "Duplicate section",
+      "time_range": "End time must be after start time",
+      "invalid_section_about": "“About the service” is enabled but empty",
+      "invalid_section_faq": "FAQ content is incomplete",
+      "invalid_section_who": "Invalid section content",
+      "invalid_section_included": "Invalid section content",
+      "invalid_section_deliverables": "Invalid section content",
+      "invalid_section_docs": "Invalid section content",
+      "invalid_section_steps": "Invalid section content"
+    },
+    "issuePaths": {
+      "slug": "Slug",
+      "title": "Service name",
+      "shortDescription": "Short description",
+      "deliveryEstimate": "Timeline",
+      "basePriceMinor": "Price",
+      "pricingType": "Pricing type",
+      "addons": "Add-ons",
+      "sections": "Page sections",
+      "primaryCategoryId": "Category",
+      "categoryIds": "Categories",
+      "meetingDurationMinutes": "Meeting duration",
+      "kind": "Service type"
+    },
+    "services": {
+      "new": "+ New service",
+      "filter": "Filter services",
+      "tabs": {
+        "all": "All",
+        "published": "Published",
+        "draft": "Drafts",
+        "archived": "Archived"
+      },
+      "cols": {
+        "service": "Service",
+        "category": "Category",
+        "price": "Price",
+        "sections": "Sections",
+        "form": "Form",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "unpublishedDraft": "Unpublished draft pending",
+      "formCell": "Version {v} · {n} fields",
+      "archive": "Archive",
+      "restore": "Restore as draft",
+      "empty": "No services in this tab."
+    },
+    "editor": {
+      "back": "← Services",
+      "newTitle": "New service",
+      "unsaved": "Unsaved changes",
+      "viewPage": "View page",
+      "unpublish": "Unpublish",
+      "saveDraft": "Save as draft",
+      "saveChanges": "Save changes",
+      "publish": "Publish",
+      "tabsLabel": "Service editor sections",
+      "tabs": {
+        "basics": "Basic information",
+        "pricing": "Pricing",
+        "sections": "Page sections",
+        "form": "Request form"
+      },
+      "liveNote": "This service is live: changes to basics, pricing and sections are visible as soon as you save; request-form changes go live as a new version when you press “Publish”.",
+      "fixErrors": "Please review the following before saving.",
+      "saved": "Saved",
+      "published": "Published",
+      "statusChanged": "Service status updated"
+    },
+    "basics": {
+      "title": "Service name",
+      "slug": "Slug",
+      "slugHint": "Used in the page URL: /service/…",
+      "kind": "Service type",
+      "kindLocked": "The type can't change after the service is created.",
+      "primaryCategory": "Primary category",
+      "extraCategories": "Also listed in",
+      "short": "Short description",
+      "duration": "Timeline",
+      "durationPlaceholder": "e.g. 3–5 business days",
+      "meetingDuration": "Meeting duration",
+      "minutes": "{n} minutes",
+      "sortOrder": "Display order",
+      "visibility": "Visibility",
+      "featured": "Show on the home page"
+    },
+    "pricing": {
+      "type": "Pricing type",
+      "fixed": "Fixed price",
+      "fixedSub": "Customer pays when ordering",
+      "quote": "On quote",
+      "quoteSub": "A final quote is sent after review",
+      "consultationFixed": "Consultations are always fixed-price.",
+      "priceLabel": "Price (EGP)",
+      "startsFromLabel": "“Starts from” estimate (EGP)",
+      "addons": "Optional add-ons",
+      "addonName": "Add-on name",
+      "addonPrice": "Price",
+      "addAddon": "+ Add-on",
+      "quoteNoAddons": "Quote-based services have no paid add-ons; the quote covers everything.",
+      "snapshotNote": "Price changes apply to new orders only. Existing orders keep the price they were placed at.",
+      "preview": "Customer preview"
+    },
+    "sections": {
+      "title": "Service page sections",
+      "lead": "Enable the sections that fit this service and order them with the arrows.",
+      "toggle": "Show section {name}",
+      "contentOf": "Section content: {name}",
+      "hiddenNote": "This section is currently hidden from customers.",
+      "paragraph": "Description paragraph",
+      "item": "Item",
+      "addItem": "+ Add item",
+      "question": "Question",
+      "answer": "Answer",
+      "addQuestion": "+ Add question",
+      "removeQuestion": "Remove question",
+      "auto": {
+        "duration": "Shows the “Timeline” value from basic information.",
+        "pricing": "Built automatically from the price and add-ons.",
+        "reviews": "Shows this service’s published customer reviews automatically; they can’t be edited."
+      }
+    },
+    "fieldTypes": {
+      "text": "Short text",
+      "textarea": "Long text",
+      "select": "Dropdown",
+      "radio": "Single choice",
+      "checkbox": "Checkboxes",
+      "multiselect": "Multi-select",
+      "number": "Number",
+      "date": "Date",
+      "file": "File upload",
+      "section": "Section heading",
+      "help": "Help text"
+    },
+    "form": {
+      "fieldTypes": "Field types",
+      "paletteHint": "Click to add after the selected field",
+      "formOf": "Request form “{name}”",
+      "fieldsCount": "{n} fields",
+      "mode": "View mode",
+      "build": "Build",
+      "preview": "Live preview",
+      "publishedVersion": "Published version: {n}",
+      "noPublished": "No published version",
+      "draftPending": "Unpublished draft",
+      "discardDraft": "Discard draft",
+      "empty": "The form is empty. Add a field from the list.",
+      "duplicate": "Duplicate",
+      "fieldSettings": "Field settings",
+      "selectField": "Select a field to edit its settings.",
+      "typeIs": "Type: {type}",
+      "fieldLabel": "Field label",
+      "sectionTitle": "Section title",
+      "helpText": "Text",
+      "placeholder": "Placeholder",
+      "help": "Help text",
+      "sectionHelp": "Section description",
+      "required": "Required field",
+      "options": "Options",
+      "option": "Option",
+      "addOption": "+ Option",
+      "removeOption": "Remove option",
+      "minLength": "Minimum characters",
+      "maxLength": "Maximum characters",
+      "min": "Minimum value",
+      "max": "Maximum value",
+      "accept": "Allowed file types",
+      "maxSize": "Max size (MB)",
+      "maxFiles": "Max files",
+      "optionsCount": "{n} options",
+      "minChars": "min {n} characters",
+      "testValidation": "Test validation",
+      "previewOk": "All fields are valid.",
+      "previewErrors": "{n} errors — check the highlighted fields.",
+      "invalid": "The form settings are incomplete: check Arabic labels, options for choice fields, and at least one input field.",
+      "versionNote": "Publishing makes this form version {n}. Earlier orders keep the form they were submitted with and their answers unchanged."
+    },
+    "pricingPage": {
+      "save": "Save prices",
+      "saved": "Prices saved",
+      "note": "Prices in Egyptian pounds. Changes apply to new orders only and never alter existing orders.",
+      "type": "Type",
+      "price": "Price (EGP)",
+      "addons": "Add-ons",
+      "addonsCount": "{n} add-ons",
+      "consultationFee": "Consultation fee",
+      "details": "Add-ons & details"
+    },
+    "payments": {
+      "kpi": {
+        "collected": "Collected",
+        "awaiting": "Awaiting payment",
+        "refunded": "Refunded",
+        "refundRequests": "Refund requests",
+        "failed": "Failed attempts"
+      },
+      "filter": "Filter by status",
+      "status": {
+        "all": "All",
+        "succeeded": "Succeeded",
+        "failed": "Failed",
+        "pending": "Pending",
+        "cancelled": "Cancelled"
+      },
+      "attempt": {
+        "initiated": "Started",
+        "pending": "Awaiting provider",
+        "succeeded": "Succeeded",
+        "failed": "Failed",
+        "expired": "Expired",
+        "cancelled": "Cancelled"
+      },
+      "cols": {
+        "receipt": "Transaction",
+        "order": "Order",
+        "customer": "Customer",
+        "method": "Method",
+        "date": "Date",
+        "amount": "Amount",
+        "status": "Status"
+      },
+      "simulator": "simulated",
+      "empty": "No transactions.",
+      "footnote": "Payment results are recorded only from verified provider callbacks. Live gateway integration and e-invoicing are a later milestone."
+    },
+    "reviews": {
+      "average": "Average rating",
+      "immutable": "Customer reviews can’t be edited or deleted by staff. You can only reply publicly.",
+      "empty": "No reviews yet.",
+      "yourReply": "Your reply:",
+      "editReply": "Edit reply",
+      "reply": "Reply",
+      "placeholder": "Write a courteous reply shown under the review…",
+      "publishReply": "Publish reply",
+      "replySaved": "Reply published"
+    },
+    "settings": {
+      "tabsLabel": "Settings sections",
+      "tabs": {
+        "contact": "Platform details",
+        "hours": "Working hours",
+        "blocked": "Blocked dates",
+        "booking": "Booking settings",
+        "users": "Users & roles"
+      },
+      "saved": "Saved"
+    },
+    "hours": {
+      "title": "Working hours & consultation availability",
+      "lead": "Available hours are split automatically into {n}-minute slots (Cairo time).",
+      "from": "From",
+      "to": "To",
+      "slots": "{n} slots",
+      "off": "Day off"
+    },
+    "days": {
+      "d0": "Sunday",
+      "d1": "Monday",
+      "d2": "Tuesday",
+      "d3": "Wednesday",
+      "d4": "Thursday",
+      "d5": "Friday",
+      "d6": "Saturday"
+    },
+    "blocked": {
+      "title": "Blocked dates & times",
+      "lead": "Blocked days or ranges can't be booked. Existing bookings are not affected.",
+      "empty": "No upcoming blocked dates.",
+      "wholeDay": "Whole day",
+      "date": "Date",
+      "scope": "Scope",
+      "reason": "Reason",
+      "add": "Block"
+    },
+    "booking": {
+      "title": "Consultation booking rules",
+      "slot": "Slot length (minutes)",
+      "lead": "Minimum notice (minutes)",
+      "horizon": "Booking horizon (days)",
+      "hold": "Hold during payment (minutes)",
+      "assignmentTitle": "Order assignment",
+      "assignmentLead": "Paid orders are assigned to the default lawyer, or to the least busy lawyer if none is set.",
+      "defaultLawyer": "Default lawyer",
+      "autoAssign": "Automatic (least busy)"
+    },
+    "users": {
+      "title": "Users & roles",
+      "lead": "Lawyer and admin roles are granted only here and every change is audited. You can't remove your own admin role.",
+      "search": "Search by name or email",
+      "name": "Name",
+      "roles": "Roles",
+      "lawyer": "Lawyer",
+      "admin": "Admin",
+      "toggleRole": "{role} role for {name}",
+      "updated": "Roles updated"
+    }
+  }
+}
