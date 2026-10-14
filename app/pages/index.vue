@@ -32,19 +32,7 @@ useSeoMeta({
 
 <template>
   <div>
-    <section class="hero">
-      <h1 class="sr-only">{{ t('home.h1') }}</h1>
-      <img
-        src="/brand/oqoudi-cover.png"
-        :alt="t('home.coverAlt')"
-        class="cover"
-        width="1600"
-        height="726"
-        fetchpriority="high"
-      >
-    </section>
-
-    <HomeSearchCard />
+    <HomeHero />
     <HomeTrustStrip />
     <HomeCategories :categories="categories.data.value" :services="services.data.value" />
 
@@ -83,8 +71,6 @@ useSeoMeta({
 </template>
 
 <style scoped>
-.hero { background: var(--footer-900); position: relative; }
-.cover { display: block; width: 100%; max-width: 1600px; margin: 0 auto; aspect-ratio: 4128 / 1872; object-fit: cover; height: auto; }
 .section { padding-top: clamp(48px, 8vw, 96px); }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px; }
 .faq-section {

@@ -53,8 +53,21 @@
   "home": {
     "metaTitle": "Oqoudi — Egyptian contracts and legal services",
     "metaDescription": "Order contract drafting, reviews or a legal consultation from lawyers in Egypt at a published price and timeline, and track it until delivery.",
-    "h1": "Oqoudi — the Egyptian contracts and legal services platform",
-    "coverAlt": "Oqoudi — the Egyptian contracts and legal services platform. Secure, precise documentation of your rights and business.",
+    "hero": {
+      "eyebrow": "Oqoudi · legal services with upfront price and timeline",
+      "title": "The Egyptian contracts & legal services platform",
+      "tagline": "Secure, precise documentation of your rights and business",
+      "visualLabel": "Example of a lease agreement delivered by a lawyer on the platform, with its order status and stages",
+      "doc": {
+        "kind": "Residential lease agreement",
+        "clause1": "Clause 1 — Subject of the agreement",
+        "clause2": "Clause 2 — Term and rent",
+        "party1": "Landlord",
+        "party2": "Tenant"
+      },
+      "delivered": "Delivered",
+      "version": "Version {n}"
+    },
     "lead": "Choose a service, fill in its form, pay securely, then follow the lawyer’s work step by step and receive your contract or answer in your account.",
     "searchPlaceholder": "Search services: lease, company formation, legal notice…",
     "searchLabel": "Search services",
