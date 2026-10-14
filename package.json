@@ -1,0 +1,48 @@
+{
+  "name": "oqoudi",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest run --project unit",
+    "test:integration": "vitest run --project integration",
+    "test:e2e": "playwright test",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "db:reset": "supabase db reset",
+    "db:types": "supabase gen types typescript --local > shared/types/database.types.ts",
+    "db:seed-demo": "node scripts/seed-demo.ts"
+  },
+  "dependencies": {
+    "@lucide/vue": "^1.56.0",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@nuxtjs/supabase": "^2.0.10",
+    "@pinia/nuxt": "^1.0.2",
+    "@supabase/supabase-js": "^2.117.3",
+    "h3": "^1.15.11",
+    "nuxt": "^4.6.1",
+    "pinia": "^4.0.3",
+    "vue": "^3.5.44",
+    "vue-router": "^5.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.17.0",
+    "@nuxt/fonts": "^1.0.1",
+    "@playwright/test": "^1.64.0",
+    "@supabase/ssr": "^0.12.7",
+    "@types/pg": "^8.23.1",
+    "eslint": "^9.39.0",
+    "pg": "^8.23.1",
+    "supabase": "^2.120.0",
+    "typescript": "~5.9.3",
+    "vitest": "^5.0.4",
+    "vue-tsc": "^3.3.13"
+  }
+}
