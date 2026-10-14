@@ -1,0 +1,63 @@
+/**
+ * Stable application error codes raised by SQL business functions
+ * (`private.fail('OQ…')`) and by server routes. The client maps them to
+ * i18n keys `errors.<code>`.
+ */
+export const APP_ERROR_STATUS: Record<string, number> = {
+  OQ400: 400,
+  OQ401: 401,
+  OQ403: 403,
+  OQ403_NO_ACCOUNT: 403,
+  OQ404: 404,
+  OQ404_ORDER: 404,
+  OQ404_SERVICE: 404,
+  OQ404_DOCUMENT: 404,
+  OQ404_REVIEW: 404,
+  OQ404_USER: 404,
+  OQ404_SETTING: 404,
+  OQ409_TRANSITION: 409,
+  OQ409_FORM_OUTDATED: 409,
+  OQ409_FORM_VERSION_IMMUTABLE: 409,
+  OQ409_SLOT_UNAVAILABLE: 409,
+  OQ409_SLOT_TAKEN: 409,
+  OQ409_NOT_PAYABLE: 409,
+  OQ409_QUOTE_PENDING: 409,
+  OQ409_PAYMENT_STATE: 409,
+  OQ409_BOOKING_NOT_CONFIRMED: 409,
+  OQ409_RESCHEDULE_TOO_LATE: 409,
+  OQ409_REVIEW_NOT_ELIGIBLE: 409,
+  OQ409_REVIEW_EXISTS: 409,
+  OQ409_SELF_DEMOTION: 409,
+  OQ409_SLUG_TAKEN: 409,
+  OQ422: 422,
+  OQ422_VALIDATION: 422,
+  OQ422_ADDON_INVALID: 422,
+  OQ422_DOCUMENT_INVALID: 422,
+  OQ422_DOCUMENT_REQUIRED: 422,
+  OQ422_DOCUMENT_KIND: 422,
+  OQ422_SLOT_REQUIRED: 422,
+  OQ422_SLOT_NOT_ALLOWED: 422,
+  OQ422_MEET_URL: 422,
+  OQ422_AMOUNT: 422,
+  OQ422_RATING: 422,
+  OQ422_FORM_EMPTY: 422,
+  OQ422_LAWYER_INVALID: 422,
+  OQ422_ROLE: 422,
+  OQ422_UPLOAD_TYPE: 422,
+  OQ422_UPLOAD_SIZE: 422,
+  OQ422_USE_PUBLISH: 422,
+  OQ429: 429,
+  OQ429_TOO_MANY_UPLOADS: 429,
+  OQ500: 500,
+  OQ503_PAYMENTS: 503,
+}
+
+export function statusForCode(code: string): number {
+  return APP_ERROR_STATUS[code] ?? (code.startsWith('OQ4') ? Number(code.slice(2, 5)) || 400 : 500)
+}
+
+/** Shape returned in `data` of every API error. */
+export interface ApiErrorData {
+  code: string
+  fieldErrors?: Record<string, { code: string, params?: Record<string, number | string> }>
+}
