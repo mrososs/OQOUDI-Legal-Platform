@@ -1,0 +1,153 @@
+/* ==========================================================================
+   OQOUDI design tokens
+   Base: Khairah Holding design system (design-reference/_ds/khairah/tokens)
+   Theme: Oqoudi overrides exactly as in the Claude Design prototype :root
+   ========================================================================== */
+
+:root {
+  /* ---- Oqoudi brand ---- */
+  --ink-900: #1C2D4A;
+  --ink-800: #253A5C;
+  --ink-700: #34496B;
+  --footer-900: #15233B;
+
+  --gold-50: #F7F0E4;
+  --gold-100: #EFE2CB;
+  --gold-200: #E3CFAB;
+  --gold-300: #D2B583;
+  --gold-400: #B8935A;
+  --gold-500: #A07C46;
+  --gold-600: #85663A;
+  --gold-700: #66502F;
+
+  --cream-50: #FBF6EC;
+  --cream-100: #E9D5B5;
+
+  /* ---- Warm neutrals ---- */
+  --neutral-0: #FFFFFF;
+  --neutral-50: #FAF7F1;
+  --neutral-100: #F3EEE4;
+  --neutral-200: #E7E0D2;
+  --neutral-300: #D5CCBA;
+  --neutral-400: #A79E8C;
+  --neutral-500: #6E6858;
+  --neutral-600: #565042;
+  --neutral-700: #3D3A33;
+
+  /* ---- Navy aliases used by base components ---- */
+  --navy-50: #EEF1F6;
+  --navy-500: #4A5F82;
+  --navy-600: #34496B;
+  --navy-700: #1C2D4A;
+  --navy-800: #15233B;
+  --navy-900: #1C2D4A;
+  --steel-100: #EEF1F6;
+  --steel-700: #34496B;
+
+  /* ---- Status ---- */
+  --positive-500: #3A6E53;
+  --positive-100: #E3EEE6;
+  --caution-500: #8A6420;
+  --caution-100: #F6EBD6;
+  --critical-500: #9A3F37;
+  --critical-100: #F4E1DE;
+  --info-500: #34496B;
+  --info-100: #EEF1F6;
+
+  /* ---- Semantic aliases ---- */
+  --surface-page: #FAF7F1;
+  --surface-card: #FFFFFF;
+  --surface-raised: #FFFFFF;
+  --surface-sunken: #F3EEE4;
+  --surface-nav: #EFE6D6;
+  --surface-inverse: #1C2D4A;
+  --surface-footer: #15233B;
+  --surface-accent-soft: #F7F0E4;
+
+  --text-strong: #1C2D4A;
+  --text-body: #3A4356;
+  --text-muted: #6E6858;
+  --text-subtle: #A79E8C;
+  --text-accent: #85663A;
+  --text-on-accent: #F3E6CF;
+  --text-on-inverse: #FAF7F1;
+
+  --accent: #1C2D4A;
+  --accent-hover: #15233B;
+  --accent-active: #0F1A2E;
+  --accent-contrast: #F3E6CF;
+  --accent-soft: #B8935A;
+
+  --border-subtle: #E7E0D2;
+  --border-default: #D5CCBA;
+  --border-strong: #A79E8C;
+  --border-accent: #A07C46;
+  --divider: #E7E0D2;
+
+  --focus-ring: rgba(184, 147, 90, 0.5);
+  --placeholder-fill: #E3CFAB;
+
+  /* ---- Type ---- */
+  --font-sans: 'IBM Plex Sans Arabic', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-heading: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
+  --font-display: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
+  --font-body: var(--font-sans);
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 2.75rem;
+  --text-4xl: 3.5rem;
+
+  --leading-tight: 1.12;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* ---- Spacing & layout (8px rhythm) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+  --space-9: 4rem;
+  --space-10: 5rem;
+
+  --container-max: 1240px;
+  --container-pad: clamp(16px, 4vw, 40px);
+
+  /* ---- Radii ---- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows (ink-tinted) ---- */
+  --shadow-xs: 0 1px 2px rgba(28, 45, 74, 0.06);
+  --shadow-sm: 0 2px 8px rgba(28, 45, 74, 0.07);
+  --shadow-md: 0 8px 24px rgba(28, 45, 74, 0.09);
+  --shadow-lg: 0 18px 44px rgba(28, 45, 74, 0.13);
+  --shadow-focus: 0 0 0 3px var(--focus-ring);
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 140ms;
+  --duration-normal: 220ms;
+  --duration-slow: 360ms;
+  --transition-base: all var(--duration-normal) var(--ease-standard);
+}

@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Component classes (ported verbatim from the Khairah DS components.css)
+   Consumed by app/components/ui/*.vue
+   ========================================================================== */
+
+/* ---------- Button ---------- */
+.kh-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  font-family: var(--font-sans); font-weight: var(--weight-semibold); font-size: var(--text-base);
+  line-height: 1; border: 1.5px solid transparent; border-radius: var(--radius-sm);
+  padding: 0.75rem 1.5rem; cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: var(--transition-base); user-select: none;
+}
+.kh-btn:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.kh-btn:disabled, .kh-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
+.kh-btn--sm { font-size: var(--text-sm); padding: 0.5rem 1.1rem; }
+.kh-btn--lg { font-size: var(--text-md); padding: 0.95rem 1.9rem; }
+.kh-btn--primary { background: var(--accent); color: var(--accent-contrast); }
+.kh-btn--primary:hover:not(:disabled) { background: var(--accent-hover); color: var(--accent-contrast); }
+.kh-btn--primary:active:not(:disabled) { background: var(--accent-active); }
+.kh-btn--secondary { background: transparent; color: var(--text-accent); border-color: var(--border-accent); }
+.kh-btn--secondary:hover:not(:disabled) { background: var(--surface-accent-soft); border-color: var(--accent-hover); color: var(--accent-hover); }
+.kh-btn--ghost { background: transparent; color: var(--text-strong); }
+.kh-btn--ghost:hover:not(:disabled) { background: var(--surface-sunken); color: var(--text-strong); }
+.kh-btn--inverse { background: var(--neutral-0); color: var(--navy-900); }
+.kh-btn--inverse:hover:not(:disabled) { background: var(--navy-50); color: var(--navy-900); }
+.kh-btn--danger { background: var(--critical-500); color: #fff; }
+.kh-btn--danger:hover:not(:disabled) { background: #7f322b; color: #fff; }
+.kh-btn--block { display: flex; width: 100%; }
+
+/* ---------- Icon button ---------- */
+.kh-iconbtn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: var(--radius-pill);
+  border: 1.5px solid transparent; background: transparent; color: var(--text-strong);
+  cursor: pointer; transition: var(--transition-base);
+}
+.kh-iconbtn:hover:not(:disabled) { background: var(--surface-sunken); }
+.kh-iconbtn:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.kh-iconbtn:disabled { opacity: .4; cursor: not-allowed; }
+.kh-iconbtn--solid { background: var(--accent); color: #fff; }
+.kh-iconbtn--solid:hover:not(:disabled) { background: var(--accent-hover); }
+.kh-iconbtn--sm { width: 36px; height: 36px; }
+
+/* ---------- Badge ---------- */
+.kh-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--text-xs); font-weight: var(--weight-semibold); letter-spacing: 0.02em;
+  padding: 4px 10px; border-radius: var(--radius-pill);
+  background: var(--steel-100); color: var(--steel-700); white-space: nowrap;
+}
+.kh-badge--neutral { background: var(--neutral-100); color: var(--neutral-600); }
+.kh-badge--positive { background: var(--positive-100); color: var(--positive-500); }
+.kh-badge--caution { background: var(--caution-100); color: var(--caution-500); }
+.kh-badge--critical { background: var(--critical-100); color: var(--critical-500); }
+.kh-badge--accent { background: var(--gold-50); color: var(--gold-700); }
+.kh-badge--solid { background: var(--accent); color: #fff; }
+.kh-badge--dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* ---------- Card ---------- */
+.kh-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: var(--transition-base);
+}
+.kh-card--raised { box-shadow: var(--shadow-md); border-color: transparent; }
+.kh-card--interactive { cursor: pointer; }
+.kh-card--interactive:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.kh-card--flush { padding: 0; overflow: hidden; }
+
+/* ---------- Fields ---------- */
+.kh-field { display: flex; flex-direction: column; gap: 6px; }
+.kh-field__label { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--text-strong); }
+.kh-field__hint { font-size: var(--text-xs); color: var(--text-muted); }
+.kh-field__hint--error { color: var(--critical-500); }
+.kh-input {
+  font-family: var(--font-sans); font-size: var(--text-base);
+  color: var(--text-strong); background: var(--surface-card);
+  border: 1.5px solid var(--border-default); border-radius: var(--radius-md);
+  padding: 0.7rem 0.95rem; transition: var(--transition-base); width: 100%;
+}
+.kh-input::placeholder { color: var(--text-subtle); }
+.kh-input:hover { border-color: var(--border-strong); }
+.kh-input:focus { outline: none; border-color: var(--accent); box-shadow: var(--shadow-focus); }
+.kh-input--error { border-color: var(--critical-500); }
+textarea.kh-input { resize: vertical; line-height: 1.7; }
+
+/* ---------- Pill navigation ---------- */
+.kh-pillnav {
+  display: inline-flex; align-items: center; gap: 2px;
+  background: var(--surface-nav); border-radius: var(--radius-pill); padding: 5px;
+}
+.kh-pillnav__item {
+  font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--weight-medium);
+  color: var(--text-body); background: transparent; border: none; cursor: pointer;
+  padding: 9px 18px; border-radius: var(--radius-pill);
+  transition: var(--transition-base); text-decoration: none; white-space: nowrap;
+}
+.kh-pillnav__item:hover { color: var(--text-strong); }
+.kh-pillnav__item[aria-current="true"], .kh-pillnav__item[aria-current="page"], .kh-pillnav__item--active {
+  background: var(--surface-card); color: var(--text-strong); box-shadow: var(--shadow-xs);
+}
