@@ -85,7 +85,14 @@
   --divider: #E7E0D2;
 
   --focus-ring: rgba(184, 147, 90, 0.5);
+  --focus-ring-critical: rgba(154, 63, 55, 0.28);
   --placeholder-fill: #E3CFAB;
+
+  /* ---- Scrollbars (override per region, e.g. dark sidebars) ---- */
+  --scrollbar-size: 10px;
+  --scrollbar-thumb: #D5CCBA;
+  --scrollbar-thumb-hover: #B8935A;
+  --scrollbar-track: transparent;
 
   /* ---- Type ---- */
   --font-sans: 'IBM Plex Sans Arabic', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;

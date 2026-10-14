@@ -75,6 +75,8 @@ const roleLabel = computed(() => (session.isAdmin ? t('dash.roleAdmin') : t('das
 .side {
   width: 240px; flex-shrink: 0; background: var(--ink-900); color: var(--gold-200);
   display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; z-index: 10;
+  --scrollbar-thumb: rgba(227, 207, 171, 0.25);
+  --scrollbar-thumb-hover: rgba(227, 207, 171, 0.5);
 }
 .who { display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
 .logo-box { width: 48px; height: 48px; background: var(--cream-100); border-radius: 10px; padding: 3px; flex-shrink: 0; display: block; }

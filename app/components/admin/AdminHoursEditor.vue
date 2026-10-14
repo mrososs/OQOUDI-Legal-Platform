@@ -98,7 +98,7 @@ async function save() {
 .row { display: flex; gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; }
 .day { width: 90px; color: var(--text-strong); }
 .times { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.sel { width: 120px; padding: 6px 10px; }
+.sel { width: 120px; padding-block: 6px; padding-inline-start: 10px; }
 .err { color: var(--critical-500); }
 .end { display: flex; justify-content: flex-end; margin-top: 12px; }
 </style>
