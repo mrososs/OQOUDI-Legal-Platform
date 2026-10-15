@@ -5,6 +5,7 @@ definePageMeta({ middleware: ['guest'] })
 
 const { t } = useI18n()
 const supabase = useSupabaseClient()
+const user = useSupabaseUser()
 const session = useSessionStore()
 const route = useRoute()
 const localePath = useLocalePath()
@@ -44,7 +45,11 @@ async function submit() {
     }
     return
   }
-  await session.load(data.user.id, true)
+  // The Supabase module fills `useSupabaseUser()` from an un-awaited getClaims()
+  // after SIGNED_IN (a JWKS fetch on hosted projects). Populate it before
+  // navigating so the auth middleware doesn't bounce back to the login page.
+  const [{ data: claims }] = await Promise.all([supabase.auth.getClaims(), session.load(data.user.id, true)])
+  user.value = claims?.claims ?? null
   busy.value = false
   await navigateTo(safeRedirect() ?? localePath(session.isStaff ? '/dashboard' : '/account'))
 }
