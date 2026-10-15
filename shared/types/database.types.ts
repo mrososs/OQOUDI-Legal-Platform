@@ -299,6 +299,50 @@ isOneToOne: true
       referencedColumns: ["id"]
     }
                   ]
+                },"manual_payment_submissions": {
+                  Row: {
+                    "created_at": string,"currency": string,"customer_account_id": string,"demo_mode": boolean,"expected_amount_minor": number,"id": string,"order_id": string,"payment_id": string,"payment_method": Database["public"]['Enums']["payment_method"],"proof_mime_type": string,"proof_size_bytes": number,"proof_storage_path": string,"rejection_reason": string | null,"reviewed_at": string | null,"reviewed_by": string | null,"submitted_at": string,"submitted_by": string,"updated_at": string,"verification_status": Database["public"]['Enums']["manual_verification_status"]
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "created_at"?: string,"currency"?: string,"customer_account_id": string,"demo_mode": boolean,"expected_amount_minor": number,"id"?: string,"order_id": string,"payment_id": string,"payment_method": Database["public"]['Enums']["payment_method"],"proof_mime_type": string,"proof_size_bytes": number,"proof_storage_path": string,"rejection_reason"?: string | null,"reviewed_at"?: string | null,"reviewed_by"?: string | null,"submitted_at"?: string,"submitted_by": string,"updated_at"?: string,"verification_status"?: Database["public"]['Enums']["manual_verification_status"]
+                  }
+                  Update: {
+                    "created_at"?: string,"currency"?: string,"customer_account_id"?: string,"demo_mode"?: boolean,"expected_amount_minor"?: number,"id"?: string,"order_id"?: string,"payment_id"?: string,"payment_method"?: Database["public"]['Enums']["payment_method"],"proof_mime_type"?: string,"proof_size_bytes"?: number,"proof_storage_path"?: string,"rejection_reason"?: string | null,"reviewed_at"?: string | null,"reviewed_by"?: string | null,"submitted_at"?: string,"submitted_by"?: string,"updated_at"?: string,"verification_status"?: Database["public"]['Enums']["manual_verification_status"]
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "manual_payment_submissions_customer_account_id_fkey"
+      columns: ["customer_account_id"]
+isOneToOne: false
+      referencedRelation: "customer_accounts"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "manual_payment_submissions_order_id_fkey"
+      columns: ["order_id"]
+isOneToOne: false
+      referencedRelation: "orders"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "manual_payment_submissions_payment_id_fkey"
+      columns: ["payment_id"]
+isOneToOne: true
+      referencedRelation: "payments"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "manual_payment_submissions_reviewed_by_fkey"
+      columns: ["reviewed_by"]
+isOneToOne: false
+      referencedRelation: "profiles"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "manual_payment_submissions_submitted_by_fkey"
+      columns: ["submitted_by"]
+isOneToOne: false
+      referencedRelation: "profiles"
+      referencedColumns: ["id"]
+    }
+                  ]
                 },"notifications": {
                   Row: {
                     "created_at": string,"id": string,"order_id": string | null,"payload": NonNullable<Json>,"read_at": string | null,"type": string,"user_id": string
@@ -521,14 +565,14 @@ isOneToOne: false
                   ]
                 },"payments": {
                   Row: {
-                    "amount_minor": number,"created_at": string,"created_by": string,"currency": string,"failed_at": string | null,"failure_reason": string | null,"id": string,"method": Database["public"]['Enums']["payment_method"],"order_id": string,"provider": string,"provider_reference": string | null,"receipt_number": string | null,"status": Database["public"]['Enums']["payment_attempt_status"],"succeeded_at": string | null,"updated_at": string
+                    "amount_minor": number,"created_at": string,"created_by": string,"currency": string,"failed_at": string | null,"failure_reason": string | null,"id": string,"is_demo": boolean,"method": Database["public"]['Enums']["payment_method"],"order_id": string,"provider": string,"provider_reference": string | null,"receipt_number": string | null,"status": Database["public"]['Enums']["payment_attempt_status"],"succeeded_at": string | null,"updated_at": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "amount_minor": number,"created_at"?: string,"created_by": string,"currency"?: string,"failed_at"?: string | null,"failure_reason"?: string | null,"id"?: string,"method": Database["public"]['Enums']["payment_method"],"order_id": string,"provider": string,"provider_reference"?: string | null,"receipt_number"?: string | null,"status"?: Database["public"]['Enums']["payment_attempt_status"],"succeeded_at"?: string | null,"updated_at"?: string
+                    "amount_minor": number,"created_at"?: string,"created_by": string,"currency"?: string,"failed_at"?: string | null,"failure_reason"?: string | null,"id"?: string,"is_demo"?: boolean,"method": Database["public"]['Enums']["payment_method"],"order_id": string,"provider": string,"provider_reference"?: string | null,"receipt_number"?: string | null,"status"?: Database["public"]['Enums']["payment_attempt_status"],"succeeded_at"?: string | null,"updated_at"?: string
                   }
                   Update: {
-                    "amount_minor"?: number,"created_at"?: string,"created_by"?: string,"currency"?: string,"failed_at"?: string | null,"failure_reason"?: string | null,"id"?: string,"method"?: Database["public"]['Enums']["payment_method"],"order_id"?: string,"provider"?: string,"provider_reference"?: string | null,"receipt_number"?: string | null,"status"?: Database["public"]['Enums']["payment_attempt_status"],"succeeded_at"?: string | null,"updated_at"?: string
+                    "amount_minor"?: number,"created_at"?: string,"created_by"?: string,"currency"?: string,"failed_at"?: string | null,"failure_reason"?: string | null,"id"?: string,"is_demo"?: boolean,"method"?: Database["public"]['Enums']["payment_method"],"order_id"?: string,"provider"?: string,"provider_reference"?: string | null,"receipt_number"?: string | null,"status"?: Database["public"]['Enums']["payment_attempt_status"],"succeeded_at"?: string | null,"updated_at"?: string
                   }
                   Relationships: [
                     {
@@ -924,6 +968,15 @@ isOneToOne: false
 "document_register_upload":
 { Args: { "p_actor": string,"p_extension": string,"p_form_field_id": string,"p_kind": Database["public"]['Enums']["document_kind"],"p_mime_type": string,"p_order": string,"p_original_name": string,"p_size_bytes": number,"p_storage_path": string }; Returns: string
                            },
+"manual_payment_approve":
+{ Args: { "p_actor": string,"p_order": string,"p_submission": string }; Returns: Json
+                           },
+"manual_payment_reject":
+{ Args: { "p_actor": string,"p_order": string,"p_reason": string,"p_submission": string }; Returns: Json
+                           },
+"manual_payment_submit":
+{ Args: { "p_actor": string,"p_demo": boolean,"p_method": Database["public"]['Enums']["payment_method"],"p_order": string,"p_proof_mime": string,"p_proof_path": string,"p_proof_size": number }; Returns: Json
+                           },
 "order_accept_delivery":
 { Args: { "p_actor": string,"p_order": string }; Returns: undefined
                            },
@@ -982,7 +1035,7 @@ isOneToOne: false
                            }
           }
           Enums: {
-            "account_kind": "individual"|"company","actor_kind": "customer"|"lawyer"|"admin"|"system","app_role": "customer"|"lawyer"|"admin","booking_status": "held"|"confirmed"|"completed"|"cancelled"|"expired","document_kind": "customer_upload"|"deliverable"|"consultation_response"|"message_attachment","document_status": "pending"|"ready","event_visibility": "customer"|"staff","form_version_status": "draft"|"published"|"retired","member_role": "owner"|"member","order_status": "new"|"awaiting_payment"|"under_review"|"awaiting_info"|"in_progress"|"revision"|"delivered"|"completed"|"cancelled","payment_attempt_status": "initiated"|"pending"|"succeeded"|"failed"|"expired"|"cancelled","payment_method": "card"|"wallet"|"fawry","payment_status": "unpaid"|"failed"|"paid"|"refunded"|"partially_refunded","pricing_type": "fixed"|"quote","publish_status": "draft"|"published"|"archived","refund_status": "requested"|"succeeded"|"failed","section_key": "about"|"who"|"included"|"deliverables"|"docs"|"steps"|"duration"|"pricing"|"faq"|"reviews","service_kind": "standard"|"written_consultation"|"video_consultation"
+            "account_kind": "individual"|"company","actor_kind": "customer"|"lawyer"|"admin"|"system","app_role": "customer"|"lawyer"|"admin","booking_status": "held"|"confirmed"|"completed"|"cancelled"|"expired","document_kind": "customer_upload"|"deliverable"|"consultation_response"|"message_attachment","document_status": "pending"|"ready","event_visibility": "customer"|"staff","form_version_status": "draft"|"published"|"retired","manual_verification_status": "pending_review"|"approved"|"rejected","member_role": "owner"|"member","order_status": "new"|"awaiting_payment"|"under_review"|"awaiting_info"|"in_progress"|"revision"|"delivered"|"completed"|"cancelled","payment_attempt_status": "initiated"|"pending"|"succeeded"|"failed"|"expired"|"cancelled","payment_method": "card"|"wallet"|"fawry"|"instapay"|"vodafone_cash"|"paypal","payment_status": "unpaid"|"failed"|"paid"|"refunded"|"partially_refunded","pricing_type": "fixed"|"quote","publish_status": "draft"|"published"|"archived","refund_status": "requested"|"succeeded"|"failed","section_key": "about"|"who"|"included"|"deliverables"|"docs"|"steps"|"duration"|"pricing"|"faq"|"reviews","service_kind": "standard"|"written_consultation"|"video_consultation"
           }
           CompositeTypes: {
             [_ in never]: never
@@ -1102,7 +1155,7 @@ export const Constants = {
           }
         },"public": {
           Enums: {
-            "account_kind": ["individual", "company"],"actor_kind": ["customer", "lawyer", "admin", "system"],"app_role": ["customer", "lawyer", "admin"],"booking_status": ["held", "confirmed", "completed", "cancelled", "expired"],"document_kind": ["customer_upload", "deliverable", "consultation_response", "message_attachment"],"document_status": ["pending", "ready"],"event_visibility": ["customer", "staff"],"form_version_status": ["draft", "published", "retired"],"member_role": ["owner", "member"],"order_status": ["new", "awaiting_payment", "under_review", "awaiting_info", "in_progress", "revision", "delivered", "completed", "cancelled"],"payment_attempt_status": ["initiated", "pending", "succeeded", "failed", "expired", "cancelled"],"payment_method": ["card", "wallet", "fawry"],"payment_status": ["unpaid", "failed", "paid", "refunded", "partially_refunded"],"pricing_type": ["fixed", "quote"],"publish_status": ["draft", "published", "archived"],"refund_status": ["requested", "succeeded", "failed"],"section_key": ["about", "who", "included", "deliverables", "docs", "steps", "duration", "pricing", "faq", "reviews"],"service_kind": ["standard", "written_consultation", "video_consultation"]
+            "account_kind": ["individual", "company"],"actor_kind": ["customer", "lawyer", "admin", "system"],"app_role": ["customer", "lawyer", "admin"],"booking_status": ["held", "confirmed", "completed", "cancelled", "expired"],"document_kind": ["customer_upload", "deliverable", "consultation_response", "message_attachment"],"document_status": ["pending", "ready"],"event_visibility": ["customer", "staff"],"form_version_status": ["draft", "published", "retired"],"manual_verification_status": ["pending_review", "approved", "rejected"],"member_role": ["owner", "member"],"order_status": ["new", "awaiting_payment", "under_review", "awaiting_info", "in_progress", "revision", "delivered", "completed", "cancelled"],"payment_attempt_status": ["initiated", "pending", "succeeded", "failed", "expired", "cancelled"],"payment_method": ["card", "wallet", "fawry", "instapay", "vodafone_cash", "paypal"],"payment_status": ["unpaid", "failed", "paid", "refunded", "partially_refunded"],"pricing_type": ["fixed", "quote"],"publish_status": ["draft", "published", "archived"],"refund_status": ["requested", "succeeded", "failed"],"section_key": ["about", "who", "included", "deliverables", "docs", "steps", "duration", "pricing", "faq", "reviews"],"service_kind": ["standard", "written_consultation", "video_consultation"]
           }
         }
 } as const
