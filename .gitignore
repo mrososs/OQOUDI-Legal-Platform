@@ -22,3 +22,7 @@ supabase/.temp
 /oqoudi_cover_3x.png
 /oqoudi_logo_transparent_3040px.png
 /لوجو عقودى.png
+
+.vercel
+.env*
+!.env.example
