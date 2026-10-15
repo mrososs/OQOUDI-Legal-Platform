@@ -14,7 +14,7 @@ Verified = covered by an automated test that ran green on a freshly reset databa
 | Public site | Home, directory (+ URL filters, skeleton, empty state), service detail (DB sections, add-ons, reviews, JSON-LD), about, FAQ (FAQPage JSON-LD), contact (rate-limited + honeypot), all SSR | E2E + responsive E2E (9 pages × desktop/mobile, no horizontal overflow) |
 | Dynamic forms | Shared zod schema renders + validates client and server; staged secure uploads | unit `formSchema.test.ts`; integration "server re-validates"; E2E form errors + upload |
 | Orders | Server-priced creation with service/add-on/form-version snapshots | `booking-and-catalog.test.ts` (price change doesn't touch old orders; stale form version rejected; foreign add-on rejected) |
-| Payments (simulated) | Checkout via provider adapter → hosted simulator → HMAC webhook → idempotent `payment_record_result`; failure + retry; confirmation page polls server state | `payments.test.ts` (forged signature 401, return-URL ≠ paid, replay = `duplicate_event`, amount mismatch ignored, retry, no double pay, other customer can't drive simulator); E2E success + failure/retry |
+| Payments (manual verification, demo mode) | InstaPay / Vodafone Cash / PayPal transfer → proof upload (private bucket, magic-byte check) → `pending_review` → admin approve (paid + `in_progress` + lawyer assigned) / reject (blocked, limited resubmission). Global toast system. Replaces the gateway simulator (2026-10-15) — see `docs/payments/manual-payment-implementation.md` | `payments.test.ts` (21 tests: lifecycle, concurrency, wrong order, attempt cap, RLS/role/storage security, old-gateway bypass, immutability, demo revenue exclusion); `manualPayments.test.ts`, `toast.test.ts`; E2E approve + reject + invalid files |
 | Lifecycle | Review → info request → customer reply → in progress → deliver v1 → revision → v2 (v1 kept) → accept → review (once) ; illegal transitions rejected; full ordered history | `lifecycle.test.ts`; E2E `delivery-acceptance.spec.ts` (lawyer UI delivers, customer UI downloads, accepts, rates) |
 | Documents | Private bucket, random paths, server-streamed downloads (60 s signed URL server-side, RFC 5987 Arabic filenames); unpublished deliverables hidden from customers | `isolation.test.ts`, `lifecycle.test.ts`, E2E download filename |
 | Isolation / IDOR | Customer B can't read/act on A's orders, events, messages, payments, documents (API, REST, storage direct, signed URL); unassigned lawyer denied; lawyers can't see payments/audit/private settings or use admin actions | `isolation.test.ts` |
@@ -35,14 +35,14 @@ Test totals (last run, fresh DB): **unit 24/24 · integration 35/35 · E2E 26 pa
 - Admin cancel of a paid order creates a refund *request* (no refund processing yet).
 
 ## Mocked for development
-- **Payment gateway**: `simulator` provider + `/dev/payment-simulator/:id` page (labelled; refused in production). It exercises the real webhook verification and idempotent recording, but **no real money or real Paymob API is involved**.
+- **Payments are demo mode** (`PAYMENT_MODE=manual_demo`): real database workflow, but every submission/approval is flagged demo, excluded from revenue, and customers are told not to transfer. The gateway simulator was removed on 2026-10-15.
 - Demo accounts and demo orders (`supabase/seed.sql`, `scripts/seed-demo.ts`) — fictional data, local only.
 
 ## Blocked (needs credentials / decisions)
 | Item | Needed |
 |---|---|
 | Hosted Supabase project | project URL, publishable key, secret key, DB password (`supabase link`, `db push`), SMTP settings for auth emails |
-| Paymob | API key, HMAC secret, integration ids (card / wallet / kiosk), iframe id, webhook registration — see `docs/integrations.md` |
+| Manual payments go-live | PayPal receiving account; approval to apply migrations `20261015000100`/`…0200` to hosted Supabase; live-mode review (PayPal currency/fees, refunds, revenue reporting) |
 | Email / SMS / WhatsApp notifications | provider choice + credentials (adapter boundary only) |
 | Deployment target | hosting choice (Node server needed for Nitro routes) |
 
@@ -60,10 +60,12 @@ Test totals (last run, fresh DB): **unit 24/24 · integration 35/35 · E2E 26 pa
 3. Supabase Storage double-encodes non-ASCII download names → server-streamed downloads with RFC 5987 header.
 4. Root-hoisted `h3@2` broke `@nuxtjs/supabase` SSR → pinned `h3@1`.
 5. Windows reserves ports 54292–54391 → local Supabase moved to 553xx.
+6. Vue scoped `:global([dir='rtl']) .x` compiles to a bare `[dir='rtl']` rule → toast/panel transforms hit `<html>` (24 px overflow) → replaced with `--dir-sign` variables.
+7. A proof pending on an order the customer cancelled could be neither approved nor rejected → rejection now allowed, approval refused (test added).
 
 ## Changed / added files (high level)
-- `supabase/` — `config.toml`, 16 migrations, `seed.sql`
+- `supabase/` — `config.toml`, 18 migrations, `seed.sql`
 - `shared/` — domain (form schema, statuses, money, uploads, validators, errors, section schemas, service admin schema), generated DB types
-- `server/` — utils (auth, errors, validation, rate limit), services (documents, payments: simulator + Paymob stub), 40+ API routes (orders, uploads, documents, payments webhook, dev simulator, contact, admin, reviews)
+- `server/` — utils (auth, errors, validation, rate limit), services (documents, payments: manual + admin review), 40+ API routes (orders, uploads, documents, manual payments, contact, admin, reviews)
 - `app/` — 32 pages, ~90 components (ui, layout, home, services, forms, checkout, booking, orders, account, dashboard, admin), composables, repositories, Pinia session store, plugins (session, realtime)
 - `i18n/locales/{ar,en}.json`, `tests/{unit,integration,e2e}`, `scripts/` (screenshots, i18n merge, demo seed), `docs/`

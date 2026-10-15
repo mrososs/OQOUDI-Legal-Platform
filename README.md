@@ -35,8 +35,8 @@ Local services: Studio http://127.0.0.1:55323 · emails (confirmation / reset) h
 | mona@oqoudi.test | customer (individual) |
 | nile@oqoudi.test | customer (company) |
 
-### Payments in development
-`PAYMENTS_PROVIDER=simulator` routes checkout to `/dev/payment-simulator/:paymentId`, a page **clearly labelled as a simulator**. Choosing an outcome makes the server emit an HMAC-signed webhook to `/api/payments/webhook/simulator` — the same verified, idempotent path a real gateway uses. The simulator is refused when `NODE_ENV=production`. Paymob is stubbed until credentials exist.
+### Payments (manual verification, demo mode)
+Customers pay by InstaPay, Vodafone Cash or PayPal transfer, upload a proof image to a private bucket, and an admin approves or rejects it in **Dashboard → Payments**. Only an approval marks the order paid and starts work. `PAYMENT_MODE=manual_demo` (default) labels every submission and approval as a demo and excludes it from revenue. Details: `docs/payments/manual-payment-implementation.md`.
 
 ## Scripts
 | Script | Purpose |
@@ -51,4 +51,4 @@ Local services: Studio http://127.0.0.1:55323 · emails (confirmation / reset) h
 | `npm run test:e2e` | Playwright journeys (dev server + local Supabase) |
 
 ## Security model in one paragraph
-Browsers read data with the publishable key under Row Level Security. Every mutation goes to a Nitro route that validates the session JWT and the input (zod, shared with the client), then calls a `SECURITY DEFINER` SQL function with the service-role key, passing the actor id; the function re-checks role/membership/assignment and the status transition and writes history + notifications atomically. Business functions are not executable by `anon`/`authenticated`. Documents live in a private bucket with no client storage policies; access is via short-lived signed URLs issued only after an RLS-scoped lookup. Orders become paid only through a verified, idempotent provider webhook.
+Browsers read data with the publishable key under Row Level Security. Every mutation goes to a Nitro route that validates the session JWT and the input (zod, shared with the client), then calls a `SECURITY DEFINER` SQL function with the service-role key, passing the actor id; the function re-checks role/membership/assignment and the status transition and writes history + notifications atomically. Business functions are not executable by `anon`/`authenticated`. Documents live in a private bucket with no client storage policies; access is via short-lived signed URLs issued only after an RLS-scoped lookup. Orders become paid only through an admin approval of a manual payment proof (row-locked, idempotent, audited).
