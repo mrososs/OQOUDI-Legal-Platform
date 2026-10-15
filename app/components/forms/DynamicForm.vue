@@ -14,6 +14,9 @@ defineProps<{
 
 const emit = defineEmits<{ touch: [fieldId: string] }>()
 
+// Stable fallback so fields without files don't get a new array every render.
+const noFiles: UploadedFile[] = []
+
 function setAnswer(id: string, v: Answers[string]) {
   answers.value = { ...answers.value, [id]: v }
 }
@@ -29,7 +32,7 @@ function setFiles(id: string, list: UploadedFile[]) {
       :key="field.id"
       :field="field"
       :value="answers[field.id]"
-      :files="files[field.id] ?? []"
+      :files="files[field.id] ?? noFiles"
       :error="errors[field.id] ?? null"
       :form-version-id="formVersionId"
       @update:value="v => setAnswer(field.id, v)"

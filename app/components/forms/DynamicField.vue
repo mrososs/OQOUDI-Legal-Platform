@@ -56,10 +56,14 @@ function pick(optionValue: string) {
   emit('touch', props.field.id)
 }
 
-watch(files, (list) => {
+// Sync on actual upload/remove only. A deep watcher on `files` re-fired for every
+// field whenever the parent re-rendered with a fresh `[]`, looping forever in
+// production builds (Vue's recursion guard exists only in dev).
+function setFiles(list: UploadedFile[]) {
+  files.value = list
   value.value = list.map(x => x.id)
   emit('touch', props.field.id)
-}, { deep: true })
+}
 </script>
 
 <template>
@@ -159,7 +163,7 @@ watch(files, (list) => {
 
   <FormsFileDropzone
     v-else-if="field.type === 'file'"
-    v-model="files"
+    :model-value="files"
     :label="label"
     :required="field.required"
     :target="{ purpose: 'form', formVersionId, fieldId: field.id }"
@@ -168,6 +172,7 @@ watch(files, (list) => {
     :max-files="field.maxFiles ?? DEFAULT_MAX_FILES"
     :error="errorText"
     :hint="help"
+    @update:model-value="setFiles"
   />
 </template>
 
