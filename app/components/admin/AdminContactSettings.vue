@@ -20,7 +20,7 @@ async function save() {
   error.value = ''
   try {
     await call('/api/admin/settings/contact', { method: 'POST', body: { value: form.value } })
-    toast.show(t('admin.settings.saved'))
+    toast.success(t('admin.settings.saved'))
     emit('saved')
   }
   catch (err) {

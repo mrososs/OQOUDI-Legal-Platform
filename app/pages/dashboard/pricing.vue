@@ -43,7 +43,7 @@ async function save() {
   try {
     await call('/api/admin/prices', { method: 'POST', body: { prices: changes.value } })
     await refresh()
-    toast.show(t('admin.pricingPage.saved'))
+    toast.success(t('admin.pricingPage.saved'))
   }
   catch (err) {
     error.value = toFailure(err).message

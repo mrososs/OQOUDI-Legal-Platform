@@ -31,7 +31,7 @@ async function setRole(u: UserRow, role: 'lawyer' | 'admin', grant: boolean) {
   busy.value = `${u.id}:${role}`
   try {
     await call(`/api/admin/users/${u.id}/roles`, { method: 'POST', body: { role, grant } })
-    toast.show(t('admin.users.updated'))
+    toast.success(t('admin.users.updated'))
     await refresh()
   }
   catch (err) {

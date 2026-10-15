@@ -17,7 +17,7 @@ export function useCustomerOrderActions(order: Ref<OrderDetail | null | undefine
     try {
       await call(`/api/orders/${order.value.id}/${path}`, { method: 'POST', body: body ?? {} })
       await Promise.all([refresh(), refreshPortalBadges()])
-      toast.show(success)
+      toast.success(success)
       return true
     }
     catch (err) {

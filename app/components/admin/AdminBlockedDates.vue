@@ -36,7 +36,7 @@ async function add() {
     })
     form.date = ''
     form.reason = ''
-    toast.show(t('admin.settings.saved'))
+    toast.success(t('admin.settings.saved'))
     emit('changed')
   }
   catch (err) {

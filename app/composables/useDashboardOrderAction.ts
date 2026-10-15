@@ -13,7 +13,7 @@ export function useDashboardOrderAction(orderId: MaybeRefOrGetter<string>, refre
     try {
       await call(`/api/orders/${toValue(orderId)}/${action}`, { method: 'POST', body })
       await Promise.all([refresh(), refreshNuxtData('badge:dashboard')])
-      if (successMessage) toast.show(successMessage)
+      if (successMessage) toast.success(successMessage)
       return true
     }
     catch (err) {

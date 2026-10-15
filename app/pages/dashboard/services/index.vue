@@ -42,7 +42,7 @@ async function toggleArchive(s: (typeof services.value)[number]) {
       await call(`/api/admin/services/${s.id}/status`, { method: 'POST', body: { status: 'archived' } })
     }
     await refresh()
-    toast.show(t('admin.editor.statusChanged'))
+    toast.success(t('admin.editor.statusChanged'))
   }
   catch (err) {
     toast.error(toFailure(err).message)

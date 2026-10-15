@@ -54,7 +54,7 @@ async function save() {
       method: 'POST',
       body: { rules: rows.value.filter(r => r.on).map(r => ({ weekday: r.weekday, startTime: r.from, endTime: r.to })) },
     })
-    toast.show(t('admin.settings.saved'))
+    toast.success(t('admin.settings.saved'))
     emit('saved')
   }
   catch (err) {

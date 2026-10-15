@@ -226,7 +226,7 @@ export function useServiceEditor(serviceId: Ref<string>) {
       }
       savedSnapshot.value = JSON.stringify(payload)
       savedFieldsSnapshot.value = JSON.stringify(fields.value)
-      toast.show(t('admin.editor.saved'))
+      toast.success(t('admin.editor.saved'))
       return res.id
     }
     catch (err) {
@@ -246,7 +246,7 @@ export function useServiceEditor(serviceId: Ref<string>) {
     busy.value = 'publish'
     try {
       await call(`/api/admin/services/${id}/publish`, { method: 'POST' })
-      toast.show(t('admin.editor.published'))
+      toast.success(t('admin.editor.published'))
       return id
     }
     catch (err) {
@@ -264,7 +264,7 @@ export function useServiceEditor(serviceId: Ref<string>) {
     try {
       await call(`/api/admin/services/${serviceId.value}/status`, { method: 'POST', body: { status: next } })
       await refresh()
-      toast.show(t('admin.editor.statusChanged'))
+      toast.success(t('admin.editor.statusChanged'))
     }
     catch (err) {
       error.value = toFailure(err).message

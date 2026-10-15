@@ -30,7 +30,7 @@ async function saveSetting(key: string, value: unknown, which: 'booking' | 'lawy
   error.value = ''
   try {
     await call(`/api/admin/settings/${key}`, { method: 'POST', body: { value } })
-    toast.show(t('admin.settings.saved'))
+    toast.success(t('admin.settings.saved'))
     emit('saved')
   }
   catch (err) {

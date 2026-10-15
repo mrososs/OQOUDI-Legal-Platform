@@ -21,7 +21,7 @@ async function save() {
   try {
     await call(`/api/reviews/${props.review.id}/reply`, { method: 'POST', body: { reply: text.value } })
     editing.value = false
-    toast.show(t('admin.reviews.replySaved'))
+    toast.success(t('admin.reviews.replySaved'))
     emit('replied')
   }
   catch (err) {

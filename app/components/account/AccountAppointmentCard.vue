@@ -26,7 +26,7 @@ const tooLate = computed(() => b.value.status === 'confirmed' && !ended.value &&
 async function copy() {
   try {
     await navigator.clipboard.writeText(b.value.meetingUrl ?? '')
-    toast.show(t('account.meeting.copied'))
+    toast.info(t('account.meeting.copied'))
   }
   catch {
     // Clipboard API unavailable (insecure context / permissions) — the link stays visible to copy manually.

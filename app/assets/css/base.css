@@ -39,6 +39,11 @@ button, input, select, textarea { font: inherit; }
 /* Native checkboxes, radios and ranges pick up the brand ink */
 :root { accent-color: var(--accent); }
 
+/* Direction helpers for physical transforms (translateX, transform-origin),
+   which CSS logical properties don't cover. */
+:root { --dir-sign: 1; --dir-start: left; }
+[dir='rtl'] { --dir-sign: -1; --dir-start: right; }
+
 :focus-visible { outline: none; box-shadow: var(--shadow-focus); }
 
 /* ---------- Scrollbars ----------
