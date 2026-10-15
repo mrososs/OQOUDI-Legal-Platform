@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it } from 'vitest'
 import { createLegalNoticeOrder, errorCode, login, newCustomer, orderRow, payOrder, service, sql, uploadPdf, type Session } from './helpers'
 
-/** Contract-style order: pay → review → info request → deliver → revision → v2 → accept → review. */
+/** Contract-style order: pay (proof approved) → in progress → info request → deliver → revision → v2 → accept → review. */
 describe('order lifecycle', () => {
   let customer: Session
   let lawyer: Session
@@ -36,7 +36,7 @@ describe('order lifecycle', () => {
     expect((await orderRow(order.id)).status).toBe('under_review')
 
     const notes = await sql<{ type: string }>(`select type from notifications where order_id = $1`, [order.id])
-    expect(notes.map(n => n.type)).toEqual(expect.arrayContaining(['order.info_requested', 'order.info_provided', 'payment.succeeded']))
+    expect(notes.map(n => n.type)).toEqual(expect.arrayContaining(['order.info_requested', 'order.info_provided', 'payment.approved', 'order.started']))
   })
 
   it('customers cannot see deliverables before they are published', async () => {
@@ -102,7 +102,7 @@ describe('order lifecycle', () => {
       select to_status from order_events where order_id = $1 and type in ('order.status_changed','order.created')
       order by created_at`, [order.id])
     expect(rows.map(r => r.to_status)).toEqual([
-      'awaiting_payment', 'under_review', 'awaiting_info', 'under_review', 'in_progress',
+      'awaiting_payment', 'in_progress', 'awaiting_info', 'under_review', 'in_progress',
       'delivered', 'revision', 'delivered', 'completed',
     ])
   })

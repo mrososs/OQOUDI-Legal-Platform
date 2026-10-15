@@ -3,6 +3,7 @@ import type { Database } from '#shared/types/database.types'
 import type { Localized } from '#shared/domain/localized'
 import type { OrderStatus, PaymentStatus } from '#shared/domain/orderStatus'
 import { formFieldsSchema, type FormField } from '#shared/domain/formSchema'
+import type { ManualMethod, VerificationStatus } from '#shared/domain/manualPayments'
 
 type Client = SupabaseClient<Database>
 type Tables = Database['public']['Tables']
@@ -43,6 +44,18 @@ export interface OrderDocument {
   status: string
 }
 
+/** A manual payment proof as the customer (or an admin) sees it — RLS-scoped. */
+export interface ManualSubmission {
+  id: string
+  method: ManualMethod
+  amountMinor: number
+  status: VerificationStatus
+  demo: boolean
+  submittedAt: string
+  reviewedAt: string | null
+  rejectionReason: string | null
+}
+
 export interface OrderDetail extends OrderListItem {
   formVersionId: string
   formAnswers: Record<string, unknown>
@@ -60,6 +73,8 @@ export interface OrderDetail extends OrderListItem {
   events: { id: string, type: string, fromStatus: OrderStatus | null, toStatus: OrderStatus | null, actorKind: string, visibility: string, details: Record<string, unknown>, createdAt: string }[]
   payments: { id: string, status: string, method: string, amountMinor: number, receiptNumber: string | null, failureReason: string | null, createdAt: string, succeededAt: string | null }[]
   review: { id: string, rating: number, comment: string | null, reply: string | null, createdAt: string } | null
+  /** Newest first. */
+  manualSubmissions: ManualSubmission[]
 }
 
 const LIST_COLUMNS = 'id, order_number, status, payment_status, total_minor, created_at, service_snapshot, customer_account_id, assigned_lawyer_id, consultation_bookings(starts_at, ends_at, status, meeting_url)'
@@ -128,7 +143,7 @@ export async function fetchOrderDetail(client: Client, orderNumber: string): Pro
     reviews: { id: string, rating: number, comment: string | null, reply: string | null, created_at: string } | { id: string, rating: number, comment: string | null, reply: string | null, created_at: string }[] | null
   }
 
-  const [docsRes, paymentsRes, versionRes] = await Promise.all([
+  const [docsRes, paymentsRes, versionRes, submissionsRes] = await Promise.all([
     client
       .from('documents')
       .select('id, kind, original_name, size_bytes, created_at, form_field_id, delivery_id, response_id, message_id, status')
@@ -141,6 +156,11 @@ export async function fetchOrderDetail(client: Client, orderNumber: string): Pro
       .eq('order_id', row.id)
       .order('created_at', { ascending: false }),
     client.from('service_form_versions').select('fields').eq('id', row.form_version_id).maybeSingle(),
+    client
+      .from('manual_payment_submissions')
+      .select('id, payment_method, expected_amount_minor, verification_status, demo_mode, submitted_at, reviewed_at, rejection_reason')
+      .eq('order_id', row.id)
+      .order('submitted_at', { ascending: false }),
   ])
   if (docsRes.error) throw docsRes.error
 
@@ -180,5 +200,21 @@ export async function fetchOrderDetail(client: Client, orderNumber: string): Pro
       id: p.id, status: p.status, method: p.method, amountMinor: p.amount_minor, receiptNumber: p.receipt_number, failureReason: p.failure_reason, createdAt: p.created_at, succeededAt: p.succeeded_at,
     })),
     review: review ? { id: review.id, rating: review.rating, comment: review.comment, reply: review.reply, createdAt: review.created_at } : null,
+    manualSubmissions: (submissionsRes.data ?? []).map(toManualSubmission),
+  }
+}
+
+type SubmissionRow = Pick<Tables['manual_payment_submissions']['Row'], 'id' | 'payment_method' | 'expected_amount_minor' | 'verification_status' | 'demo_mode' | 'submitted_at' | 'reviewed_at' | 'rejection_reason'>
+
+export function toManualSubmission(r: SubmissionRow): ManualSubmission {
+  return {
+    id: r.id,
+    method: r.payment_method as ManualMethod,
+    amountMinor: r.expected_amount_minor,
+    status: r.verification_status,
+    demo: r.demo_mode,
+    submittedAt: r.submitted_at,
+    reviewedAt: r.reviewed_at,
+    rejectionReason: r.rejection_reason,
   }
 }

@@ -164,6 +164,7 @@ export interface AdminPaymentRow {
   amountMinor: number
   receiptNumber: string | null
   providerReference: string | null
+  isDemo: boolean
   createdAt: string
   orderNumber: string | null
   customerName: string | null
@@ -172,7 +173,7 @@ export interface AdminPaymentRow {
 export async function fetchAdminPayments(client: Client): Promise<AdminPaymentRow[]> {
   const { data, error } = await client
     .from('payments')
-    .select('id, status, method, provider, amount_minor, receipt_number, provider_reference, created_at, orders(order_number, customer_accounts(display_name))')
+    .select('id, status, method, provider, is_demo, amount_minor, receipt_number, provider_reference, created_at, orders(order_number, customer_accounts(display_name))')
     .order('created_at', { ascending: false })
     .limit(500)
   if (error) throw error
@@ -186,6 +187,7 @@ export async function fetchAdminPayments(client: Client): Promise<AdminPaymentRo
       amountMinor: p.amount_minor,
       receiptNumber: p.receipt_number,
       providerReference: p.provider_reference,
+      isDemo: p.is_demo,
       createdAt: p.created_at,
       orderNumber: order?.order_number ?? null,
       customerName: order?.customer_accounts?.display_name ?? null,

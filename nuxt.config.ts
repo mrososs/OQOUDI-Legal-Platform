@@ -58,18 +58,13 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    /** Manual transfer verification. Resolved server-side only (server/services/payments/manual.ts). */
     payments: {
-      provider: process.env.PAYMENTS_PROVIDER || 'simulator',
-      simulatorSecret: process.env.PAYMENTS_SIMULATOR_SECRET || '',
-      paymob: {
-        apiKey: process.env.PAYMOB_API_KEY || '',
-        hmacSecret: process.env.PAYMOB_HMAC_SECRET || '',
-      },
+      mode: process.env.PAYMENT_MODE || 'manual_demo',
+      liveAcknowledged: process.env.PAYMENT_LIVE_ACKNOWLEDGED || '',
     },
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-      /** Dev-only payment simulator page is reachable only when this is true. */
-      paymentsSimulator: process.env.NODE_ENV !== 'production' && (process.env.PAYMENTS_PROVIDER || 'simulator') === 'simulator',
     },
   },
 

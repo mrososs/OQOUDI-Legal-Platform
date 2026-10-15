@@ -29,6 +29,8 @@ useSeoMeta({ title: () => t('dash.nav.overview'), robots: 'noindex' })
       <DashboardAttentionList :items="attention" />
     </div>
 
+    <DashboardNotifications />
+
     <section class="kh-card kh-card--flush">
       <h2 class="section-head">{{ t('dashOps.recentTitle') }}</h2>
       <DashboardOrdersTable :orders="recent" :names="data?.names ?? {}" :show-date="false" />

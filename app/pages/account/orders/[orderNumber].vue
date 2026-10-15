@@ -102,6 +102,8 @@ useSeoMeta({ title: () => (order.value ? `${f.text(order.value.service.title)} Â
       @cancel="modal = 'cancel'"
     />
 
+    <PaymentsPaymentStatusCard v-if="order.manualSubmissions.length" :order="order" />
+
     <div class="layout">
       <div class="main-col">
         <AccountAppointmentCard v-if="order.booking" :order="order" @reschedule="modal = 'reschedule'" />

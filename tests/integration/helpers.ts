@@ -5,6 +5,7 @@
  */
 import { readFileSync } from 'node:fs'
 import { randomUUID } from 'node:crypto'
+import { deflateSync } from 'node:zlib'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import { createServerClient } from '@supabase/ssr'
 import pg from 'pg'
@@ -152,18 +153,91 @@ export async function createLegalNoticeOrder(session: Session, withFile = false)
   return { ...res.data, fileIds: files }
 }
 
-export async function startCheckout(session: Session, orderId: string) {
-  const res = await session.api<{ paymentId: string, redirectUrl: string }>(`/api/orders/${orderId}/checkout`, { method: 'POST', body: { method: 'card' } })
-  if (res.status !== 200) throw new Error(`checkout failed ${res.status} ${JSON.stringify(res.data)}`)
+/**
+ * A valid PNG (solid colour) built with zlib, so tests need no binary
+ * fixtures. `padTo` adds a tEXt chunk to reach (at least) that many bytes.
+ */
+export function samplePng(padTo = 0): Buffer {
+  const crcTable = Array.from({ length: 256 }, (_, n) => {
+    let c = n
+    for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1
+    return c >>> 0
+  })
+  const crc = (buf: Buffer) => {
+    let c = 0xFFFFFFFF
+    for (const b of buf) c = crcTable[(c ^ b) & 0xFF]! ^ (c >>> 8)
+    return (c ^ 0xFFFFFFFF) >>> 0
+  }
+  const chunk = (type: string, data: Buffer) => {
+    const len = Buffer.alloc(4)
+    len.writeUInt32BE(data.length)
+    const body = Buffer.concat([Buffer.from(type, 'ascii'), data])
+    const sum = Buffer.alloc(4)
+    sum.writeUInt32BE(crc(body))
+    return Buffer.concat([len, body, sum])
+  }
+  const w = 16
+  const h = 16
+  const ihdr = Buffer.alloc(13)
+  ihdr.writeUInt32BE(w, 0)
+  ihdr.writeUInt32BE(h, 4)
+  ihdr[8] = 8 // bit depth
+  ihdr[9] = 2 // truecolour
+  const raw = Buffer.alloc((w * 3 + 1) * h)
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) raw.set([200, 40, 40], y * (w * 3 + 1) + 1 + x * 3)
+  }
+  const parts = [
+    Buffer.from([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]),
+    chunk('IHDR', ihdr),
+    chunk('IDAT', deflateSync(raw)),
+  ]
+  const end = chunk('IEND', Buffer.alloc(0))
+  const baseLength = Buffer.concat([...parts, end]).length
+  if (padTo > baseLength + 20) {
+    parts.push(chunk('tEXt', Buffer.concat([Buffer.from('Comment\0', 'latin1'), Buffer.alloc(padTo - baseLength - 20, 0x41)])))
+  }
+  return Buffer.concat([...parts, end])
+}
+
+export type ManualMethod = 'instapay' | 'vodafone_cash' | 'paypal'
+
+/** Signs a proof upload and puts the bytes straight into the private bucket. Returns the object path. */
+export async function uploadProof(session: Session, orderId: string, bytes: Buffer = samplePng(), fileName = 'proof.png', contentType = 'image/png') {
+  const sign = await session.api<{ path: string, token: string }>(`/api/orders/${orderId}/payment-proof`, {
+    method: 'POST',
+    body: { fileName, sizeBytes: bytes.length, mimeType: contentType },
+  })
+  if (sign.status !== 200) throw new Error(`proof sign failed ${sign.status} ${JSON.stringify(sign.data)}`)
+  const { error } = await anon.storage.from('payment-proofs').uploadToSignedUrl(sign.data.path, sign.data.token, bytes, { contentType })
+  if (error) throw error
+  return sign.data.path
+}
+
+/** Customer: upload a proof and submit it for review (pending_review). */
+export async function submitProof(session: Session, orderId: string, method: ManualMethod = 'instapay') {
+  const proofPath = await uploadProof(session, orderId)
+  const res = await session.api<{ submissionId: string, paymentId: string, status: string }>(`/api/orders/${orderId}/manual-payment`, {
+    method: 'POST',
+    body: { method, proofPath },
+  })
+  if (res.status !== 200) throw new Error(`submit proof failed ${res.status} ${JSON.stringify(res.data)}`)
   return res.data
 }
 
-/** Full path: checkout → simulated gateway → signed webhook → paid. */
-export async function payOrder(session: Session, orderId: string, outcome: 'success' | 'failure' = 'success') {
-  const { paymentId } = await startCheckout(session, orderId)
-  const res = await session.api<{ result: string }>(`/api/dev/payment-simulator/${paymentId}`, { method: 'POST', body: { outcome } })
-  if (res.status !== 200) throw new Error(`simulator failed ${res.status} ${JSON.stringify(res.data)}`)
-  return { paymentId, result: res.data.result }
+let adminSession: Session | null = null
+export async function adminLogin() {
+  adminSession ??= await login('admin@oqoudi.test')
+  return adminSession
+}
+
+/** Full path: proof submission → admin approval → order paid and started. */
+export async function payOrder(session: Session, orderId: string) {
+  const { submissionId, paymentId } = await submitProof(session, orderId)
+  const admin = await adminLogin()
+  const res = await admin.api<{ result: string, orderStatus: string }>(`/api/admin/manual-payments/${submissionId}/approve`, { method: 'POST', body: { orderId } })
+  if (res.status !== 200) throw new Error(`approve failed ${res.status} ${JSON.stringify(res.data)}`)
+  return { submissionId, paymentId, result: res.data.result, orderStatus: res.data.orderStatus }
 }
 
 export async function orderRow(orderId: string) {

@@ -31,9 +31,9 @@ describe('database privilege baseline', () => {
     expect(rows).toEqual([])
   })
 
-  it('keeps the document bucket private with no client storage policies', async () => {
-    const [bucket] = await sql<{ public: boolean }>(`select public from storage.buckets where id = 'order-documents'`)
-    expect(bucket?.public).toBe(false)
+  it('keeps the document and payment-proof buckets private with no client storage policies', async () => {
+    const buckets = await sql<{ id: string, public: boolean }>(`select id, public from storage.buckets where id in ('order-documents', 'payment-proofs') order by id`)
+    expect(buckets).toEqual([{ id: 'order-documents', public: false }, { id: 'payment-proofs', public: false }])
     const policies = await sql(`select policyname from pg_policies where schemaname = 'storage' and tablename = 'objects'`)
     expect(policies).toEqual([])
   })

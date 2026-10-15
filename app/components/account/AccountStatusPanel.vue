@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { CUSTOMER_ACTION_STATUSES, canCustomerCancel, canPay } from '#shared/domain/orderStatus'
+import { manualPaymentState } from '#shared/domain/manualPayments'
 import type { OrderDetail } from '~/repositories/orders'
 
 /** Progress stepper + "what happens now / what we need from you" callout with actions. */
@@ -11,15 +12,18 @@ const f = useFormat()
 
 const o = computed(() => props.order)
 const isQuote = computed(() => o.value.service.pricingType === 'quote')
-const needsAction = computed(() => CUSTOMER_ACTION_STATUSES.includes(o.value.status) && !(o.value.status === 'awaiting_payment' && !canPay(o.value.status, o.value.paymentStatus, isQuote.value, !!o.value.quoteIssuedAt)))
+const payment = computed(() => manualPaymentState(o.value, 3))
+const underReview = computed(() => payment.value.state === 'pending')
+const needsAction = computed(() => CUSTOMER_ACTION_STATUSES.includes(o.value.status) && !underReview.value && !(o.value.status === 'awaiting_payment' && !canPay(o.value.status, o.value.paymentStatus, isQuote.value, !!o.value.quoteIssuedAt)))
 const calloutTitle = computed(() => t(needsAction.value ? 'account.order.calloutAction' : 'account.order.calloutNow', { status: t(`status.${o.value.status}.client`) }))
 const hint = computed(() => {
+  if (underReview.value) return t('mpay.status.pending.body')
   if (o.value.status === 'new' && isQuote.value) return t('account.order.quotePending')
   if (o.value.status === 'awaiting_payment' && isQuote.value && o.value.quoteIssuedAt) return t('account.order.quoteReady', { amount: f.money(o.value.totalMinor) })
   return t(`status.${o.value.status}.hint`)
 })
-const payable = computed(() => canPay(o.value.status, o.value.paymentStatus, isQuote.value, !!o.value.quoteIssuedAt))
-const payFailed = computed(() => o.value.paymentStatus === 'failed' && o.value.status === 'awaiting_payment')
+// Rejected proofs are handled by PaymentStatusCard (resubmit / contact us).
+const payable = computed(() => payment.value.state === 'awaiting' && payment.value.canSubmit)
 const canAccept = computed(() => o.value.status === 'delivered')
 const canRevise = computed(() => o.value.status === 'delivered' && o.value.service.kind === 'standard' && o.value.deliveries.length > 0)
 const canRate = computed(() => o.value.status === 'completed' && !o.value.review)
@@ -41,7 +45,7 @@ const cancellable = computed(() => canCustomerCancel(o.value.status, o.value.pay
           <UiButton v-if="canRevise" variant="secondary" size="sm" @click="emit('revise')">{{ t('account.order.revise') }}</UiButton>
         </template>
         <UiButton v-if="payable" size="sm" :to="`/checkout/${order.orderNumber}`">
-          {{ (payFailed ? t('account.order.retryPay', { amount: f.money(order.totalMinor) }) : t('account.order.pay', { amount: f.money(order.totalMinor) })) }}
+          {{ t('account.order.pay', { amount: f.money(order.totalMinor) }) }}
         </UiButton>
         <UiButton v-if="order.status === 'awaiting_info'" size="sm" :to="{ path: `/account/orders/${order.orderNumber}`, query: { tab: 'messages' } }">{{ t('account.cta.awaiting_info') }}</UiButton>
         <UiButton v-if="canRate" size="sm" @click="emit('rate')">{{ t('account.order.rate') }}</UiButton>
@@ -49,7 +53,6 @@ const cancellable = computed(() => canCustomerCancel(o.value.status, o.value.pay
         <UiButton v-if="cancellable" variant="ghost" size="sm" :loading="busy === 'cancel'" @click="emit('cancel')">{{ t('account.order.cancel') }}</UiButton>
       </div>
     </div>
-    <div v-if="payFailed" class="failed" role="alert">{{ t('account.order.payFailed') }}</div>
   </div>
 </template>
 
@@ -63,5 +66,4 @@ const cancellable = computed(() => canCustomerCancel(o.value.status, o.value.pay
 .callout-hint { font-size: 14px; line-height: 1.7; }
 .callout-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .rated { font-size: 14px; color: var(--text-strong); display: inline-flex; gap: 6px; align-items: center; }
-.failed { font-size: 13px; color: var(--critical-500); }
 </style>

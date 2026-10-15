@@ -23,7 +23,7 @@ describe('customer and lawyer data isolation', () => {
   it('A sees her order, B does not (same response as non-existent)', async () => {
     const mine = await a.db.from('orders').select('id').eq('id', order.id).maybeSingle()
     expect(mine.data?.id).toBe(order.id)
-    for (const table of ['orders', 'order_events', 'order_messages', 'payments'] as const) {
+    for (const table of ['orders', 'order_events', 'order_messages', 'payments', 'manual_payment_submissions'] as const) {
       const col = table === 'orders' ? 'id' : 'order_id'
       const { data } = await b.db.from(table).select('id').eq(col, order.id)
       expect(data, table).toEqual([])
@@ -61,7 +61,8 @@ describe('customer and lawyer data isolation', () => {
       b.api(`/api/orders/${order.id}/accept`, { method: 'POST' }),
       b.api(`/api/orders/${order.id}/cancel`, { method: 'POST', body: {} }),
       b.api(`/api/orders/${order.id}/review`, { method: 'POST', body: { rating: 1 } }),
-      b.api(`/api/orders/${order.id}/checkout`, { method: 'POST', body: { method: 'card' } }),
+      b.api(`/api/orders/${order.id}/payment-proof`, { method: 'POST', body: { fileName: 'p.png', sizeBytes: 100 } }),
+      b.api(`/api/orders/${order.id}/manual-payment`, { method: 'POST', body: { method: 'instapay', proofPath: `${order.id}/${b.userId}/00000000-0000-4000-8000-000000000000.png` } }),
     ]
     for (const res of await Promise.all(attempts)) {
       expect(res.status).toBe(404)

@@ -1,6 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { Database } from '#shared/types/database.types'
 import type { Localized } from '#shared/domain/localized'
+import type { VerificationStatus } from '#shared/domain/manualPayments'
 
 type Client = SupabaseClient<Database>
 
@@ -25,6 +26,10 @@ export interface PaymentRow {
   orderStatus: Database['public']['Enums']['order_status']
   orderPaymentStatus: Database['public']['Enums']['payment_status']
   serviceTitle: Localized | null
+  provider: string
+  isDemo: boolean
+  /** Manual transfers: the proof review attached to this attempt. */
+  verification: { submissionId: string, status: VerificationStatus, rejectionReason: string | null } | null
 }
 
 /** Current user's notifications (RLS: own rows only). */
@@ -57,7 +62,7 @@ export async function markNotificationsRead(client: Client, ids?: string[]) {
 export async function fetchCustomerPayments(client: Client, accountId: string): Promise<PaymentRow[]> {
   const { data, error } = await client
     .from('payments')
-    .select('id, status, method, amount_minor, receipt_number, created_at, succeeded_at, orders!inner(order_number, status, payment_status, service_snapshot, customer_account_id)')
+    .select('id, status, method, provider, is_demo, amount_minor, receipt_number, created_at, succeeded_at, orders!inner(order_number, status, payment_status, service_snapshot, customer_account_id), manual_payment_submissions(id, verification_status, rejection_reason)')
     .eq('orders.customer_account_id', accountId)
     .order('created_at', { ascending: false })
   if (error) throw error
@@ -68,6 +73,8 @@ export async function fetchCustomerPayments(client: Client, accountId: string): 
       payment_status: PaymentRow['orderPaymentStatus']
       service_snapshot: { title?: Localized } | null
     }
+    const sub = (Array.isArray(p.manual_payment_submissions) ? p.manual_payment_submissions[0] : p.manual_payment_submissions) as
+      { id: string, verification_status: VerificationStatus, rejection_reason: string | null } | null | undefined
     return {
       id: p.id,
       status: p.status,
@@ -80,6 +87,9 @@ export async function fetchCustomerPayments(client: Client, accountId: string): 
       orderStatus: o.status,
       orderPaymentStatus: o.payment_status,
       serviceTitle: o.service_snapshot?.title ?? null,
+      provider: p.provider,
+      isDemo: p.is_demo,
+      verification: sub ? { submissionId: sub.id, status: sub.verification_status, rejectionReason: sub.rejection_reason } : null,
     }
   })
 }

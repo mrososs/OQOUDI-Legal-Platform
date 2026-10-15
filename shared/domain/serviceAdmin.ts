@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { localizedSchema } from './localized'
 import { serviceSectionInputSchema } from './serviceSections'
+import { manualPaymentSettingsSchema } from './manualPayments'
 
 /**
  * Service editor payload (admin). Validated in the browser for early
@@ -107,6 +108,7 @@ export const SETTING_SCHEMAS = {
   'contact': contactSettingSchema,
   'booking': bookingSettingSchema,
   'assignment.default_lawyer': defaultLawyerSettingSchema,
+  'payments.manual': manualPaymentSettingsSchema,
 } as const
 
 export type SettingKey = keyof typeof SETTING_SCHEMAS

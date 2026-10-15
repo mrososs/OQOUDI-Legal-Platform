@@ -1,12 +1,12 @@
 import { validateAnswers, type Answers, type FieldError, type FormField } from '#shared/domain/formSchema'
 import type { ServiceDetail } from '~/repositories/catalog'
 import type { UploadedFile } from '~/composables/useUpload'
-import type { PaymentMethod } from '~/components/checkout/PaymentMethodPicker.vue'
 
 type Step = 'slot' | 'form' | 'review'
 
 /**
- * Service request flow: (slot →) details → review & pay/submit.
+ * Service request flow: (slot →) details → review → create order, then the
+ * manual payment checkout (/checkout/:orderNumber) for fixed-price services.
  * Client validation mirrors the server (shared schema); the server is the
  * authority for prices, documents and slot availability.
  */
@@ -14,6 +14,7 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
   const { t } = useI18n()
   const f = useFormat()
   const { call, toFailure } = useApi()
+  const toast = useToast()
   const localePath = useLocalePath()
 
   const isMeeting = computed(() => service.value.kind === 'video_consultation')
@@ -29,7 +30,6 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
   const formAlert = shallowRef('')
   const slot = shallowRef<string | null>(null)
   const addonIds = ref<string[]>(initialAddons.filter(id => service.value.addons.some(a => a.id === id)))
-  const method = shallowRef<PaymentMethod>('card')
   const submitting = shallowRef(false)
   const submitError = shallowRef('')
   const createdOrder = shallowRef<{ id: string, orderNumber: string } | null>(null)
@@ -52,9 +52,7 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
     if (step.value === 'slot') return t('request.toDetails')
     if (step.value === 'form') return t('request.toReview')
     if (isQuote.value) return t('request.sendQuote')
-    return submitError.value
-      ? t('request.retryPay', { amount: f.money(totalMinor.value) })
-      : t('request.pay', { amount: f.money(totalMinor.value) })
+    return t('request.continueToPayment', { amount: f.money(totalMinor.value) })
   })
   const nextDisabled = computed(() => submitting.value || (step.value === 'slot' && !slot.value))
 
@@ -115,16 +113,13 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
             slotStart: slot.value,
           },
         })
+        toast.success(t('request.orderCreated', { order: createdOrder.value.orderNumber }))
       }
       if (isQuote.value) {
         await navigateTo(localePath(`/checkout/${createdOrder.value.orderNumber}/confirmation`))
         return
       }
-      const checkout = await call<{ redirectUrl: string }>(`/api/orders/${createdOrder.value.id}/checkout`, {
-        method: 'POST',
-        body: { method: method.value },
-      })
-      await navigateTo(checkout.redirectUrl, { external: /^https?:\/\//.test(checkout.redirectUrl) })
+      await navigateTo(localePath(`/checkout/${createdOrder.value.orderNumber}`))
     }
     catch (err) {
       const failure = toFailure(err)
@@ -152,7 +147,7 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
 
   return {
     isMeeting, isQuote, steps, stepIndex, step, stepLabels,
-    answers, files, errors, formAlert, slot, addonIds, method,
+    answers, files, errors, formAlert, slot, addonIds,
     submitting, submitError, createdOrder,
     chosenAddons, totalMinor, meetingLabel, fileNames, nextLabel, nextDisabled,
     touch, back, next,

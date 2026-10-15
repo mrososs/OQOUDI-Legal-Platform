@@ -47,9 +47,9 @@ export function useDashboardBadges() {
   const { data, refresh } = useAsyncData(
     'badge:dashboard',
     async () => {
-      if (!session.isStaff) return { newRequests: 0, missingLinks: 0, unrepliedReviews: 0 }
+      if (!session.isStaff) return { newRequests: 0, missingLinks: 0, unrepliedReviews: 0, pendingPayments: 0 }
       const nowIso = new Date().toISOString()
-      const [requests, links, reviews] = await Promise.all([
+      const [requests, links, reviews, payments] = await Promise.all([
         supabase.from('orders').select('id', { count: 'exact', head: true }).in('status', ['new', 'under_review']),
         supabase
           .from('consultation_bookings')
@@ -58,14 +58,17 @@ export function useDashboardBadges() {
           .is('meeting_url', null)
           .gte('starts_at', nowIso),
         supabase.from('reviews').select('id', { count: 'exact', head: true }).is('reply', null),
+        // RLS: admins see all submissions, lawyers none (count 0).
+        supabase.from('manual_payment_submissions').select('id', { count: 'exact', head: true }).eq('verification_status', 'pending_review'),
       ])
       return {
         newRequests: requests.count ?? 0,
         missingLinks: links.count ?? 0,
         unrepliedReviews: reviews.count ?? 0,
+        pendingPayments: payments.count ?? 0,
       }
     },
-    { default: () => ({ newRequests: 0, missingLinks: 0, unrepliedReviews: 0 }), watch: [() => session.isStaff] },
+    { default: () => ({ newRequests: 0, missingLinks: 0, unrepliedReviews: 0, pendingPayments: 0 }), watch: [() => session.isStaff] },
   )
-  return { counts: computed(() => data.value ?? { newRequests: 0, missingLinks: 0, unrepliedReviews: 0 }), refreshBadges: refresh }
+  return { counts: computed(() => data.value ?? { newRequests: 0, missingLinks: 0, unrepliedReviews: 0, pendingPayments: 0 }), refreshBadges: refresh }
 }

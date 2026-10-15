@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Database } from '#shared/types/database.types'
 import type { Localized } from '#shared/domain/localized'
+import type { ManualPaymentConfig, ManualPaymentSettings } from '#shared/domain/manualPayments'
 import type { PillNavItem } from '~/components/ui/UiPillNav.vue'
 import { fetchAvailability, fetchLawyers, fetchSettings } from '~/repositories/admin'
 
@@ -16,13 +17,16 @@ const { data, refresh } = await useAsyncData('admin:settings', async () => {
   return { settings, availability, lawyers }
 })
 
-const TABS = ['contact', 'hours', 'blocked', 'booking', 'users'] as const
+const TABS = ['contact', 'hours', 'blocked', 'booking', 'payments', 'users'] as const
 type Tab = (typeof TABS)[number]
 const tab = computed<Tab>(() => ((TABS as readonly string[]).includes(String(route.query.tab)) ? route.query.tab as Tab : 'contact'))
 const tabs = computed<PillNavItem[]>(() => TABS.map(id => ({ id, label: t(`admin.settings.tabs.${id}`) })))
 
 const contact = computed(() => (data.value?.settings.contact ?? null) as { phone: string, email: string, hours: Localized, address: Localized } | null)
 const booking = computed(() => (data.value?.settings.booking ?? null) as { slot_minutes: number, lead_minutes: number, horizon_days: number, hold_minutes: number } | null)
+const paymentSettings = computed(() => (data.value?.settings['payments.manual'] ?? null) as ManualPaymentSettings | null)
+const requestFetch = useRequestFetch()
+const { data: paymentConfig } = await useAsyncData('admin:payment-config', () => requestFetch<ManualPaymentConfig>('/api/payments/manual/config'))
 const defaultLawyer = computed(() => ((data.value?.settings['assignment.default_lawyer'] as { lawyer_id?: string | null } | undefined)?.lawyer_id) ?? null)
 
 useSeoMeta({ title: () => t('dash.nav.settings'), robots: 'noindex' })
@@ -49,6 +53,13 @@ useSeoMeta({ title: () => t('dash.nav.settings'), robots: 'noindex' })
         :booking="booking"
         :default-lawyer-id="defaultLawyer"
         :lawyers="data.lawyers"
+        @saved="refresh"
+      />
+      <AdminPaymentSettings
+        v-else-if="tab === 'payments'"
+        :key="JSON.stringify(paymentSettings)"
+        :value="paymentSettings"
+        :demo="paymentConfig?.demo ?? true"
         @saved="refresh"
       />
       <AdminUsersRoles v-else />

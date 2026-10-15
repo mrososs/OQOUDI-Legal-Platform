@@ -29,7 +29,7 @@ export default defineNuxtPlugin({
           { event: 'INSERT', schema: 'public', table: 'notifications', filter: `user_id=eq.${userId}` },
           () => {
             nuxtApp.runWithContext(() => {
-              refreshNuxtData(['badge:unread', 'notifications:list', 'notifications:recent', 'badge:dashboard', 'badge:active-orders'])
+              refreshNuxtData(['badge:unread', 'notifications:list', 'notifications:recent', 'notifications:staff', 'badge:dashboard', 'badge:active-orders', 'admin:manual-payments'])
             })
           },
         )

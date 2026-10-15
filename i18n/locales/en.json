@@ -295,20 +295,20 @@
     "toDetails": "Continue to details",
     "toReview": "Continue to review",
     "sendQuote": "Send quote request",
-    "pay": "Pay {amount}",
-    "retryPay": "Try again · {amount}",
     "sending": "Sending…",
-    "redirecting": "Redirecting to payment…",
+    "redirecting": "Creating your order…",
     "fixFields": "Please review {n} field before continuing. | Please review {n} fields before continuing.",
     "errorTitle": "We couldn’t complete that",
     "savedButPaymentFailed": "Your order {order} is saved in your account as “Awaiting payment”. {reason}",
-    "quoteInfo": "You won’t pay now. A lawyer will review your request and send a final quote to your account."
+    "quoteInfo": "You won’t pay now. A lawyer will review your request and send a final quote to your account.",
+    "continueToPayment": "Continue to payment · {amount}",
+    "manualPayInfo": "After the order is created you will choose a payment method (InstaPay, Vodafone Cash or PayPal), transfer the amount and upload a screenshot of the transfer for review.",
+    "orderCreated": "Order {order} created"
   },
   "checkout": {
     "summary": "Order summary",
     "servicePrice": "Service price",
     "snapshotNote": "Ordering as {name}. This order keeps its current form and price even if they change later.",
-    "paymentMethod": "Payment method",
     "methods": {
       "card": {
         "label": "Bank card",
@@ -323,36 +323,20 @@
         "sub": "Pay cash with a reference number"
       }
     },
-    "fawryInfo": "After confirming you get a reference number to pay at any Fawry outlet. Work starts once payment is confirmed.",
-    "hostedNotice": "You’ll be redirected to the payment provider’s secure page. We never store your card details.",
     "reviewTitle": "Review your request",
     "meetingMeta": "Google Meet · 30 minutes · Cairo time",
     "attachments": "Attachments:",
     "payTitle": "Complete payment",
     "backToOrder": "← Back to order",
-    "failedTitle": "Payment failed",
-    "failedBody": "The issuing bank declined the payment. Nothing was charged. Try another card or payment method.",
     "notPayableTitle": "No payment needed right now",
     "notPayableBody": "The order is already paid, awaiting a quote, or no longer payable."
   },
   "confirm": {
     "quoteTitle": "Quote request sent",
-    "meetingTitle": "Consultation booked",
-    "paidTitle": "Payment received — your order is in",
-    "pendingTitle": "Confirming payment",
-    "failedTitle": "Payment not completed",
     "quoteLead": "A lawyer will review your request and send a final quote to your account.",
-    "paidLead": "We notified the assigned lawyer. Track your order from your account anytime.",
-    "pendingLead": "Waiting for the payment provider’s confirmation. This page updates automatically.",
-    "failedLead": "Nothing was charged. Your order {order} is saved and you can try again.",
     "orderNumber": "Order number",
     "service": "Service",
-    "amountPaid": "Amount paid",
-    "amount": "Amount",
-    "receipt": "Receipt number",
-    "meetingLinkPending": "Google Meet link: awaiting the lawyer. It will appear on your appointment page and you’ll be notified.",
     "whatNext": "What happens next?",
-    "retry": "Retry payment",
     "trackOrder": "Track order in my account →",
     "otherServices": "Other services",
     "next": {
@@ -375,16 +359,13 @@
         "1": "The lawyer reviews your order",
         "2": "They may ask for clarification via messages",
         "3": "You receive the document to accept or request a revision"
+      },
+      "review": {
+        "1": "The platform team reviews your transfer proof",
+        "2": "You are notified when it is approved or rejected",
+        "3": "Your lawyer starts as soon as the payment is approved"
       }
     }
-  },
-  "simulator": {
-    "banner": "Development payment simulator — no real payment happens. The result reaches the platform as a signed webhook, exactly like a real provider.",
-    "title": "Payment page (simulated)",
-    "reference": "Reference",
-    "notPending": "This attempt is no longer awaiting payment.",
-    "success": "Successful payment",
-    "failure": "Card declined"
   },
   "privacy": {
     "title": "You can’t access this order",
@@ -460,7 +441,21 @@
     "OQ429_TOO_MANY_UPLOADS": "Too many uploads today. Try later.",
     "OQ500": "Server error. Please try again.",
     "OQ503_PAYMENTS": "Payments are unavailable right now. Please try later.",
-    "OQ409_SLUG_TAKEN": "This slug is already used by another service. Choose a different one."
+    "OQ409_SLUG_TAKEN": "This slug is already used by another service. Choose a different one.",
+    "OQ404_PAYMENT": "The payment proof doesn't exist or you can't access it.",
+    "OQ409_PAYMENT_PENDING_REVIEW": "A payment proof for this order is already under review.",
+    "OQ409_PAYMENT_REVIEWED": "This proof was already reviewed. Refresh to see the current decision.",
+    "OQ409_PAYMENT_ORDER_MISMATCH": "This proof doesn't belong to that order.",
+    "OQ409_PAYMENT_AMOUNT_MISMATCH": "The amount doesn't match the order total. The payment can't be approved.",
+    "OQ409_PAYMENT_ATTEMPTS_EXCEEDED": "No proof attempts left for this order. Please contact us.",
+    "OQ409_PAYMENT_IMMUTABLE": "A recorded review decision can't be changed.",
+    "OQ409_AUDIT_IMMUTABLE": "The audit log can't be modified.",
+    "OQ410_GATEWAY_RETIRED": "The online payment gateway is retired. Pay by transfer and upload the proof.",
+    "OQ422_PAYMENT_METHOD": "Unsupported payment method.",
+    "OQ422_PROOF_INVALID": "The payment proof is invalid. Please upload the image again.",
+    "OQ422_PROOF_TYPE": "Unsupported file type. Upload a PNG, JPG or WEBP image.",
+    "OQ422_PROOF_SIZE": "The image is larger than 5 MB.",
+    "OQ503_PAYMENT_METHOD_UNAVAILABLE": "This payment method is currently unavailable."
   },
   "auth": {
     "tabsLabel": "Sign in or create an account",
@@ -537,7 +532,7 @@
     "awaiting_payment": {
       "label": "Awaiting payment",
       "client": "Awaiting payment",
-      "hint": "Complete payment so the lawyer can start reviewing your request."
+      "hint": "Transfer the amount and upload the proof so we can verify it and start your order."
     },
     "under_review": {
       "label": "Under review",
@@ -615,7 +610,10 @@
     "meeting_link_published": "The lawyer added the meeting link",
     "meeting_link_updated": "The lawyer updated the meeting link",
     "review_submitted": "Customer left a review",
-    "refund_requested": "Refund requested"
+    "refund_requested": "Refund requested",
+    "payment_proof_submitted": "Customer submitted a transfer proof",
+    "payment_approved": "Platform team approved the payment",
+    "payment_rejected": "Platform team rejected the transfer proof"
   },
   "notifications": {
     "order_quote_requested": "New quote request: {service} ({order})",
@@ -639,7 +637,12 @@
     "booking_rescheduled": "Your consultation moved to {when}.",
     "booking_conflict": "Slot conflict after payment on order {order}. Rescheduling needed.",
     "meeting_link_published": "Your meeting link for {when} is now available in your account.",
-    "review_submitted": "New review {rating}/5 on {service}."
+    "review_submitted": "New review {rating}/5 on {service}.",
+    "payment_proof_submitted": "We received your {amount} payment proof for order {order} — under review.",
+    "payment_review_pending": "New {amount} payment for order {order} — awaiting review.",
+    "payment_approved": "Your {amount} payment for order {order} was approved.",
+    "payment_rejected": "The payment for order {order} could not be approved. Contact us if you need help.",
+    "order_started": "Work has started on your order {order} · {service}."
   },
   "messages": {
     "empty": "No messages yet.",
@@ -698,11 +701,9 @@
       "accept": "Accept delivery",
       "revise": "Request revision",
       "pay": "Complete payment · {amount}",
-      "retryPay": "Retry payment · {amount}",
       "rate": "Rate the service",
       "yourRating": "Your rating:",
       "cancel": "Cancel order",
-      "payFailed": "The last payment attempt failed: declined by the issuing bank. Nothing was charged.",
       "version": "Version {v}",
       "latest": "Latest",
       "deliveredAt": "Delivered {date}",
@@ -820,9 +821,10 @@
         "expired": "Expired",
         "cancelled": "Cancelled"
       },
-      "completePay": "Complete payment",
       "empty": "No payments yet.",
-      "note": "Receipts are informational. Tax e-invoices will be issued once accounting is integrated."
+      "note": "Transfer proofs are reviewed manually by the platform team. Payments marked “Demo” are for demonstration only and are not real transfers.",
+      "totalPaidDemo": "Total paid (demo)",
+      "underReview": "Payments under review"
     },
     "notifications": {
       "markAll": "Mark all as read",
@@ -973,7 +975,9 @@
       "blockedTitle": "Unavailable days and times",
       "noBlocked": "No blocked days this week.",
       "manageHours": "Manage working hours and blocked days"
-    }
+    },
+    "notificationsTitle": "Notifications",
+    "notificationsEmpty": "No notifications yet."
   },
   "admin": {
     "common": {
@@ -1201,21 +1205,6 @@
       "details": "Add-ons & details"
     },
     "payments": {
-      "kpi": {
-        "collected": "Collected",
-        "awaiting": "Awaiting payment",
-        "refunded": "Refunded",
-        "refundRequests": "Refund requests",
-        "failed": "Failed attempts"
-      },
-      "filter": "Filter by status",
-      "status": {
-        "all": "All",
-        "succeeded": "Succeeded",
-        "failed": "Failed",
-        "pending": "Pending",
-        "cancelled": "Cancelled"
-      },
       "attempt": {
         "initiated": "Started",
         "pending": "Awaiting provider",
@@ -1233,9 +1222,8 @@
         "amount": "Amount",
         "status": "Status"
       },
-      "simulator": "simulated",
       "empty": "No transactions.",
-      "footnote": "Payment results are recorded only from verified provider callbacks. Live gateway integration and e-invoicing are a later milestone."
+      "footnote": "Manual payments are recorded only after the platform team reviews the transfer proof. Historical gateway and simulator attempts are kept for audit; new ones can't be started."
     },
     "reviews": {
       "average": "Average rating",
@@ -1255,7 +1243,8 @@
         "hours": "Working hours",
         "blocked": "Blocked dates",
         "booking": "Booking settings",
-        "users": "Users & roles"
+        "users": "Users & roles",
+        "payments": "Payments"
       },
       "saved": "Saved"
     },
@@ -1307,6 +1296,253 @@
       "admin": "Admin",
       "toggleRole": "{role} role for {name}",
       "updated": "Roles updated"
+    },
+    "mpay": {
+      "tabs": {
+        "label": "Payment sections",
+        "verify": "Proof verification",
+        "records": "All records"
+      },
+      "kpi": {
+        "pending": "Pending verification",
+        "pendingSub": "Proofs awaiting a decision",
+        "approved": "Approved payments",
+        "approvedSimulated": "{amount} — simulated, not revenue",
+        "approvedReal": "{amount} collected",
+        "rejected": "Rejected payments",
+        "rejectedSub": "Orders stay blocked",
+        "pendingAmount": "Pending amount",
+        "pendingAmountSub": "Total of proofs under review",
+        "demoNote": "Demo mode — not real revenue"
+      },
+      "filters": {
+        "status": "Filter by status",
+        "all": "All",
+        "method": "Payment method",
+        "allMethods": "All methods",
+        "sort": "Sort",
+        "search": "Search by order number, customer name or email"
+      },
+      "sort": {
+        "newest": "Newest first",
+        "oldest": "Oldest first",
+        "amount_desc": "Highest amount",
+        "amount_asc": "Lowest amount"
+      },
+      "cols": {
+        "order": "Order",
+        "customer": "Customer",
+        "service": "Service",
+        "method": "Method",
+        "amount": "Amount",
+        "date": "Submitted",
+        "status": "Verification",
+        "actions": "Actions"
+      },
+      "review": "Review",
+      "details": "Details",
+      "empty": "No matching payment proofs.",
+      "pager": {
+        "label": "Pagination",
+        "prev": "Previous",
+        "next": "Next",
+        "of": "Page {page} of {pages} · {total} proofs"
+      },
+      "panel": {
+        "title": "Review payment proof",
+        "orderStatus": "Order status",
+        "customer": "Customer",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "payment": "Payment details",
+        "expected": "Expected amount",
+        "orderTotal": "Current order total",
+        "reviewed": "Reviewed",
+        "proof": "Transfer proof",
+        "reloadProof": "Reload image",
+        "proofNote": "The preview link is valid for 60 seconds and can't be shared publicly.",
+        "amountMismatch": "The recorded amount doesn't match the current order total — approval is blocked. Reject the proof or check the order.",
+        "notPayable": "The order is no longer awaiting payment (it may have been cancelled). Approval is blocked."
+      },
+      "approve": "Approve payment",
+      "reject": "Reject payment",
+      "approving": "Recording approval…",
+      "rejecting": "Recording rejection…",
+      "approved": "Payment approved and the service has started.",
+      "rejected": "Payment proof rejected and the customer was notified.",
+      "confirmApprove": {
+        "title": "Confirm payment approval",
+        "body": "Order {order} will be marked paid ({amount}), work will start and the customer will be notified. This can't be undone.",
+        "demo": "This is a demo submission: it is recorded as a simulated approval and excluded from real revenue."
+      },
+      "confirmReject": {
+        "title": "Reject payment proof",
+        "body": "Order {order} stays blocked and is not marked paid. The customer will be notified and the proof kept on record.",
+        "reason": "Rejection reason (optional)",
+        "reasonHint": "Shown to the customer on the order page. Don't include sensitive data."
+      },
+      "records": {
+        "collectedReal": "Collected (real)",
+        "collectedDemo": "Approved in demo (not revenue)",
+        "manual": "Manual transfer",
+        "legacy": "Archive ({provider})"
+      },
+      "settings": {
+        "lead": "Transfer details shown to customers at checkout. Changing them never enables real payments — demo vs live mode is server configuration only.",
+        "emptyHint": "Leave empty to show a demo placeholder in demo mode and hide the method in live mode.",
+        "paypalHint": "Waiting for the platform's PayPal account. Leave empty until it exists.",
+        "maxAttempts": "Maximum proof submissions per order",
+        "maxAttemptsHint": "After a rejection the customer can resubmit up to this limit, then has to contact the team.",
+        "invalid": "Invalid value",
+        "fixErrors": "Fix the highlighted fields before saving."
+      }
+    }
+  },
+  "toast": {
+    "region": "Notifications",
+    "dismiss": "Dismiss notification",
+    "repeated": "Repeated {n} times",
+    "types": {
+      "success": "Success",
+      "error": "Error",
+      "warning": "Warning",
+      "info": "Info",
+      "loading": "In progress"
+    }
+  },
+  "mpay": {
+    "demo": {
+      "badge": "Demo Mode",
+      "notice": "All payment submissions are simulated. Do not transfer real money.",
+      "noTransfer": "No real transfer is needed in demo mode. You can upload a sample proof image to try the full review cycle.",
+      "tag": "Demo"
+    },
+    "methods": {
+      "instapay": {
+        "label": "InstaPay",
+        "sub": "Instant transfer from the InstaPay app or your bank app"
+      },
+      "vodafone_cash": {
+        "label": "Vodafone Cash",
+        "sub": "Transfer from a Vodafone Cash or any mobile wallet"
+      },
+      "paypal": {
+        "label": "PayPal",
+        "sub": "Manual transfer to a PayPal account"
+      }
+    },
+    "unavailable": "Currently unavailable",
+    "steps": {
+      "summary": "Order summary",
+      "method": "Choose a payment method",
+      "instructions": "Transfer instructions",
+      "proof": "Payment proof",
+      "submit": "Submit for review"
+    },
+    "overview": {
+      "delivery": "Estimated delivery",
+      "customer": "Customer details"
+    },
+    "destination": {
+      "instapay": "InstaPay address or number",
+      "vodafone_cash": "Vodafone Cash wallet number",
+      "paypal": "PayPal receiving email"
+    },
+    "instructionsLead": "Transfer the exact amount and put the order number in the transfer note.",
+    "instructions": {
+      "instapay": {
+        "1": "Open the InstaPay app or your bank app.",
+        "2": "Choose transfer to a payment address or mobile number and enter the destination above.",
+        "3": "Transfer the exact amount and add order number {order} in the note.",
+        "4": "Take a clear screenshot of the success screen and upload it in the next step."
+      },
+      "vodafone_cash": {
+        "1": "Dial ‎*9*7#‎ or open the Ana Vodafone app.",
+        "2": "Choose money transfer and enter the wallet number above.",
+        "3": "Transfer the exact amount and keep the confirmation message.",
+        "4": "Take a screenshot of the confirmation and upload it in the next step."
+      },
+      "paypal": {
+        "1": "Sign in to your PayPal account.",
+        "2": "Choose Send money and enter the email above.",
+        "3": "Send the equivalent of the amount due and add order number {order} in the note.",
+        "4": "Take a screenshot of the PayPal receipt and upload it in the next step."
+      }
+    },
+    "paypalCurrencyNote": "The amount is in Egyptian pounds. When real PayPal payments are enabled, currency and fees will be confirmed separately.",
+    "placeholderNote": "Demo account — not available for real transfers.",
+    "pickMethodFirst": "Choose a payment method first to see the transfer details.",
+    "amount": "Amount due",
+    "reference": "Transfer reference (order number)",
+    "copy": "Copy",
+    "copyWhat": "Copy {what}",
+    "copied": "{what} copied",
+    "copyFailed": "Couldn't copy. Please copy the value manually.",
+    "proof": {
+      "label": "Upload Payment Proof",
+      "hint": "PNG, JPG or WEBP · up to {max} MB",
+      "drop": "Drag and drop the proof image here",
+      "browse": "Browse files",
+      "replace": "Replace",
+      "remove": "Remove",
+      "uploading": "Uploading… {pct}%",
+      "previewAlt": "Payment proof preview",
+      "sample": "Use a sample demo proof",
+      "sampleNote": "Clearly labelled as DEMO — not a real receipt.",
+      "view": "View proof",
+      "viewTitle": "Payment proof",
+      "openFull": "Open full size",
+      "unavailable": "Couldn't load the image. Please try again.",
+      "errors": {
+        "type": "Unsupported file type. Upload a PNG, JPG or WEBP image.",
+        "size": "The image is larger than 5 MB. Choose a smaller one.",
+        "empty": "The file is empty. Choose another image.",
+        "required": "A payment proof image is required.",
+        "upload": "Upload failed. Check your connection and try again.",
+        "sample": "Couldn't create the sample image."
+      }
+    },
+    "submit": "Submit Payment for Review",
+    "submitting": "Submitting…",
+    "submitNote": "The order is not considered paid and work does not start until the platform team reviews your proof.",
+    "submittedTitle": "Submitted",
+    "submitted": "Your payment proof has been submitted. We will review it and notify you before work begins.",
+    "payNow": "Complete payment · {amount}",
+    "resubmit": "Submit a new proof",
+    "contactUs": "Contact us",
+    "attemptsLeft": "You can submit a new proof ({n} attempt left). | You can submit a new proof ({n} attempts left).",
+    "attemptsExhausted": "No proof attempts left for this order. Please contact us to complete the payment.",
+    "badge": {
+      "pending_review": "Pending review",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "status": {
+      "awaiting": {
+        "title": "Awaiting payment proof",
+        "body": "Choose a payment method, transfer the amount, then upload a screenshot of the transfer to start the review."
+      },
+      "pending": {
+        "title": "Payment under review",
+        "body": "We received your transfer proof. The platform team will review it before work on your service begins."
+      },
+      "approved": {
+        "title": "Payment approved — work has started",
+        "body": "The platform team reviewed and approved your proof. Your lawyer is now working on your order."
+      },
+      "rejected": {
+        "title": "Payment not approved",
+        "body": "Your payment could not be approved. Please contact us if you experience any issues."
+      }
+    },
+    "facts": {
+      "method": "Payment method",
+      "amount": "Amount",
+      "submittedAt": "Submitted",
+      "reviewedAt": "Reviewed",
+      "receipt": "Receipt number",
+      "reason": "Reason"
     }
   }
 }

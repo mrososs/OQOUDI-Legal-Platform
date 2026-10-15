@@ -75,8 +75,8 @@ useSeoMeta({ title, robots: 'noindex' })
             editable
             @edit="flow.back()"
           />
-          <CheckoutPaymentMethodPicker v-if="!flow.isQuote.value" v-model="flow.method.value" />
-          <UiAlert v-else tone="info">{{ t('request.quoteInfo') }}</UiAlert>
+          <UiAlert v-if="flow.isQuote.value" tone="info">{{ t('request.quoteInfo') }}</UiAlert>
+          <UiAlert v-else tone="info">{{ t('request.manualPayInfo') }}</UiAlert>
         </template>
 
         <div class="actions">
