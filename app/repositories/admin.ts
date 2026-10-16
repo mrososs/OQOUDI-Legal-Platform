@@ -17,6 +17,10 @@ export interface AdminServiceRow {
   status: Enums['publish_status']
   pricingType: Enums['pricing_type']
   basePriceMinor: number
+  launchPriceMinor: number | null
+  launchEligible: boolean
+  translationPending: boolean
+  sourceRef: string | null
   enabledSections: number
   publishedFormVersion: number | null
   publishedFieldCount: number
@@ -26,14 +30,19 @@ export interface AdminServiceRow {
 }
 
 export async function fetchAdminServices(client: Client): Promise<AdminServiceRow[]> {
-  const { data, error } = await client
-    .from('services')
-    .select(`id, slug, kind, title, primary_category_id, status, pricing_type, base_price_minor, sort_order, published_form_version_id,
-      service_sections(is_enabled), service_addons(is_active), service_form_versions!service_form_versions_service_id_fkey(id, version, status, fields)`)
-    .order('sort_order')
-  if (error) throw error
-  return (data ?? []).map((s) => {
-    const versions = (s.service_form_versions ?? []) as { id: string, version: number, status: string, fields: unknown }[]
+  const [servicesRes, formsRes] = await Promise.all([
+    client
+      .from('services')
+      .select(`id, slug, kind, title, primary_category_id, status, pricing_type, base_price_minor, launch_price_minor, launch_eligible,
+        translation_status, source_ref, sort_order, published_form_version_id, service_sections(is_enabled), service_addons(is_active)`)
+      .order('sort_order'),
+    client.from('service_form_stats').select('id, service_id, version, status, input_count'),
+  ])
+  if (servicesRes.error) throw servicesRes.error
+  if (formsRes.error) throw formsRes.error
+  const forms = formsRes.data ?? []
+  return (servicesRes.data ?? []).map((s) => {
+    const versions = forms.filter(v => v.service_id === s.id)
     const published = versions.find(v => v.id === s.published_form_version_id)
     return {
       id: s.id,
@@ -44,11 +53,13 @@ export async function fetchAdminServices(client: Client): Promise<AdminServiceRo
       status: s.status,
       pricingType: s.pricing_type,
       basePriceMinor: s.base_price_minor,
+      launchPriceMinor: s.launch_price_minor,
+      launchEligible: s.launch_eligible,
+      translationPending: s.translation_status === 'pending_review',
+      sourceRef: s.source_ref,
       enabledSections: (s.service_sections ?? []).filter(x => x.is_enabled).length,
       publishedFormVersion: published?.version ?? null,
-      publishedFieldCount: Array.isArray(published?.fields)
-        ? (published.fields as { type: string }[]).filter(f => f.type !== 'section' && f.type !== 'help').length
-        : 0,
+      publishedFieldCount: published?.input_count ?? 0,
       hasDraftForm: versions.some(v => v.status === 'draft'),
       activeAddons: (s.service_addons ?? []).filter(a => a.is_active).length,
       sortOrder: s.sort_order,
@@ -58,8 +69,11 @@ export async function fetchAdminServices(client: Client): Promise<AdminServiceRo
 
 export interface EditorAddon {
   id: string | null
+  kind: 'vip_delivery' | 'bilingual_drafting' | null
   title: Localized
-  priceMinor: number
+  /** Regular price; null when none is approved. */
+  priceMinor: number | null
+  launchPriceMinor: number | null
   isActive: boolean
 }
 
@@ -81,6 +95,10 @@ export interface ServiceEditorData {
   deliveryEstimate: Localized
   pricingType: Enums['pricing_type']
   basePriceMinor: number
+  launchPriceMinor: number | null
+  launchEligible: boolean
+  translationStatus: 'approved' | 'pending_review'
+  sourceRef: string | null
   meetingDurationMinutes: number | null
   isFeatured: boolean
   sortOrder: number
@@ -105,9 +123,10 @@ export async function fetchServiceForEditor(client: Client, id: string): Promise
   const { data, error } = await client
     .from('services')
     .select(`id, slug, kind, status, primary_category_id, title, short_description, delivery_estimate, pricing_type, base_price_minor,
+      launch_price_minor, launch_eligible, translation_status, source_ref,
       meeting_duration_minutes, is_featured, sort_order, published_form_version_id,
       service_category_links(category_id),
-      service_addons(id, title, price_minor, is_active, sort_order),
+      service_addons(id, kind, title, price_minor, launch_price_minor, is_active, sort_order),
       service_sections(key, is_enabled, sort_order, content),
       service_form_versions!service_form_versions_service_id_fkey(id, version, status, fields)`)
     .eq('id', id)
@@ -129,12 +148,23 @@ export async function fetchServiceForEditor(client: Client, id: string): Promise
     deliveryEstimate: data.delivery_estimate as unknown as Localized,
     pricingType: data.pricing_type,
     basePriceMinor: data.base_price_minor,
+    launchPriceMinor: data.launch_price_minor,
+    launchEligible: data.launch_eligible,
+    translationStatus: data.translation_status as 'approved' | 'pending_review',
+    sourceRef: data.source_ref,
     meetingDurationMinutes: data.meeting_duration_minutes,
     isFeatured: data.is_featured,
     sortOrder: data.sort_order,
     addons: [...(data.service_addons ?? [])]
       .sort((a, b) => a.sort_order - b.sort_order)
-      .map(a => ({ id: a.id, title: a.title as unknown as Localized, priceMinor: a.price_minor, isActive: a.is_active })),
+      .map(a => ({
+        id: a.id,
+        kind: a.kind as EditorAddon['kind'],
+        title: a.title as unknown as Localized,
+        priceMinor: a.price_minor,
+        launchPriceMinor: a.launch_price_minor,
+        isActive: a.is_active,
+      })),
     sections: completeSections(
       [...(data.service_sections ?? [])]
         .sort((a, b) => a.sort_order - b.sort_order)
@@ -145,12 +175,66 @@ export async function fetchServiceForEditor(client: Client, id: string): Promise
   }
 }
 
-export interface AdminCategory { id: string, slug: string, title: Localized }
+export interface AdminCategory { id: string, slug: string, parentId: string | null, title: Localized, sortOrder: number }
 
 export async function fetchAllCategories(client: Client): Promise<AdminCategory[]> {
-  const { data, error } = await client.from('service_categories').select('id, slug, title').order('sort_order')
+  const { data, error } = await client.from('service_categories').select('id, slug, parent_id, title, sort_order').order('sort_order')
   if (error) throw error
-  return (data ?? []).map(c => ({ id: c.id, slug: c.slug, title: c.title as unknown as Localized }))
+  return (data ?? []).map(c => ({ id: c.id, slug: c.slug, parentId: c.parent_id, title: c.title as unknown as Localized, sortOrder: c.sort_order }))
+}
+
+// ---------------------------------------------------------------------------
+// Catalog import status (admin only, RLS)
+// ---------------------------------------------------------------------------
+export interface ImportItem {
+  id: number
+  kind: 'category' | 'service'
+  ref: string
+  outcome: 'created' | 'updated' | 'matched' | 'skipped' | 'failed'
+  serviceId: string | null
+  details: { slug?: string, reusedExisting?: boolean, changes?: string[], formVersion?: number, error?: string }
+}
+export interface ImportRun {
+  id: string
+  batchKey: string
+  status: 'running' | 'succeeded' | 'failed'
+  startedAt: string
+  finishedAt: string | null
+  summary: Record<string, number>
+  items: ImportItem[]
+}
+
+export async function fetchLatestImportRun(client: Client): Promise<ImportRun | null> {
+  const { data: run, error } = await client
+    .from('catalog_import_runs')
+    .select('id, batch_key, status, started_at, finished_at, summary')
+    .order('started_at', { ascending: false })
+    .limit(1)
+    .maybeSingle()
+  if (error) throw error
+  if (!run) return null
+  const { data: items, error: itemsError } = await client
+    .from('catalog_import_items')
+    .select('id, kind, ref, outcome, service_id, details')
+    .eq('run_id', run.id)
+    .order('id')
+  if (itemsError) throw itemsError
+  return {
+    id: run.id,
+    batchKey: run.batch_key,
+    status: run.status as ImportRun['status'],
+    startedAt: run.started_at,
+    finishedAt: run.finished_at,
+    summary: run.summary as Record<string, number>,
+    items: (items ?? []).map(i => ({
+      id: i.id,
+      kind: i.kind as ImportItem['kind'],
+      ref: i.ref,
+      outcome: i.outcome as ImportItem['outcome'],
+      serviceId: i.service_id,
+      details: (i.details ?? {}) as ImportItem['details'],
+    })),
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -279,4 +363,27 @@ export async function fetchLawyers(client: Client): Promise<LawyerOption[]> {
   const { data, error } = await client.from('lawyer_profiles').select('user_id, display_name, is_active').order('display_name')
   if (error) throw error
   return (data ?? []).map(l => ({ id: l.user_id, displayName: l.display_name, isActive: l.is_active }))
+}
+
+// ---------------------------------------------------------------------------
+// Launch campaign: add-on prices (VIP / bilingual) per service, for the preview table
+// ---------------------------------------------------------------------------
+export interface AddonPricePair { regular: number | null, launch: number | null }
+export type LaunchAddonPrices = Record<string, { vip: AddonPricePair | null, bilingual: AddonPricePair | null }>
+
+export async function fetchLaunchAddonPrices(client: Client): Promise<LaunchAddonPrices> {
+  const { data, error } = await client
+    .from('service_addons')
+    .select('service_id, kind, price_minor, launch_price_minor')
+    .eq('is_active', true)
+    .not('kind', 'is', null)
+  if (error) throw error
+  const out: LaunchAddonPrices = {}
+  for (const a of data ?? []) {
+    const entry = (out[a.service_id] ??= { vip: null, bilingual: null })
+    const pair = { regular: a.price_minor, launch: a.launch_price_minor }
+    if (a.kind === 'vip_delivery') entry.vip = pair
+    else if (a.kind === 'bilingual_drafting') entry.bilingual = pair
+  }
+  return out
 }
