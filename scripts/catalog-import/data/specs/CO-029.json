@@ -1,0 +1,48 @@
+{
+  "ref": "CO-029",
+  "slug": "non-compete-and-non-solicitation-agreement",
+  "en": {
+    "title": "Non-Compete and Non-Solicitation of Clients and Employees Agreement",
+    "description": "Prevents senior employees or partners from opening a competing business or taking away the company's clients and employees."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "bound_party", "ar": "الطرف الملتزم", "en": "Bound party", "src": ["E1"],
+      "fields": [
+        "name",
+        "national_id",
+        {
+          "id": "capacity", "type": "radio", "ar": "الصفة", "en": "Capacity", "req": "review",
+          "options": [
+            { "value": "employee", "ar": "موظف", "en": "Employee" },
+            { "value": "manager", "ar": "مدير", "en": "Manager" },
+            { "value": "partner", "ar": "شريك", "en": "Partner" },
+            { "value": "consultant", "ar": "مستشار", "en": "Consultant" }
+          ]
+        }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "restricted_activity", "src": ["F1"], "type": "textarea", "ar": "تحديد النشاط المحظور منافسته بدقة", "en": "Precise definition of the activity in which competition is prohibited", "req": "yes" },
+    { "id": "geographic_scope", "src": ["F2"], "type": "text", "ar": "النطاق الجغرافي", "en": "Geographic scope", "req": "yes" },
+    { "id": "restriction_period", "src": ["F3"], "type": "text", "ar": "المدة الزمنية للحظر بعد انتهاء العلاقة", "en": "Duration of the restriction after the relationship ends", "req": "yes" }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "non_solicitation", "ar": "حظر التعاقد المباشر أو غير المباشر مع عملاء الشركة أو تحريض الموظفين على تركها", "en": "Prohibition of direct or indirect dealings with the company's clients or inducing employees to leave it" }
+      ]
+    },
+    { "id": "penalty_clause", "src": ["G2"], "type": "textarea", "ar": "الشرط الجزائي الاتفاقي", "en": "Agreed penalty clause", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_bound_party_id", "src": ["H1"], "type": "file", "ar": "بطاقة الطرف الملتزم", "en": "ID card of the bound party", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_company_register", "src": ["H2"], "type": "file", "ar": "السجل التجاري للشركة", "en": "Commercial register of the company", "req": "yes", "maxFiles": 2 }
+  ]
+}

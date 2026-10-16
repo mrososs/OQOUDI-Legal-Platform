@@ -1,0 +1,50 @@
+{
+  "ref": "CO-010",
+  "slug": "freelance-independent-contractor-agreement",
+  "en": {
+    "title": "Freelance / Independent Consultant Contract (Freelance / Independent Contractor)",
+    "description": "Engages an independent contractor or expert to carry out specific tasks without creating an employment relationship or insurance obligations."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "freelancer", "ar": "المستقل أو الاستشاري", "en": "Freelancer or consultant", "src": ["E1"],
+      "fields": ["name", "national_id", { "kind": "tax_card", "req": "no" }]
+    }
+  ],
+  "partyFields": [],
+  "details": [
+    { "id": "scope_of_work", "src": ["F1"], "type": "textarea", "ar": "نطاق الأعمال والمخرجات المطلوبة (Scope of Work)", "en": "Scope of work and required deliverables (Scope of Work)", "req": "yes" }
+  ],
+  "financial": [
+    {
+      "id": "deliverables_schedule", "src": ["F2"], "type": "repeater", "ar": "جدول التسليمات", "en": "Deliverables schedule", "req": "review", "maxItems": 30,
+      "columns": [
+        { "id": "deliverable", "type": "text", "ar": "المخرج", "en": "Deliverable", "required": true },
+        { "id": "delivery_date", "type": "date", "ar": "تاريخ التسليم", "en": "Delivery date", "required": true }
+      ]
+    },
+    { "id": "fee_amount", "src": ["F3"], "type": "number", "ar": "قيمة الأتعاب (ج.م)", "en": "Fee amount (EGP)", "req": "yes", "min": 0 },
+    { "id": "payment_method", "src": ["F3"], "type": "text", "ar": "طريقة الصرف", "en": "Payment method", "req": "review" },
+    { "id": "withholding_taxes", "src": ["F4"], "type": "textarea", "ar": "الضرائب المستقطعة", "en": "Withholding taxes", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "independent_services_relationship", "ar": "إقرار بأن العلاقة مقاولة خدمات مستقلة", "en": "Acknowledgement that the relationship is an independent services contract" },
+        { "value": "ip_assignment", "ar": "التنازل الكامل عن حقوق الملكية الفكرية للمخرجات لصالح الشركة", "en": "Full assignment of the intellectual property rights in the deliverables to the company" },
+        { "value": "confidentiality", "ar": "السرية", "en": "Confidentiality" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_freelancer_id", "src": ["H1"], "type": "file", "ar": "بطاقة المستقل", "en": "Freelancer's ID card", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_quote_or_task_description", "src": ["H2"], "type": "file", "ar": "عرض السعر أو توصيف المهام", "en": "Price quotation or task description", "req": "review", "maxFiles": 5 },
+    { "id": "doc_commercial_register", "src": ["H3"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 }
+  ]
+}

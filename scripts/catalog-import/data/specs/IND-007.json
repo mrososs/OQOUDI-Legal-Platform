@@ -1,0 +1,55 @@
+{
+  "ref": "IND-007",
+  "slug": "clinic-office-storage-lease-contract",
+  "en": {
+    "title": "Clinic / Professional Office / Storage Lease Contract",
+    "description": "Regulates the lease of an administrative or medical premises or a storage space with precise terms of use."
+  },
+  "parties": [
+    {
+      "key": "landlord", "ar": "المؤجر", "en": "Landlord", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "tenant", "ar": "المستأجر", "en": "Tenant", "src": ["E1"],
+      "fields": [
+        "name",
+        "national_id",
+        { "id": "capacity", "type": "text", "ar": "الصفة المهنية أو التجارية", "en": "Professional or commercial capacity", "req": "review", "maxLength": 200 }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "premises_location", "src": ["F1"], "type": "textarea", "ar": "الموقع", "en": "Location", "req": "yes" },
+    { "id": "premises_area", "src": ["F2"], "type": "number", "ar": "المساحة (م²)", "en": "Area (m²)", "req": "review", "min": 1 },
+    {
+      "id": "lease_purpose", "src": ["F3"], "type": "radio", "ar": "الغرض من الإيجار", "en": "Purpose of the lease", "req": "yes",
+      "options": [
+        { "value": "clinic", "ar": "عيادة", "en": "Clinic" },
+        { "value": "office", "ar": "مكتب", "en": "Office" },
+        { "value": "storage", "ar": "مخزن", "en": "Storage" }
+      ]
+    },
+    { "id": "lease_term", "src": ["F4"], "type": "text", "ar": "مدة الإيجار", "en": "Lease term", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "rent_value", "src": ["F5"], "type": "number", "ar": "القيمة الإيجارية (ج.م)", "en": "Rent value (EGP)", "req": "yes", "min": 0 },
+    { "id": "deposit_amount", "src": ["F6"], "type": "number", "ar": "مبلغ التأمين (ج.م)", "en": "Deposit amount (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    { "id": "permitted_hours", "src": ["G1"], "type": "text", "ar": "مواعيد العمل المسموحة بالعقار", "en": "Permitted working hours at the property", "req": "no", "maxLength": 200 },
+    {
+      "id": "clauses", "src": ["G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "advertising_signs", "ar": "وضع اللافتات الإعلانية", "en": "Placement of advertising signs" },
+        { "value": "no_hazardous_storage", "ar": "حظر تخزين المواد الخطرة", "en": "Prohibition of storing hazardous materials" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" },
+    { "id": "penalty_clause", "src": ["G4"], "type": "textarea", "ar": "الشرط الجزائي", "en": "Penalty clause", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور الهوية", "en": "ID copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_syndicate_or_register", "src": ["H2"], "type": "file", "ar": "كارنيه النقابة أو السجل التجاري", "en": "Syndicate card or commercial register", "req": "review", "maxFiles": 2 }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "ref": "CO-030",
+  "slug": "social-media-management-and-digital-marketing-contract",
+  "en": {
+    "title": "Social Media Account Management and Digital Marketing Contract",
+    "description": "Organizes content creation, design and paid advertising campaign management services with clear performance indicators."
+  },
+  "parties": [
+    {
+      "key": "advertiser", "ar": "الشركة المعلنة", "en": "Advertising company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "agency", "ar": "وكالة التسويق (Marketing Agency)", "en": "Marketing Agency", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "details": [
+    { "id": "target_platforms", "src": ["F1"], "type": "textarea", "ar": "المنصات المستهدفة", "en": "Target platforms", "req": "yes" },
+    { "id": "designs_per_month", "src": ["F2"], "type": "number", "ar": "عدد التصميمات شهرياً", "en": "Number of designs per month", "req": "review", "min": 0 },
+    { "id": "videos_per_month", "src": ["F2"], "type": "number", "ar": "عدد الفيديوهات شهرياً", "en": "Number of videos per month", "req": "review", "min": 0 },
+    { "id": "reels_per_month", "src": ["F2"], "type": "number", "ar": "عدد الريلز شهرياً", "en": "Number of reels per month", "req": "review", "min": 0 }
+  ],
+  "financial": [
+    { "id": "monthly_management_fee", "src": ["F3"], "type": "number", "ar": "أتعاب الإدارة الشهرية (ج.م)", "en": "Monthly management fee (EGP)", "req": "yes", "min": 0 },
+    { "id": "ad_spend_budget", "src": ["F4"], "type": "number", "ar": "ميزانية الإعلانات الممولة (Ad Spend) (ج.م)", "en": "Paid advertising budget (Ad Spend) (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "client_ownership", "ar": "ملكية الصفحات والحسابات الإعلانية والتصميمات للعميل", "en": "Client ownership of the pages, advertising accounts and designs" },
+        { "value": "monthly_reports_kpis", "ar": "التقارير الشهرية ومؤشرات الأداء (KPIs)", "en": "Monthly reports and performance indicators (KPIs)" },
+        { "value": "termination_terms", "ar": "شروط الفسخ", "en": "Termination terms" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_marketing_proposal", "src": ["H1"], "type": "file", "ar": "عرض السعر التسويقي (Proposal)", "en": "Marketing price quotation (Proposal)", "req": "review", "maxFiles": 3 },
+    { "id": "doc_commercial_register", "src": ["H2"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 }
+  ]
+}

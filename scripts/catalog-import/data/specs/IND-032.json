@@ -1,0 +1,49 @@
+{
+  "ref": "IND-032",
+  "slug": "wedding-engagement-event-organization-contract",
+  "en": {
+    "title": "Wedding / Engagement / Event Organization Contract",
+    "description": "Organizing the contract with a hall, a wedding planner or a photographer to guarantee the quality of the day and the schedules."
+  },
+  "parties": [
+    {
+      "key": "client", "ar": "العروسان أو العميل", "en": "The couple or the client", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "organizer", "ar": "منظم الحفل أو المصور أو القاعة", "en": "Event organizer, photographer or venue", "src": ["E2"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم", "en": "Name", "req": "yes", "maxLength": 200 },
+        { "kind": "national_id", "req": "review" }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "event_date", "src": ["F1"], "type": "date", "ar": "تاريخ الحفل", "en": "Event date", "req": "yes" },
+    { "id": "event_venue", "src": ["F1"], "type": "text", "ar": "مكان الحفل", "en": "Event venue", "req": "yes" },
+    {
+      "id": "package_details", "src": ["F2"], "type": "textarea", "ar": "تفاصيل الباقة", "en": "Package details", "req": "review",
+      "help": { "ar": "ديكور، إضاءة، تصوير، بوفيه", "en": "Decoration, lighting, photography, buffet" }
+    }
+  ],
+  "financial": [
+    { "id": "total_price", "src": ["F3"], "type": "number", "ar": "السعر الإجمالي (ج.م)", "en": "Total price (EGP)", "req": "yes", "min": 0 },
+    { "id": "deposit_amount", "src": ["F4"], "type": "number", "ar": "العربون (ج.م)", "en": "Deposit (EGP)", "req": "review", "min": 0 },
+    {
+      "id": "remaining_payments", "src": ["F4"], "type": "repeater", "ar": "مواعيد باقي الدفعات", "en": "Dates of the remaining payments", "req": "review", "maxItems": 24,
+      "columns": [
+        { "id": "due_date", "type": "date", "ar": "موعد الدفعة", "en": "Payment date", "required": true },
+        { "id": "amount", "type": "number", "ar": "قيمة الدفعة (ج.م)", "en": "Payment amount (EGP)", "min": 0 }
+      ]
+    }
+  ],
+  "special": [
+    { "id": "cancellation_policy", "src": ["G1"], "type": "textarea", "ar": "سياسة الإلغاء أو تعديل الموعد", "en": "Cancellation or rescheduling policy", "req": "no" },
+    { "id": "media_delivery_deadline", "src": ["G2"], "type": "text", "ar": "موعد تسليم الصور والفيديو بعد الحفل", "en": "Deadline for delivering the photos and video after the event", "req": "no" },
+    { "id": "breach_compensation", "src": ["G3"], "type": "textarea", "ar": "التعويض عند الإخلال ببنود التجهيز", "en": "Compensation for breach of the preparation terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_quote_or_package", "src": ["H2"], "type": "file", "ar": "عرض السعر أو تفاصيل الباقة", "en": "Price quote or package details", "req": "yes", "maxFiles": 5 }
+  ]
+}

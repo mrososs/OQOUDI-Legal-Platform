@@ -1,0 +1,40 @@
+{
+  "ref": "CO-026",
+  "slug": "website-and-platform-terms-and-conditions-policy",
+  "en": {
+    "title": "Terms & Conditions and Refund Policy for Websites and Platforms",
+    "description": "The legal constitution of a website or app that governs the platform's relationship with users and protects it from liability."
+  },
+  "parties": [
+    {
+      "key": "owner", "ar": "الشركة المالكة للموقع أو التطبيق", "en": "Company owning the website or app", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "partyFields": [
+    { "id": "domain_link", "src": ["E2"], "type": "text", "ar": "رابط الدومين", "en": "Domain link", "req": "review" },
+    { "id": "services_or_products", "src": ["E3"], "type": "textarea", "ar": "طبيعة الخدمات أو المنتجات", "en": "Nature of the services or products", "req": "yes" }
+  ],
+  "details": [
+    { "id": "registration_and_use_terms", "src": ["F1"], "type": "textarea", "ar": "شروط التسجيل والاستخدام", "en": "Registration and use terms", "req": "review" },
+    { "id": "ordering_and_payment", "src": ["F2"], "type": "textarea", "ar": "آليات الطلب والدفع", "en": "Ordering and payment mechanisms", "req": "review" },
+    { "id": "cancellation_return_policy", "src": ["F3"], "type": "textarea", "ar": "سياسة الإلغاء والاستبدال والاسترجاع (وفق قانون حماية المستهلك)", "en": "Cancellation, exchange and return policy (per the Consumer Protection Law)", "req": "review" },
+    { "id": "delivery_periods", "src": ["F4"], "type": "textarea", "ar": "مدد التسليم", "en": "Delivery periods", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "platform_liability_limits", "ar": "حدود مسؤولية المنصة", "en": "Limits of the platform's liability" },
+        { "value": "content_ip_rights", "ar": "حقوق الملكية الفكرية للمحتوى", "en": "Intellectual property rights in the content" },
+        { "value": "account_ban_terms", "ar": "شروط حظر الحسابات المخالفة", "en": "Terms for banning violating accounts" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" },
+    { "id": "governing_law", "src": ["G4"], "type": "text", "ar": "القانون الواجب التطبيق", "en": "Governing law", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_commercial_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_platform_workflow", "src": ["H2"], "type": "file", "ar": "شرح آلية عمل المنصة", "en": "Explanation of how the platform works", "req": "review", "maxFiles": 3 }
+  ]
+}

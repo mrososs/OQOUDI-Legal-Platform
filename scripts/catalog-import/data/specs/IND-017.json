@@ -1,0 +1,51 @@
+{
+  "ref": "IND-017",
+  "slug": "personal-trainer-contract",
+  "en": {
+    "title": "Private Trainer Agreement (Personal Trainer / Coach)",
+    "description": "A simple contract between a young person or guardian and a private trainer for individual physical or skills training."
+  },
+  "parties": [
+    {
+      "key": "trainer", "ar": "المدرب الخاص", "en": "Private trainer", "src": ["E1"],
+      "fields": [
+        "name",
+        "national_id",
+        { "id": "qualification", "type": "text", "ar": "المؤهل الرياضي", "en": "Sports qualification", "req": "review", "maxLength": 200 }
+      ]
+    },
+    {
+      "key": "trainee", "ar": "المتدرب أو ولي أمره", "en": "Trainee or the trainee's guardian", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    {
+      "id": "training_goal", "src": ["F1"], "type": "checkbox", "ar": "الهدف التدريبي", "en": "Training goal", "req": "review",
+      "options": [
+        { "value": "physical_rehabilitation", "ar": "تأهيل بدني", "en": "Physical rehabilitation" },
+        { "value": "individual_skills", "ar": "مهارات فردية", "en": "Individual skills" },
+        { "value": "slimming_fitness", "ar": "تخسيس/لياقة", "en": "Slimming / fitness" }
+      ]
+    },
+    { "id": "monthly_sessions", "src": ["F2"], "type": "number", "ar": "عدد الجلسات الشهرية", "en": "Number of sessions per month", "req": "review", "min": 0 },
+    { "id": "training_place", "src": ["F3"], "type": "text", "ar": "مكان التدريب", "en": "Training place", "req": "review" }
+  ],
+  "financial": [
+    { "id": "trainer_fee", "src": ["F4"], "type": "number", "ar": "قيمة أتعاب المدرب (ج.م)", "en": "Trainer's fee (EGP)", "req": "yes", "min": 0 }
+  ],
+  "special": [
+    { "id": "cancellation_terms", "src": ["G1"], "type": "textarea", "ar": "مواعيد إلغاء أو تأجيل الحصة التدريبية", "en": "Deadlines for cancelling or postponing a training session", "req": "no" },
+    {
+      "id": "clauses", "src": ["G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "health_standards", "ar": "التزام المدرب بالمعايير الصحية السليمة", "en": "Trainer's commitment to sound health standards" },
+        { "value": "no_banned_supplements", "ar": "عدم استخدام مكملات محظورة", "en": "No use of banned supplements" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات الشخصية للطرفين", "en": "Personal ID card copies of both parties", "req": "yes", "maxFiles": 4 }
+  ]
+}

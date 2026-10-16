@@ -1,0 +1,41 @@
+{
+  "ref": "CO-020",
+  "slug": "white-label-oem-contract-manufacturing-agreement",
+  "en": {
+    "title": "Contract Manufacturing for Private Labels (White Label / OEM)",
+    "description": "An agreement with a factory to produce goods and products to special specifications, bearing your company's own trademark."
+  },
+  "parties": [
+    {
+      "key": "brand_owner", "ar": "الشركة صاحبة العلامة التجارية", "en": "Trademark-owning company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "manufacturer", "ar": "المصنع المنفذ", "en": "Executing manufacturer", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "details": [
+    { "id": "technical_specs", "src": ["F1"], "type": "textarea", "ar": "المواصفات الفنية والتركيبات القياسية للمنتج", "en": "Technical specifications and standard formulations of the product", "req": "yes" },
+    { "id": "moq", "src": ["F2"], "type": "number", "ar": "الحد الأدنى لكميات التشغيل (MOQ)", "en": "Minimum production quantities (MOQ)", "req": "review", "min": 0 },
+    { "id": "delivery_dates", "src": ["F4"], "type": "textarea", "ar": "مواعيد التسليم", "en": "Delivery dates", "req": "review" }
+  ],
+  "financial": [
+    { "id": "manufacturing_cost", "src": ["F3"], "type": "number", "ar": "تكلفة التصنيع والتعبئة (ج.م)", "en": "Manufacturing and packaging cost (EGP)", "req": "yes", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "molds_formulas_ownership", "ar": "ملكية القوالب والتركيبات السرية للشركة", "en": "Ownership of the molds and secret formulations by the company" },
+        { "value": "no_imitation_or_resale", "ar": "حظر قيام المصنع بتقليد المنتج أو بيعه للغير", "en": "Prohibition on the factory imitating the product or selling it to others" },
+        { "value": "quality_control", "ar": "رقابة الجودة ورفض التالف", "en": "Quality control and rejection of defective goods" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_register_and_tax_card", "src": ["H1"], "type": "file", "ar": "السجل التجاري والبطاقة الضريبية", "en": "Commercial register and tax card", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_trademark_certificate", "src": ["H2"], "type": "file", "ar": "شهادة العلامة التجارية", "en": "Trademark certificate", "req": "review", "maxFiles": 2 }
+  ]
+}

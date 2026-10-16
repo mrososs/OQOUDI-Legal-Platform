@@ -1,0 +1,47 @@
+{
+  "ref": "CO-018",
+  "slug": "commercial-franchise-agreement",
+  "en": {
+    "title": "Franchise Agreement",
+    "description": "Grants the right to use the trademark, operating system and know-how to open a new branch under the franchisor's supervision."
+  },
+  "parties": [
+    {
+      "key": "franchisor", "ar": "مانح الامتياز (Franchisor)", "en": "Franchisor", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "franchisee", "ar": "الممنوح له (Franchisee)", "en": "Franchisee", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "details": [
+    { "id": "branch_location", "src": ["F1"], "type": "textarea", "ar": "موقع الفرع", "en": "Branch location", "req": "yes" },
+    { "id": "geographic_scope", "src": ["F1"], "type": "text", "ar": "النطاق الجغرافي", "en": "Geographic scope", "req": "review" },
+    { "id": "franchise_term", "src": ["F2"], "type": "text", "ar": "مدة الامتياز", "en": "Franchise term", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "franchise_fee", "src": ["F3"], "type": "number", "ar": "رسوم الامتياز الأولية (Franchise Fee) (ج.م)", "en": "Initial franchise fee (Franchise Fee) (EGP)", "req": "yes", "min": 0 },
+    { "id": "royalty_percentage", "src": ["F4"], "type": "number", "ar": "نسبة الإتاوة الشهرية من المبيعات (Royalty) (%)", "en": "Monthly royalty as a percentage of sales (Royalty) (%)", "req": "yes", "min": 0, "max": 100 },
+    {
+      "id": "marketing_fee", "src": ["F5"], "type": "text", "ar": "رسوم التسويق", "en": "Marketing fee", "req": "review",
+      "help": { "ar": "اذكر المبلغ أو النسبة كما هو متفق عليه.", "en": "State the amount or percentage as agreed." }
+    }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2", "G3", "G4"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "operating_manual", "ar": "الالتزام الصارم بدليل التشغيل والهوية البصرية", "en": "Strict compliance with the operating manual and visual identity" },
+        { "value": "exclusive_supply", "ar": "التوريد الحصري للخامات", "en": "Exclusive supply of raw materials" },
+        { "value": "training_inspection", "ar": "التدريب والتفتيش الدوري", "en": "Training and periodic inspection" },
+        { "value": "non_compete", "ar": "عدم المنافسة", "en": "Non-competition" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3", "G4"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_trademark_registration", "src": ["H1"], "type": "file", "ar": "شهادة تسجيل العلامة التجارية", "en": "Trademark registration certificate", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_party_registers", "src": ["H2"], "type": "file", "ar": "السجل التجاري للطرفين", "en": "Commercial register of both parties", "req": "yes", "maxFiles": 4 }
+  ]
+}

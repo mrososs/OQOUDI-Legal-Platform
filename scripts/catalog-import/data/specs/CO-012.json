@@ -1,0 +1,51 @@
+{
+  "ref": "CO-012",
+  "slug": "disciplinary-penalties-investigations-regulation",
+  "en": {
+    "title": "Disciplinary Penalties and Internal Investigations Regulation",
+    "description": "Defines administrative and professional violations, the graduation of legal penalties and the procedures for investigating employees."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": [
+        "company_name",
+        "commercial_register",
+        { "id": "activity", "type": "text", "ar": "النشاط", "en": "Activity", "req": "review", "maxLength": 300 }
+      ]
+    }
+  ],
+  "partyFields": [],
+  "details": [
+    {
+      "id": "violations_tables", "src": ["F1"], "type": "repeater", "ar": "جداول المخالفات", "en": "Violation tables", "req": "review", "maxItems": 50,
+      "columns": [
+        {
+          "id": "category", "type": "select", "ar": "نوع المخالفة", "en": "Violation category", "required": true,
+          "options": [
+            { "value": "timing", "ar": "مخالفات المواعيد", "en": "Timing violations" },
+            { "value": "work_instructions", "ar": "مخالفة تعليمات العمل", "en": "Violation of work instructions" },
+            { "value": "conduct", "ar": "السلوك", "en": "Conduct" },
+            { "value": "company_property_damage", "ar": "الإضرار بممتلكات الشركة", "en": "Damage to company property" }
+          ]
+        },
+        { "id": "violation", "type": "text", "ar": "المخالفة", "en": "Violation", "required": true }
+      ]
+    },
+    { "id": "penalty_gradation", "src": ["F2"], "type": "textarea", "ar": "تدرج الجزاءات من الإنذار حتى الفصل القانوني", "en": "Gradation of penalties from warning to lawful dismissal", "req": "review" }
+  ],
+  "financial": [],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "written_investigation", "ar": "ضوابط التحقيق الإداري المكتوب وسماع دفاع العامل", "en": "Controls for the written administrative investigation and hearing the employee's defence" },
+        { "value": "wage_deduction_limits", "ar": "حدود الخصم من الأجر وفق قانون العمل 14 لسنة 2025", "en": "Limits on wage deductions under Labor Law No. 14 of 2025" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_commercial_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري للشركة", "en": "Company commercial register", "req": "yes", "maxFiles": 2 }
+  ]
+}

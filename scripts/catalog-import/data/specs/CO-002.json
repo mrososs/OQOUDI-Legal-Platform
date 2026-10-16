@@ -1,0 +1,52 @@
+{
+  "ref": "CO-002",
+  "slug": "shareholders-agreement",
+  "en": {
+    "title": "Shareholders and Partners Agreement (SHA)",
+    "description": "The company's internal constitution regulating the relationship between founders and investors and protecting shareholdings and decisions."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "partyFields": [
+    {
+      "id": "founders_investors", "src": ["E1"], "type": "repeater", "ar": "بيانات المؤسسين والمستثمرين", "en": "Founders and investors", "req": "yes", "minItems": 2, "maxItems": 30,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم الكامل", "en": "Full name", "required": true },
+        {
+          "id": "capacity", "type": "select", "ar": "الصفة", "en": "Capacity", "required": true,
+          "options": [
+            { "value": "founder", "ar": "مؤسس", "en": "Founder" },
+            { "value": "investor", "ar": "مستثمر", "en": "Investor" }
+          ]
+        },
+        { "id": "national_id_or_passport", "type": "text", "ar": "الرقم القومي أو رقم جواز السفر", "en": "National ID or passport number", "required": true },
+        { "id": "address", "type": "text", "ar": "العنوان", "en": "Address" }
+      ]
+    }
+  ],
+  "details": [
+    {
+      "id": "ownership_structure", "src": ["F1"], "type": "repeater", "ar": "هيكل الملكية", "en": "Ownership structure", "req": "yes", "minItems": 2, "maxItems": 30,
+      "columns": [
+        { "id": "holder", "type": "text", "ar": "اسم المساهم / الشريك", "en": "Shareholder / partner name", "required": true },
+        { "id": "percentage", "type": "number", "ar": "نسبة الملكية (%)", "en": "Ownership percentage (%)", "required": true, "min": 0, "max": 100 }
+      ]
+    },
+    { "id": "vesting_schedule", "src": ["F2"], "type": "textarea", "ar": "جدول اكتساب الحصص (Vesting Schedule)", "en": "Share vesting schedule", "req": "review" },
+    { "id": "capital_increase", "src": ["F3"], "type": "textarea", "ar": "آليات زيادة رأس المال", "en": "Capital increase mechanisms", "req": "review" },
+    { "id": "board_and_voting", "src": ["F4"], "type": "textarea", "ar": "تشكيل مجلس الإدارة وحقوق التصويت والفيتو", "en": "Board composition, voting rights and veto", "req": "review" }
+  ],
+  "special": [
+    { "id": "preemption_rights", "src": ["G1"], "type": "textarea", "ar": "حقوق الشفعة والأولوية (Pre-emption)", "en": "Pre-emption and priority rights", "req": "no" },
+    { "id": "drag_tag_along", "src": ["G2"], "type": "textarea", "ar": "شروط السحب والمرافقة عند البيع (Drag-Along & Tag-Along)", "en": "Drag-along and tag-along conditions on a sale", "req": "no" },
+    { "id": "exit_valuation", "src": ["G3"], "type": "textarea", "ar": "تقييم الشركة عند التخارج", "en": "Company valuation on exit", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_register_and_articles", "src": ["H1"], "type": "file", "ar": "السجل التجاري وعقد التأسيس", "en": "Commercial register and articles of incorporation", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_shareholder_ids", "src": ["H2"], "type": "file", "ar": "هويات المساهمين", "en": "Shareholders' identity documents", "req": "yes", "maxFiles": 10 }
+  ]
+}

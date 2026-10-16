@@ -1,0 +1,44 @@
+{
+  "ref": "IND-002",
+  "slug": "building-land-plot-sale-contract",
+  "en": {
+    "title": "Building Land Plot Sale Contract",
+    "description": "A land sale contract that specifies the area and boundaries and guarantees the land is free of mortgages and disputes."
+  },
+  "parties": [
+    {
+      "key": "seller", "ar": "البائع", "en": "Seller", "src": ["E1"],
+      "fields": ["name", "national_id", "residence"]
+    },
+    {
+      "key": "buyer", "ar": "المشتري", "en": "Buyer", "src": ["E1"],
+      "fields": ["name", "national_id", "residence"]
+    }
+  ],
+  "details": [
+    { "id": "land_location", "src": ["F1"], "type": "textarea", "ar": "موقع الأرض بالتفصيل", "en": "Detailed location of the land", "req": "yes" },
+    { "id": "plot_and_basin", "src": ["F2"], "type": "text", "ar": "رقم القطعة والحوض", "en": "Plot number and basin", "req": "review" },
+    { "id": "total_area", "src": ["F3"], "type": "number", "ar": "المساحة الكلية (م²)", "en": "Total area (m²)", "req": "yes", "min": 1 },
+    { "id": "land_boundaries", "src": ["F4"], "type": "textarea", "ar": "الحدود الأربعة", "en": "The four boundaries", "req": "review" },
+    { "id": "handover_date", "src": ["F7"], "type": "date", "ar": "ميعاد التسليم", "en": "Handover date", "req": "review" }
+  ],
+  "financial": [
+    { "id": "price_per_meter", "src": ["F5"], "type": "number", "ar": "سعر المتر (ج.م)", "en": "Price per metre (EGP)", "req": "review", "min": 0 },
+    { "id": "total_price", "src": ["F6"], "type": "number", "ar": "إجمالي الثمن (ج.م)", "en": "Total price (EGP)", "req": "yes", "min": 0 },
+    { "id": "payment_method", "src": ["F6"], "type": "textarea", "ar": "طريقة السداد", "en": "Payment method", "req": "review" }
+  ],
+  "special": [
+    { "id": "signature_or_registration", "src": ["G1"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "signature_or_registration", "ar": "الالتزام بصحة التوقيع أو التسجيل بالشهر العقاري", "en": "Commitment to signature authentication or registration at the Real Estate Registry" }
+      ]
+    },
+    { "id": "licences_and_utilities", "src": ["G2"], "type": "textarea", "ar": "موقف التراخيص والمرافق", "en": "Status of licences and utilities", "req": "no" },
+    { "id": "penalty_clause", "src": ["G3"], "type": "textarea", "ar": "الشرط الجزائي", "en": "Penalty clause", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "بطاقات الأطراف", "en": "ID cards of the parties", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_survey_sketch", "src": ["H2"], "type": "file", "ar": "كروكي مساحي", "en": "Survey sketch", "req": "review", "maxFiles": 2 },
+    { "id": "doc_title_deed", "src": ["H3"], "type": "file", "ar": "سند الملكية", "en": "Title deed", "req": "yes", "maxFiles": 2 }
+  ]
+}

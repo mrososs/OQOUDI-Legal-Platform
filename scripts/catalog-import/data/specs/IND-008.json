@@ -1,0 +1,56 @@
+{
+  "ref": "IND-008",
+  "slug": "mutual-consent-divorce-settlement-agreement",
+  "en": {
+    "title": "Mutual-Consent Divorce and Comprehensive Settlement Agreement",
+    "description": "A comprehensive amicable agreement regulating the end of the marital relationship and the rights of the wife and children without court disputes."
+  },
+  "parties": [
+    {
+      "key": "husband", "ar": "الزوج", "en": "Husband", "src": ["E1"],
+      "fields": ["name", "national_id", "address"]
+    },
+    {
+      "key": "wife", "ar": "الزوجة", "en": "Wife", "src": ["E1"],
+      "fields": ["name", "national_id", "address"]
+    }
+  ],
+  "details": [
+    { "id": "marriage_date", "src": ["F1"], "type": "date", "ar": "تاريخ الزواج", "en": "Date of marriage", "req": "yes" },
+    {
+      "id": "children", "src": ["F2"], "type": "repeater", "ar": "أسماء الأبناء وأعمارهم", "en": "Names and ages of the children", "req": "review", "maxItems": 20,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم", "en": "Name", "required": true },
+        { "id": "age", "type": "number", "ar": "العمر", "en": "Age", "required": true, "min": 0 }
+      ]
+    },
+    {
+      "id": "movables_list", "src": ["F4"], "type": "repeater", "ar": "قائمة المنقولات", "en": "List of movables", "req": "review", "maxItems": 50,
+      "columns": [
+        { "id": "item", "type": "text", "ar": "المنقول", "en": "Item", "required": true }
+      ]
+    }
+  ],
+  "financial": [
+    { "id": "deferred_dowry_agreement", "src": ["F3"], "type": "textarea", "ar": "الاتفاق الخاص بمؤخر الصداق", "en": "Agreement on the deferred dowry", "req": "review" },
+    { "id": "iddah_maintenance_agreement", "src": ["F3"], "type": "textarea", "ar": "الاتفاق الخاص بنفقة العدة", "en": "Agreement on iddah maintenance", "req": "review" },
+    { "id": "mutah_agreement", "src": ["F3"], "type": "textarea", "ar": "الاتفاق الخاص بالمتعة", "en": "Agreement on mut'ah (consolation payment)", "req": "review" }
+  ],
+  "special": [
+    { "id": "custody_arrangement", "src": ["G1"], "type": "textarea", "ar": "تنظيم حضانة الصغار", "en": "Arrangement of the children's custody", "req": "no" },
+    { "id": "monthly_maintenance", "src": ["G2"], "type": "number", "ar": "قيمة النفقة الشهرية (ج.م)", "en": "Monthly maintenance amount (EGP)", "req": "no", "min": 0 },
+    { "id": "custody_housing", "src": ["G3"], "type": "textarea", "ar": "مسكن الحضانة أو أجره", "en": "Custody housing or its rent", "req": "no" },
+    {
+      "id": "clauses", "src": ["G4"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "waive_mutual_cases", "ar": "التنازل عن القضايا المتبادلة", "en": "Waiver of the mutual lawsuits" }
+      ]
+    },
+    { "id": "penalty_clause", "src": ["G5"], "type": "textarea", "ar": "الشرط الجزائي", "en": "Penalty clause", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_marriage_certificate", "src": ["H2"], "type": "file", "ar": "وثيقة الزواج", "en": "Marriage certificate", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_children_birth_certs", "src": ["H3"], "type": "file", "ar": "شهادات ميلاد الأبناء", "en": "Birth certificates of the children", "req": "review", "maxFiles": 10 }
+  ]
+}

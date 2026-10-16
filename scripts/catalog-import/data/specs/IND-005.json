@@ -1,0 +1,42 @@
+{
+  "ref": "IND-005",
+  "slug": "furnished-apartment-lease-with-inventory-contract",
+  "en": {
+    "title": "Furnished Apartment Lease Contract (with Inventory List)",
+    "description": "A lease contract for a furnished unit with an attached detailed inventory of furniture and electrical appliances."
+  },
+  "parties": [
+    {
+      "key": "landlord", "ar": "المؤجر", "en": "Landlord", "src": ["E1"],
+      "fields": ["name", "national_id_or_passport"]
+    },
+    {
+      "key": "tenant", "ar": "المستأجر", "en": "Tenant", "src": ["E1"],
+      "fields": ["name", "national_id_or_passport"]
+    }
+  ],
+  "details": [
+    { "id": "unit_address", "src": ["F1"], "type": "textarea", "ar": "عنوان الوحدة", "en": "Address of the unit", "req": "yes" },
+    { "id": "lease_term", "src": ["F2"], "type": "text", "ar": "مدة الإيجار", "en": "Lease term", "req": "yes" },
+    {
+      "id": "furniture_inventory", "src": ["F5"], "type": "repeater", "ar": "بيان الأثاث والأجهزة وحالتها عند التسليم", "en": "Furniture and appliances and their condition at handover", "req": "review", "maxItems": 50,
+      "columns": [
+        { "id": "item", "type": "text", "ar": "الأثاث أو الجهاز", "en": "Furniture or appliance", "required": true },
+        { "id": "condition", "type": "text", "ar": "الحالة عند التسليم", "en": "Condition at handover" }
+      ]
+    }
+  ],
+  "financial": [
+    { "id": "monthly_rent", "src": ["F3"], "type": "number", "ar": "الأجرة الشهرية (ج.م)", "en": "Monthly rent (EGP)", "req": "yes", "min": 0 },
+    { "id": "damage_deposit", "src": ["F4"], "type": "number", "ar": "مبلغ التأمين ضد التلفيات (ج.م)", "en": "Deposit against damages (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    { "id": "deposit_refund_terms", "src": ["G1"], "type": "textarea", "ar": "شروط استرداد التأمين بعد المعاينة", "en": "Conditions for refunding the deposit after inspection", "req": "no" },
+    { "id": "electricity_internet", "src": ["G2"], "type": "textarea", "ar": "تحمل الكهرباء والإنترنت", "en": "Who bears electricity and internet costs", "req": "no" },
+    { "id": "daily_late_fine", "src": ["G3"], "type": "number", "ar": "غرامة التأخير اليومية عند عدم الإخلاء (ج.م)", "en": "Daily delay fine for failure to vacate (EGP)", "req": "no", "min": 0 }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور الهوية أو جواز السفر", "en": "Copies of ID or passport", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_inventory_list", "src": ["H2"], "type": "file", "ar": "كشف المنقولات والأجهزة", "en": "List of movables and appliances", "req": "review", "maxFiles": 2 }
+  ]
+}

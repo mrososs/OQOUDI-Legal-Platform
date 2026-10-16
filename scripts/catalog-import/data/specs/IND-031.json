@@ -1,0 +1,36 @@
+{
+  "ref": "IND-031",
+  "slug": "kitchen-dressing-aluminum-supply-and-installation-contract",
+  "en": {
+    "title": "Supply and Installation Contract for a Kitchen / Dressing Room / Aluminum Works",
+    "description": "An agreement to tailor, supply and install woodwork or aluminum works with guaranteed specifications and delivery dates."
+  },
+  "parties": [
+    {
+      "key": "client", "ar": "العميل", "en": "Client", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "contractor", "ar": "الورشة أو الشركة المنفذة", "en": "Executing workshop or company", "src": ["E1"],
+      "fields": ["company_name", { "kind": "national_id", "req": "review" }]
+    }
+  ],
+  "details": [
+    { "id": "dimensions_and_design", "src": ["F1"], "type": "textarea", "ar": "المقاسات والتصميم المتفق عليه", "en": "Dimensions and the agreed design", "req": "yes" },
+    { "id": "materials_sections_accessories", "src": ["F2"], "type": "textarea", "ar": "نوع الخامات والقطاعات والاكسسوارات", "en": "Type of materials, sections and accessories", "req": "review" }
+  ],
+  "financial": [
+    { "id": "total_price", "src": ["F3"], "type": "number", "ar": "السعر الإجمالي (ج.م)", "en": "Total price (EGP)", "req": "yes", "min": 0 },
+    { "id": "down_payment", "src": ["F4"], "type": "number", "ar": "الدفعة المقدمة (ج.م)", "en": "Down payment (EGP)", "req": "review", "min": 0 },
+    { "id": "remaining_on_installation", "src": ["F4"], "type": "number", "ar": "الباقي عند التركيب (ج.م)", "en": "Remainder due at installation (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    { "id": "final_delivery_installation_date", "src": ["G1"], "type": "date", "ar": "موعد التسليم والتركيب النهائي", "en": "Final delivery and installation date", "req": "no" },
+    { "id": "delay_penalty", "src": ["G2"], "type": "textarea", "ar": "غرامة التأخير", "en": "Delay penalty", "req": "no" },
+    { "id": "workmanship_warranty_period", "src": ["G3"], "type": "text", "ar": "فترة ضمان المفصلات والخامات ضد عيوب الصناعة", "en": "Warranty period for hinges and materials against manufacturing defects", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_sketch_or_design", "src": ["H1"], "type": "file", "ar": "رسم كروكي أو تصميم المطبخ", "en": "Sketch or design of the kitchen", "req": "review", "maxFiles": 5 },
+    { "id": "doc_party_ids", "src": ["H2"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 }
+  ]
+}

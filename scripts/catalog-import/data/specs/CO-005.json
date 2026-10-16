@@ -1,0 +1,59 @@
+{
+  "ref": "CO-005",
+  "slug": "partner-exit-settlement-agreement",
+  "en": {
+    "title": "Contract for a Partner's Exit and Amicable Settlement of the Partner's Share (Partner Exit)",
+    "description": "Ends a partner's relationship with the company amicably, determines the financial entitlements, schedules their payment and grants a discharge of liability."
+  },
+  "parties": [
+    {
+      "key": "exiting_partner", "ar": "الشريك المتخارج", "en": "Exiting partner", "src": ["E1"],
+      "fields": ["name", "national_id_or_passport", { "kind": "address", "req": "review" }]
+    },
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "partyFields": [
+    {
+      "id": "continuing_partners", "src": ["E1"], "type": "repeater", "ar": "بيانات باقي الشركاء المستمرين", "en": "Details of the remaining continuing partners", "req": "yes", "minItems": 1, "maxItems": 30,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم الكامل", "en": "Full name", "required": true },
+        { "id": "national_id_or_passport", "type": "text", "ar": "الرقم القومي أو رقم جواز السفر", "en": "National ID or passport number", "required": true },
+        { "id": "address", "type": "text", "ar": "العنوان", "en": "Address" }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "exit_date", "src": ["F1"], "type": "date", "ar": "تاريخ التخارج الفعلي", "en": "Actual exit date", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "stake_valuation", "src": ["F2"], "type": "number", "ar": "التقييم النهائي لحصة الشريك (ج.م)", "en": "Final valuation of the partner's share (EGP)", "req": "review", "min": 0 },
+    { "id": "partner_profits", "src": ["F2"], "type": "number", "ar": "أرباح الشريك (ج.م)", "en": "Partner's profits (EGP)", "req": "review", "min": 0 },
+    { "id": "settlement_total", "src": ["F3"], "type": "number", "ar": "المبلغ الإجمالي للتسوية (ج.م)", "en": "Total settlement amount (EGP)", "req": "yes", "min": 0 },
+    {
+      "id": "payment_schedule", "src": ["F3"], "type": "repeater", "ar": "جدول السداد", "en": "Payment schedule", "req": "review", "maxItems": 48,
+      "columns": [
+        { "id": "due_date", "type": "date", "ar": "تاريخ الاستحقاق", "en": "Due date", "required": true },
+        { "id": "amount", "type": "number", "ar": "المبلغ (ج.م)", "en": "Amount (EGP)", "required": true, "min": 0 }
+      ]
+    }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "cancel_signing_powers", "ar": "إلغاء صلاحيات التوقيع البنكي والإداري للمتخارج", "en": "Cancellation of the exiting partner's bank and administrative signing powers" },
+        { "value": "non_compete_confidentiality", "ar": "التزام المتخارج بعدم المنافسة أو إفشاء أسرار الشركة", "en": "Exiting partner's undertaking not to compete or disclose the company's secrets" },
+        { "value": "mutual_release", "ar": "إبراء الذمة المتبادل", "en": "Mutual release of liability" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_commercial_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_liquidation_or_valuation", "src": ["H2"], "type": "file", "ar": "ميزانية التصفية أو التقييم", "en": "Liquidation balance sheet or valuation", "req": "review", "maxFiles": 5 },
+    { "id": "doc_partner_ids", "src": ["H3"], "type": "file", "ar": "بطاقات الشركاء", "en": "ID cards of the partners", "req": "yes", "maxFiles": 10 }
+  ]
+}

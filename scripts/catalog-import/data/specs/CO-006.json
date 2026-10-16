@@ -1,0 +1,54 @@
+{
+  "ref": "CO-006",
+  "slug": "individual-employment-contract-law-14-2025",
+  "en": {
+    "title": "Individual Employment Contract (Compliant with Labor Law No. 14 of 2025)",
+    "description": "A complete formal employment contract that protects the company's rights and regulates the employee's duties, wages and insurance."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register", "legal_rep"]
+    },
+    {
+      "key": "employee", "ar": "الموظف", "en": "Employee", "src": ["E1"],
+      "fields": [
+        "name",
+        "national_id",
+        { "id": "qualification", "type": "text", "ar": "المؤهل", "en": "Qualification", "req": "review", "maxLength": 200 },
+        { "id": "insurance_number", "type": "text", "ar": "الرقم التأميني", "en": "Social insurance number", "req": "review", "maxLength": 60 }
+      ]
+    }
+  ],
+  "partyFields": [],
+  "details": [
+    { "id": "job_title", "src": ["F1"], "type": "text", "ar": "المسمى الوظيفي", "en": "Job title", "req": "yes" },
+    { "id": "job_description", "src": ["F1"], "type": "textarea", "ar": "الوصف الوظيفي", "en": "Job description", "req": "review" },
+    { "id": "contract_term", "src": ["F2"], "type": "text", "ar": "مدة العقد", "en": "Contract term", "req": "review" },
+    { "id": "start_date", "src": ["F3"], "type": "date", "ar": "تاريخ بدء العمل", "en": "Work start date", "req": "yes" },
+    { "id": "probation_period", "src": ["F4"], "type": "text", "ar": "فترة الاختبار (بحد أقصى 3 أشهر)", "en": "Probation period (maximum 3 months)", "req": "review" },
+    { "id": "working_hours", "src": ["F6"], "type": "text", "ar": "ساعات العمل", "en": "Working hours", "req": "review" }
+  ],
+  "financial": [
+    { "id": "total_salary", "src": ["F5"], "type": "number", "ar": "الراتب الشامل (ج.م)", "en": "Total (all-inclusive) salary (EGP)", "req": "yes", "min": 0 },
+    { "id": "basic_salary", "src": ["F5"], "type": "number", "ar": "الراتب الأساسي (ج.م)", "en": "Basic salary (EGP)", "req": "review", "min": 0 },
+    { "id": "allowances", "src": ["F5"], "type": "textarea", "ar": "البدلات", "en": "Allowances", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "confidentiality", "ar": "شرط السرية وحماية بيانات العملاء", "en": "Confidentiality and protection of client data" },
+        { "value": "non_compete", "ar": "شرط عدم المنافسة", "en": "Non-competition" },
+        { "value": "company_owns_work", "ar": "ملكية الشركة لأعمال الموظف", "en": "Company ownership of the employee's work" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" },
+    { "id": "termination_terms", "src": ["G4"], "type": "textarea", "ar": "شروط الإنهاء والمهلة القانونية", "en": "Termination conditions and legal notice period", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_employee_id", "src": ["H1"], "type": "file", "ar": "بطاقة الموظف", "en": "Employee ID card", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_qualification", "src": ["H2"], "type": "file", "ar": "المؤهل", "en": "Qualification certificate", "req": "review", "maxFiles": 3 },
+    { "id": "doc_commercial_register", "src": ["H3"], "type": "file", "ar": "السجل التجاري للشركة", "en": "Company commercial register", "req": "yes", "maxFiles": 2 }
+  ]
+}

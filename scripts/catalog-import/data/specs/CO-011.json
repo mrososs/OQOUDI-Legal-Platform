@@ -1,0 +1,42 @@
+{
+  "ref": "CO-011",
+  "slug": "internal-hr-work-regulation",
+  "en": {
+    "title": "Internal Regulation for Work Organization and Human Resources (HR Policy)",
+    "description": "A comprehensive regulation that organizes the administrative structure, appointments, leave, evaluation and the rules of professional conduct in the establishment."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": [
+        { "id": "trade_name", "type": "text", "ar": "الاسم التجاري", "en": "Trade name", "req": "yes", "maxLength": 200 },
+        "commercial_register",
+        { "id": "employee_count", "type": "number", "ar": "عدد العاملين", "en": "Number of employees", "req": "review", "min": 0 },
+        { "id": "activity_nature", "type": "text", "ar": "طبيعة النشاط", "en": "Nature of activity", "req": "review", "maxLength": 300 }
+      ]
+    }
+  ],
+  "partyFields": [],
+  "details": [
+    { "id": "working_hours_and_rest", "src": ["F1"], "type": "textarea", "ar": "مواعيد العمل الرسمية والراحات", "en": "Official working hours and rest periods", "req": "review" },
+    { "id": "attendance_policy", "src": ["F2"], "type": "textarea", "ar": "سياسة الحضور والانصراف", "en": "Attendance and departure policy", "req": "review" },
+    { "id": "leave_types", "src": ["F3"], "type": "textarea", "ar": "أنواع الإجازات", "en": "Types of leave", "req": "review" },
+    { "id": "performance_and_promotion", "src": ["F4"], "type": "textarea", "ar": "نظام تقييم الأداء والترقيات", "en": "Performance evaluation and promotion system", "req": "review" },
+    { "id": "appearance_and_conduct", "src": ["F5"], "type": "textarea", "ar": "المظهر والسلوك العام", "en": "Appearance and general conduct", "req": "review" }
+  ],
+  "financial": [],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "المتطلبات الإضافية التي ترغب في تضمينها", "en": "Additional requirements you want included", "req": "no",
+      "options": [
+        { "value": "labor_law_compliance", "ar": "التوافق التام مع قانون العمل المصري رقم 14 لسنة 2025", "en": "Full compliance with Egyptian Labor Law No. 14 of 2025" },
+        { "value": "approval_and_distribution", "ar": "قابليتها للاعتماد الإداري والتوزيع على الموظفين", "en": "Suitability for administrative approval and distribution to employees" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_commercial_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_org_chart", "src": ["H2"], "type": "file", "ar": "الهيكل التنظيمي للشركة", "en": "Company organizational structure", "req": "review", "maxFiles": 3 }
+  ]
+}

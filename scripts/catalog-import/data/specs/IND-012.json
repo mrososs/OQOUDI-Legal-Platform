@@ -1,0 +1,68 @@
+{
+  "ref": "IND-012",
+  "slug": "marital-movables-inventory-contract",
+  "en": {
+    "title": "Well-Drafted Marital Trousseau and Movables Inventory List",
+    "description": "Precise legal drafting of the marital movables list that preserves the wife's rights and prevents legal gaps."
+  },
+  "parties": [
+    {
+      "key": "husband", "ar": "الزوج (المستلم)", "en": "Husband (recipient)", "src": ["E1"],
+      "fields": ["name", "national_id", "address"]
+    },
+    {
+      "key": "wife_or_guardian", "ar": "الزوجة أو وليها", "en": "Wife or her guardian", "src": ["E1"],
+      "fields": ["name", "national_id", "address"]
+    }
+  ],
+  "details": [
+    {
+      "id": "wooden_furniture", "src": ["F1"], "type": "repeater", "ar": "بيان تفصيلي بالأثاث الخشبي", "en": "Detailed statement of the wooden furniture", "req": "review", "maxItems": 50,
+      "columns": [
+        { "id": "item", "type": "text", "ar": "الصنف", "en": "Item", "required": true },
+        { "id": "description", "type": "text", "ar": "الوصف التفصيلي", "en": "Detailed description" }
+      ]
+    },
+    {
+      "id": "electrical_appliances", "src": ["F2"], "type": "repeater", "ar": "الأجهزة الكهربائية بالماركة والموديل", "en": "Electrical appliances with brand and model", "req": "review", "maxItems": 50,
+      "columns": [
+        { "id": "appliance", "type": "text", "ar": "الجهاز", "en": "Appliance", "required": true },
+        { "id": "brand", "type": "text", "ar": "الماركة", "en": "Brand" },
+        { "id": "model", "type": "text", "ar": "الموديل", "en": "Model" }
+      ]
+    },
+    {
+      "id": "furnishings", "src": ["F3"], "type": "repeater", "ar": "المفروشات", "en": "Furnishings", "req": "review", "maxItems": 50,
+      "columns": [
+        { "id": "item", "type": "text", "ar": "الصنف", "en": "Item", "required": true },
+        { "id": "description", "type": "text", "ar": "الوصف", "en": "Description" }
+      ]
+    },
+    {
+      "id": "gold_items", "src": ["F4"], "type": "repeater", "ar": "المشغولات الذهبية بالجرام والعيار", "en": "Gold items by grams and karat", "req": "review", "maxItems": 50,
+      "columns": [
+        { "id": "item", "type": "text", "ar": "المشغولة", "en": "Item", "required": true },
+        { "id": "weight_grams", "type": "number", "ar": "الوزن بالجرام", "en": "Weight in grams", "min": 0 },
+        { "id": "karat", "type": "text", "ar": "العيار", "en": "Karat" }
+      ]
+    }
+  ],
+  "financial": [
+    { "id": "total_value", "src": ["F5"], "type": "number", "ar": "القيمة الإجمالية (ج.م)", "en": "Total value (EGP)", "req": "yes", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "receipt_as_trust", "ar": "إقرار الزوج بالاستلام على سبيل الأمانة", "en": "Husband's acknowledgement of receipt on a trust basis" },
+        { "value": "return_in_kind_or_cash", "ar": "التعهد بالرد عيناً أو دفع القيمة نقداً عند الطلب", "en": "Undertaking to return the items in kind or pay their value in cash on demand" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور بطاقات الزوج والزوجة", "en": "ID card copies of the husband and the wife", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_witness_ids", "src": ["H1"], "type": "file", "ar": "صور بطاقات الشهود", "en": "ID card copies of the witnesses", "req": "review", "maxFiles": 4 },
+    { "id": "doc_invoices", "src": ["H2"], "type": "file", "ar": "فواتير الأجهزة والذهب", "en": "Invoices of the appliances and the gold", "req": "no", "maxFiles": 10 }
+  ]
+}

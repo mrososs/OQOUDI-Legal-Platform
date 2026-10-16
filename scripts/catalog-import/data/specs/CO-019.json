@@ -1,0 +1,56 @@
+{
+  "ref": "CO-019",
+  "slug": "commercial-brokerage-and-commission-agreement",
+  "en": {
+    "title": "Commercial Brokerage and Commission Agreement",
+    "description": "Documents the broker's or commercial marketer's right to a commission when a deal between seller and buyer is completed."
+  },
+  "parties": [
+    {
+      "key": "principal", "ar": "الشركة أو البائع/المشتري", "en": "Company or seller/buyer", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم أو اسم الشركة", "en": "Name or company name", "req": "yes", "maxLength": 200 },
+        { "id": "id_or_register", "type": "text", "ar": "الرقم القومي أو رقم السجل التجاري", "en": "National ID or commercial register number", "req": "yes", "maxLength": 60 }
+      ]
+    },
+    {
+      "key": "broker", "ar": "الوسيط التجاري", "en": "Commercial broker", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم أو اسم الشركة", "en": "Name or company name", "req": "yes", "maxLength": 200 },
+        { "id": "id_or_register", "type": "text", "ar": "الرقم القومي أو رقم السجل التجاري", "en": "National ID or commercial register number", "req": "yes", "maxLength": 60 }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "deal_nature", "src": ["F1"], "type": "textarea", "ar": "طبيعة الصفقة محل الوساطة", "en": "Nature of the deal subject to the brokerage", "req": "yes" }
+  ],
+  "financial": [
+    {
+      "id": "commission_percentage", "src": ["F2"], "type": "number", "ar": "نسبة العمولة المتفق عليها (%)", "en": "Agreed commission percentage (%)", "req": "review", "min": 0, "max": 100,
+      "help": { "ar": "املأ هذا الحقل أو حقل القيمة حسب الاتفاق.", "en": "Fill in this field or the amount field, as agreed." }
+    },
+    { "id": "commission_amount", "src": ["F2"], "type": "number", "ar": "قيمة العمولة المتفق عليها (ج.م)", "en": "Agreed commission amount (EGP)", "req": "review", "min": 0,
+      "help": { "ar": "املأ هذا الحقل أو حقل النسبة حسب الاتفاق.", "en": "Fill in this field or the percentage field, as agreed." }
+    },
+    {
+      "id": "commission_due", "src": ["F3"], "type": "radio", "ar": "موعد استحقاق العمولة", "en": "Commission due date", "req": "review",
+      "options": [
+        { "value": "on_signing", "ar": "عند التوقيع", "en": "On signing" },
+        { "value": "on_payment_collection", "ar": "عند تحصيل الدفعات", "en": "On collection of the payments" }
+      ]
+    }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "non_circumvention", "ar": "شرط عدم التجاوز أو الالتفاف (Non-Circumvention) لمنع إتمام الصفقة من وراء الوسيط", "en": "Non-Circumvention clause to prevent completing the deal behind the broker's back" },
+        { "value": "client_data_protection", "ar": "حماية بيانات العملاء", "en": "Protection of client data" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_register_or_ids", "src": ["H1"], "type": "file", "ar": "السجل التجاري أو بطاقات الهوية للأطراف", "en": "Commercial register or ID cards of the parties", "req": "yes", "maxFiles": 4 }
+  ]
+}

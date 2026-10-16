@@ -1,0 +1,38 @@
+{
+  "ref": "CO-015",
+  "slug": "it-data-security-policy",
+  "en": {
+    "title": "Company Devices Use and Information Security Regulation (IT & Data Security Policy)",
+    "description": "Protects the company's technical infrastructure, official email and databases, and sets controls for the use of devices and networks."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "partyFields": [
+    { "id": "it_department", "src": ["E1"], "type": "textarea", "ar": "بيانات قسم تكنولوجيا المعلومات", "en": "Information technology department details", "req": "review" }
+  ],
+  "details": [
+    { "id": "device_handover_rules", "src": ["F1"], "type": "textarea", "ar": "ضوابط تسليم أجهزة اللابتوب والهواتف", "en": "Controls for handing over laptops and phones", "req": "review" },
+    { "id": "password_policy", "src": ["F2"], "type": "textarea", "ar": "سياسة كلمات المرور", "en": "Password policy", "req": "review" },
+    { "id": "unlicensed_software_ban", "src": ["F3"], "type": "textarea", "ar": "حظر تثبيت برامج غير مرخصة", "en": "Prohibition on installing unlicensed software", "req": "review" },
+    { "id": "official_email_use", "src": ["F4"], "type": "textarea", "ar": "استخدام البريد الإلكتروني الرسمي", "en": "Use of the official email", "req": "review" }
+  ],
+  "financial": [],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "network_monitoring", "ar": "مراقبة الشبكة لأغراض الأمان", "en": "Network monitoring for security purposes" },
+        { "value": "no_external_copy", "ar": "حظر نسخ قواعد بيانات العملاء على وحدات خارجية", "en": "Prohibition on copying client databases to external storage devices" },
+        { "value": "account_handover", "ar": "إجراءات تسليم الحسابات عند انتهاء الخدمة", "en": "Procedures for handing over accounts at the end of service" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_commercial_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري للشركة", "en": "Company commercial register", "req": "yes", "maxFiles": 2 }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "ref": "IND-006",
+  "slug": "commercial-shop-lease-contract",
+  "en": {
+    "title": "Commercial Shop Lease Contract",
+    "description": "A lease contract for a commercial activity regulating licences, decor and financial obligations."
+  },
+  "parties": [
+    {
+      "key": "landlord", "ar": "المؤجر", "en": "Landlord", "src": ["E1"],
+      "fields": [
+        "name",
+        "national_id",
+        { "kind": "commercial_register", "req": "no" },
+        { "kind": "tax_card", "req": "no" }
+      ]
+    },
+    {
+      "key": "tenant", "ar": "المستأجر", "en": "Tenant", "src": ["E1"],
+      "fields": [
+        "name",
+        "national_id",
+        { "kind": "commercial_register", "req": "no" },
+        { "kind": "tax_card", "req": "no" }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "shop_address", "src": ["F1"], "type": "textarea", "ar": "عنوان المحل", "en": "Address of the shop", "req": "yes" },
+    { "id": "shop_area", "src": ["F2"], "type": "number", "ar": "المساحة (م²)", "en": "Area (m²)", "req": "review", "min": 1 },
+    { "id": "permitted_activity", "src": ["F3"], "type": "text", "ar": "نوع النشاط التجاري المصرح به", "en": "Type of permitted commercial activity", "req": "yes" },
+    { "id": "lease_term", "src": ["F4"], "type": "text", "ar": "مدة الإيجار", "en": "Lease term", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "monthly_rent", "src": ["F5"], "type": "number", "ar": "الأجرة الشهرية (ج.م)", "en": "Monthly rent (EGP)", "req": "yes", "min": 0 },
+    { "id": "deposit_amount", "src": ["F6"], "type": "number", "ar": "مبلغ التأمين (ج.م)", "en": "Deposit amount (EGP)", "req": "review", "min": 0 },
+    { "id": "annual_increase", "src": ["F7"], "type": "text", "ar": "الزيادة السنوية", "en": "Annual increase", "req": "review", "maxLength": 100 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "decor_approval", "ar": "الموافقة على تعديلات الديكور", "en": "Approval of decor modifications" },
+        { "value": "licences_and_meter", "ar": "استخراج التراخيص والعداد التجاري", "en": "Obtaining the licences and the commercial meter" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" },
+    { "id": "fitout_grace_period", "src": ["G3"], "type": "text", "ar": "فترة السماح للتجهيز", "en": "Grace period for fit-out", "req": "no", "maxLength": 100 },
+    { "id": "termination_terms", "src": ["G4"], "type": "textarea", "ar": "شروط الفسخ", "en": "Termination conditions", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_register_and_tax_card", "src": ["H2"], "type": "file", "ar": "السجل التجاري والبطاقة الضريبية", "en": "Commercial register and tax card", "req": "no", "maxFiles": 4 }
+  ]
+}

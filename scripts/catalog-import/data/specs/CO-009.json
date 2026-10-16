@@ -1,0 +1,47 @@
+{
+  "ref": "CO-009",
+  "slug": "remote-work-agreement",
+  "en": {
+    "title": "Remote Work Agreement",
+    "description": "Regulates working from home or remotely, with controls for monitoring productivity and securing the company's information."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "employee", "ar": "الموظف", "en": "Employee", "src": ["E1"],
+      "fields": [
+        "name",
+        "national_id_or_passport",
+        { "id": "residence", "type": "text", "ar": "محل الإقامة (داخل أو خارج المحافظة/الدولة)", "en": "Place of residence (inside or outside the governorate/country)", "req": "review", "maxLength": 300 }
+      ]
+    }
+  ],
+  "partyFields": [],
+  "details": [
+    { "id": "duties", "src": ["F1"], "type": "textarea", "ar": "المهام الوظيفية", "en": "Job duties", "req": "yes" },
+    { "id": "achievement_indicators", "src": ["F1"], "type": "textarea", "ar": "مؤشرات الإنجاز اليومية/الأسبوعية", "en": "Daily/weekly achievement indicators", "req": "review" },
+    { "id": "online_hours", "src": ["F2"], "type": "text", "ar": "ساعات التواجد المتاح أونلاين", "en": "Hours available online", "req": "review" }
+  ],
+  "financial": [
+    { "id": "wage", "src": ["F3"], "type": "number", "ar": "الأجر (ج.م)", "en": "Wage (EGP)", "req": "yes", "min": 0 },
+    { "id": "transfer_method", "src": ["F3"], "type": "text", "ar": "طريقة التحويل", "en": "Transfer method", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "information_security", "ar": "أمن المعلومات واستخدام أجهزة وبرامج الشركة", "en": "Information security and use of company devices and software" },
+        { "value": "no_data_sharing", "ar": "حظر مشاركة بيانات العمل مع الغير", "en": "Prohibition on sharing work data with third parties" },
+        { "value": "video_follow_up_meetings", "ar": "اجتماعات المتابعة المرئية", "en": "Video follow-up meetings" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_employee_id", "src": ["H1"], "type": "file", "ar": "بطاقة الهوية أو جواز السفر", "en": "ID card or passport", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_commercial_register", "src": ["H2"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 }
+  ]
+}

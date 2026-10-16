@@ -1,0 +1,56 @@
+{
+  "ref": "IND-001",
+  "slug": "residential-apartment-sale-contract",
+  "en": {
+    "title": "Residential Apartment Sale Contract (Preliminary / Final)",
+    "description": "Drafting of a residential unit sale contract that secures the chain of ownership and the rights of the seller and the buyer."
+  },
+  "parties": [
+    {
+      "key": "seller", "ar": "البائع", "en": "Seller", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم رباعي", "en": "Full four-part name", "req": "yes", "maxLength": 160 },
+        "national_id",
+        "address",
+        { "id": "capacity", "type": "text", "ar": "الصفة أو رقم التوكيل", "en": "Capacity or power-of-attorney number", "req": "review", "maxLength": 200 }
+      ]
+    },
+    {
+      "key": "buyer", "ar": "المشتري", "en": "Buyer", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم رباعي", "en": "Full four-part name", "req": "yes", "maxLength": 160 },
+        "national_id",
+        "address",
+        { "id": "capacity", "type": "text", "ar": "الصفة أو رقم التوكيل", "en": "Capacity or power-of-attorney number", "req": "review", "maxLength": 200 }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "property_address", "src": ["F1"], "type": "textarea", "ar": "عنوان العقار ورقم الشقة والدور", "en": "Property address, apartment number and floor", "req": "yes" },
+    { "id": "property_area", "src": ["F2"], "type": "number", "ar": "المساحة بالمتر", "en": "Area in square metres", "req": "yes", "min": 1 },
+    { "id": "property_boundaries", "src": ["F3"], "type": "textarea", "ar": "الحدود الأربعة", "en": "The four boundaries", "req": "review" },
+    { "id": "land_share", "src": ["F4"], "type": "text", "ar": "الحصة في الأرض والأجزاء المشتركة", "en": "Share in the land and common areas", "req": "review" },
+    { "id": "handover_date", "src": ["F7"], "type": "date", "ar": "تاريخ التسليم", "en": "Handover date", "req": "review" }
+  ],
+  "financial": [
+    { "id": "total_price", "src": ["F5"], "type": "number", "ar": "إجمالي الثمن (ج.م)", "en": "Total price (EGP)", "req": "yes", "min": 0 },
+    { "id": "down_payment", "src": ["F6"], "type": "number", "ar": "المقدم (ج.م)", "en": "Down payment (EGP)", "req": "review", "min": 0 },
+    {
+      "id": "installments", "src": ["F6"], "type": "repeater", "ar": "جدول الأقساط", "en": "Installment schedule", "req": "review", "maxItems": 48,
+      "columns": [
+        { "id": "due_date", "type": "date", "ar": "تاريخ الاستحقاق", "en": "Due date", "required": true },
+        { "id": "amount", "type": "number", "ar": "قيمة القسط (ج.م)", "en": "Installment amount (EGP)", "required": true, "min": 0 }
+      ]
+    }
+  ],
+  "special": [
+    { "id": "penalty_clause", "src": ["G1"], "type": "textarea", "ar": "الشرط الجزائي عند التأخير أو الفسخ", "en": "Penalty clause for delay or termination", "req": "no" },
+    { "id": "fees_and_utilities", "src": ["G2"], "type": "textarea", "ar": "تحمل رسوم التسجيل والمرافق", "en": "Who bears registration fees and utilities", "req": "no" },
+    { "id": "finishing_and_meters", "src": ["G3"], "type": "textarea", "ar": "حالة التشطيب والعدادات", "en": "Finishing condition and meters", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صورة البطاقة للأطراف", "en": "ID card copies of the parties", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_ownership_or_poa", "src": ["H2"], "type": "file", "ar": "سند ملكية البائع أو التوكيل", "en": "Seller's title deed or power of attorney", "req": "yes" },
+    { "id": "doc_utility_receipt", "src": ["H3"], "type": "file", "ar": "إيصال مرافق حديث", "en": "A recent utility receipt", "req": "yes", "maxFiles": 2 }
+  ]
+}

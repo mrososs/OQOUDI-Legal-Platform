@@ -1,0 +1,60 @@
+{
+  "ref": "IND-019",
+  "slug": "young-player-sports-marketing-and-representation-contract",
+  "en": {
+    "title": "Sports Marketing and Representation Contract for a Young Player (with Guardian)",
+    "description": "An agreement between a sports marketer and the guardian of a young player to present him to clubs and provide opportunities for trials and tests."
+  },
+  "parties": [
+    {
+      "key": "marketer", "ar": "المسوق الرياضي", "en": "Sports marketer", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "guardian", "ar": "ولي الأمر", "en": "Guardian", "src": ["E2"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "young_player", "ar": "اللاعب الشاب", "en": "Young player", "src": ["E3"],
+      "fields": [
+        "name",
+        { "id": "sport_position", "type": "text", "ar": "المركز الرياضي", "en": "Playing position", "req": "review" },
+        { "kind": "birth_date", "req": "review" }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "authorization_term", "src": ["F1"], "type": "text", "ar": "مدة التفويض التسويقي", "en": "Duration of the marketing authorization", "req": "yes" },
+    {
+      "id": "marketing_scope", "src": ["F2"], "type": "checkbox", "ar": "النطاق", "en": "Scope", "req": "review",
+      "options": [
+        { "value": "local_clubs", "ar": "أندية محلية", "en": "Local clubs" },
+        { "value": "foreign_clubs", "ar": "أندية خارجية", "en": "Foreign clubs" }
+      ]
+    }
+  ],
+  "financial": [
+    { "id": "commission_percentage", "src": ["F3"], "type": "number", "ar": "نسبة عمولة المسوق في حال نجاح التعاقد الرسمي فقط (%)", "en": "Marketer's commission percentage, only if the official contract succeeds (%)", "req": "yes", "min": 0, "max": 100 }
+  ],
+  "special": [
+    {
+      "id": "exclusivity", "src": ["G1"], "type": "radio", "ar": "حصرية أو عدم حصرية التسويق", "en": "Exclusive or non-exclusive marketing", "req": "no",
+      "options": [
+        { "value": "exclusive", "ar": "حصري", "en": "Exclusive" },
+        { "value": "non_exclusive", "ar": "غير حصري", "en": "Non-exclusive" }
+      ]
+    },
+    {
+      "id": "clauses", "src": ["G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "no_unagreed_advance_payments", "ar": "عدم تقاضي مبالغ مقدمة غير متفق عليها", "en": "Not collecting any advance sums that were not agreed" },
+        { "value": "player_attends_tests", "ar": "التزام اللاعب بحضور الاختبارات", "en": "The player's commitment to attend the tests" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_marketer_guardian_ids", "src": ["H1"], "type": "file", "ar": "بطاقة المسوق وولي الأمر", "en": "ID cards of the marketer and the guardian", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_player_birth_or_id", "src": ["H2"], "type": "file", "ar": "شهادة ميلاد أو بطاقة اللاعب الشاب", "en": "Birth certificate or ID card of the young player", "req": "yes", "maxFiles": 2 }
+  ]
+}

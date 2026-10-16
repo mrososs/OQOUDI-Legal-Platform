@@ -1,0 +1,55 @@
+{
+  "ref": "IND-021",
+  "slug": "debt-settlement-and-payment-schedule-agreement",
+  "en": {
+    "title": "Debt Settlement and Payment Rescheduling Agreement",
+    "description": "Documenting a financial debt and regulating its payment in fixed installments with legal guarantees that protect both the creditor and the debtor."
+  },
+  "parties": [
+    {
+      "key": "creditor", "ar": "الدائن", "en": "Creditor", "src": ["E1"],
+      "fields": [
+        "name",
+        "national_id",
+        { "id": "chosen_residence", "type": "text", "ar": "محل الإقامة المختار", "en": "Chosen place of residence", "req": "yes", "maxLength": 300 }
+      ]
+    },
+    {
+      "key": "debtor", "ar": "المدين", "en": "Debtor", "src": ["E1"],
+      "fields": [
+        "name",
+        "national_id",
+        { "id": "chosen_residence", "type": "text", "ar": "محل الإقامة المختار", "en": "Chosen place of residence", "req": "yes", "maxLength": 300 }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "debt_reason", "src": ["F1"], "type": "textarea", "ar": "سبب المديونية", "en": "Reason for the debt", "req": "review" }
+  ],
+  "financial": [
+    { "id": "total_debt", "src": ["F1"], "type": "number", "ar": "إجمالي قيمة المديونية (ج.م)", "en": "Total value of the debt (EGP)", "req": "yes", "min": 0 },
+    { "id": "cash_paid_at_signing", "src": ["F2"], "type": "number", "ar": "المبلغ المسدد نقداً عند التوقيع (ج.م)", "en": "Amount paid in cash at signing (EGP)", "req": "review", "min": 0 },
+    {
+      "id": "installments", "src": ["F3"], "type": "repeater", "ar": "جدول الأقساط المتبقية بالتواريخ والقيم", "en": "Schedule of the remaining installments with dates and amounts", "req": "review", "maxItems": 48,
+      "columns": [
+        { "id": "due_date", "type": "date", "ar": "تاريخ القسط", "en": "Installment date", "required": true },
+        { "id": "amount", "type": "number", "ar": "قيمة القسط (ج.م)", "en": "Installment amount (EGP)", "required": true, "min": 0 }
+      ]
+    }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "acceleration_on_default", "ar": "حلول جميع الأقساط فوراً عند التأخر عن سداد قسط واحد", "en": "All installments fall due immediately if a single installment is late" },
+        { "value": "suspend_or_conditionally_waive_cases", "ar": "وقف أو التنازل المعلق عن المحاضر والقضايا", "en": "Suspension or conditional waiver of police reports and cases" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" },
+    { "id": "penalty_clause", "src": ["G3"], "type": "textarea", "ar": "الشرط الجزائي", "en": "Penalty clause", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_debt_documents", "src": ["H2"], "type": "file", "ar": "مستندات المديونية أو أرقام القضايا", "en": "Debt documents or case numbers", "req": "no", "maxFiles": 5 }
+  ]
+}

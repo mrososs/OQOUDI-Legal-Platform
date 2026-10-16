@@ -1,0 +1,43 @@
+{
+  "ref": "IND-004",
+  "slug": "residential-apartment-lease-contract",
+  "en": {
+    "title": "Residential Apartment Lease Contract (New Law)",
+    "description": "A fixed-term residential lease governed by the Civil Code that protects the rights of both landlord and tenant."
+  },
+  "parties": [
+    {
+      "key": "landlord", "ar": "المؤجر", "en": "Landlord", "src": ["E1"],
+      "fields": ["name", "national_id", { "id": "current_address", "type": "text", "ar": "العنوان الحالي", "en": "Current address", "req": "yes", "maxLength": 300 }]
+    },
+    {
+      "key": "tenant", "ar": "المستأجر", "en": "Tenant", "src": ["E1"],
+      "fields": ["name", "national_id", { "id": "current_address", "type": "text", "ar": "العنوان الحالي", "en": "Current address", "req": "yes", "maxLength": 300 }]
+    }
+  ],
+  "details": [
+    { "id": "unit_address", "src": ["F1"], "type": "textarea", "ar": "عنوان الشقة بالتفصيل", "en": "Detailed address of the apartment", "req": "yes" },
+    { "id": "lease_start", "src": ["F2"], "type": "date", "ar": "مدة الإيجار — تاريخ البداية", "en": "Lease term — start date", "req": "yes" },
+    { "id": "lease_end", "src": ["F2"], "type": "date", "ar": "مدة الإيجار — تاريخ النهاية", "en": "Lease term — end date", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "monthly_rent", "src": ["F3"], "type": "number", "ar": "القيمة الإيجارية الشهرية (ج.م)", "en": "Monthly rent (EGP)", "req": "yes", "min": 0 },
+    { "id": "deposit_amount", "src": ["F4"], "type": "number", "ar": "مبلغ التأمين (ج.م)", "en": "Deposit amount (EGP)", "req": "review", "min": 0 },
+    { "id": "annual_increase", "src": ["F5"], "type": "number", "ar": "نسبة الزيادة السنوية (%)", "en": "Annual increase (%)", "req": "review", "min": 0, "max": 100 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3", "G4"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "auto_termination", "ar": "الفسخ التلقائي عند التأخر في السداد", "en": "Automatic termination on late payment" },
+        { "value": "utilities_and_lift", "ar": "تحمل فواتير المرافق وصيانة المصعد", "en": "Who bears utility bills and lift maintenance" },
+        { "value": "no_sublease", "ar": "حظر التأجير من الباطن", "en": "Prohibition of subletting" },
+        { "value": "executory_formula", "ar": "الصيغة التنفيذية", "en": "Executory formula" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3", "G4"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صورة بطاقة المؤجر والمستأجر", "en": "ID card copies of the landlord and the tenant", "req": "yes", "maxFiles": 4 }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "ref": "CO-031",
+  "slug": "influencer-advertising-collaboration-contract",
+  "en": {
+    "title": "Advertising Collaboration Contract with Influencers and Content Creators (Influencer Agreement)",
+    "description": "Organizes the advertising campaign with bloggers and influencers, setting the number of videos, the manner of display and the video usage rights."
+  },
+  "parties": [
+    {
+      "key": "brand", "ar": "الشركة/العلامة التجارية", "en": "Company / brand", "src": ["E1"],
+      "fields": ["company_name", { "kind": "commercial_register", "req": "review" }]
+    },
+    {
+      "key": "influencer", "ar": "المؤثر أو وكيله الإعلاني", "en": "Influencer or their advertising agent", "src": ["E1"],
+      "fields": [
+        "name",
+        { "id": "id_or_register", "type": "text", "ar": "الرقم القومي أو رقم السجل التجاري", "en": "National ID or commercial register number", "req": "yes", "maxLength": 60 }
+      ]
+    }
+  ],
+  "details": [
+    {
+      "id": "platforms", "src": ["F1"], "type": "checkbox", "ar": "المنصات المعلن عليها", "en": "Advertising platforms", "req": "review",
+      "options": [
+        { "value": "instagram", "ar": "إنستجرام", "en": "Instagram" },
+        { "value": "tiktok", "ar": "تيك توك", "en": "TikTok" },
+        { "value": "youtube", "ar": "يوتيوب", "en": "YouTube" }
+      ]
+    },
+    { "id": "platforms_other", "src": ["F1"], "type": "text", "ar": "منصات أخرى معلن عليها", "en": "Other advertising platforms", "req": "review" },
+    { "id": "reels_count", "src": ["F2"], "type": "number", "ar": "عدد الريلز", "en": "Number of reels", "req": "review", "min": 0 },
+    { "id": "stories_count", "src": ["F2"], "type": "number", "ar": "عدد الاستوريز", "en": "Number of stories", "req": "review", "min": 0 },
+    { "id": "publishing_dates", "src": ["F3"], "type": "textarea", "ar": "مواعيد النشر", "en": "Publishing dates", "req": "review" }
+  ],
+  "financial": [
+    { "id": "influencer_fee", "src": ["F4"], "type": "number", "ar": "الأتعاب (ج.م)", "en": "Fee (EGP)", "req": "yes", "min": 0 },
+    { "id": "payment_method", "src": ["F4"], "type": "textarea", "ar": "طريقة الدفع", "en": "Payment method", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "video_stays_on_account", "ar": "بقاء الفيديو على حساب المؤثر وعدم حذفه", "en": "The video remains on the influencer's account and is not deleted" },
+        { "value": "paid_ads_usage_right", "ar": "حق الشركة في استخدام الفيديو في إعلاناتها الممولة", "en": "The company's right to use the video in its paid advertisements" },
+        { "value": "no_competitor_ads", "ar": "عدم الإعلان لمنافس خلال فترة الحملة", "en": "No advertising for a competitor during the campaign period" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_ids_or_register", "src": ["H1"], "type": "file", "ar": "صور الهوية أو السجل التجاري", "en": "ID copies or commercial register", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_ad_script", "src": ["H2"], "type": "file", "ar": "سكريبت أو محاور الإعلان", "en": "Ad script or talking points", "req": "review", "maxFiles": 3 }
+  ]
+}

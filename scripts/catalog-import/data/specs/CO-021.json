@@ -1,0 +1,46 @@
+{
+  "ref": "CO-021",
+  "slug": "goods-transport-shipping-and-logistics-services-contract",
+  "en": {
+    "title": "Goods Transport, Shipping and Logistics Services Contract",
+    "description": "Organizes the shipping and delivery of the company's products to customers or branches, including collection of cash-on-delivery (COD) payments."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة/المتجر", "en": "Company / store", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "carrier", "ar": "شركة الشحن واللوجستيات", "en": "Shipping and logistics company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "details": [
+    { "id": "delivery_times", "src": ["F2"], "type": "textarea", "ar": "مواعيد التوصيل", "en": "Delivery times", "req": "review" }
+  ],
+  "financial": [
+    {
+      "id": "shipping_rates", "src": ["F1"], "type": "repeater", "ar": "أسعار الشحن حسب المناطق والأوزان", "en": "Shipping rates by region and weight", "req": "review", "maxItems": 50,
+      "columns": [
+        { "id": "region", "type": "text", "ar": "المنطقة", "en": "Region", "required": true },
+        { "id": "weight", "type": "text", "ar": "الوزن", "en": "Weight" },
+        { "id": "price", "type": "number", "ar": "سعر الشحن (ج.م)", "en": "Shipping price (EGP)", "required": true, "min": 0 }
+      ]
+    },
+    { "id": "cod_remittance_cycle", "src": ["F3"], "type": "text", "ar": "دورة توريد مبالغ التحصيل (COD) لحساب الشركة البنكي", "en": "Remittance cycle of collected COD amounts to the company's bank account", "req": "review" },
+    { "id": "returns_fee", "src": ["F4"], "type": "number", "ar": "رسوم المرتجعات (ج.م)", "en": "Returns fee (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "carrier_liability", "ar": "مسؤولية شركة الشحن عن فقد أو تلف الشحنات والتعويض عنها", "en": "The shipping company's liability for loss of or damage to shipments and compensation for it" },
+        { "value": "tracking_and_reports", "ar": "آليات تتبع الشحنات والتقارير الأسبوعية", "en": "Shipment tracking mechanisms and weekly reports" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_register_and_tax_card", "src": ["H1"], "type": "file", "ar": "السجل التجاري والبطاقة الضريبية للطرفين", "en": "Commercial register and tax card of both parties", "req": "yes", "maxFiles": 4 }
+  ]
+}

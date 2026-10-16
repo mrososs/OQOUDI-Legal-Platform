@@ -1,0 +1,46 @@
+{
+  "ref": "IND-018",
+  "slug": "guardian-consent-minor-sports-camp-agreement",
+  "en": {
+    "title": "Guardian Declaration and Consent for a Minor's Sports Camp or Tournament",
+    "description": "A legal document regulating a guardian's consent to the travel or participation of his teenage son in a tournament or training camp."
+  },
+  "parties": [
+    {
+      "key": "guardian", "ar": "ولي الأمر", "en": "Guardian", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "minor_player", "ar": "اللاعب القاصر", "en": "Minor player", "src": ["E2"],
+      "fields": ["name", { "kind": "birth_date", "req": "review" }]
+    }
+  ],
+  "partyFields": [
+    { "id": "organizer_name", "src": ["E3"], "type": "text", "ar": "اسم الأكاديمية أو الجهة المنظمة", "en": "Name of the academy or organizing body", "req": "yes", "maxLength": 200 }
+  ],
+  "details": [
+    { "id": "event_name", "src": ["F1"], "type": "text", "ar": "اسم البطولة أو المعسكر", "en": "Name of the tournament or camp", "req": "yes", "maxLength": 200 },
+    { "id": "stay_place", "src": ["F2"], "type": "text", "ar": "مكان الإقامة", "en": "Place of stay", "req": "review" },
+    { "id": "travel_date", "src": ["F3"], "type": "date", "ar": "تاريخ السفر", "en": "Travel date", "req": "yes" },
+    { "id": "return_date", "src": ["F3"], "type": "date", "ar": "تاريخ العودة", "en": "Return date", "req": "yes" },
+    { "id": "responsible_supervisor", "src": ["F5"], "type": "text", "ar": "المشرف المسؤول", "en": "Responsible supervisor", "req": "review" }
+  ],
+  "financial": [
+    { "id": "camp_fee", "src": ["F4"], "type": "number", "ar": "رسوم الاشتراك في المعسكر (ج.م)", "en": "Camp subscription fee (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "player_health_declaration", "ar": "إقرار خلو اللاعب من أمراض تمنع المجهود", "en": "Declaration that the player has no illness that prevents exertion" },
+        { "value": "emergency_first_aid_authorization", "ar": "تفويض المشرف باتخاذ الإجراءات الإسعافية الطارئة", "en": "Authorizing the supervisor to take emergency first-aid measures" },
+        { "value": "camp_schedule_commitment", "ar": "الالتزام بمواعيد المعسكر", "en": "Commitment to the camp schedule" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_guardian_id", "src": ["H1"], "type": "file", "ar": "بطاقة ولي الأمر", "en": "Guardian's ID card", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_player_birth_certificate", "src": ["H2"], "type": "file", "ar": "شهادة ميلاد اللاعب", "en": "Player's birth certificate", "req": "yes", "maxFiles": 2 }
+  ]
+}

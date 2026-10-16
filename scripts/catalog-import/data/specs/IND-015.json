@@ -1,0 +1,57 @@
+{
+  "ref": "IND-015",
+  "slug": "sports-academy-youth-subscription-contract",
+  "en": {
+    "title": "Youth / Junior Subscription and Training Contract at a Sports Academy",
+    "description": "A contract regulating a young or teenage player's enrolment in a sports academy (football, swimming, combat sports, etc.) and the training obligations."
+  },
+  "parties": [
+    {
+      "key": "academy", "ar": "الأكاديمية الرياضية", "en": "Sports academy", "src": ["E1"],
+      "fields": [
+        "company_name",
+        { "kind": "commercial_register", "req": "review" },
+        { "kind": "legal_rep", "req": "review" }
+      ]
+    },
+    {
+      "key": "guardian", "ar": "ولي الأمر", "en": "Guardian", "src": ["E2"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "player", "ar": "اللاعب الناشئ", "en": "Junior player", "src": ["E3"],
+      "fields": ["name", "birth_date"]
+    }
+  ],
+  "details": [
+    { "id": "sport_type", "src": ["F1"], "type": "text", "ar": "نوع الرياضة", "en": "Type of sport", "req": "yes", "maxLength": 100 },
+    { "id": "training_program", "src": ["F2"], "type": "textarea", "ar": "البرنامج التدريبي", "en": "Training programme", "req": "review" },
+    { "id": "sessions_per_week", "src": ["F2"], "type": "number", "ar": "عدد الحصص أسبوعياً", "en": "Number of sessions per week", "req": "review", "min": 0 },
+    {
+      "id": "subscription_period", "src": ["F3"], "type": "radio", "ar": "مدة الاشتراك", "en": "Subscription period", "req": "yes",
+      "options": [
+        { "value": "monthly", "ar": "شهري", "en": "Monthly" },
+        { "value": "seasonal", "ar": "موسمي", "en": "Seasonal" }
+      ]
+    }
+  ],
+  "financial": [
+    { "id": "subscription_fee", "src": ["F4"], "type": "number", "ar": "قيمة الاشتراك (ج.م)", "en": "Subscription fee (EGP)", "req": "yes", "min": 0 },
+    { "id": "uniform_cost", "src": ["F4"], "type": "number", "ar": "قيمة الزي الرياضي (ج.م)", "en": "Sports uniform cost (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    { "id": "refund_or_freeze_policy", "src": ["G1"], "type": "textarea", "ar": "سياسة استرداد الاشتراك أو تجميده", "en": "Policy for refunding or freezing the subscription", "req": "no" },
+    { "id": "injury_liability_limits", "src": ["G2"], "type": "textarea", "ar": "حدود المسؤولية عن الإصابات العارضة", "en": "Limits of liability for incidental injuries", "req": "no" },
+    {
+      "id": "clauses", "src": ["G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "conduct_regulation", "ar": "التزام اللاعب وولي الأمر بلائحة السلوك", "en": "Commitment of the player and the guardian to the code of conduct" }
+      ]
+    }
+  ],
+  "documents": [
+    { "id": "doc_guardian_id", "src": ["H1"], "type": "file", "ar": "صورة بطاقة ولي الأمر", "en": "Copy of the guardian's ID card", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_player_birth_cert", "src": ["H2"], "type": "file", "ar": "شهادة ميلاد الناشئ", "en": "Birth certificate of the junior player", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_medical_fitness", "src": ["H3"], "type": "file", "ar": "إقرار اللياقة الطبية", "en": "Medical fitness declaration", "req": "yes", "maxFiles": 2 }
+  ]
+}

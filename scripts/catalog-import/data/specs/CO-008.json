@@ -1,0 +1,55 @@
+{
+  "ref": "CO-008",
+  "slug": "part-time-employment-contract",
+  "en": {
+    "title": "Part-Time or Flexible-Hours Employment Contract (Part-Time Contract)",
+    "description": "Regulates employing staff part-time or on specific days each week, in accordance with the legal controls."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "employee", "ar": "الموظف", "en": "Employee", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "partyFields": [],
+  "details": [
+    { "id": "job_title", "src": ["F1"], "type": "text", "ar": "المسمى الوظيفي", "en": "Job title", "req": "yes" },
+    { "id": "weekly_days", "src": ["F2"], "type": "number", "ar": "عدد أيام العمل الأسبوعية", "en": "Number of working days per week", "req": "review", "min": 0, "max": 7 },
+    { "id": "weekly_hours", "src": ["F2"], "type": "number", "ar": "عدد ساعات العمل الأسبوعية", "en": "Number of working hours per week", "req": "review", "min": 0 },
+    { "id": "contract_term", "src": ["F4"], "type": "text", "ar": "مدة العقد", "en": "Contract term", "req": "review" }
+  ],
+  "financial": [
+    {
+      "id": "pay_system", "src": ["F3"], "type": "radio", "ar": "نظام احتساب الأجر", "en": "Wage calculation system", "req": "review",
+      "options": [
+        { "value": "hourly", "ar": "بالساعة", "en": "Hourly" },
+        { "value": "part_monthly_salary", "ar": "راتب شهري جزئي", "en": "Partial monthly salary" }
+      ]
+    }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "pro_rata_leave", "ar": "تنظيم الإجازات النسبية", "en": "Regulation of pro-rata leave" },
+        { "value": "confidentiality", "ar": "السرية", "en": "Confidentiality" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" },
+    {
+      "id": "outside_work_with_non_competitors", "src": ["G3"], "type": "radio", "ar": "العمل لدى غير المنافسين في أوقات الفراغ", "en": "Working for non-competitors in free time", "req": "no",
+      "options": [
+        { "value": "permitted", "ar": "جائز", "en": "Permitted" },
+        { "value": "not_permitted", "ar": "غير جائز", "en": "Not permitted" }
+      ]
+    }
+  ],
+  "documents": [
+    { "id": "doc_employee_id", "src": ["H1"], "type": "file", "ar": "بطاقة الموظف", "en": "Employee ID card", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_commercial_register", "src": ["H2"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 }
+  ]
+}

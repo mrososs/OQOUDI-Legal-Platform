@@ -1,0 +1,51 @@
+{
+  "ref": "CO-028",
+  "slug": "confidentiality-non-disclosure-agreement-nda",
+  "en": {
+    "title": "Non-Disclosure Agreement (NDA)",
+    "description": "Protects ideas, customer databases, code and financial plans from leakage or exploitation."
+  },
+  "parties": [
+    {
+      "key": "discloser", "ar": "الطرف المفصح", "en": "Disclosing party", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم أو اسم الشركة", "en": "Name or company name", "req": "yes", "maxLength": 200 },
+        { "id": "id_or_register", "type": "text", "ar": "الرقم القومي أو رقم السجل التجاري", "en": "National ID or commercial register number", "req": "yes", "maxLength": 60 }
+      ]
+    },
+    {
+      "key": "recipient", "ar": "الطرف المتلقي", "en": "Receiving party", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم أو اسم الشركة", "en": "Name or company name", "req": "yes", "maxLength": 200 },
+        { "id": "id_or_register", "type": "text", "ar": "الرقم القومي أو رقم السجل التجاري", "en": "National ID or commercial register number", "req": "yes", "maxLength": 60 }
+      ]
+    }
+  ],
+  "partyFields": [
+    {
+      "id": "agreement_type", "src": ["E1"], "type": "radio", "ar": "نوع الاتفاقية", "en": "Type of agreement", "req": "review",
+      "options": [
+        { "value": "disclosing_and_receiving", "ar": "طرف مفصح وطرف متلقٍ", "en": "A disclosing party and a receiving party" },
+        { "value": "mutual", "ar": "اتفاقية متبادلة بين شركتين", "en": "A mutual agreement between two companies" }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "disclosure_purpose", "src": ["F1"], "type": "textarea", "ar": "الغرض من تبادل المعلومات", "en": "Purpose of exchanging the information", "req": "yes" },
+    { "id": "confidential_information", "src": ["F2"], "type": "textarea", "ar": "التحديد الدقيق للمعلومات السرية المشمولة بالحماية", "en": "Precise definition of the confidential information covered by the protection", "req": "yes" },
+    { "id": "confidentiality_term", "src": ["F3"], "type": "text", "ar": "مدة سريان الالتزام بالسرية", "en": "Duration of the confidentiality obligation", "req": "yes" }
+  ],
+  "special": [
+    { "id": "agreed_compensation", "src": ["G1"], "type": "number", "ar": "قيمة التعويض الاتفاقي (الشرط الجزائي) في حال التسريب (ج.م)", "en": "Agreed compensation amount (penalty clause) in case of leakage (EGP)", "req": "no", "min": 0 },
+    {
+      "id": "end_of_purpose_files", "src": ["G2"], "type": "checkbox", "ar": "الالتزام بإتلاف أو رد الملفات عند انتهاء الغرض", "en": "Obligation to destroy or return the files when the purpose ends", "req": "no",
+      "options": [
+        { "value": "destroy_files", "ar": "إتلاف الملفات عند انتهاء الغرض", "en": "Destroy the files when the purpose ends" },
+        { "value": "return_files", "ar": "رد الملفات عند انتهاء الغرض", "en": "Return the files when the purpose ends" }
+      ]
+    }
+  ],
+  "documents": [
+    { "id": "doc_register_or_ids", "src": ["H1"], "type": "file", "ar": "السجل التجاري أو بطاقات الهوية للأطراف", "en": "Commercial register or ID cards of the parties", "req": "yes", "maxFiles": 4 }
+  ]
+}
