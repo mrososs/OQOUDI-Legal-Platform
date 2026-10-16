@@ -41,6 +41,7 @@ Verified = covered by an automated test that ran green on a freshly reset databa
 | Lawyer dashboard | KPIs (revenue admin-only), requests table + filters + overdue, request detail (deliverables, written reply, meeting link, messages, internal notes, answers, attachments, timeline), admin quote/assign/cancel, week calendar | agent Playwright checks; `delivery-acceptance.spec.ts` |
 | Administration | Service list; editor (basics → pricing/add-ons → sections → form builder with live preview → publish with new immutable form version); pricing table; payments; reviews + replies; settings (contact, hours, blocked dates, booking params, default lawyer, users & roles) — all audited | agent API + browser checks (lawyer 403 on all admin endpoints; v1 retired / v2 published) |
 | Notifications | DB-backed, i18n-rendered, Realtime subscription scoped to the user | lifecycle test asserts notification rows; portal badge |
+| Logo loading indicator (2026-10-17) | Branded OQOUDI-mark spinner for page navigation and endpoint calls (`$fetch` + Supabase): overlay for routes/writes (blocks clicks only for writes), pill for reads, silent for background noise; 250 ms delay / 450 ms minimum — see `docs/loading-indicator/README.md` | unit `loading.test.ts` (15); E2E `loading.spec.ts` (2); browser timeline under Slow 3G; `nuxt typecheck` + ESLint clean |
 
 Test totals (last run, fresh DB): **unit 24/24 · integration 35/35 · E2E 26 passed, 1 skipped (mobile-only check on desktop)**.
 
@@ -79,6 +80,7 @@ Test totals (last run, fresh DB): **unit 24/24 · integration 35/35 · E2E 26 pa
 5. Windows reserves ports 54292–54391 → local Supabase moved to 553xx.
 6. Vue scoped `:global([dir='rtl']) .x` compiles to a bare `[dir='rtl']` rule → toast/panel transforms hit `<html>` (24 px overflow) → replaced with `--dir-sign` variables.
 7. A proof pending on an order the customer cancelled could be neither approved nor rejected → rejection now allowed, approval refused (test added).
+8. A service linked to both Individuals and Companies was badged with its primary category, so the Individuals page showed "خدمات الشركات" → badge now follows the category being browsed (E2E added; fails on the old code).
 
 ## Changed / added files (high level)
 - `supabase/` — `config.toml`, 18 migrations, `seed.sql`
