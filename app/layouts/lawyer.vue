@@ -15,6 +15,8 @@ const items = computed(() => {
   const admin = [
     { id: 'dashboard-services', label: t('dash.nav.services'), to: '/dashboard/services', count: 0 },
     { id: 'dashboard-pricing', label: t('dash.nav.pricing'), to: '/dashboard/pricing', count: 0 },
+    { id: 'dashboard-campaign', label: t('dash.nav.campaign'), to: '/dashboard/campaign', count: 0 },
+    { id: 'dashboard-catalog-import', label: t('dash.nav.catalogImport'), to: '/dashboard/catalog-import', count: 0 },
     { id: 'dashboard-payments', label: t('dash.nav.payments'), to: '/dashboard/payments', count: counts.value.pendingPayments },
   ]
   const tail = [
