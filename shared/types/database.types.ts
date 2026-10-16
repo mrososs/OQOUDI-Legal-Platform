@@ -83,6 +83,52 @@ isOneToOne: false
       referencedColumns: ["id"]
     }
                   ]
+                },"catalog_import_items": {
+                  Row: {
+                    "category_id": string | null,"created_at": string,"details": NonNullable<Json>,"id": number,"kind": string,"outcome": string,"ref": string,"run_id": string,"service_id": string | null
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "category_id"?: string | null,"created_at"?: string,"details"?: NonNullable<Json>,"id"?: never,"kind": string,"outcome": string,"ref": string,"run_id": string,"service_id"?: string | null
+                  }
+                  Update: {
+                    "category_id"?: string | null,"created_at"?: string,"details"?: NonNullable<Json>,"id"?: never,"kind"?: string,"outcome"?: string,"ref"?: string,"run_id"?: string,"service_id"?: string | null
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "catalog_import_items_category_id_fkey"
+      columns: ["category_id"]
+isOneToOne: false
+      referencedRelation: "service_categories"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "catalog_import_items_run_id_fkey"
+      columns: ["run_id"]
+isOneToOne: false
+      referencedRelation: "catalog_import_runs"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "catalog_import_items_service_id_fkey"
+      columns: ["service_id"]
+isOneToOne: false
+      referencedRelation: "services"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"catalog_import_runs": {
+                  Row: {
+                    "batch_key": string,"finished_at": string | null,"id": string,"payload_md5": string,"started_at": string,"status": string,"summary": NonNullable<Json>
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "batch_key": string,"finished_at"?: string | null,"id"?: string,"payload_md5": string,"started_at"?: string,"status"?: string,"summary"?: NonNullable<Json>
+                  }
+                  Update: {
+                    "batch_key"?: string,"finished_at"?: string | null,"id"?: string,"payload_md5"?: string,"started_at"?: string,"status"?: string,"summary"?: NonNullable<Json>
+                  }
+                  Relationships: [
+                    
+                  ]
                 },"consultation_bookings": {
                   Row: {
                     "created_at": string,"ends_at": string,"hold_expires_at": string | null,"id": string,"lawyer_id": string | null,"meeting_provider": string,"meeting_published_at": string | null,"meeting_url": string | null,"order_id": string,"starts_at": string,"status": Database["public"]['Enums']["booking_status"],"updated_at": string
@@ -371,14 +417,14 @@ isOneToOne: false
                   ]
                 },"order_addons": {
                   Row: {
-                    "addon_id": string | null,"id": string,"order_id": string,"price_minor": number,"title": NonNullable<Json>
+                    "addon_id": string | null,"id": string,"kind": string | null,"launch_price_minor": number | null,"order_id": string,"price_minor": number,"pricing_applied": string | null,"regular_price_minor": number | null,"title": NonNullable<Json>
                   }
                   ComputedFields: never
                   Insert: {
-                    "addon_id"?: string | null,"id"?: string,"order_id": string,"price_minor": number,"title": NonNullable<Json>
+                    "addon_id"?: string | null,"id"?: string,"kind"?: string | null,"launch_price_minor"?: number | null,"order_id": string,"price_minor": number,"pricing_applied"?: string | null,"regular_price_minor"?: number | null,"title": NonNullable<Json>
                   }
                   Update: {
-                    "addon_id"?: string | null,"id"?: string,"order_id"?: string,"price_minor"?: number,"title"?: NonNullable<Json>
+                    "addon_id"?: string | null,"id"?: string,"kind"?: string | null,"launch_price_minor"?: number | null,"order_id"?: string,"price_minor"?: number,"pricing_applied"?: string | null,"regular_price_minor"?: number | null,"title"?: NonNullable<Json>
                   }
                   Relationships: [
                     {
@@ -501,14 +547,14 @@ isOneToOne: false
                   ]
                 },"orders": {
                   Row: {
-                    "addons_total_minor": number,"assigned_lawyer_id": string | null,"base_price_minor": number,"cancel_reason": string | null,"cancelled_at": string | null,"completed_at": string | null,"created_at": string,"created_by": string,"currency": string,"customer_account_id": string,"delivered_at": string | null,"form_answers": NonNullable<Json>,"form_version_id": string,"id": string,"order_number": string,"paid_at": string | null,"payment_status": Database["public"]['Enums']["payment_status"],"quote_issued_at": string | null,"service_id": string,"service_snapshot": NonNullable<Json>,"status": Database["public"]['Enums']["order_status"],"total_minor": number,"updated_at": string
+                    "addons_total_minor": number,"assigned_lawyer_id": string | null,"base_price_minor": number,"cancel_reason": string | null,"cancelled_at": string | null,"completed_at": string | null,"created_at": string,"created_by": string,"currency": string,"customer_account_id": string,"delivered_at": string | null,"form_answers": NonNullable<Json>,"form_version_id": string,"has_bilingual_drafting": boolean,"has_vip_delivery": boolean,"id": string,"order_number": string,"paid_at": string | null,"payment_status": Database["public"]['Enums']["payment_status"],"pricing_snapshot": NonNullable<Json>,"quote_issued_at": string | null,"service_id": string,"service_snapshot": NonNullable<Json>,"status": Database["public"]['Enums']["order_status"],"total_minor": number,"updated_at": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "addons_total_minor"?: number,"assigned_lawyer_id"?: string | null,"base_price_minor": number,"cancel_reason"?: string | null,"cancelled_at"?: string | null,"completed_at"?: string | null,"created_at"?: string,"created_by": string,"currency"?: string,"customer_account_id": string,"delivered_at"?: string | null,"form_answers"?: NonNullable<Json>,"form_version_id": string,"id"?: string,"order_number"?: string,"paid_at"?: string | null,"payment_status"?: Database["public"]['Enums']["payment_status"],"quote_issued_at"?: string | null,"service_id": string,"service_snapshot": NonNullable<Json>,"status": Database["public"]['Enums']["order_status"],"total_minor": number,"updated_at"?: string
+                    "addons_total_minor"?: number,"assigned_lawyer_id"?: string | null,"base_price_minor": number,"cancel_reason"?: string | null,"cancelled_at"?: string | null,"completed_at"?: string | null,"created_at"?: string,"created_by": string,"currency"?: string,"customer_account_id": string,"delivered_at"?: string | null,"form_answers"?: NonNullable<Json>,"form_version_id": string,"has_bilingual_drafting"?: boolean,"has_vip_delivery"?: boolean,"id"?: string,"order_number"?: string,"paid_at"?: string | null,"payment_status"?: Database["public"]['Enums']["payment_status"],"pricing_snapshot"?: NonNullable<Json>,"quote_issued_at"?: string | null,"service_id": string,"service_snapshot": NonNullable<Json>,"status": Database["public"]['Enums']["order_status"],"total_minor": number,"updated_at"?: string
                   }
                   Update: {
-                    "addons_total_minor"?: number,"assigned_lawyer_id"?: string | null,"base_price_minor"?: number,"cancel_reason"?: string | null,"cancelled_at"?: string | null,"completed_at"?: string | null,"created_at"?: string,"created_by"?: string,"currency"?: string,"customer_account_id"?: string,"delivered_at"?: string | null,"form_answers"?: NonNullable<Json>,"form_version_id"?: string,"id"?: string,"order_number"?: string,"paid_at"?: string | null,"payment_status"?: Database["public"]['Enums']["payment_status"],"quote_issued_at"?: string | null,"service_id"?: string,"service_snapshot"?: NonNullable<Json>,"status"?: Database["public"]['Enums']["order_status"],"total_minor"?: number,"updated_at"?: string
+                    "addons_total_minor"?: number,"assigned_lawyer_id"?: string | null,"base_price_minor"?: number,"cancel_reason"?: string | null,"cancelled_at"?: string | null,"completed_at"?: string | null,"created_at"?: string,"created_by"?: string,"currency"?: string,"customer_account_id"?: string,"delivered_at"?: string | null,"form_answers"?: NonNullable<Json>,"form_version_id"?: string,"has_bilingual_drafting"?: boolean,"has_vip_delivery"?: boolean,"id"?: string,"order_number"?: string,"paid_at"?: string | null,"payment_status"?: Database["public"]['Enums']["payment_status"],"pricing_snapshot"?: NonNullable<Json>,"quote_issued_at"?: string | null,"service_id"?: string,"service_snapshot"?: NonNullable<Json>,"status"?: Database["public"]['Enums']["order_status"],"total_minor"?: number,"updated_at"?: string
                   }
                   Relationships: [
                     {
@@ -528,6 +574,12 @@ isOneToOne: false
       columns: ["customer_account_id"]
 isOneToOne: false
       referencedRelation: "customer_accounts"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "orders_form_version_id_fkey"
+      columns: ["form_version_id"]
+isOneToOne: false
+      referencedRelation: "service_form_stats"
       referencedColumns: ["id"]
     },{
       foreignKeyName: "orders_form_version_id_fkey"
@@ -721,14 +773,14 @@ isOneToOne: false
                   ]
                 },"service_addons": {
                   Row: {
-                    "created_at": string,"id": string,"is_active": boolean,"price_minor": number,"service_id": string,"sort_order": number,"title": NonNullable<Json>,"updated_at": string
+                    "created_at": string,"id": string,"is_active": boolean,"kind": string | null,"launch_price_minor": number | null,"price_minor": number | null,"service_id": string,"sort_order": number,"title": NonNullable<Json>,"updated_at": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "created_at"?: string,"id"?: string,"is_active"?: boolean,"price_minor": number,"service_id": string,"sort_order"?: number,"title": NonNullable<Json>,"updated_at"?: string
+                    "created_at"?: string,"id"?: string,"is_active"?: boolean,"kind"?: string | null,"launch_price_minor"?: number | null,"price_minor"?: number | null,"service_id": string,"sort_order"?: number,"title": NonNullable<Json>,"updated_at"?: string
                   }
                   Update: {
-                    "created_at"?: string,"id"?: string,"is_active"?: boolean,"price_minor"?: number,"service_id"?: string,"sort_order"?: number,"title"?: NonNullable<Json>,"updated_at"?: string
+                    "created_at"?: string,"id"?: string,"is_active"?: boolean,"kind"?: string | null,"launch_price_minor"?: number | null,"price_minor"?: number | null,"service_id"?: string,"sort_order"?: number,"title"?: NonNullable<Json>,"updated_at"?: string
                   }
                   Relationships: [
                     {
@@ -741,17 +793,23 @@ isOneToOne: false
                   ]
                 },"service_categories": {
                   Row: {
-                    "created_at": string,"description": NonNullable<Json>,"icon": string,"id": string,"is_active": boolean,"slug": string,"sort_order": number,"title": NonNullable<Json>,"updated_at": string
+                    "created_at": string,"description": NonNullable<Json>,"icon": string,"id": string,"is_active": boolean,"parent_id": string | null,"slug": string,"sort_order": number,"title": NonNullable<Json>,"updated_at": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "created_at"?: string,"description": NonNullable<Json>,"icon"?: string,"id"?: string,"is_active"?: boolean,"slug": string,"sort_order"?: number,"title": NonNullable<Json>,"updated_at"?: string
+                    "created_at"?: string,"description": NonNullable<Json>,"icon"?: string,"id"?: string,"is_active"?: boolean,"parent_id"?: string | null,"slug": string,"sort_order"?: number,"title": NonNullable<Json>,"updated_at"?: string
                   }
                   Update: {
-                    "created_at"?: string,"description"?: NonNullable<Json>,"icon"?: string,"id"?: string,"is_active"?: boolean,"slug"?: string,"sort_order"?: number,"title"?: NonNullable<Json>,"updated_at"?: string
+                    "created_at"?: string,"description"?: NonNullable<Json>,"icon"?: string,"id"?: string,"is_active"?: boolean,"parent_id"?: string | null,"slug"?: string,"sort_order"?: number,"title"?: NonNullable<Json>,"updated_at"?: string
                   }
                   Relationships: [
-                    
+                    {
+      foreignKeyName: "service_categories_parent_id_fkey"
+      columns: ["parent_id"]
+isOneToOne: false
+      referencedRelation: "service_categories"
+      referencedColumns: ["id"]
+    }
                   ]
                 },"service_category_links": {
                   Row: {
@@ -807,14 +865,14 @@ isOneToOne: false
                   ]
                 },"service_price_history": {
                   Row: {
-                    "base_price_minor": number,"changed_at": string,"changed_by": string | null,"id": string,"pricing_type": Database["public"]['Enums']["pricing_type"],"service_id": string
+                    "base_price_minor": number,"changed_at": string,"changed_by": string | null,"id": string,"launch_eligible": boolean | null,"launch_price_minor": number | null,"pricing_type": Database["public"]['Enums']["pricing_type"],"service_id": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "base_price_minor": number,"changed_at"?: string,"changed_by"?: string | null,"id"?: string,"pricing_type": Database["public"]['Enums']["pricing_type"],"service_id": string
+                    "base_price_minor": number,"changed_at"?: string,"changed_by"?: string | null,"id"?: string,"launch_eligible"?: boolean | null,"launch_price_minor"?: number | null,"pricing_type": Database["public"]['Enums']["pricing_type"],"service_id": string
                   }
                   Update: {
-                    "base_price_minor"?: number,"changed_at"?: string,"changed_by"?: string | null,"id"?: string,"pricing_type"?: Database["public"]['Enums']["pricing_type"],"service_id"?: string
+                    "base_price_minor"?: number,"changed_at"?: string,"changed_by"?: string | null,"id"?: string,"launch_eligible"?: boolean | null,"launch_price_minor"?: number | null,"pricing_type"?: Database["public"]['Enums']["pricing_type"],"service_id"?: string
                   }
                   Relationships: [
                     {
@@ -853,14 +911,14 @@ isOneToOne: false
                   ]
                 },"services": {
                   Row: {
-                    "base_price_minor": number,"created_at": string,"created_by": string | null,"currency": string,"delivery_estimate": NonNullable<Json>,"id": string,"is_featured": boolean,"kind": Database["public"]['Enums']["service_kind"],"meeting_duration_minutes": number | null,"pricing_type": Database["public"]['Enums']["pricing_type"],"primary_category_id": string,"published_at": string | null,"published_form_version_id": string | null,"short_description": NonNullable<Json>,"slug": string,"sort_order": number,"status": Database["public"]['Enums']["publish_status"],"title": NonNullable<Json>,"updated_at": string
+                    "base_price_minor": number,"created_at": string,"created_by": string | null,"currency": string,"delivery_estimate": NonNullable<Json>,"id": string,"is_featured": boolean,"kind": Database["public"]['Enums']["service_kind"],"launch_eligible": boolean,"launch_price_minor": number | null,"meeting_duration_minutes": number | null,"pricing_type": Database["public"]['Enums']["pricing_type"],"primary_category_id": string,"published_at": string | null,"published_form_version_id": string | null,"short_description": NonNullable<Json>,"slug": string,"sort_order": number,"source_ref": string | null,"status": Database["public"]['Enums']["publish_status"],"title": NonNullable<Json>,"translation_status": string,"updated_at": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "base_price_minor": number,"created_at"?: string,"created_by"?: string | null,"currency"?: string,"delivery_estimate": NonNullable<Json>,"id"?: string,"is_featured"?: boolean,"kind"?: Database["public"]['Enums']["service_kind"],"meeting_duration_minutes"?: number | null,"pricing_type"?: Database["public"]['Enums']["pricing_type"],"primary_category_id": string,"published_at"?: string | null,"published_form_version_id"?: string | null,"short_description": NonNullable<Json>,"slug": string,"sort_order"?: number,"status"?: Database["public"]['Enums']["publish_status"],"title": NonNullable<Json>,"updated_at"?: string
+                    "base_price_minor": number,"created_at"?: string,"created_by"?: string | null,"currency"?: string,"delivery_estimate": NonNullable<Json>,"id"?: string,"is_featured"?: boolean,"kind"?: Database["public"]['Enums']["service_kind"],"launch_eligible"?: boolean,"launch_price_minor"?: number | null,"meeting_duration_minutes"?: number | null,"pricing_type"?: Database["public"]['Enums']["pricing_type"],"primary_category_id": string,"published_at"?: string | null,"published_form_version_id"?: string | null,"short_description": NonNullable<Json>,"slug": string,"sort_order"?: number,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["publish_status"],"title": NonNullable<Json>,"translation_status"?: string,"updated_at"?: string
                   }
                   Update: {
-                    "base_price_minor"?: number,"created_at"?: string,"created_by"?: string | null,"currency"?: string,"delivery_estimate"?: NonNullable<Json>,"id"?: string,"is_featured"?: boolean,"kind"?: Database["public"]['Enums']["service_kind"],"meeting_duration_minutes"?: number | null,"pricing_type"?: Database["public"]['Enums']["pricing_type"],"primary_category_id"?: string,"published_at"?: string | null,"published_form_version_id"?: string | null,"short_description"?: NonNullable<Json>,"slug"?: string,"sort_order"?: number,"status"?: Database["public"]['Enums']["publish_status"],"title"?: NonNullable<Json>,"updated_at"?: string
+                    "base_price_minor"?: number,"created_at"?: string,"created_by"?: string | null,"currency"?: string,"delivery_estimate"?: NonNullable<Json>,"id"?: string,"is_featured"?: boolean,"kind"?: Database["public"]['Enums']["service_kind"],"launch_eligible"?: boolean,"launch_price_minor"?: number | null,"meeting_duration_minutes"?: number | null,"pricing_type"?: Database["public"]['Enums']["pricing_type"],"primary_category_id"?: string,"published_at"?: string | null,"published_form_version_id"?: string | null,"short_description"?: NonNullable<Json>,"slug"?: string,"sort_order"?: number,"source_ref"?: string | null,"status"?: Database["public"]['Enums']["publish_status"],"title"?: NonNullable<Json>,"translation_status"?: string,"updated_at"?: string
                   }
                   Relationships: [
                     {
@@ -874,6 +932,12 @@ isOneToOne: false
       columns: ["primary_category_id"]
 isOneToOne: false
       referencedRelation: "service_categories"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "services_published_form_fk"
+      columns: ["published_form_version_id"]
+isOneToOne: false
+      referencedRelation: "service_form_stats"
       referencedColumns: ["id"]
     },{
       foreignKeyName: "services_published_form_fk"
@@ -912,7 +976,27 @@ isOneToOne: false
                 }
           }
           Views: {
-            [_ in never]: never
+            "service_form_stats": {
+                  Row: {
+                    "id": string | null,"input_count": number | null,"service_id": string | null,"status": Database["public"]['Enums']["form_version_status"] | null,"version": number | null
+                  }
+                  ComputedFields: never
+                  Insert: {
+                           "id"?: string | null,"input_count"?: never,"service_id"?: string | null,"status"?: Database["public"]['Enums']["form_version_status"] | null,"version"?: number | null
+                         }
+                        Update: {
+                           "id"?: string | null,"input_count"?: never,"service_id"?: string | null,"status"?: Database["public"]['Enums']["form_version_status"] | null,"version"?: number | null
+                         }
+                        Relationships: [
+                    {
+      foreignKeyName: "service_form_versions_service_id_fkey"
+      columns: ["service_id"]
+isOneToOne: false
+      referencedRelation: "services"
+      referencedColumns: ["id"]
+    }
+                  ]
+                }
           }
           Functions: {
             "admin_add_availability_exception":
@@ -935,6 +1019,9 @@ isOneToOne: false
                            },
 "admin_set_availability_rules":
 { Args: { "p_actor": string,"p_rules": Json }; Returns: undefined
+                           },
+"admin_set_launch_campaign":
+{ Args: { "p_actor": string,"p_enabled": boolean,"p_start_date": string,"p_start_time"?: string }; Returns: Json
                            },
 "admin_set_service_status":
 { Args: { "p_actor": string,"p_service": string,"p_status": Database["public"]['Enums']["publish_status"] }; Returns: undefined
@@ -967,6 +1054,9 @@ isOneToOne: false
                            },
 "document_register_upload":
 { Args: { "p_actor": string,"p_extension": string,"p_form_field_id": string,"p_kind": Database["public"]['Enums']["document_kind"],"p_mime_type": string,"p_order": string,"p_original_name": string,"p_size_bytes": number,"p_storage_path": string }; Returns: string
+                           },
+"launch_campaign_state":
+{ Args: Record<PropertyKey, never>; Returns: Json
                            },
 "manual_payment_approve":
 { Args: { "p_actor": string,"p_order": string,"p_submission": string }; Returns: Json
