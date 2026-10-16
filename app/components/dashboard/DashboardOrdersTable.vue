@@ -64,6 +64,7 @@ const rows = computed(() => props.orders.map((o) => {
           <td>{{ r.customer }}</td>
           <td>
             {{ f.text(r.service.title) }}
+            <OrdersOrderAddonBadges :vip="r.hasVipDelivery" :bilingual="r.hasBilingualDrafting" class="addon-badges" />
             <div v-if="r.meet" class="sub">{{ r.meet }}</div>
           </td>
           <td v-if="showDate">
@@ -92,6 +93,7 @@ tbody tr.action { background: var(--cream-50); }
 .strong { font-weight: 600; color: var(--text-strong); }
 .row-link { color: var(--text-strong); }
 .sub { font-size: 12px; color: var(--text-muted); }
+.addon-badges { margin-inline-start: 6px; }
 .nowrap { white-space: nowrap; }
 .empty { padding: 40px; text-align: center; color: var(--text-muted); }
 </style>

@@ -13,9 +13,16 @@ export interface ServiceSnapshot {
   kind: 'standard' | 'written_consultation' | 'video_consultation'
   title: Localized
   pricingType: 'fixed' | 'quote'
+  /** The amount charged for the service at order time (launch price while the offer applied). */
   basePriceMinor: number
+  /** Regular and launch prices at order time, and which one applied (orders placed before the campaign feature have none). */
+  regularPriceMinor?: number
+  launchPriceMinor?: number | null
+  pricingMode?: 'launch' | 'regular'
   deliveryEstimate: Localized
   meetingDurationMinutes: number | null
+  /** The VIP add-on the customer selected (client-selected commitment, handled operationally). */
+  expeditedService?: { kind: 'vip_delivery', title: Localized } | null
 }
 
 export interface OrderListItem {
@@ -28,6 +35,8 @@ export interface OrderListItem {
   service: ServiceSnapshot
   customerAccountId: string
   assignedLawyerId: string | null
+  hasVipDelivery: boolean
+  hasBilingualDrafting: boolean
   booking: { startsAt: string, endsAt: string, status: string, meetingUrl: string | null } | null
 }
 
@@ -65,7 +74,7 @@ export interface OrderDetail extends OrderListItem {
   quoteIssuedAt: string | null
   paidAt: string | null
   cancelReason: string | null
-  addons: { id: string, title: Localized, priceMinor: number }[]
+  addons: { id: string, kind: string | null, title: Localized, priceMinor: number, regularPriceMinor: number | null, launchPriceMinor: number | null, pricingApplied: 'regular' | 'launch' | null }[]
   documents: OrderDocument[]
   deliveries: { id: string, version: number, note: string | null, deliveredAt: string }[]
   responses: { id: string, version: number, body: string, publishedAt: string }[]
@@ -77,9 +86,9 @@ export interface OrderDetail extends OrderListItem {
   manualSubmissions: ManualSubmission[]
 }
 
-const LIST_COLUMNS = 'id, order_number, status, payment_status, total_minor, created_at, service_snapshot, customer_account_id, assigned_lawyer_id, consultation_bookings(starts_at, ends_at, status, meeting_url)'
+const LIST_COLUMNS = 'id, order_number, status, payment_status, total_minor, created_at, service_snapshot, customer_account_id, assigned_lawyer_id, has_vip_delivery, has_bilingual_drafting, consultation_bookings(starts_at, ends_at, status, meeting_url)'
 
-type ListRow = Pick<Tables['orders']['Row'], 'id' | 'order_number' | 'status' | 'payment_status' | 'total_minor' | 'created_at' | 'service_snapshot' | 'customer_account_id' | 'assigned_lawyer_id'> & {
+type ListRow = Pick<Tables['orders']['Row'], 'id' | 'order_number' | 'status' | 'payment_status' | 'total_minor' | 'created_at' | 'service_snapshot' | 'customer_account_id' | 'assigned_lawyer_id' | 'has_vip_delivery' | 'has_bilingual_drafting'> & {
   consultation_bookings: { starts_at: string, ends_at: string, status: string, meeting_url: string | null } | { starts_at: string, ends_at: string, status: string, meeting_url: string | null }[] | null
 }
 
@@ -95,6 +104,8 @@ function toListItem(r: ListRow): OrderListItem {
     service: r.service_snapshot as unknown as ServiceSnapshot,
     customerAccountId: r.customer_account_id,
     assignedLawyerId: r.assigned_lawyer_id,
+    hasVipDelivery: r.has_vip_delivery,
+    hasBilingualDrafting: r.has_bilingual_drafting,
     booking: b ? { startsAt: b.starts_at, endsAt: b.ends_at, status: b.status, meetingUrl: b.meeting_url } : null,
   }
 }
@@ -117,7 +128,7 @@ export async function fetchOrderDetail(client: Client, orderNumber: string): Pro
   const { data, error } = await client
     .from('orders')
     .select(`${LIST_COLUMNS}, form_version_id, form_answers, base_price_minor, addons_total_minor, quote_issued_at, paid_at, cancel_reason,
-      order_addons(id, title, price_minor),
+      order_addons(id, kind, title, price_minor, regular_price_minor, launch_price_minor, pricing_applied),
       order_deliveries(id, version, note, delivered_at),
       consultation_responses(id, version, body, published_at),
       order_messages(id, sender_kind, sender_id, body, created_at),
@@ -135,7 +146,7 @@ export async function fetchOrderDetail(client: Client, orderNumber: string): Pro
     quote_issued_at: string | null
     paid_at: string | null
     cancel_reason: string | null
-    order_addons: { id: string, title: Localized, price_minor: number }[]
+    order_addons: { id: string, kind: string | null, title: Localized, price_minor: number, regular_price_minor: number | null, launch_price_minor: number | null, pricing_applied: 'regular' | 'launch' | null }[]
     order_deliveries: { id: string, version: number, note: string | null, delivered_at: string }[]
     consultation_responses: { id: string, version: number, body: string, published_at: string }[]
     order_messages: { id: string, sender_kind: string, sender_id: string | null, body: string, created_at: string }[]
@@ -177,7 +188,15 @@ export async function fetchOrderDetail(client: Client, orderNumber: string): Pro
     quoteIssuedAt: row.quote_issued_at,
     paidAt: row.paid_at,
     cancelReason: row.cancel_reason,
-    addons: row.order_addons.map(a => ({ id: a.id, title: a.title, priceMinor: a.price_minor })),
+    addons: row.order_addons.map(a => ({
+      id: a.id,
+      kind: a.kind,
+      title: a.title,
+      priceMinor: a.price_minor,
+      regularPriceMinor: a.regular_price_minor,
+      launchPriceMinor: a.launch_price_minor,
+      pricingApplied: a.pricing_applied,
+    })),
     documents: (docsRes.data ?? []).map(d => ({
       id: d.id,
       kind: d.kind,
