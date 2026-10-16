@@ -1,0 +1,35 @@
+{
+  "note": "Workbooks are NOT committed; this manifest pins the exact files the catalog was extracted from.",
+  "workbooks": [
+    {
+      "file": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+      "sha256": "3de41a93703cf4607edbc8ab009817c285f697fb2375a760a2600b790b609f24",
+      "worksheets": [
+        "عقود الأفراد والأسرة والرياضة",
+        "عقود الشركات واللوائح"
+      ],
+      "role": "consolidated inventory (64 contracts) — price reference"
+    },
+    {
+      "file": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+      "sha256": "1027a5df9b50f9656480fe7d685fbd447ea732a610824558184a7097eb657df3",
+      "worksheets": [
+        "Sheet1"
+      ],
+      "role": "individuals — detailed (text source of truth)"
+    },
+    {
+      "file": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+      "sha256": "1ec7f85a24bc89e057e47d2397524f06012a1a88632ba0d798784ab955f716c3",
+      "worksheets": [
+        "Sheet1"
+      ],
+      "role": "companies — detailed (text source of truth)"
+    }
+  ],
+  "counts": {
+    "individuals": 32,
+    "companies": 32,
+    "total": 64
+  }
+}

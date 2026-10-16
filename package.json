@@ -17,7 +17,13 @@
     "db:stop": "supabase stop",
     "db:reset": "supabase db reset",
     "db:types": "supabase gen types typescript --local > shared/types/database.types.ts",
-    "db:seed-demo": "node scripts/seed-demo.ts"
+    "db:seed-demo": "node scripts/seed-demo.ts",
+    "catalog:extract": "vite-node scripts/catalog-import/extract.ts --",
+    "catalog:validate": "vite-node scripts/catalog-import/validate-specs.ts -- --all",
+    "catalog:build": "vite-node scripts/catalog-import/build.ts",
+    "catalog:check": "vite-node scripts/catalog-import/build.ts -- --check",
+    "catalog:verify": "vite-node scripts/catalog-import/verify.ts",
+    "catalog:report": "vite-node scripts/catalog-import/report.ts"
   },
   "dependencies": {
     "@lucide/vue": "^1.56.0",
@@ -39,6 +45,7 @@
     "@supabase/ssr": "^0.12.7",
     "@types/pg": "^8.23.1",
     "eslint": "^9.39.0",
+    "exceljs": "^4.4.0",
     "pg": "^8.23.1",
     "supabase": "^2.120.0",
     "typescript": "~5.9.3",
