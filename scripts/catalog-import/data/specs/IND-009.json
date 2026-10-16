@@ -1,0 +1,45 @@
+{
+  "ref": "IND-009",
+  "slug": "consensual-khul-and-waiver-agreement",
+  "en": {
+    "title": "Consensual Khul' Agreement and Waiver Contract",
+    "description": "Documents the spouses' agreement on release and consensual khul' in exchange for waiving legitimate financial rights."
+  },
+  "parties": [
+    {
+      "key": "husband", "ar": "الزوج", "en": "Husband", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "wife", "ar": "الزوجة", "en": "Wife", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    {
+      "id": "waived_rights", "src": ["F2"], "type": "checkbox", "ar": "الحقوق التي يشملها إقرار التنازل", "en": "Rights covered by the waiver declaration", "req": "review",
+      "options": [
+        { "value": "deferred_dowry", "ar": "مؤخر الصداق", "en": "Deferred dowry" },
+        { "value": "iddah_maintenance", "ar": "نفقة العدة", "en": "Iddah maintenance" },
+        { "value": "mutah", "ar": "المتعة", "en": "Mut'ah (consolation payment)" }
+      ]
+    },
+    { "id": "movables_list_status", "src": ["F3"], "type": "textarea", "ar": "موقف قائمة المنقولات", "en": "Status of the movables list", "req": "review" }
+  ],
+  "financial": [
+    { "id": "returned_dowry_advance", "src": ["F1"], "type": "number", "ar": "مقدم الصداق المردود (ج.م)", "en": "Returned advance dowry (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "protect_children_rights", "ar": "عدم المساس بحقوق الصغار الشرعية من نفقة وحضانة", "en": "No prejudice to the children's legitimate rights of maintenance and custody" }
+      ]
+    },
+    { "id": "registrar_appointment_date", "src": ["G2"], "type": "date", "ar": "موعد التوجه للمأذون لتوثيق الإبراء", "en": "Date of going to the marriage registrar (ma'dhun) to document the release", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_marriage_certificate", "src": ["H2"], "type": "file", "ar": "وثيقة الزواج", "en": "Marriage certificate", "req": "yes", "maxFiles": 2 }
+  ]
+}

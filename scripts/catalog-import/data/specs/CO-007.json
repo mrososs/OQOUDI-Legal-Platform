@@ -1,0 +1,43 @@
+{
+  "ref": "CO-007",
+  "slug": "executive-employment-contract",
+  "en": {
+    "title": "Employment Contract for Executives and Leadership Positions (Executive Contract)",
+    "description": "A special contract for senior management that links benefits and incentives to strategic performance indicators and protects the establishment's secrets."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "executive", "ar": "المدير التنفيذي (CEO / Director)", "en": "Executive (CEO / Director)", "src": ["E1"],
+      "fields": ["name", "national_id_or_passport"]
+    }
+  ],
+  "partyFields": [],
+  "details": [
+    { "id": "job_title", "src": ["F1"], "type": "text", "ar": "المسمى الوظيفي", "en": "Job title", "req": "yes" },
+    { "id": "powers", "src": ["F1"], "type": "textarea", "ar": "الصلاحيات الإدارية والمالية", "en": "Administrative and financial powers", "req": "review" }
+  ],
+  "financial": [
+    { "id": "basic_salary", "src": ["F2"], "type": "number", "ar": "الراتب الأساسي (ج.م)", "en": "Basic salary (EGP)", "req": "yes", "min": 0 },
+    { "id": "annual_bonus_kpis", "src": ["F3"], "type": "textarea", "ar": "حوافز الأرباح السنوية (Bonus / KPIs)", "en": "Annual profit incentives (Bonus / KPIs)", "req": "review" },
+    { "id": "in_kind_benefits", "src": ["F4"], "type": "textarea", "ar": "المزايا العينية (سيارة، تأمين طبي خاص)", "en": "In-kind benefits (car, private medical insurance)", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "full_time_exclusivity", "ar": "التفرغ التام", "en": "Full-time exclusivity" },
+        { "value": "confidentiality_non_compete", "ar": "بنود مشددة للسرية وعدم المنافسة وعدم استقطاب الكفاءات", "en": "Strict clauses on confidentiality, non-competition and non-solicitation of talent" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" },
+    { "id": "termination_and_gratuity", "src": ["G3"], "type": "textarea", "ar": "شروط إنهاء التعاقد ومكافأة نهاية الخدمة الاتفاقية", "en": "Termination conditions and contractual end-of-service bonus", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_commercial_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_executive_id", "src": ["H2"], "type": "file", "ar": "بطاقة أو جواز سفر المدير التنفيذي", "en": "Executive's ID card or passport", "req": "yes", "maxFiles": 2 }
+  ]
+}

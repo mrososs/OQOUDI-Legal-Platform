@@ -108,3 +108,17 @@ Payment status: `unpaid → paid | failed`, `failed → paid` (retry), `paid →
 
 ## Storage
 Bucket `order-documents`: private, 25 MB limit, MIME allow-list (PDF, DOC/DOCX, JPEG, PNG, WebP). **No `storage.objects` policies** for anon/authenticated — uploads use server-issued signed upload URLs; downloads use 60-second signed URLs issued after an RLS-scoped lookup.
+
+## Catalog hierarchy, pricing and launch campaign (milestone 2, migrations `20261016174000…174600`)
+| Element | Notes |
+|---|---|
+| `service_categories.parent_id` | Two levels only (trigger `OQ422_CATEGORY_PARENT`). A service's `primary_category_id` is its most specific category; a **deferred constraint trigger** also links the parent in `service_category_links` (`on conflict do nothing`). Icon whitelist widened in `service_categories_icon_check`. |
+| `services.source_ref` | Stable import identifier (`catalog-2026-10:IND-001`), unique; NULL for hand-made services. `translation_status` (`approved` / `pending_review`). |
+| `services.launch_price_minor`, `launch_eligible` | Client-approved launch price (stored explicitly) and inclusion switch. CHECKs: launch ≤ regular; eligible ⇒ launch price set, `kind = standard`, `pricing_type = fixed` (consultations/quote services can never be discounted). `service_price_history` also records both. |
+| `service_addons.kind`, `launch_price_minor`, `price_minor` (now nullable) | `vip_delivery` / `bilingual_drafting`. One **active** add-on per kind per service. `price_minor IS NULL` = no regular price approved → the add-on is only accepted while its launch price applies. |
+| `orders.pricing_snapshot`, `has_vip_delivery`, `has_bilingual_drafting`; `order_addons.kind / regular_price_minor / launch_price_minor / pricing_applied` | Immutable record of what was charged and why (pre-existing orders keep the defaults). `service_snapshot` also carries `regularPriceMinor`, `launchPriceMinor`, `pricingMode`, `expeditedService`. |
+| `platform_settings['pricing.launch_campaign']` | Seeded `{enabled:false, startsAt:null, endsAt:null}`, **not public**. Written only by `admin_set_launch_campaign` (Cairo date/time → `startsAt`, `endsAt` = +15 Cairo calendar days; audited; not movable while active). A guard trigger keeps the row coherent. |
+| `private.launch_campaign_status/active`, `public.launch_campaign_state()` | `disabled` / `scheduled` / `active` / `expired` from the **database clock**. |
+| `private.price_order(service, addon_ids, at)` | The only place order prices are decided; called by `order_create`, which now returns `totalMinor` and `pricingMode`. |
+| `catalog_import_runs`, `catalog_import_items`, `private.catalog_import(payload)` | Idempotent import engine (created / updated / matched / skipped / failed per record, admin-only RLS). Form changes always create a NEW published version. Data lives in `supabase/seeds/catalog_contracts.sql`. |
+| `service_form_stats` (view, `security_invoker`) | Form version + input count for the admin list without shipping the form JSON. |

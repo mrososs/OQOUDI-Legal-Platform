@@ -1,0 +1,44 @@
+{
+  "ref": "IND-011",
+  "slug": "child-visitation-and-hosting-agreement",
+  "en": {
+    "title": "Agreement Regulating Children's Visitation and Hosting",
+    "description": "An amicable family agreement setting the times and places of visitation and hosting of the children during the week, feasts and holidays."
+  },
+  "parties": [
+    {
+      "key": "father", "ar": "الأب", "en": "Father", "src": ["E1"],
+      "fields": ["name", "national_id", "address"]
+    },
+    {
+      "key": "mother", "ar": "الأم", "en": "Mother", "src": ["E1"],
+      "fields": ["name", "national_id", "address"]
+    }
+  ],
+  "details": [
+    {
+      "id": "children", "src": ["F1"], "type": "repeater", "ar": "أسماء الأبناء", "en": "Names of the children", "req": "yes", "minItems": 1, "maxItems": 20,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم", "en": "Name", "required": true }
+      ]
+    },
+    { "id": "weekly_visit_slot", "src": ["F2"], "type": "text", "ar": "يوم وموعد الرؤية الأسبوعي", "en": "Day and time of the weekly visit", "req": "yes", "maxLength": 200 },
+    { "id": "visit_place", "src": ["F3"], "type": "text", "ar": "مكان الرؤية", "en": "Place of the visit", "req": "review" },
+    { "id": "hosting_system", "src": ["F3"], "type": "textarea", "ar": "نظام المبيت والاستضافة في العطلات والأعياد", "en": "Overnight stay and hosting system during holidays and feasts", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "handover_times", "ar": "الالتزام بمواعيد تسليم واستلام الصغار", "en": "Commitment to the times of handing over and receiving the children" },
+        { "value": "no_travel_without_consent", "ar": "حظر السفر بالصغار دون موافقة كتابية", "en": "Prohibition of travelling with the children without written consent" },
+        { "value": "phone_video_contact", "ar": "التواصل الهاتفي والمرئي", "en": "Phone and video contact" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_children_birth_certs", "src": ["H2"], "type": "file", "ar": "شهادات ميلاد الأبناء", "en": "Birth certificates of the children", "req": "yes", "maxFiles": 10 }
+  ]
+}

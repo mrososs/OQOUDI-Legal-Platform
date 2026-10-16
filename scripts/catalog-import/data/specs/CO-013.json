@@ -1,0 +1,38 @@
+{
+  "ref": "CO-013",
+  "slug": "wages-commissions-incentives-regulation",
+  "en": {
+    "title": "Wages, Commissions, Incentives and Sales Bonuses Regulation",
+    "description": "Organizes the salary structure, the sales commission tiers (Target & Commission) and the conditions for their entitlement and payment."
+  },
+  "parties": [
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "partyFields": [
+    { "id": "sales_hr_department", "src": ["E1"], "type": "textarea", "ar": "بيانات إدارة المبيعات / الموارد البشرية", "en": "Sales / Human Resources department details", "req": "review" }
+  ],
+  "details": [
+    { "id": "commission_conditions", "src": ["F3"], "type": "textarea", "ar": "شروط استحقاق العمولة (بعد التحصيل الفعلي من العميل)", "en": "Conditions for commission entitlement (after actual collection from the client)", "req": "review" }
+  ],
+  "financial": [
+    {
+      "id": "commission_tiers", "src": ["F1", "F2"], "type": "repeater", "ar": "شرائح المستهدف البيعي (Target) ونسب العمولات لكل شريحة", "en": "Sales target tiers (Target) and commission percentages for each tier", "req": "review", "maxItems": 30,
+      "columns": [
+        { "id": "tier", "type": "text", "ar": "شريحة المستهدف البيعي (Target)", "en": "Sales target tier (Target)", "required": true },
+        { "id": "commission_pct", "type": "number", "ar": "نسبة العمولة (%)", "en": "Commission percentage (%)", "required": true, "min": 0, "max": 100 }
+      ]
+    },
+    { "id": "payout_dates", "src": ["F4"], "type": "textarea", "ar": "مواعيد الصرف", "en": "Payout dates", "req": "review" }
+  ],
+  "special": [
+    { "id": "commission_refund_cases", "src": ["G1"], "type": "textarea", "ar": "حالات رد العمولة عند مرتجعات البضاعة أو إلغاء التعاقد", "en": "Cases of commission refund on goods returns or contract cancellation", "req": "no" },
+    { "id": "incentives_on_resignation", "src": ["G2"], "type": "textarea", "ar": "موقف الحوافز عند الاستقالة أو إنهاء الخدمة", "en": "Position on incentives upon resignation or termination of service", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_commercial_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_sales_plan", "src": ["H2"], "type": "file", "ar": "خطة المبيعات الحالية", "en": "Current sales plan", "req": "review", "maxFiles": 3 }
+  ]
+}

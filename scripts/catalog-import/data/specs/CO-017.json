@@ -1,0 +1,49 @@
+{
+  "ref": "CO-017",
+  "slug": "commercial-agency-and-authorized-distribution-agreement",
+  "en": {
+    "title": "Commercial Agency or Authorized Distribution Agreement",
+    "description": "Grants a distributor the right to sell and distribute the company's products in a defined geographic area with clear sales targets."
+  },
+  "parties": [
+    {
+      "key": "producer", "ar": "الشركة المنتجة/المالكة", "en": "Producing / owning company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "distributor", "ar": "الموزع المعتمد", "en": "Authorized distributor", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "details": [
+    { "id": "distribution_territory", "src": ["F1"], "type": "textarea", "ar": "النطاق الجغرافي للتوزيع", "en": "Geographic scope of distribution", "req": "yes" },
+    {
+      "id": "distribution_type", "src": ["F2"], "type": "radio", "ar": "نوع التوزيع", "en": "Type of distribution", "req": "review",
+      "options": [
+        { "value": "exclusive", "ar": "حصري", "en": "Exclusive" },
+        { "value": "non_exclusive", "ar": "غير حصري", "en": "Non-exclusive" }
+      ]
+    },
+    { "id": "contract_term", "src": ["F3"], "type": "text", "ar": "مدة العقد", "en": "Contract term", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "min_periodic_purchases", "src": ["F4"], "type": "text", "ar": "الحد الأدنى للمسحوبات الدورية (Target)", "en": "Minimum periodic purchases (Target)", "req": "review" },
+    { "id": "discounts_and_credit", "src": ["F5"], "type": "textarea", "ar": "نسب الخصم والآجل", "en": "Discount rates and credit terms", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2", "G3", "G4"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "pricing_policy", "ar": "الالتزام بالسياسة التسعيرية", "en": "Compliance with the pricing policy" },
+        { "value": "no_competing_products", "ar": "عدم بيع منتجات منافسة", "en": "No sale of competing products" },
+        { "value": "exclusivity_withdrawal", "ar": "شروط سحب الحصرية عند عدم تحقيق المستهدف", "en": "Conditions for withdrawing exclusivity if the target is not met" },
+        { "value": "inventory_liquidation", "ar": "تصفية المخزون عند الانتهاء", "en": "Inventory liquidation on expiry" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3", "G4"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_register_and_tax_card", "src": ["H1"], "type": "file", "ar": "السجل التجاري والبطاقة الضريبية", "en": "Commercial register and tax card", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_trademark_certificate", "src": ["H2"], "type": "file", "ar": "شهادة العلامة التجارية", "en": "Trademark certificate", "req": "review", "maxFiles": 2 }
+  ]
+}

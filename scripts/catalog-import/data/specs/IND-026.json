@@ -1,0 +1,50 @@
+{
+  "ref": "IND-026",
+  "slug": "personal-and-joint-suretyship-contract",
+  "en": {
+    "title": "Personal / Joint-and-Several Suretyship Contract to Secure an Obligation",
+    "description": "Documenting a person's suretyship for a debtor in a financial obligation, a lease or a supply contract, defining the limits of the surety's liability."
+  },
+  "parties": [
+    {
+      "key": "creditor", "ar": "الدائن", "en": "Creditor", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "principal_debtor", "ar": "المدين الأصلي", "en": "Principal debtor", "src": ["E2"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "joint_surety", "ar": "الكفيل المتضامن", "en": "Joint-and-several surety", "src": ["E3"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    { "id": "secured_obligation", "src": ["F1"], "type": "textarea", "ar": "بيان الالتزام أو العقد الأصلي المكفول", "en": "Statement of the secured obligation or original contract", "req": "yes" },
+    { "id": "suretyship_term", "src": ["F3"], "type": "text", "ar": "مدة سريان الكفالة", "en": "Duration of the suretyship", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "max_suretyship_amount", "src": ["F2"], "type": "number", "ar": "الحد الأقصى لمبلغ الكفالة (ج.م)", "en": "Maximum suretyship amount (EGP)", "req": "yes", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "suretyship_type", "src": ["G1"], "type": "radio", "ar": "هل الكفالة تضامنية أم عادية (الدفع بالتجريد)", "en": "Is the suretyship joint and several or ordinary (plea of discussion)", "req": "no",
+      "options": [
+        { "value": "joint", "ar": "تضامنية", "en": "Joint and several" },
+        { "value": "ordinary", "ar": "عادية (الدفع بالتجريد)", "en": "Ordinary (plea of discussion)" }
+      ]
+    },
+    { "id": "surety_release_conditions", "src": ["G2"], "type": "textarea", "ar": "شروط براءة ذمة الكفيل", "en": "Conditions for the surety's release from liability", "req": "no" },
+    {
+      "id": "clauses", "src": ["G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "notify_surety_on_default", "ar": "إخطار الكفيل عند تقاعس المدين", "en": "Notifying the surety when the debtor defaults" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشرط المختار", "en": "Details or notes on the selected term", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور بطاقات الأطراف الثلاثة", "en": "ID card copies of the three parties", "req": "yes", "maxFiles": 6 },
+    { "id": "doc_original_contract", "src": ["H2"], "type": "file", "ar": "صورة العقد الأصلي", "en": "Copy of the original contract", "req": "review", "maxFiles": 5 }
+  ]
+}

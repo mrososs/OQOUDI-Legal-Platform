@@ -1,0 +1,49 @@
+{
+  "ref": "CO-003",
+  "slug": "company-share-transfer-agreement",
+  "en": {
+    "title": "Sale and Assignment of Company Shares or Stakes (Share Transfer)",
+    "description": "Documents the transfer of ownership of a partner's shares to another partner or a new investor, and regulates responsibility for prior obligations."
+  },
+  "parties": [
+    {
+      "key": "seller", "ar": "الشريك البائع", "en": "Selling partner", "src": ["E1"],
+      "fields": ["name", "national_id_or_passport", { "kind": "address", "req": "review" }]
+    },
+    {
+      "key": "buyer", "ar": "المشتري", "en": "Buyer", "src": ["E2"],
+      "fields": ["name", "national_id_or_passport", { "kind": "address", "req": "review" }]
+    },
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E3"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "partyFields": [],
+  "details": [
+    { "id": "shares_count", "src": ["F1"], "type": "number", "ar": "عدد الحصص المباعة", "en": "Number of shares sold", "req": "review", "min": 0 },
+    { "id": "shares_percentage", "src": ["F1"], "type": "number", "ar": "نسبة الحصص المباعة (%)", "en": "Percentage of shares sold (%)", "req": "review", "min": 0, "max": 100 },
+    { "id": "retained_earnings_accounts", "src": ["F4"], "type": "textarea", "ar": "موقف الأرباح المحتجزة والحسابات الجارية", "en": "Position of retained earnings and current accounts", "req": "review" }
+  ],
+  "financial": [
+    { "id": "nominal_value", "src": ["F2"], "type": "number", "ar": "القيمة الاسمية (ج.م)", "en": "Nominal value (EGP)", "req": "review", "min": 0 },
+    { "id": "sale_price", "src": ["F2"], "type": "number", "ar": "سعر البيع الفعلي (ج.م)", "en": "Actual sale price (EGP)", "req": "yes", "min": 0 },
+    { "id": "payment_method", "src": ["F3"], "type": "textarea", "ar": "طريقة السداد", "en": "Payment method", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "partners_consent_waiver", "ar": "إقرار موافقة باقي الشركاء وتنازلهم عن حق الاسترداد", "en": "Acknowledgement of the other partners' consent and their waiver of the right of redemption" },
+        { "value": "register_amendment", "ar": "تعديل السجل التجاري", "en": "Amendment of the commercial register" }
+      ]
+    },
+    { "id": "prior_liabilities", "src": ["G2"], "type": "textarea", "ar": "المسؤولية عن الضرائب والديون السابقة لتاريخ التنازل", "en": "Responsibility for taxes and debts prior to the date of assignment", "req": "no" },
+    { "id": "clause_details", "src": ["G1", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_commercial_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_articles", "src": ["H2"], "type": "file", "ar": "عقد التأسيس", "en": "Articles of incorporation", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_party_ids", "src": ["H3"], "type": "file", "ar": "بطاقات الأطراف", "en": "ID cards of the parties", "req": "yes", "maxFiles": 4 }
+  ]
+}

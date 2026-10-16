@@ -82,6 +82,7 @@ useSeoMeta({ title: () => `${t('dash.nav.requests')} · ${orderNumber}`, robots:
           @cancel="actions.cancel"
         />
         <DashboardCustomerCard :customer="data.extras.customer" />
+        <DashboardPricingCard :order="order" />
         <DashboardAnswersCard :order="order" :form-version="data.extras.formVersion" />
         <DashboardAttachmentsCard :order="order" />
         <DashboardNotes :notes="data.extras.notes" :busy="busy === 'notes'" @add="actions.addNote" />

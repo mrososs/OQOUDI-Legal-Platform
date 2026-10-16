@@ -1,0 +1,42 @@
+{
+  "ref": "IND-027",
+  "slug": "cash-receipt-final-discharge-and-release-agreement",
+  "en": {
+    "title": "Acknowledgement of Cash Receipt, Final Discharge and Release of Liability",
+    "description": "A conclusive legal document proving that financial dues were paid in full and that liability is discharged without any reservation."
+  },
+  "parties": [
+    {
+      "key": "recipient", "ar": "المقر (المستلم)", "en": "Declarant (recipient)", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "payer", "ar": "المقر لصالحه (الدافع)", "en": "Beneficiary of the declaration (payer)", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    {
+      "id": "payment_reason", "src": ["F2"], "type": "textarea", "ar": "سبب السداد", "en": "Reason for the payment", "req": "yes",
+      "help": { "ar": "باقي ثمن شقة، مستحقات عمل، تسوية حساب", "en": "Remainder of an apartment price, work dues, settlement of an account" }
+    },
+    { "id": "receipt_date", "src": ["F3"], "type": "date", "ar": "تاريخ الاستلام", "en": "Date of receipt", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "received_amount", "src": ["F1"], "type": "number", "ar": "قيمة المبلغ المستلم بالأرقام (ج.م)", "en": "Received amount in figures (EGP)", "req": "yes", "min": 0 },
+    { "id": "received_amount_words", "src": ["F1"], "type": "text", "ar": "قيمة المبلغ المستلم بالحروف", "en": "Received amount in words", "req": "yes", "maxLength": 300 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "final_and_comprehensive_discharge", "ar": "إقرار بأن المخالصة نهائية وشاملة", "en": "Declaration that the discharge is final and comprehensive" },
+        { "value": "waive_future_claims", "ar": "إسقاط أي حق في المطالبة القضائية أو العرفية مستقبلاً", "en": "Waiving any right to claim in the future, whether judicially or by customary (out-of-court) means" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات الشخصية للطرفين", "en": "Personal ID card copies of both parties", "req": "yes", "maxFiles": 4 }
+  ]
+}

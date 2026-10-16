@@ -11,9 +11,12 @@ type PricingType = Database['public']['Enums']['pricing_type']
 export interface Category {
   id: string
   slug: string
+  /** null for the three top-level categories; the parent's id for a sub-category. */
+  parentId: string | null
   title: Localized
   description: Localized
   icon: string
+  sortOrder: number
 }
 
 export interface ServiceSummary {
@@ -24,7 +27,13 @@ export interface ServiceSummary {
   shortDescription: Localized
   deliveryEstimate: Localized
   pricingType: PricingType
+  /** Regular price. */
   basePriceMinor: number
+  /** Client-approved launch price (applies only while the launch campaign is active). */
+  launchPriceMinor: number | null
+  launchEligible: boolean
+  /** English copy was machine-translated and still awaits legal review. */
+  translationPending: boolean
   isFeatured: boolean
   primaryCategoryId: string
   categoryIds: string[]
@@ -33,8 +42,11 @@ export interface ServiceSummary {
 
 export interface ServiceAddon {
   id: string
+  kind: 'vip_delivery' | 'bilingual_drafting' | null
   title: Localized
-  priceMinor: number
+  /** Regular price; null when none is approved (offered only during the launch campaign). */
+  priceMinor: number | null
+  launchPriceMinor: number | null
 }
 
 export interface ServiceSection {
@@ -67,7 +79,7 @@ export interface FaqEntry {
   showOnHome: boolean
 }
 
-const SERVICE_COLUMNS = 'id, slug, kind, title, short_description, delivery_estimate, pricing_type, base_price_minor, is_featured, sort_order, primary_category_id, meeting_duration_minutes, service_category_links(category_id)'
+const SERVICE_COLUMNS = 'id, slug, kind, title, short_description, delivery_estimate, pricing_type, base_price_minor, launch_price_minor, launch_eligible, translation_status, is_featured, sort_order, primary_category_id, meeting_duration_minutes, service_category_links(category_id)'
 
 type ServiceRow = Database['public']['Tables']['services']['Row'] & {
   service_category_links: { category_id: string }[]
@@ -88,6 +100,9 @@ function toSummary(row: ServiceRow, ratings: Map<string, { avg: number, count: n
     deliveryEstimate: row.delivery_estimate as unknown as Localized,
     pricingType: row.pricing_type,
     basePriceMinor: row.base_price_minor,
+    launchPriceMinor: row.launch_price_minor,
+    launchEligible: row.launch_eligible,
+    translationPending: row.translation_status === 'pending_review',
     isFeatured: row.is_featured,
     primaryCategoryId: row.primary_category_id,
     categoryIds: [...new Set([row.primary_category_id, ...row.service_category_links.map(l => l.category_id)])],
@@ -98,16 +113,18 @@ function toSummary(row: ServiceRow, ratings: Map<string, { avg: number, count: n
 export async function fetchCategories(client: Client): Promise<Category[]> {
   const { data, error } = await client
     .from('service_categories')
-    .select('id, slug, title, description, icon')
+    .select('id, slug, parent_id, title, description, icon, sort_order')
     .eq('is_active', true)
     .order('sort_order')
   if (error) throw error
   return (data ?? []).map(c => ({
     id: c.id,
     slug: c.slug,
+    parentId: c.parent_id,
     title: c.title as unknown as Localized,
     description: c.description as unknown as Localized,
     icon: c.icon,
+    sortOrder: c.sort_order,
   }))
 }
 
@@ -123,14 +140,14 @@ export async function fetchPublishedServices(client: Client): Promise<ServiceSum
 export async function fetchServiceBySlug(client: Client, slug: string): Promise<ServiceDetail | null> {
   const { data, error } = await client
     .from('services')
-    .select(`${SERVICE_COLUMNS}, service_addons(id, title, price_minor, is_active, sort_order), service_sections(key, is_enabled, sort_order, content)`)
+    .select(`${SERVICE_COLUMNS}, service_addons(id, kind, title, price_minor, launch_price_minor, is_active, sort_order), service_sections(key, is_enabled, sort_order, content)`)
     .eq('slug', slug)
     .eq('status', 'published')
     .maybeSingle()
   if (error) throw error
   if (!data) return null
   const row = data as unknown as ServiceRow & {
-    service_addons: { id: string, title: unknown, price_minor: number, is_active: boolean, sort_order: number }[]
+    service_addons: { id: string, kind: ServiceAddon['kind'], title: unknown, price_minor: number | null, launch_price_minor: number | null, is_active: boolean, sort_order: number }[]
     service_sections: { key: SectionKey, is_enabled: boolean, sort_order: number, content: unknown }[]
   }
   const ratings = await ratingsMap(client)
@@ -140,7 +157,7 @@ export async function fetchServiceBySlug(client: Client, slug: string): Promise<
     addons: row.service_addons
       .filter(a => a.is_active)
       .sort((a, b) => a.sort_order - b.sort_order)
-      .map(a => ({ id: a.id, title: a.title as Localized, priceMinor: a.price_minor })),
+      .map(a => ({ id: a.id, kind: a.kind, title: a.title as Localized, priceMinor: a.price_minor, launchPriceMinor: a.launch_price_minor })),
     sections: row.service_sections
       .filter(s => s.is_enabled)
       .sort((a, b) => a.sort_order - b.sort_order)

@@ -1,0 +1,56 @@
+{
+  "ref": "IND-013",
+  "slug": "consensual-estate-partition-contract",
+  "en": {
+    "title": "Consensual Estate Partition Contract (Sorting and Allocation)",
+    "description": "An amicable agreement among all heirs to divide the inherited real estate and funds and end co-ownership."
+  },
+  "partyFields": [
+    {
+      "id": "heirs", "src": ["E1"], "type": "repeater", "ar": "بيانات الورثة الشرعيين", "en": "Legitimate heirs", "req": "yes", "minItems": 2, "maxItems": 30,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم الكامل", "en": "Full name", "required": true },
+        { "id": "national_id", "type": "text", "ar": "الرقم القومي", "en": "National ID number", "required": true },
+        { "id": "kinship", "type": "text", "ar": "درجة القرابة للمورث", "en": "Degree of kinship to the deceased", "required": true }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "deceased_name", "src": ["F1"], "type": "text", "ar": "اسم المورث", "en": "Name of the deceased", "req": "yes", "maxLength": 160 },
+    { "id": "death_date", "src": ["F1"], "type": "date", "ar": "تاريخ الوفاة", "en": "Date of death", "req": "yes" },
+    { "id": "inheritance_declaration_no", "src": ["F1"], "type": "text", "ar": "رقم إعلام الوراثة", "en": "Inheritance declaration number", "req": "review", "maxLength": 60 },
+    {
+      "id": "estate_assets", "src": ["F2"], "type": "repeater", "ar": "بيان تفصيلي بأعيان التركة", "en": "Detailed statement of the estate assets", "req": "yes", "minItems": 1, "maxItems": 50,
+      "columns": [
+        { "id": "asset", "type": "text", "ar": "العين", "en": "Asset", "required": true },
+        { "id": "details", "type": "textarea", "ar": "الوصف التفصيلي", "en": "Detailed description" }
+      ]
+    },
+    {
+      "id": "allocated_shares", "src": ["F3"], "type": "repeater", "ar": "الحصة المفرزة لكل وارث", "en": "Allocated share of each heir", "req": "review", "maxItems": 30,
+      "columns": [
+        { "id": "heir", "type": "text", "ar": "الوارث", "en": "Heir", "required": true },
+        { "id": "share", "type": "textarea", "ar": "الحصة المفرزة", "en": "Allocated share", "required": true }
+      ]
+    }
+  ],
+  "financial": [
+    { "id": "financial_differences", "src": ["F4"], "type": "textarea", "ar": "مبالغ الفروق المالية (المعدل)", "en": "Amounts of the financial differences (equalisation)", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "receipt_of_share", "ar": "إقرار كل وارث باستلام نصيبه وفرزه", "en": "Each heir's acknowledgement of receiving his sorted share" },
+        { "value": "waive_partition_suits", "ar": "التنازل عن دعاوى الفرز والتجنيب", "en": "Waiver of the sorting and allocation lawsuits" },
+        { "value": "warranty_against_eviction", "ar": "التزام كل طرف بضمان التعرض", "en": "Each party's commitment to the warranty against disturbance" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_inheritance_declaration", "src": ["H1"], "type": "file", "ar": "صورة إعلام الوراثة", "en": "Copy of the inheritance declaration", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_deceased_title_deeds", "src": ["H2"], "type": "file", "ar": "سندات ملكية المورث", "en": "Title deeds of the deceased", "req": "review", "maxFiles": 10 },
+    { "id": "doc_heirs_ids", "src": ["H3"], "type": "file", "ar": "صور بطاقات الورثة", "en": "ID card copies of the heirs", "req": "yes", "maxFiles": 10 }
+  ]
+}

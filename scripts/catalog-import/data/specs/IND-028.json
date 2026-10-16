@@ -1,0 +1,43 @@
+{
+  "ref": "IND-028",
+  "slug": "private-car-sale-contract",
+  "en": {
+    "title": "Private Car Sale Contract",
+    "description": "A vehicle sale contract that defines its technical condition and transfers criminal and civil liability from the minute of handover."
+  },
+  "parties": [
+    {
+      "key": "seller", "ar": "البائع", "en": "Seller", "src": ["E1"],
+      "fields": ["name", "national_id", { "kind": "address", "req": "review" }]
+    },
+    {
+      "key": "buyer", "ar": "المشتري", "en": "Buyer", "src": ["E1"],
+      "fields": ["name", "national_id", { "kind": "address", "req": "review" }]
+    }
+  ],
+  "details": [
+    { "id": "car_make", "src": ["F1"], "type": "text", "ar": "ماركة السيارة", "en": "Car make", "req": "yes", "maxLength": 100 },
+    { "id": "car_model", "src": ["F1"], "type": "text", "ar": "الموديل", "en": "Model", "req": "yes", "maxLength": 100 },
+    { "id": "manufacture_year", "src": ["F1"], "type": "number", "ar": "سنة الصنع", "en": "Year of manufacture", "req": "yes", "min": 1900 },
+    { "id": "chassis_number", "src": ["F2"], "type": "text", "ar": "رقم الشاسيه", "en": "Chassis number", "req": "yes", "maxLength": 60 },
+    { "id": "engine_number", "src": ["F2"], "type": "text", "ar": "رقم الموتور", "en": "Engine number", "req": "yes", "maxLength": 60 },
+    { "id": "car_color", "src": ["F3"], "type": "text", "ar": "اللون", "en": "Color", "req": "yes", "maxLength": 60 },
+    { "id": "plate_number", "src": ["F4"], "type": "text", "ar": "رقم اللوحات", "en": "Plate number", "req": "yes", "maxLength": 60 },
+    { "id": "traffic_unit", "src": ["F4"], "type": "text", "ar": "وحدة المرور", "en": "Traffic unit", "req": "review", "maxLength": 100 }
+  ],
+  "financial": [
+    { "id": "paid_amount", "src": ["F5"], "type": "number", "ar": "الثمن المدفوع (ج.م)", "en": "Price paid (EGP)", "req": "yes", "min": 0 },
+    { "id": "remaining_amount", "src": ["F5"], "type": "number", "ar": "الثمن المتبقي (ج.م)", "en": "Remaining price (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    { "id": "actual_handover_date", "src": ["G1"], "type": "date", "ar": "تاريخ الاستلام الفعلي", "en": "Date of actual handover", "req": "no" },
+    { "id": "actual_handover_hour", "src": ["G1"], "type": "text", "ar": "ساعة الاستلام الفعلي", "en": "Hour of actual handover", "req": "no", "maxLength": 40 },
+    { "id": "registry_registration_date", "src": ["G2"], "type": "date", "ar": "موعد التسجيل بالشهر العقاري", "en": "Date of registration at the Real Estate Registry", "req": "no" },
+    { "id": "penalty_clause", "src": ["G3"], "type": "textarea", "ar": "الشرط الجزائي", "en": "Penalty clause", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_valid_car_license", "src": ["H1"], "type": "file", "ar": "رخصة السيارة سارية", "en": "Valid car license", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_party_ids", "src": ["H2"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_traffic_fines_clearance", "src": ["H3"], "type": "file", "ar": "شهادة براءة ذمة المخالفات", "en": "Traffic fines clearance certificate", "req": "yes", "maxFiles": 2 }
+  ]
+}

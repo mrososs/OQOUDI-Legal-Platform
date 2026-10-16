@@ -23,7 +23,7 @@ const navItems = computed<PillNavItem[]>(() => [
 const activeId = computed(() => {
   const name = String(getRouteBaseName(route) ?? '')
   if (name === 'index') return 'home'
-  if (name === 'services-category') return String(route.params.category ?? '')
+  if (name === 'services-category' || name === 'services-category-sub') return String(route.params.category ?? '')
   if (['about', 'faq', 'contact'].includes(name)) return name
   return null
 })

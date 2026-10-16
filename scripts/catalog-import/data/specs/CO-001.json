@@ -1,0 +1,67 @@
+{
+  "ref": "CO-001",
+  "slug": "commercial-partnership-formation-agreement",
+  "en": {
+    "title": "Partnership and Commercial Venture Formation Contract (General Partnership / Limited Partnership / Muhasa)",
+    "description": "Regulates the commercial partnership in terms of capital, management, distribution of profits and losses, and exit."
+  },
+  "parties": [],
+  "partyFields": [
+    {
+      "id": "partners", "src": ["E1"], "type": "repeater", "ar": "بيانات جميع الشركاء", "en": "Details of all partners", "req": "yes", "minItems": 2, "maxItems": 30,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم", "en": "Name", "required": true },
+        { "id": "national_id_or_passport", "type": "text", "ar": "الرقم القومي أو جواز السفر", "en": "National ID or passport number", "required": true },
+        { "id": "address", "type": "text", "ar": "العنوان", "en": "Address", "required": true }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "project_name", "src": ["F1"], "type": "text", "ar": "اسم المشروع أو الشركة", "en": "Project or company name", "req": "yes" },
+    { "id": "business_activity", "src": ["F2"], "type": "textarea", "ar": "النشاط التجاري", "en": "Business activity", "req": "yes" },
+    { "id": "headquarters", "src": ["F3"], "type": "text", "ar": "المقر", "en": "Headquarters", "req": "review" }
+  ],
+  "financial": [
+    { "id": "total_capital", "src": ["F4"], "type": "number", "ar": "رأس المال (ج.م)", "en": "Capital (EGP)", "req": "review", "min": 0 },
+    {
+      "id": "partner_contributions", "src": ["F4"], "type": "repeater", "ar": "حصة كل شريك", "en": "Share of each partner", "req": "yes", "minItems": 2, "maxItems": 30,
+      "columns": [
+        { "id": "partner", "type": "text", "ar": "اسم الشريك", "en": "Partner name", "required": true },
+        {
+          "id": "contribution_type", "type": "select", "ar": "نوع الحصة", "en": "Type of share", "required": true,
+          "options": [
+            { "value": "cash", "ar": "نقدية", "en": "Cash" },
+            { "value": "in_kind", "ar": "عينية", "en": "In kind" },
+            { "value": "effort", "ar": "مجهود", "en": "Effort" }
+          ]
+        },
+        { "id": "contribution_value", "type": "text", "ar": "قيمة الحصة أو وصفها", "en": "Value or description of the share", "required": true }
+      ]
+    },
+    {
+      "id": "profit_loss_shares", "src": ["F5"], "type": "repeater", "ar": "نسب الأرباح والخسائر", "en": "Profit and loss percentages", "req": "review", "minItems": 2, "maxItems": 30,
+      "columns": [
+        { "id": "partner", "type": "text", "ar": "اسم الشريك", "en": "Partner name", "required": true },
+        { "id": "profit_share", "type": "number", "ar": "نسبة الأرباح (%)", "en": "Profit percentage (%)", "required": true, "min": 0, "max": 100 },
+        { "id": "loss_share", "type": "number", "ar": "نسبة الخسائر (%)", "en": "Loss percentage (%)", "min": 0, "max": 100 }
+      ]
+    }
+  ],
+  "special": [
+    { "id": "management_and_signing", "src": ["G1"], "type": "textarea", "ar": "صلاحيات الإدارة والتوقيع البنكي", "en": "Management and bank signing powers", "req": "no" },
+    { "id": "exit_and_new_partners", "src": ["G2"], "type": "textarea", "ar": "شروط التخارج ودخول شركاء جدد", "en": "Conditions for exit and admission of new partners", "req": "no" },
+    { "id": "death_case", "src": ["G3"], "type": "textarea", "ar": "حالة الوفاة", "en": "In the event of death", "req": "no" },
+    {
+      "id": "clauses", "src": ["G4", "G5"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "non_compete", "ar": "عدم المنافسة", "en": "Non-competition" },
+        { "value": "arbitration", "ar": "التحكيم", "en": "Arbitration" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G4", "G5"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_partner_ids", "src": ["H1"], "type": "file", "ar": "صور بطاقات الشركاء", "en": "ID card copies of the partners", "req": "yes", "maxFiles": 10 },
+    { "id": "doc_hq_contract", "src": ["H2"], "type": "file", "ar": "عقد مقر الشركة", "en": "Company headquarters contract", "req": "no", "maxFiles": 2 }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "ref": "CO-032",
+  "slug": "recurring-advisory-services-retainer-agreement",
+  "en": {
+    "title": "Periodic Advisory Services Contract for Companies (Retainer Agreement)",
+    "description": "Organizes the annual or monthly engagement to provide advisory services (legal / financial / administrative) to companies."
+  },
+  "parties": [
+    {
+      "key": "client", "ar": "الشركة (العميل)", "en": "Company (client)", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "consultant", "ar": "المكتب الاستشاري أو المستشار", "en": "Advisory office or consultant", "src": ["E1"],
+      "fields": ["name", { "kind": "tax_card", "req": "review" }]
+    }
+  ],
+  "details": [
+    { "id": "monthly_scope", "src": ["F1"], "type": "textarea", "ar": "نطاق الخدمات المشمولة شهرياً", "en": "Scope of the services included monthly", "req": "yes" },
+    { "id": "consultations_count", "src": ["F1"], "type": "number", "ar": "عدد الاستشارات شهرياً", "en": "Number of consultations per month", "req": "review", "min": 0 },
+    { "id": "contracts_count", "src": ["F1"], "type": "number", "ar": "عدد العقود شهرياً", "en": "Number of contracts per month", "req": "review", "min": 0 },
+    { "id": "meetings_count", "src": ["F1"], "type": "number", "ar": "عدد الاجتماعات شهرياً", "en": "Number of meetings per month", "req": "review", "min": 0 },
+    { "id": "excluded_services", "src": ["F2"], "type": "textarea", "ar": "الخدمات المستثناة بأتعاب مستقلة", "en": "Excluded services charged under separate fees", "req": "review" }
+  ],
+  "financial": [
+    { "id": "monthly_fee", "src": ["F3"], "type": "number", "ar": "قيمة الأتعاب الشهرية (ج.م)", "en": "Monthly fee amount (EGP)", "req": "yes", "min": 0 },
+    { "id": "payment_due_date", "src": ["F3"], "type": "text", "ar": "موعد سداد الأتعاب", "en": "Fee payment due date", "req": "review" }
+  ],
+  "special": [
+    { "id": "term_and_renewal", "src": ["G1"], "type": "textarea", "ar": "مدة العقد والتجديد", "en": "Contract term and renewal", "req": "no" },
+    { "id": "communication_channels", "src": ["G2"], "type": "textarea", "ar": "قنوات التواصل الرسمية ومواعيد الرد", "en": "Official communication channels and response times", "req": "no" },
+    {
+      "id": "special_clauses", "src": ["G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "company_confidentiality", "ar": "سرية معلومات الشركة", "en": "Confidentiality of the company's information" }
+      ]
+    },
+    { "id": "termination_and_notice", "src": ["G4"], "type": "textarea", "ar": "شروط الإنهاء والإخطار", "en": "Termination and notice terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_company_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري للشركة", "en": "Commercial register of the company", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_consultant_tax_card", "src": ["H2"], "type": "file", "ar": "البطاقة الضريبية للمستشار", "en": "Tax card of the consultant", "req": "yes", "maxFiles": 2 }
+  ]
+}

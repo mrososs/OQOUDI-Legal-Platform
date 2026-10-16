@@ -2,7 +2,14 @@ import { z } from 'zod'
 import { formFieldsSchema, validateAnswers } from '#shared/domain/formSchema'
 import { acceptedExtensionsFor, DEFAULT_FIELD_MAX_MB } from '#shared/domain/uploads'
 
-const answerValue = z.union([z.string().max(20000), z.number(), z.array(z.string().max(200)).max(30), z.null()])
+const repeaterRow = z.record(z.string().max(40), z.union([z.string().max(2000), z.number()]))
+const answerValue = z.union([
+  z.string().max(20000),
+  z.number(),
+  z.array(z.string().max(200)).max(30),
+  z.array(repeaterRow).max(60),
+  z.null(),
+])
 
 const bodySchema = z.object({
   serviceId: z.uuid(),

@@ -18,9 +18,9 @@ const f = useFormat()
 
 const GLYPHS: Record<FieldType, string> = {
   text: 'Aa', textarea: '¶', select: '▾', radio: '◉', checkbox: '☑', multiselect: '⁘',
-  number: '#', date: '◷', file: '⇪', section: 'H', help: 'i',
+  number: '#', date: '◷', file: '⇪', section: 'H', help: 'i', repeater: '☷',
 }
-const PALETTE_ORDER: FieldType[] = ['text', 'textarea', 'select', 'radio', 'checkbox', 'multiselect', 'number', 'date', 'file', 'section', 'help']
+const PALETTE_ORDER: FieldType[] = ['text', 'textarea', 'select', 'radio', 'checkbox', 'multiselect', 'number', 'date', 'file', 'repeater', 'section', 'help']
 
 const mode = shallowRef<'build' | 'preview'>('build')
 const modeTabs = computed<PillNavItem[]>(() => [
@@ -53,6 +53,15 @@ function makeField(type: FieldType): FormField {
     ]
   }
   if (type === 'file') Object.assign(base, { accept: ['pdf', 'docx', 'jpg', 'png'], maxSizeMb: 10, maxFiles: 5 })
+  if (type === 'repeater') {
+    Object.assign(base, {
+      columns: [
+        { id: 'col_1', type: 'text', label: { ar: `${t('admin.form.column')} ١`, en: 'Column 1' } },
+        { id: 'col_2', type: 'text', label: { ar: `${t('admin.form.column')} ٢`, en: 'Column 2' } },
+      ],
+      maxItems: 20,
+    })
+  }
   return base
 }
 
@@ -96,6 +105,7 @@ function updateSelected(field: FormField) {
 function meta(field: FormField): string {
   if (field.options?.length) return ` · ${t('admin.form.optionsCount', { n: f.number(field.options.length) })}`
   if (field.minLength) return ` · ${t('admin.form.minChars', { n: f.number(field.minLength) })}`
+  if (field.columns?.length) return ` · ${t('admin.form.columnsCount', { n: f.number(field.columns.length) })}`
   return ''
 }
 </script>
@@ -137,7 +147,7 @@ function meta(field: FormField): string {
         >
           <span class="glyph" aria-hidden="true">{{ GLYPHS[field.type] }}</span>
           <button type="button" class="item-main" :aria-pressed="field.id === selectedId" @click="selectedId = field.id">
-            <span class="item-label">{{ f.text(field.label) || '—' }} <span v-if="field.required" class="req">*</span></span>
+            <span class="item-label">{{ f.text(field.label) || '—' }} <span v-if="field.required" class="req">*</span><span v-if="field.legalReview" class="review" :title="t('admin.form.legalReviewHint')">{{ t('admin.form.legalReviewShort') }}</span></span>
             <span class="item-meta">{{ t(`admin.fieldTypes.${field.type}`) }}{{ meta(field) }}</span>
           </button>
           <button type="button" class="ic" :aria-label="t('admin.common.up')" :disabled="i === 0" @click="move(i, -1)">▲</button>
@@ -188,6 +198,7 @@ function meta(field: FormField): string {
 .item-label { font-weight: 600; color: var(--text-strong); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .section .item-label { font-weight: 800; }
 .req { color: var(--critical-500); }
+.review { font-size: 10px; font-weight: 700; color: var(--caution-500); background: var(--caution-100); border-radius: 999px; padding: 1px 7px; margin-inline-start: 6px; }
 .item-meta { font-size: 11px; color: var(--text-muted); }
 .ic { background: none; border: none; cursor: pointer; color: var(--text-muted); padding: 4px; }
 .ic:disabled { opacity: .3; cursor: default; }

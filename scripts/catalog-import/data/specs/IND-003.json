@@ -1,0 +1,50 @@
+{
+  "ref": "IND-003",
+  "slug": "agricultural-land-sale-contract",
+  "en": {
+    "title": "Agricultural Land Sale Contract",
+    "description": "Documentation of the sale of agricultural land, regulating the transfer of agricultural possession and irrigation and drainage rights."
+  },
+  "parties": [
+    {
+      "key": "seller", "ar": "البائع", "en": "Seller", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "buyer", "ar": "المشتري", "en": "Buyer", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    { "id": "land_location", "src": ["F1"], "type": "textarea", "ar": "موقع الأرض", "en": "Location of the land", "req": "yes" },
+    { "id": "basin_and_plot", "src": ["F2"], "type": "text", "ar": "اسم الحوض ورقم القطعة", "en": "Basin name and plot number", "req": "review" },
+    { "id": "land_area", "src": ["F3"], "type": "text", "ar": "المساحة بالفدان والقيراط والسهم", "en": "Area in feddans, qirats and sahms", "req": "yes" },
+    { "id": "possession_number", "src": ["F4"], "type": "text", "ar": "رقم الحيازة الزراعية", "en": "Agricultural possession number", "req": "review" }
+  ],
+  "financial": [
+    { "id": "total_price", "src": ["F5"], "type": "number", "ar": "الثمن (ج.م)", "en": "Price (EGP)", "req": "yes", "min": 0 },
+    {
+      "id": "payment_schedule", "src": ["F5"], "type": "repeater", "ar": "جدول السداد", "en": "Payment schedule", "req": "review", "maxItems": 48,
+      "columns": [
+        { "id": "due_date", "type": "date", "ar": "تاريخ الاستحقاق", "en": "Due date", "required": true },
+        { "id": "amount", "type": "number", "ar": "المبلغ (ج.م)", "en": "Amount (EGP)", "required": true, "min": 0 }
+      ]
+    }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "possession_transfer", "ar": "نقل الحيازة بالجمعية الزراعية", "en": "Transfer of possession at the agricultural cooperative" },
+        { "value": "free_of_bank_debts", "ar": "خلو الأرض من ديون البنك الزراعي", "en": "Land free of Agricultural Bank debts" },
+        { "value": "actual_handover", "ar": "التسليم الفعلي", "en": "Actual handover" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "بطاقات الأطراف", "en": "ID cards of the parties", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_possession_card", "src": ["H2"], "type": "file", "ar": "بطاقة الحيازة الزراعية", "en": "Agricultural possession card", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_title_deed", "src": ["H3"], "type": "file", "ar": "سند الملكية", "en": "Title deed", "req": "yes", "maxFiles": 2 }
+  ]
+}

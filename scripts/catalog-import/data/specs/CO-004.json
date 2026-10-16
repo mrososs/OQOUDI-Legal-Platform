@@ -1,0 +1,58 @@
+{
+  "ref": "CO-004",
+  "slug": "startup-investment-financing-agreement",
+  "en": {
+    "title": "Startup Investment and Financing Agreement (Investment Agreement)",
+    "description": "Regulates the injection of liquidity by an angel investor or financing partner in return for a share in the company, according to performance stages."
+  },
+  "parties": [
+    {
+      "key": "investor", "ar": "المستثمر", "en": "Investor", "src": ["E1"],
+      "fields": ["name", "national_id_or_passport", { "kind": "address", "req": "review" }]
+    },
+    {
+      "key": "company", "ar": "الشركة", "en": "Company", "src": ["E3"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "partyFields": [
+    {
+      "id": "founders", "src": ["E2"], "type": "repeater", "ar": "بيانات المؤسسين", "en": "Founders' details", "req": "yes", "minItems": 1, "maxItems": 30,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم الكامل", "en": "Full name", "required": true },
+        { "id": "national_id_or_passport", "type": "text", "ar": "الرقم القومي أو رقم جواز السفر", "en": "National ID or passport number", "required": true },
+        { "id": "address", "type": "text", "ar": "العنوان", "en": "Address" }
+      ]
+    }
+  ],
+  "details": [],
+  "financial": [
+    { "id": "total_funding", "src": ["F1"], "type": "number", "ar": "قيمة التمويل الإجمالي (ج.م)", "en": "Total funding amount (EGP)", "req": "yes", "min": 0 },
+    { "id": "company_valuation", "src": ["F2"], "type": "number", "ar": "التقييم المالي للشركة (ج.م)", "en": "Financial valuation of the company (EGP)", "req": "review", "min": 0 },
+    { "id": "equity_percentage", "src": ["F3"], "type": "number", "ar": "النسبة المئوية للحصة المقابلة (%)", "en": "Percentage of the corresponding share (%)", "req": "review", "min": 0, "max": 100 },
+    {
+      "id": "milestones", "src": ["F4"], "type": "repeater", "ar": "جدول صرف الدفعات المرتبط بمؤشرات الأداء (Milestones)", "en": "Payment disbursement schedule linked to performance indicators (Milestones)", "req": "review", "maxItems": 30,
+      "columns": [
+        { "id": "milestone", "type": "text", "ar": "المرحلة / مؤشر الأداء", "en": "Milestone / performance indicator", "required": true },
+        { "id": "amount", "type": "number", "ar": "قيمة الدفعة (ج.م)", "en": "Payment amount (EGP)", "required": true, "min": 0 }
+      ]
+    }
+  ],
+  "special": [
+    { "id": "use_of_funds", "src": ["G1"], "type": "textarea", "ar": "أوجه صرف التمويل", "en": "Uses of the funding", "req": "no" },
+    {
+      "id": "clauses", "src": ["G2", "G3", "G4"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "periodic_reports", "ar": "التقارير المالية الدورية للمستثمر", "en": "Periodic financial reports for the investor" },
+        { "value": "board_seat", "ar": "مقعد مجلس الإدارة", "en": "Board of directors seat" },
+        { "value": "anti_dilution", "ar": "شروط حماية المستثمر من تآكل الحصة (Anti-Dilution)", "en": "Terms protecting the investor from dilution of the share (Anti-Dilution)" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G2", "G3", "G4"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_commercial_register", "src": ["H1"], "type": "file", "ar": "السجل التجاري", "en": "Commercial register", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_financials_or_feasibility", "src": ["H2"], "type": "file", "ar": "القوائم المالية أو دراسة الجدوى", "en": "Financial statements or feasibility study", "req": "review", "maxFiles": 5 },
+    { "id": "doc_party_ids", "src": ["H3"], "type": "file", "ar": "هويات الأطراف", "en": "Identity documents of the parties", "req": "yes", "maxFiles": 10 }
+  ]
+}

@@ -1,0 +1,2522 @@
+[
+  {
+    "ref": "IND-001",
+    "catalog": "individuals",
+    "number": 1,
+    "subcategoryAr": "عقارات وبيع",
+    "nameAr": "عقد بيع شقة سكنية (ابتدائي / نهائي)",
+    "descriptionAr": "صياغة عقد بيع وحدة سكنية يضمن تسلسل الملكية وحقوق البائع والمشتري",
+    "partyInfo": "بيانات البائع والمشتري (الاسم رباعي، الرقم القومي، العنوان، الصفة أو رقم التوكيل)",
+    "technicalFinancial": "عنوان العقار ورقم الشقة والدور، المساحة بالمتر، الحدود الأربعة، الحصة في الأرض والأجزاء المشتركة، إجمالي الثمن، المقدم وجدول الأقساط، تاريخ التسليم",
+    "specialConditions": "الشرط الجزائي عند التأخير أو الفسخ، تحمل رسوم التسجيل والمرافق، حالة التشطيب والعدادات",
+    "documents": "صورة البطاقة للأطراف، سند ملكية البائع أو التوكيل، إيصال مرافق حديث",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": 3750,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 2
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 2
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-002",
+    "catalog": "individuals",
+    "number": 2,
+    "subcategoryAr": "عقارات وبيع",
+    "nameAr": "عقد بيع قطعة أرض مباني",
+    "descriptionAr": "عقد بيع أرض مع تحديد المساحة والحدود وضمان خلوها من الرهون والنزاعات",
+    "partyInfo": "بيانات البائع والمشتري بالرقم القومي ومحل الإقامة",
+    "technicalFinancial": "موقع الأرض بالتفصيل، رقم القطعة والحوض، المساحة الكلية، الحدود الأربعة، سعر المتر، إجمالي الثمن وطريقة السداد، ميعاد التسليم",
+    "specialConditions": "الالتزام بصحة التوقيع أو التسجيل بالشهر العقاري، موقف التراخيص والمرافق، الشرط الجزائي",
+    "documents": "بطاقات الأطراف، كروكي مساحي، سند الملكية",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3000,
+      "launch": 1500,
+      "vipLaunch": 750,
+      "totalVipLaunch": 2250,
+      "totalVipRegular": 4500,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 3
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 3
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-003",
+    "catalog": "individuals",
+    "number": 3,
+    "subcategoryAr": "عقارات وبيع",
+    "nameAr": "عقد بيع أرض زراعية",
+    "descriptionAr": "توثيق بيع أرض زراعية مع تنظيم نقل الحيازة الزراعية وحقوق الري والصرف",
+    "partyInfo": "بيانات البائع والمشتري الكاملة بالرقم القومي",
+    "technicalFinancial": "موقع الأرض، اسم الحوض ورقم القطعة، المساحة بالفدان والقيراط والسهم، رقم الحيازة الزراعية، الثمن وجدول السداد",
+    "specialConditions": "نقل الحيازة بالجمعية الزراعية، خلو الأرض من ديون البنك الزراعي، التسليم الفعلي",
+    "documents": "بطاقات الأطراف، بطاقة الحيازة الزراعية، سند الملكية",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3000,
+      "launch": 1500,
+      "vipLaunch": 750,
+      "totalVipLaunch": 2250,
+      "totalVipRegular": 4500,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 4
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 4
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-004",
+    "catalog": "individuals",
+    "number": 4,
+    "subcategoryAr": "إيجارات",
+    "nameAr": "عقد إيجار شقة سكنية (قانون جديد)",
+    "descriptionAr": "عقد إيجار سكني محدد المدة خاضع للقانون المدني يحفظ حقوق المؤجر والمستأجر",
+    "partyInfo": "بيانات المؤجر والمستأجر بالرقم القومي والعنوان الحالي",
+    "technicalFinancial": "عنوان الشقة بالتفصيل، مدة الإيجار (تاريخ البداية والنهاية)، القيمة الإيجارية الشهرية، مبلغ التأمين، نسبة الزيادة السنوية",
+    "specialConditions": "الفسخ التلقائي عند التأخر في السداد، تحمل فواتير المرافق وصيانة المصعد، حظر التأجير من الباطن، الصيغة التنفيذية",
+    "documents": "صورة بطاقة المؤجر والمستأجر",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1200,
+      "launch": 600,
+      "vipLaunch": 300,
+      "totalVipLaunch": 900,
+      "totalVipRegular": 1800,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 5
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 5
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-005",
+    "catalog": "individuals",
+    "number": 5,
+    "subcategoryAr": "إيجارات",
+    "nameAr": "عقد إيجار شقة مفروشة (مع قائمة جرد)",
+    "descriptionAr": "عقد إيجار وحدة مفروشة ملحق به قائمة جرد تفصيلية للأثاث والأجهزة الكهربائية",
+    "partyInfo": "بيانات المؤجر والمستأجر (الرقم القومي أو جواز السفر لغير المصريين)",
+    "technicalFinancial": "عنوان الوحدة، مدة الإيجار، الأجرة الشهرية، مبلغ التأمين ضد التلفيات، بيان الأثاث والأجهزة وحالتها عند التسليم",
+    "specialConditions": "شروط استرداد التأمين بعد المعاينة، تحمل الكهرباء والإنترنت، غرامة التأخير اليومية عند عدم الإخلاء",
+    "documents": "صور الهوية أو جواز السفر، كشف المنقولات والأجهزة",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 1500,
+      "launch": 750,
+      "vipLaunch": 375,
+      "totalVipLaunch": 1125,
+      "totalVipRegular": 2250,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 6
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 6
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-006",
+    "catalog": "individuals",
+    "number": 6,
+    "subcategoryAr": "إيجارات",
+    "nameAr": "عقد إيجار محل تجاري",
+    "descriptionAr": "عقد إيجار لنشاط تجاري ينظم التراخيص والديكورات والالتزامات المالية",
+    "partyInfo": "بيانات المؤجر والمستأجر (والسجل التجاري والبطاقة الضريبية إن وجدت)",
+    "technicalFinancial": "عنوان المحل، المساحة، نوع النشاط التجاري المصرح به، المدة، الأجرة الشهرية، التأمين، الزيادة السنوية",
+    "specialConditions": "الموافقة على تعديلات الديكور، استخراج التراخيص والعداد التجاري، فترة السماح للتجهيز، شروط الفسخ",
+    "documents": "صور البطاقات، السجل التجاري والبطاقة الضريبية (إن وجد)",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2000,
+      "launch": 1000,
+      "vipLaunch": 500,
+      "totalVipLaunch": 1500,
+      "totalVipRegular": 3000,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 7
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 7
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-007",
+    "catalog": "individuals",
+    "number": 7,
+    "subcategoryAr": "إيجارات",
+    "nameAr": "عقد إيجار عيادة / مكتب مهني / مخزن",
+    "descriptionAr": "تنظيم إيجار مقر إداري أو طبي أو مساحة تخزينية بشروط استخدام دقيقة",
+    "partyInfo": "بيانات المؤجر والمستأجر وصفته المهنية أو التجارية",
+    "technicalFinancial": "الموقع، المساحة، الغرض من الإيجار (عيادة/مكتب/مخزن)، المدة، القيمة الإيجارية، التأمين",
+    "specialConditions": "مواعيد العمل المسموحة بالعقار، وضع اللافتات الإعلانية، حظر تخزين المواد الخطرة، الشرط الجزائي",
+    "documents": "صور الهوية، كارنيه النقابة أو السجل التجاري",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 1800,
+      "launch": 900,
+      "vipLaunch": 450,
+      "totalVipLaunch": 1350,
+      "totalVipRegular": 2700,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 8
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 8
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-008",
+    "catalog": "individuals",
+    "number": 8,
+    "subcategoryAr": "الأحوال الشخصية والأسرة",
+    "nameAr": "اتفاقية طلاق بالتراضي وتسوية شاملة",
+    "descriptionAr": "اتفاق ودي شامل ينظم إنهاء العلاقة الزوجية وحقوق الزوجة والأبناء دون نزاعات قضائية",
+    "partyInfo": "بيانات الزوج والزوجة بالرقم القومي والعنوان",
+    "technicalFinancial": "تاريخ الزواج، أسماء الأبناء وأعمارهم، الاتفاق الخاص بمؤخر الصداق ونفقة العدة والمتعة، قائمة المنقولات",
+    "specialConditions": "تنظيم حضانة الصغار، قيمة النفقة الشهرية، مسكن الحضانة أو أجره، التنازل عن القضايا المتبادلة، الشرط الجزائي",
+    "documents": "صور البطاقات، وثيقة الزواج، شهادات ميلاد الأبناء",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": 3750,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 9
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 9
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-009",
+    "catalog": "individuals",
+    "number": 9,
+    "subcategoryAr": "الأحوال الشخصية والأسرة",
+    "nameAr": "عقد اتفاق على الخلع الرضائي والتنازل",
+    "descriptionAr": "توثيق اتفاق الزوجين على الإبراء والخلع الرضائي مقابل التنازل عن الحقوق المالية الشرعية",
+    "partyInfo": "بيانات الزوج والزوجة بالرقم القومي",
+    "technicalFinancial": "تحديد مقدم الصداق المردود، إقرار التنازل عن مؤخر الصداق ونفقتي العدة والمتعة، موقف قائمة المنقولات",
+    "specialConditions": "عدم المساس بحقوق الصغار الشرعية من نفقة وحضانة، موعد التوجه للمأذون لتوثيق الإبراء",
+    "documents": "صور البطاقات، وثيقة الزواج",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2000,
+      "launch": 1000,
+      "vipLaunch": 500,
+      "totalVipLaunch": 1500,
+      "totalVipRegular": 3000,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 10
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 10
+      },
+      "restoredColumns": [
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+      ],
+      "discrepancies": [
+        {
+          "kind": "missing_in_consolidated",
+          "columns": [
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "detail": "Consolidated worksheet \"عقود الأفراد والأسرة والرياضة\" row 10 has no value in column(s) C, D, E, F, G, H, I (contract number 9).",
+          "unresolved": false,
+          "resolution": "Restored from \"عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx\" row 10; prices (J–N) are present in both workbooks and match."
+        }
+      ]
+    }
+  },
+  {
+    "ref": "IND-010",
+    "catalog": "individuals",
+    "number": 10,
+    "subcategoryAr": "الأحوال الشخصية والأسرة",
+    "nameAr": "عقد اتفاق ودي على نفقة صغار وأجر مسكن",
+    "descriptionAr": "تنظيم الإنفاق الشهري والمصاريف الدراسية والعلاجية للصغار بشكل رسمي ملزم",
+    "partyInfo": "بيانات الأب (الملتزم بالنفقة) والأم (الحاضنة) بالرقم القومي",
+    "technicalFinancial": "أسماء الصغار وأعمارهم، مبلغ النفقة الشهرية الشاملة (مأكل وملبس)، أجر المسكن والحضانة، نسبة الزيادة السنوية",
+    "specialConditions": "تنظيم سداد المصروفات الدراسية والعلاجية الطارئة، طريقة التحويل البنكي أو الدفع الشهري، تذييله بالصيغة التنفيذية",
+    "documents": "صور البطاقات، شهادات ميلاد الصغار",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1500,
+      "launch": 750,
+      "vipLaunch": 375,
+      "totalVipLaunch": 1125,
+      "totalVipRegular": 2250,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 11
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 11
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-011",
+    "catalog": "individuals",
+    "number": 11,
+    "subcategoryAr": "الأحوال الشخصية والأسرة",
+    "nameAr": "اتفاقية تنظيم رؤية واستضافة الصغار",
+    "descriptionAr": "اتفاق عائلي ودي يحدد مواعيد وأماكن رؤية واستضافة الأبناء في الأسبوع والأعياد والإجازات",
+    "partyInfo": "بيانات الأب والأم بالرقم القومي والعنوان",
+    "technicalFinancial": "أسماء الأبناء، يوم وموعد الرؤية الأسبوعي، مكان الرؤية أو نظام المبيت والاستضافة في العطلات والأعياد",
+    "specialConditions": "الالتزام بمواعيد تسليم واستلام الصغار، حظر السفر بالصغار دون موافقة كتابية، التواصل الهاتفي والمرئي",
+    "documents": "صور البطاقات، شهادات ميلاد الأبناء",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1500,
+      "launch": 750,
+      "vipLaunch": 375,
+      "totalVipLaunch": 1125,
+      "totalVipRegular": 2250,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 12
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 12
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-012",
+    "catalog": "individuals",
+    "number": 12,
+    "subcategoryAr": "الأحوال الشخصية والأسرة",
+    "nameAr": "قائمة أعيان جهاز ومنقولات زوجية محكمة",
+    "descriptionAr": "صياغة قانونية دقيقة لقائمة المنقولات الزوجية تحفظ حقوق الزوجة وتمنع الثغرات القانونية",
+    "partyInfo": "بيانات الزوج (المستلم) والزوجة أو وليها بالرقم القومي والعنوان",
+    "technicalFinancial": "بيان تفصيلي بالأثاث الخشبي، الأجهزة الكهربائية بالماركة والموديل، المفروشات، المشغولات الذهبية بالجرام والعيار، القيمة الإجمالية",
+    "specialConditions": "إقرار الزوج بالاستلام على سبيل الأمانة، التعهد بالرد عيناً أو دفع القيمة نقداً عند الطلب",
+    "documents": "صور بطاقات الزوج والزوجة والشهود، فواتير الأجهزة والذهب (اختياري)",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1200,
+      "launch": 600,
+      "vipLaunch": 300,
+      "totalVipLaunch": 900,
+      "totalVipRegular": 1800,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 13
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 13
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-013",
+    "catalog": "individuals",
+    "number": 13,
+    "subcategoryAr": "الأحوال الشخصية والأسرة",
+    "nameAr": "عقد قسمة رضائية للتركة (فرز وتجنيب)",
+    "descriptionAr": "اتفاق ودي بين جميع الورثة لتقسيم العقارات والأموال الموروثة وإنهاء حالة الشيوع",
+    "partyInfo": "بيانات جميع الورثة الشرعيين بالرقم القومي ودرجة القرابة للمورث",
+    "technicalFinancial": "اسم المورث وتاريخ الوفاة ورقم إعلام الوراثة، بيان تفصيلي بأعيان التركة، الحصة المفرزة لكل وارث، مبالغ الفروق المالية (المعدل)",
+    "specialConditions": "إقرار كل وارث باستلام نصيبه وفرزه، التنازل عن دعاوى الفرز والتجنيب، التزام كل طرف بضمان التعرض",
+    "documents": "صورة إعلام الوراثة، سندات ملكية المورث، صور بطاقات الورثة",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3500,
+      "launch": 1750,
+      "vipLaunch": 875,
+      "totalVipLaunch": 2625,
+      "totalVipRegular": 5250,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 14
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 14
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-014",
+    "catalog": "individuals",
+    "number": 14,
+    "subcategoryAr": "الأحوال الشخصية والأسرة",
+    "nameAr": "عقد تخارج وتنازل عن حصة ميراثية",
+    "descriptionAr": "تنازل أحد الورثة عن نصيبه الشرعي في التركة أو عقار معين لباقي الورثة بمقابل أو بدون",
+    "partyInfo": "بيانات المتخارج (المتنازل) والمتخارج له من الورثة بالرقم القومي",
+    "technicalFinancial": "رقم إعلام الوراثة، وصف الحصة الميراثية المتنازل عنها بدقة، قيمة المقابل المالي المدفوع للتخارج",
+    "specialConditions": "إقرار باستلام المقابل كاملاً، إبراء ذمة التركة، حلول المتخارج له محل المتنازل في كافة الحقوق",
+    "documents": "إعلام الوراثة، بطاقات الأطراف، مستندات العقار أو التركة",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2000,
+      "launch": 1000,
+      "vipLaunch": 500,
+      "totalVipLaunch": 1500,
+      "totalVipRegular": 3000,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 15
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 15
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-015",
+    "catalog": "individuals",
+    "number": 15,
+    "subcategoryAr": "العقود الرياضية والأكاديميات",
+    "nameAr": "عقد اشتراك وتدريب شاب/ناشئ في أكاديمية رياضية",
+    "descriptionAr": "عقد ينظم التحاق اللاعب الصغير أو المراهق بأكاديمية رياضية (كرة قدم، سباحة، قتال، إلخ) والتزامات التدريب",
+    "partyInfo": "بيانات الأكاديمية الرياضية، بيانات ولي الأمر (الاسم والرقم القومي)، وبيانات اللاعب الناشئ وتاريخ ميلاده",
+    "technicalFinancial": "نوع الرياضة، البرنامج التدريبي وعدد الحصص أسبوعياً، مدة الاشتراك (شهري/موسمي)، قيمة الاشتراك والزي الرياضي",
+    "specialConditions": "سياسة استرداد الاشتراك أو تجميده، حدود المسؤولية عن الإصابات العارضة، التزام اللاعب وولي الأمر بلائحة السلوك",
+    "documents": "صورة بطاقة ولي الأمر، شهادة ميلاد الناشئ، إقرار اللياقة الطبية",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 800,
+      "launch": 400,
+      "vipLaunch": 200,
+      "totalVipLaunch": 600,
+      "totalVipRegular": 1200,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 16
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 16
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-016",
+    "catalog": "individuals",
+    "number": 16,
+    "subcategoryAr": "العقود الرياضية والأكاديميات",
+    "nameAr": "عقد رعاية وتطوير موهبة رياضية شابة (للناشئين)",
+    "descriptionAr": "اتفاق بين أكاديمية/راعي وولي أمر لاعب موهوب لتبنيه رياضياً وتأهيله للاختبارات والأندية",
+    "partyInfo": "بيانات الأكاديمية أو الراعي، بيانات ولي الأمر (الوصي الطبيعي)، وبيانات اللاعب الموهوب",
+    "technicalFinancial": "مدة الرعاية، التزامات الأكاديمية (تدريب مجاني/مخفض، تغذية، تأهيل، تسويق للأندية)، نسبة الأكاديمية عند انتقاله لنادٍ رسمي",
+    "specialConditions": "شرط عدم الانتقال لأكاديمية أخرى أو التوقيع لنادٍ خلال فترة الرعاية دون الرجوع للأكاديمية، الشرط الجزائي العادل",
+    "documents": "بطاقة ولي الأمر، شهادة ميلاد اللاعب، سجل مشاركات اللاعب (إن وجد)",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 1500,
+      "launch": 750,
+      "vipLaunch": 375,
+      "totalVipLaunch": 1125,
+      "totalVipRegular": 2250,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 17
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 17
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-017",
+    "catalog": "individuals",
+    "number": 17,
+    "subcategoryAr": "العقود الرياضية والأكاديميات",
+    "nameAr": "عقد اتفاق مع مدرب خاص (Personal Trainer / Coach)",
+    "descriptionAr": "عقد بسيط بين شاب أو ولي أمر ومدرب خاص للتأهيل البدني أو المهاري الفردي",
+    "partyInfo": "بيانات المدرب الخاص (الاسم، الرقم القومي، المؤهل الرياضي) وبيانات المتدرب أو ولي أمره",
+    "technicalFinancial": "الهدف التدريبي (تأهيل بدني، مهارات فردية، تخسيس/لياقة)، عدد الجلسات الشهرية، مكان التدريب، قيمة أتعاب المدرب",
+    "specialConditions": "مواعيد إلغاء أو تأجيل الحصة التدريبية، التزام المدرب بالمعايير الصحية السليمة، عدم استخدام مكملات محظورة",
+    "documents": "صور البطاقات الشخصية للطرفين",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 800,
+      "launch": 400,
+      "vipLaunch": 200,
+      "totalVipLaunch": 600,
+      "totalVipRegular": 1200,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 18
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 18
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-018",
+    "catalog": "individuals",
+    "number": 18,
+    "subcategoryAr": "العقود الرياضية والأكاديميات",
+    "nameAr": "إقرار وموافقة ولي أمر على معسكر أو بطولة رياضية لقاصر",
+    "descriptionAr": "وثيقة قانونية تنظم موافقة ولي الأمر على سفر أو مشاركة ابنه المراهق في بطولة أو معسكر تدريبي",
+    "partyInfo": "بيانات ولي الأمر بالرقم القومي، بيانات اللاعب القاصر، واسم الأكاديمية أو الجهة المنظمة",
+    "technicalFinancial": "اسم البطولة أو المعسكر، مكان الإقامة، تاريخ السفر والعودة، رسوم الاشتراك في المعسكر، المشرف المسؤول",
+    "specialConditions": "إقرار خلو اللاعب من أمراض تمنع المجهود، تفويض المشرف باتخاذ الإجراءات الإسعافية الطارئة، الالتزام بمواعيد المعسكر",
+    "documents": "بطاقة ولي الأمر، شهادة ميلاد اللاعب",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 500,
+      "launch": 250,
+      "vipLaunch": 125,
+      "totalVipLaunch": 375,
+      "totalVipRegular": 750,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 19
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 19
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-019",
+    "catalog": "individuals",
+    "number": 19,
+    "subcategoryAr": "العقود الرياضية والأكاديميات",
+    "nameAr": "عقد تسويق رياضي وتمثيل لاعب شاب (مع ولي الأمر)",
+    "descriptionAr": "اتفاق بين مسوق رياضي وولي أمر لاعب شاب لعرضه على الأندية وتوفير فرص معايشة واختبارات",
+    "partyInfo": "بيانات المسوق الرياضي، بيانات ولي الأمر، وبيانات اللاعب الشاب ومركزه الرياضي",
+    "technicalFinancial": "مدة التفويض التسويقي، النطاق (أندية محلية أو خارجية)، نسبة عمولة المسوق في حال نجاح التعاقد الرسمي فقط",
+    "specialConditions": "حصرية أو عدم حصرية التسويق، عدم تقاضي مبالغ مقدمة غير متفق عليها، التزام اللاعب بحضور الاختبارات",
+    "documents": "بطاقة المسوق وولي الأمر، شهادة ميلاد أو بطاقة اللاعب الشاب",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 1200,
+      "launch": 600,
+      "vipLaunch": 300,
+      "totalVipLaunch": 900,
+      "totalVipRegular": 1800,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 20
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 20
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-020",
+    "catalog": "individuals",
+    "number": 20,
+    "subcategoryAr": "العقود الرياضية والأكاديميات",
+    "nameAr": "عقد تأجير ملعب لتدريبات أكاديمية أو دورة شبابية",
+    "descriptionAr": "تنظيم إيجار ملعب بالساعات أو لموسم تدريبي لأكاديمية ناشئين أو دورة كرة قدم للشباب",
+    "partyInfo": "بيانات إدارة الملعب وبيانات مدير الأكاديمية أو منظم الدورة الشبابية",
+    "technicalFinancial": "موقع الملعب، الأيام والساعات المحجوزة أسبوعياً، مدة التعاقد، سعر الساعة أو الإجمالي الشهري، مبلغ التأمين",
+    "specialConditions": "توفير الإضاءة وغرف الملابس، المسؤولية عن تلفيات النجيل أو الشباك، تعويض الساعات الملغاة بسبب الطقس أو الصيانة",
+    "documents": "صور بطاقات الطرفين",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1000,
+      "launch": 500,
+      "vipLaunch": 250,
+      "totalVipLaunch": 750,
+      "totalVipRegular": 1500,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 21
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 21
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-021",
+    "catalog": "individuals",
+    "number": 21,
+    "subcategoryAr": "العقود المدنية والتسويات",
+    "nameAr": "عقد اتفاق وتسوية مديونية وجدولة سداد",
+    "descriptionAr": "توثيق مديونية مالية وتنظيم سدادها على أقساط محددة مع ضمانات قانونية تحمي الدائن والمدين",
+    "partyInfo": "بيانات الدائن والمدين بالرقم القومي ومحل الإقامة المختار",
+    "technicalFinancial": "إجمالي قيمة المديونية وسببها، المبلغ المسدد نقداً عند التوقيع، جدول الأقساط المتبقية بالتواريخ والقيم",
+    "specialConditions": "حلول جميع الأقساط فوراً عند التأخر عن سداد قسط واحد، وقف أو التنازل المعلق عن المحاضر والقضايا، الشرط الجزائي",
+    "documents": "صور البطاقات، مستندات المديونية أو أرقام القضايا (إن وجدت)",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2000,
+      "launch": 1000,
+      "vipLaunch": 500,
+      "totalVipLaunch": 1500,
+      "totalVipRegular": 3000,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 22
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 22
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-022",
+    "catalog": "individuals",
+    "number": 22,
+    "subcategoryAr": "العقود المدنية والتسويات",
+    "nameAr": "عقد صلح وتسوية ودية لإنهاء نزاع والتنازل عن محاضر",
+    "descriptionAr": "اتفاق رسمي لإنهاء خلاف مدني أو جنائي بالتراضي وتوثيق التنازل المتبادل وإبراء الذمة",
+    "partyInfo": "بيانات أطراف النزاع بالرقم القومي (ومحاميهم أو الشهود إن وجد)",
+    "technicalFinancial": "بيان أرقام المحاضر أو الدعاوى القضائية محل التصالح، المقابل المالي أو الالتزامات المتبادلة لإتمام الصلح",
+    "specialConditions": "إقرار التصالح النهائي أمام النيابة أو المحكمة، عدم جواز تحريك نزاعات جديدة عن ذات الموضوع، الشرط الجزائي",
+    "documents": "صور البطاقات، أرقام المحاضر أو صور عرائض الدعاوى",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2000,
+      "launch": 1000,
+      "vipLaunch": 500,
+      "totalVipLaunch": 1500,
+      "totalVipRegular": 3000,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 23
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 23
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-023",
+    "catalog": "individuals",
+    "number": 23,
+    "subcategoryAr": "العقود المدنية والتسويات",
+    "nameAr": "عقد وديعة وأمانة (حفظ أموال أو منقولات)",
+    "descriptionAr": "توثيق تسليم منقولات أو أمانات لحفظها لدى شخص أمين والالتزام بردها عيناً عند الطلب",
+    "partyInfo": "بيانات المودع (صاحب الأمانة) والمودع لديه (الأمين) بالرقم القومي",
+    "technicalFinancial": "وصف الشيء المودع أو المبلغ بدقة، مكان الحفظ، مدة الإيداع أو موعد الرد، هل الإيداع بدون أجر أم بأجر حفظ",
+    "specialConditions": "التزام الأمين ببذل عناية الحفاظ على الوديعة، عدم استعمالها دون إذن، ردها فوراً عند الطلب بالحالة المسلمة عليها",
+    "documents": "صور بطاقات الرقم القومي للطرفين والشهود",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1000,
+      "launch": 500,
+      "vipLaunch": 250,
+      "totalVipLaunch": 750,
+      "totalVipRegular": 1500,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 24
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 24
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-024",
+    "catalog": "individuals",
+    "number": 24,
+    "subcategoryAr": "العقود المدنية والتسويات",
+    "nameAr": "عقد هبة رسمية (عقار / منقول / مبالغ مالية)",
+    "descriptionAr": "نقل ملكية مال أو عقار أو منقول بدون عوض للأقارب أو الغير بضمانات قانونية صحيحة",
+    "partyInfo": "بيانات الواهب والموهوب له بالرقم القومي وبيان صلة القرابة",
+    "technicalFinancial": "وصف المال الموهوب تفصيلاً (عقار، حصة، سيارة، مبلغ)، سند ملكية الواهب، القيمة التقديرية",
+    "specialConditions": "قبول الموهوب له للهبة، شرط احتفاظ الواهب بحق الانتفاع مدى الحياة (اختياري)، موانع الرجوع في الهبة",
+    "documents": "صور الهوية، سند ملكية الواهب",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 1500,
+      "launch": 750,
+      "vipLaunch": 375,
+      "totalVipLaunch": 1125,
+      "totalVipRegular": 2250,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 25
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 25
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-025",
+    "catalog": "individuals",
+    "number": 25,
+    "subcategoryAr": "العقود المدنية والتسويات",
+    "nameAr": "عقد عارية استعمال (إعارة منقولات أو معدات)",
+    "descriptionAr": "إعارة معدة أو جهاز أو سيارة لشخص لاستخدامها فترة مؤقتة بدون مقابل مع ضمان ردها سليمة",
+    "partyInfo": "بيانات المعير (المالك) والمستعير بالرقم القومي",
+    "technicalFinancial": "وصف الشيء المعار وحالته الفنية وقيمته السوقية، الغرض من الاستعمال، تاريخ التسليم وتاريخ الرد المحدد",
+    "specialConditions": "تحمل المستعير مصاريف الصيانة والتشغيل، مسؤوليته الكاملة عن التلف أو الهلاك، حظر إعارتها للغير",
+    "documents": "صور البطاقات، إثبات ملكية أو صور الشيء المعار",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 800,
+      "launch": 400,
+      "vipLaunch": 200,
+      "totalVipLaunch": 600,
+      "totalVipRegular": 1200,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 26
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 26
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-026",
+    "catalog": "individuals",
+    "number": 26,
+    "subcategoryAr": "العقود المدنية والتسويات",
+    "nameAr": "عقد كفالة شخصية / تضامنية لضمان التزام",
+    "descriptionAr": "توثيق كفالة شخص لمدين في التزام مالي أو عقد إيجار أو توريد مع تحديد حدود مسؤولية الكفيل",
+    "partyInfo": "بيانات الدائن، المدين الأصلي، والكفيل المتضامن بالرقم القومي",
+    "technicalFinancial": "بيان الالتزام أو العقد الأصلي المكفول، الحد الأقصى لمبلغ الكفالة، مدة سريان الكفالة",
+    "specialConditions": "هل الكفالة تضامنية أم عادية (الدفع بالتجريد)، شروط براءة ذمة الكفيل، إخطار الكفيل عند تقاعس المدين",
+    "documents": "صور بطاقات الأطراف الثلاثة، صورة العقد الأصلي",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1200,
+      "launch": 600,
+      "vipLaunch": 300,
+      "totalVipLaunch": 900,
+      "totalVipRegular": 1800,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 27
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 27
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-027",
+    "catalog": "individuals",
+    "number": 27,
+    "subcategoryAr": "العقود المدنية والتسويات",
+    "nameAr": "إقرار استلام نقدية ومخالصة نهائية وإبراء ذمة",
+    "descriptionAr": "وثيقة قانونية قاطعة تثبت سداد المستحقات المالية بالكامل وبراءة الذمة دون أي تحفظ",
+    "partyInfo": "بيانات المقر (المستلم) والمقر لصالحه (الدافع) بالرقم القومي",
+    "technicalFinancial": "قيمة المبلغ المستلم بالأرقام والحروف، سبب السداد (باقي ثمن شقة، مستحقات عمل، تسوية حساب)، تاريخ الاستلام",
+    "specialConditions": "إقرار بأن المخالصة نهائية وشاملة، إسقاط أي حق في المطالبة القضائية أو العرفية مستقبلاً",
+    "documents": "صور البطاقات الشخصية للطرفين",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 750,
+      "launch": 375,
+      "vipLaunch": 187,
+      "totalVipLaunch": 562,
+      "totalVipRegular": 1125,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 28
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 28
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-028",
+    "catalog": "individuals",
+    "number": 28,
+    "subcategoryAr": "سيارات ومنقولات",
+    "nameAr": "عقد بيع سيارة ملاكي",
+    "descriptionAr": "عقد بيع مركبة يحدد حالتها الفنية وينقل المسؤولية الجنائية والمدنية من دقيقة الاستلام",
+    "partyInfo": "بيانات البائع والمشتري الكاملة بالرقم القومي",
+    "technicalFinancial": "ماركة السيارة والموديل وسنة الصنع، رقم الشاسيه والموتور، اللون، رقم اللوحات ووحدة المرور، الثمن المدفوع والمتبقي",
+    "specialConditions": "تحديد ساعة وتاريخ الاستلام الفعلي لنقل مسؤولية الحوادث والمخالفات، موعد التسجيل بالشهر العقاري، الشرط الجزائي",
+    "documents": "رخصة السيارة سارية، صور البطاقات، شهادة براءة ذمة المخالفات",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1000,
+      "launch": 500,
+      "vipLaunch": 250,
+      "totalVipLaunch": 750,
+      "totalVipRegular": 1500,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 29
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 29
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-029",
+    "catalog": "individuals",
+    "number": 29,
+    "subcategoryAr": "سيارات ومنقولات",
+    "nameAr": "عقد بيع دراجة نارية (موتوسيكل / سكوتر)",
+    "descriptionAr": "توثيق بيع مركبة خفيفة ونقل حيازتها ومسؤوليتها القانونية والمرورية للمشتري",
+    "partyInfo": "بيانات البائع والمشتري بالرقم القومي",
+    "technicalFinancial": "النوع والموديل، رقم الشاسيه والموتور، اللوحات المعدنية، الثمن الإجمالي، تاريخ وساعة التسليم",
+    "specialConditions": "معاينة المشتري للمركبة وقبولها بحالتها، تحمل المشتري كافة المخالفات من لحظة الاستلام",
+    "documents": "رخصة التسيير أو فاتورة الشراء، صور البطاقات",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 800,
+      "launch": 400,
+      "vipLaunch": 200,
+      "totalVipLaunch": 600,
+      "totalVipRegular": 1200,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 30
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 30
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-030",
+    "catalog": "individuals",
+    "number": 30,
+    "subcategoryAr": "تشطيبات ومقاولات",
+    "nameAr": "عقد مقاولة وتشطيب وحدة سكنية",
+    "descriptionAr": "عقد محكم مع مهندس ديكور أو مقاول لتشطيب شقة بمواصفات فنية وجدول زمني ومالي دقيق",
+    "partyInfo": "بيانات المالك وبيانات المهندس أو المقاول المنفذ بالرقم القومي",
+    "technicalFinancial": "عنوان الوحدة ومساحتها، نظام التعاقد (بالمقطوعية أم نسبة إشراف)، إجمالي التكلفة، جدول الدفعات المرتبط بالمراحل، مدة التنفيذ",
+    "specialConditions": "تحديد مواصفات الخامات (تأسيس سباكة وكهرباء، سيراميك، دهانات)، غرامة التأخير اليومية، فترة ضمان العيوب بعد التسليم",
+    "documents": "مقايسة الأعمال والكميات (BOQ)، صور البطاقات",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": 3750,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 31
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 31
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-031",
+    "catalog": "individuals",
+    "number": 31,
+    "subcategoryAr": "تشطيبات ومقاولات",
+    "nameAr": "عقد توريد وتركيب مطبخ / دريسنج / ألوميتال",
+    "descriptionAr": "اتفاق تفصيل وتوريد وتركيب أعمال خشبية أو ألوميتال بمواصفات ومواعيد تسليم مضمونة",
+    "partyInfo": "بيانات العميل وبيانات الورشة أو الشركة المنفذة",
+    "technicalFinancial": "المقاسات والتصميم المتفق عليه، نوع الخامات والقطاعات والاكسسوارات، السعر الإجمالي، الدفعة المقدمة والباقي عند التركيب",
+    "specialConditions": "موعد التسليم والتركيب النهائي، غرامة التأخير، فترة ضمان المفصلات والخامات ضد عيوب الصناعة",
+    "documents": "رسم كروكي أو تصميم المطبخ، صور البطاقات",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1000,
+      "launch": 500,
+      "vipLaunch": 250,
+      "totalVipLaunch": 750,
+      "totalVipRegular": 1500,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 32
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 32
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "IND-032",
+    "catalog": "individuals",
+    "number": 32,
+    "subcategoryAr": "خدمات شخصية ومهنية",
+    "nameAr": "عقد تنظيم حفل زفاف / خطوبة / مناسبة",
+    "descriptionAr": "تنظيم التعاقد مع قاعة أو منظم حفلات (Wedding Planner) أو مصور لضمان جودة اليوم والمواعيد",
+    "partyInfo": "بيانات العروسين أو العميل، وبيانات منظم الحفل أو المصور أو القاعة",
+    "technicalFinancial": "تاريخ ومكان الحفل، تفاصيل الباقة (ديكور، إضاءة، تصوير، بوفيه)، السعر الإجمالي، العربون ومواعيد باقي الدفعات",
+    "specialConditions": "سياسة الإلغاء أو تعديل الموعد، موعد تسليم الصور والفيديو بعد الحفل، التعويض عند الإخلال ببنود التجهيز",
+    "documents": "صور البطاقات، عرض السعر أو تفاصيل الباقة",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1200,
+      "launch": 600,
+      "vipLaunch": 300,
+      "totalVipLaunch": 900,
+      "totalVipRegular": 1800,
+      "bilingualAvailable": false,
+      "bilingualLaunch": null,
+      "totalBilingualLaunch": null,
+      "totalVipBilingualLaunch": null,
+      "totalBilingualRegular": null
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الأفراد_والأسرة_والرياضة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 33
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الأفراد والأسرة والرياضة",
+        "row": 33
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-001",
+    "catalog": "companies",
+    "number": 1,
+    "subcategoryAr": "التأسيس والشراكات",
+    "nameAr": "عقد شراكة وتأسيس مشروع تجاري (تضامن / توصية / محاصة)",
+    "descriptionAr": "تنظيم الشراكة التجارية من حيث رأس المال والإدارة وتوزيع الأرباح والخسائر والتخارج",
+    "partyInfo": "بيانات جميع الشركاء (الاسم، الرقم القومي أو جواز السفر، العنوان)",
+    "technicalFinancial": "اسم المشروع أو الشركة، النشاط التجاري، المقر، رأس المال وحصة كل شريك (نقدية/عينية/مجهود)، نسب الأرباح والخسائر",
+    "specialConditions": "صلاحيات الإدارة والتوقيع البنكي، شروط التخارج ودخول شركاء جدد، حالة الوفاة، عدم المنافسة، التحكيم",
+    "documents": "صور بطاقات الشركاء، عقد مقر الشركة (إن وجد)",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 4000,
+      "launch": 2000,
+      "vipLaunch": 1000,
+      "totalVipLaunch": 3000,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 1100,
+      "totalBilingualLaunch": 3100,
+      "totalVipBilingualLaunch": 4100,
+      "totalBilingualRegular": 6200
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 2
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 2
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-002",
+    "catalog": "companies",
+    "number": 2,
+    "subcategoryAr": "التأسيس والشراكات",
+    "nameAr": "اتفاقية المساهمين والشركاء (Shareholders Agreement - SHA)",
+    "descriptionAr": "الدستور الداخلي للشركات لتنظيم العلاقة بين المؤسسين والمستثمرين وحماية الحصص والقرارات",
+    "partyInfo": "بيانات المؤسسين والمستثمرين وبيانات الشركة (السجل التجاري)",
+    "technicalFinancial": "هيكل الملكية، جدول اكتساب الحصص (Vesting Schedule)، آليات زيادة رأس المال، تشكيل مجلس الإدارة وحقوق التصويت والفيتو",
+    "specialConditions": "حقوق الشفعة والأولوية (Pre-emption)، شروط السحب والمرافقة عند البيع (Drag-Along & Tag-Along)، تقييم الشركة عند التخارج",
+    "documents": "السجل التجاري وعقد التأسيس، هويات المساهمين",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 5000,
+      "launch": 2500,
+      "vipLaunch": 1250,
+      "totalVipLaunch": 3750,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 1375,
+      "totalBilingualLaunch": 3875,
+      "totalVipBilingualLaunch": 5125,
+      "totalBilingualRegular": 7750
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 3
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 3
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-003",
+    "catalog": "companies",
+    "number": 3,
+    "subcategoryAr": "التأسيس والشراكات",
+    "nameAr": "عقد بيع وتنازل عن حصص أو أسهم في شركة (Share Transfer)",
+    "descriptionAr": "توثيق نقل ملكية حصص شريك إلى شريك آخر أو مستثمر جديد مع تنظيم المسؤولية عن الالتزامات السابقة",
+    "partyInfo": "بيانات الشريك البائع، المشتري، وبيانات الشركة",
+    "technicalFinancial": "عدد ونسبة الحصص المباعة، القيمة الاسمية وسعر البيع الفعلي، طريقة السداد، موقف الأرباح المحتجزة والحسابات الجارية",
+    "specialConditions": "إقرار موافقة باقي الشركاء وتنازلهم عن حق الاسترداد، المسؤولية عن الضرائب والديون السابقة لتاريخ التنازل، تعديل السجل التجاري",
+    "documents": "السجل التجاري، عقد التأسيس، بطاقات الأطراف",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3500,
+      "launch": 1750,
+      "vipLaunch": 875,
+      "totalVipLaunch": 2625,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 962,
+      "totalBilingualLaunch": 2712,
+      "totalVipBilingualLaunch": 3587,
+      "totalBilingualRegular": 5425
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 4
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 4
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-004",
+    "catalog": "companies",
+    "number": 4,
+    "subcategoryAr": "التأسيس والشراكات",
+    "nameAr": "عقد استثمار وتمويل شركة ناشئة (Investment Agreement)",
+    "descriptionAr": "تنظيم ضخ سيولة مالية من مستثمر ملائكي أو شريك ممول مقابل حصة في الشركة وفق مراحل أداء",
+    "partyInfo": "بيانات المستثمر، المؤسسين، والشركة",
+    "technicalFinancial": "قيمة التمويل الإجمالي، التقييم المالي للشركة، النسبة المئوية للحصة المقابلة، جدول صرف الدفعات المرتبط بمؤشرات الأداء (Milestones)",
+    "specialConditions": "أوجه صرف التمويل، التقارير المالية الدورية للمستثمر، مقعد مجلس الإدارة، شروط حماية المستثمر من تآكل الحصة (Anti-Dilution)",
+    "documents": "السجل التجاري، القوائم المالية أو دراسة الجدوى، هويات الأطراف",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 5000,
+      "launch": 2500,
+      "vipLaunch": 1250,
+      "totalVipLaunch": 3750,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 1375,
+      "totalBilingualLaunch": 3875,
+      "totalVipBilingualLaunch": 5125,
+      "totalBilingualRegular": 7750
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 5
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 5
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-005",
+    "catalog": "companies",
+    "number": 5,
+    "subcategoryAr": "التأسيس والشراكات",
+    "nameAr": "عقد تخارج شريك وتصفية نصيبه بالتراضي (Partner Exit)",
+    "descriptionAr": "إنهاء علاقة شريك بالشركة بشكل ودي وتحديد مستحقاته المالية وجدولة سدادها وإبراء الذمة",
+    "partyInfo": "بيانات الشريك المتخارج وباقي الشركاء المستمرين والشركة",
+    "technicalFinancial": "تاريخ التخارج الفعلي، التقييم النهائي لحصة الشريك وأرباحه، المبلغ الإجمالي للتسوية وجدول السداد",
+    "specialConditions": "إلغاء صلاحيات التوقيع البنكي والإداري للمتخارج، التزام المتخارج بعدم المنافسة أو إفشاء أسرار الشركة، إبراء الذمة المتبادل",
+    "documents": "السجل التجاري، ميزانية التصفية أو التقييم، بطاقات الشركاء",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3500,
+      "launch": 1750,
+      "vipLaunch": 875,
+      "totalVipLaunch": 2625,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 962,
+      "totalBilingualLaunch": 2712,
+      "totalVipBilingualLaunch": 3587,
+      "totalBilingualRegular": 5425
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 6
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 6
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-006",
+    "catalog": "companies",
+    "number": 6,
+    "subcategoryAr": "الموارد البشرية والعمل",
+    "nameAr": "عقد عمل فردي (متوافق مع قانون العمل رقم 14 لسنة 2025)",
+    "descriptionAr": "عقد توظيف رسمي متكامل يحمي حقوق الشركة وينظم واجبات الموظف والأجر والتأمينات",
+    "partyInfo": "بيانات الشركة (السجل التجاري والممثل القانوني) وبيانات الموظف (الرقم القومي، المؤهل، الرقم التأميني)",
+    "technicalFinancial": "المسمى والوصف الوظيفي، مدة العقد، تاريخ بدء العمل، فترة الاختبار (بحد أقصى 3 أشهر)، الراتب الشامل والأساسي والبدلات، ساعات العمل",
+    "specialConditions": "شرط السرية وحماية بيانات العملاء، شرط عدم المنافسة، ملكية الشركة لأعمال الموظف، شروط الإنهاء والمهلة القانونية",
+    "documents": "بطاقة الموظف، المؤهل، السجل التجاري للشركة",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 1800,
+      "launch": 900,
+      "vipLaunch": 450,
+      "totalVipLaunch": 1350,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 495,
+      "totalBilingualLaunch": 1395,
+      "totalVipBilingualLaunch": 1845,
+      "totalBilingualRegular": 2790
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 7
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 7
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-007",
+    "catalog": "companies",
+    "number": 7,
+    "subcategoryAr": "الموارد البشرية والعمل",
+    "nameAr": "عقد عمل للمديرين التنفيذيين والمناصب القيادية (Executive Contract)",
+    "descriptionAr": "عقد خاص للإدارة العليا يربط المزايا والحوافز بمؤشرات الأداء الاستراتيجية وحماية أسرار المنشأة",
+    "partyInfo": "بيانات الشركة وبيانات المدير التنفيذي (CEO / Director)",
+    "technicalFinancial": "المسمى والصلاحيات الإدارية والمالية، الراتب الأساسي، حوافز الأرباح السنوية (Bonus / KPIs)، المزايا العينية (سيارة، تأمين طبي خاص)",
+    "specialConditions": "التفرغ التام، بنود مشددة للسرية وعدم المنافسة وعدم استقطاب الكفاءات، شروط إنهاء التعاقد ومكافأة نهاية الخدمة الاتفاقية",
+    "documents": "السجل التجاري، بطاقة أو جواز سفر المدير التنفيذي",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3000,
+      "launch": 1500,
+      "vipLaunch": 750,
+      "totalVipLaunch": 2250,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 825,
+      "totalBilingualLaunch": 2325,
+      "totalVipBilingualLaunch": 3075,
+      "totalBilingualRegular": 4650
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 8
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 8
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-008",
+    "catalog": "companies",
+    "number": 8,
+    "subcategoryAr": "الموارد البشرية والعمل",
+    "nameAr": "عقد عمل بدوام جزئي أو ساعات مرنة (Part-Time Contract)",
+    "descriptionAr": "تنظيم تشغيل الموظفين لبعض الوقت أو لأيام محددة أسبوعياً وفق الضوابط القانونية",
+    "partyInfo": "بيانات الشركة وبيانات الموظف",
+    "technicalFinancial": "المسمى الوظيفي، عدد أيام أو ساعات العمل الأسبوعية، نظام احتساب الأجر (بالساعة أو راتب شهري جزئي)، مدة العقد",
+    "specialConditions": "تنظيم الإجازات النسبية، السرية، جواز أو عدم جواز العمل لدى غير المنافسين في أوقات الفراغ",
+    "documents": "بطاقة الموظف، السجل التجاري",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1200,
+      "launch": 600,
+      "vipLaunch": 300,
+      "totalVipLaunch": 900,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 330,
+      "totalBilingualLaunch": 930,
+      "totalVipBilingualLaunch": 1230,
+      "totalBilingualRegular": 1860
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 9
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 9
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-009",
+    "catalog": "companies",
+    "number": 9,
+    "subcategoryAr": "الموارد البشرية والعمل",
+    "nameAr": "عقد عمل عن بُعد (Remote Work Agreement)",
+    "descriptionAr": "تنظيم العمل من المنزل أو عن بُعد مع ضبط آليات متابعة الإنتاجية وأمن معلومات الشركة",
+    "partyInfo": "بيانات الشركة وبيانات الموظف (داخل أو خارج المحافظة/الدولة)",
+    "technicalFinancial": "المهام الوظيفية ومؤشرات الإنجاز اليومية/الأسبوعية، ساعات التواجد المتاح أونلاين، الأجر وطريقة التحويل",
+    "specialConditions": "أمن المعلومات واستخدام أجهزة وبرامج الشركة، حظر مشاركة بيانات العمل مع الغير، اجتماعات المتابعة المرئية",
+    "documents": "بطاقة الهوية أو جواز السفر، السجل التجاري",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 1500,
+      "launch": 750,
+      "vipLaunch": 375,
+      "totalVipLaunch": 1125,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 412,
+      "totalBilingualLaunch": 1162,
+      "totalVipBilingualLaunch": 1537,
+      "totalBilingualRegular": 2325
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 10
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 10
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-010",
+    "catalog": "companies",
+    "number": 10,
+    "subcategoryAr": "الموارد البشرية والعمل",
+    "nameAr": "عقد عمل حر / مستشار مستقل (Freelance / Independent Contractor)",
+    "descriptionAr": "تعاقد مع مستقل أو خبير لتنفيذ مهام محددة دون قيام علاقة عمل عمالية أو التزامات تأمينية",
+    "partyInfo": "بيانات الشركة وبيانات المستقل أو الاستشاري (والبطاقة الضريبية إن وجدت)",
+    "technicalFinancial": "نطاق الأعمال والمخرجات المطلوبة (Scope of Work)، جدول التسليمات، قيمة الأتعاب وطريقة الصرف، الضرائب المستقطعة",
+    "specialConditions": "إقرار بأن العلاقة مقاولة خدمات مستقلة، التنازل الكامل عن حقوق الملكية الفكرية للمخرجات لصالح الشركة، السرية",
+    "documents": "بطاقة المستقل، عرض السعر أو توصيف المهام، السجل التجاري",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 1500,
+      "launch": 750,
+      "vipLaunch": 375,
+      "totalVipLaunch": 1125,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 412,
+      "totalBilingualLaunch": 1162,
+      "totalVipBilingualLaunch": 1537,
+      "totalBilingualRegular": 2325
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 11
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 11
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-011",
+    "catalog": "companies",
+    "number": 11,
+    "subcategoryAr": "اللوائح الداخلية للشركات",
+    "nameAr": "اللائحة الداخلية لتنظيم العمل والموارد البشرية (HR Policy)",
+    "descriptionAr": "لائحة شاملة تنظم الهيكل الإداري، التعيينات، الإجازات، التقييم، وقواعد السلوك المهني بالمنشأة",
+    "partyInfo": "بيانات الشركة (الاسم التجاري، السجل التجاري، عدد العاملين، طبيعة النشاط)",
+    "technicalFinancial": "مواعيد العمل الرسمية والراحات، سياسة الحضور والانصراف، أنواع الإجازات، نظام تقييم الأداء والترقيات، المظهر والسلوك العام",
+    "specialConditions": "التوافق التام مع قانون العمل المصري رقم 14 لسنة 2025، قابليتها للاعتماد الإداري والتوزيع على الموظفين",
+    "documents": "السجل التجاري، الهيكل التنظيمي للشركة",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 4000,
+      "launch": 2000,
+      "vipLaunch": 1000,
+      "totalVipLaunch": 3000,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 1100,
+      "totalBilingualLaunch": 3100,
+      "totalVipBilingualLaunch": 4100,
+      "totalBilingualRegular": 6200
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 12
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 12
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-012",
+    "catalog": "companies",
+    "number": 12,
+    "subcategoryAr": "اللوائح الداخلية للشركات",
+    "nameAr": "لائحة الجزاءات التأديبية والتحقيقات الداخلية",
+    "descriptionAr": "تحديد المخالفات الإدارية والمهنية وتدرج العقوبات القانونية وإجراءات التحقيق مع العاملين",
+    "partyInfo": "بيانات الشركة والنشاط",
+    "technicalFinancial": "جداول المخالفات (مخالفات المواعيد، مخالفة تعليمات العمل، السلوك، الإضرار بممتلكات الشركة)، تدرج الجزاءات من الإنذار حتى الفصل القانوني",
+    "specialConditions": "ضوابط التحقيق الإداري المكتوب وسماع دفاع العامل، حدود الخصم من الأجر وفق قانون العمل 14 لسنة 2025",
+    "documents": "السجل التجاري للشركة",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3000,
+      "launch": 1500,
+      "vipLaunch": 750,
+      "totalVipLaunch": 2250,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 825,
+      "totalBilingualLaunch": 2325,
+      "totalVipBilingualLaunch": 3075,
+      "totalBilingualRegular": 4650
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 13
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 13
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-013",
+    "catalog": "companies",
+    "number": 13,
+    "subcategoryAr": "اللوائح الداخلية للشركات",
+    "nameAr": "لائحة الأجور والعمولات والحوافز ومكافآت المبيعات",
+    "descriptionAr": "تنظيم هيكل الرواتب وشرائح عمولات المبيعات (Target & Commission) وشروط استحقاقها وصرفها",
+    "partyInfo": "بيانات الشركة وإدارة المبيعات/الموارد البشرية",
+    "technicalFinancial": "شرائح المستهدف البيعي (Target)، نسب العمولات لكل شريحة، شروط استحقاق العمولة (بعد التحصيل الفعلي من العميل)، مواعيد الصرف",
+    "specialConditions": "حالات رد العمولة عند مرتجعات البضاعة أو إلغاء التعاقد، موقف الحوافز عند الاستقالة أو إنهاء الخدمة",
+    "documents": "السجل التجاري، خطة المبيعات الحالية",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 687,
+      "totalBilingualLaunch": 1937,
+      "totalVipBilingualLaunch": 2562,
+      "totalBilingualRegular": 3875
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 14
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 14
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-014",
+    "catalog": "companies",
+    "number": 14,
+    "subcategoryAr": "اللوائح الداخلية للشركات",
+    "nameAr": "لائحة المشتريات والمخازن والعهد الشخصية والمالية",
+    "descriptionAr": "ضبط الدورة المستندية للمشتريات وإدارة المخزون ومسؤولية الموظفين عن العهد المسلمة إليهم",
+    "partyInfo": "بيانات الشركة والإدارة المالية",
+    "technicalFinancial": "صلاحيات الشراء المباشر وطلب عروض الأسعار، إجراءات الفحص والاستلام المخزني، نماذج استلام وإخلاء طرف من العهدة (لابتوب، سيارة، عهدة نقدية)",
+    "specialConditions": "مسؤولية الموظف عن التلف أو الفقد الناتج عن الإهمال، إجراءات الجرد الدوري ومعالجة العجز",
+    "documents": "السجل التجاري للشركة",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3500,
+      "launch": 1750,
+      "vipLaunch": 875,
+      "totalVipLaunch": 2625,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 962,
+      "totalBilingualLaunch": 2712,
+      "totalVipBilingualLaunch": 3587,
+      "totalBilingualRegular": 5425
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 15
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 15
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-015",
+    "catalog": "companies",
+    "number": 15,
+    "subcategoryAr": "اللوائح الداخلية للشركات",
+    "nameAr": "لائحة استخدام أجهزة الشركة وأمن المعلومات (IT & Data Security Policy)",
+    "descriptionAr": "حماية البنية التقنية للشركة، البريد الرسمي، قواعد البيانات، وضوابط استخدام الأجهزة والشبكات",
+    "partyInfo": "بيانات الشركة وقسم تكنولوجيا المعلومات",
+    "technicalFinancial": "ضوابط تسليم أجهزة اللابتوب والهواتف، سياسة كلمات المرور، حظر تثبيت برامج غير مرخصة، استخدام البريد الإلكتروني الرسمي",
+    "specialConditions": "مراقبة الشبكة لأغراض الأمان، حظر نسخ قواعد بيانات العملاء على وحدات خارجية، إجراءات تسليم الحسابات عند انتهاء الخدمة",
+    "documents": "السجل التجاري للشركة",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 687,
+      "totalBilingualLaunch": 1937,
+      "totalVipBilingualLaunch": 2562,
+      "totalBilingualRegular": 3875
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 16
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 16
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-016",
+    "catalog": "companies",
+    "number": 16,
+    "subcategoryAr": "العقود التجارية والعمليات",
+    "nameAr": "عقد توريد بضائع ومنتجات (Supply Agreement)",
+    "descriptionAr": "تنظيم عمليات التوريد الدورية أو لصفقة محددة مع ضمان الجودة والمواصفات ومواعيد التسليم",
+    "partyInfo": "بيانات الشركة المشترية والمورد/المصنع (السجل التجاري والبطاقة الضريبية)",
+    "technicalFinancial": "بيان الأصناف والكميات والمواصفات القياسية، أسعار الوحدات، مكان ومواعيد التسليم، شروط الدفع (كاش، آجل، شيكات)، تحمل النقل",
+    "specialConditions": "حق الفحص والرفض للبضائع غير المطابقة، غرامة التأخير في التوريد، ضمان العيوب الخفية، بند تغير الأسعار والقوة القاهرة",
+    "documents": "السجل التجاري والبطاقة الضريبية للطرفين، قائمة الأصعار والمواصفات",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 687,
+      "totalBilingualLaunch": 1937,
+      "totalVipBilingualLaunch": 2562,
+      "totalBilingualRegular": 3875
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 17
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 17
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-017",
+    "catalog": "companies",
+    "number": 17,
+    "subcategoryAr": "العقود التجارية والعمليات",
+    "nameAr": "عقد وكالة تجارية أو توزيع معتمد (Distribution Agreement)",
+    "descriptionAr": "منح موزع حق بيع وتوزيع منتجات الشركة في منطقة جغرافية محددة مع مستهدفات بيعية واضحة",
+    "partyInfo": "بيانات الشركة المنتجة/المالكة والموزع المعتمد",
+    "technicalFinancial": "النطاق الجغرافي للتوزيع، نوع التوزيع (حصري أم غير حصري)، مدة العقد، الحد الأدنى للمسحوبات الدورية (Target)، نسب الخصم والآجل",
+    "specialConditions": "الالتزام بالسياسة التسعيرية، عدم بيع منتجات منافسة، شروط سحب الحصرية عند عدم تحقيق المستهدف، تصفية المخزون عند الانتهاء",
+    "documents": "السجل التجاري والبطاقة الضريبية، شهادة العلامة التجارية",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 4000,
+      "launch": 2000,
+      "vipLaunch": 1000,
+      "totalVipLaunch": 3000,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 1100,
+      "totalBilingualLaunch": 3100,
+      "totalVipBilingualLaunch": 4100,
+      "totalBilingualRegular": 6200
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 18
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 18
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-018",
+    "catalog": "companies",
+    "number": 18,
+    "subcategoryAr": "العقود التجارية والعمليات",
+    "nameAr": "عقد امتياز تجاري - فرنشايز (Franchise Agreement)",
+    "descriptionAr": "منح حق استغلال العلامة التجارية ونظام التشغيل والـ Know-How لافتتاح فرع جديد تحت رقابة المانح",
+    "partyInfo": "بيانات مانح الامتياز (Franchisor) والممنوح له (Franchisee)",
+    "technicalFinancial": "موقع الفرع والنطاق الجغرافي، مدة الامتياز، رسوم الامتياز الأولية (Franchise Fee)، نسبة الإتاوة الشهرية من المبيعات (Royalty)، رسوم التسويق",
+    "specialConditions": "الالتزام الصارم بدليل التشغيل والهوية البصرية، التوريد الحصري للخامات، التدريب والتفتيش الدوري، عدم المنافسة",
+    "documents": "شهادة تسجيل العلامة التجارية، السجل التجاري للطرفين",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 6000,
+      "launch": 3000,
+      "vipLaunch": 1500,
+      "totalVipLaunch": 4500,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 1650,
+      "totalBilingualLaunch": 4650,
+      "totalVipBilingualLaunch": 6150,
+      "totalBilingualRegular": 9300
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 19
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 19
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-019",
+    "catalog": "companies",
+    "number": 19,
+    "subcategoryAr": "العقود التجارية والعمليات",
+    "nameAr": "عقد وساطة تجارية وسمسرة بعمولة (Commission Agreement)",
+    "descriptionAr": "توثيق حق الوسيط أو المسوق التجاري في الحصول على عمولته عند إتمام صفقة بين البائع والمشتري",
+    "partyInfo": "بيانات الشركة أو البائع/المشتري وبيانات الوسيط التجاري",
+    "technicalFinancial": "طبيعة الصفقة محل الوساطة، نسبة أو قيمة العمولة المتفق عليها، موعد استحقاق العمولة (عند التوقيع أم عند تحصيل الدفعات)",
+    "specialConditions": "شرط عدم التجاوز أو الالتفاف (Non-Circumvention) لمنع إتمام الصفقة من وراء الوسيط، حماية بيانات العملاء",
+    "documents": "السجل التجاري أو بطاقات الهوية للأطراف",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2000,
+      "launch": 1000,
+      "vipLaunch": 500,
+      "totalVipLaunch": 1500,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 550,
+      "totalBilingualLaunch": 1550,
+      "totalVipBilingualLaunch": 2050,
+      "totalBilingualRegular": 3100
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 20
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 20
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-020",
+    "catalog": "companies",
+    "number": 20,
+    "subcategoryAr": "العقود التجارية والعمليات",
+    "nameAr": "عقد تصنيع لدى الغير للعلامات الخاصة (White Label / OEM)",
+    "descriptionAr": "اتفاق مع مصنع لإنتاج سلع ومنتجات بمواصفات خاصة ووضع العلامة التجارية الخاصة بشركتك عليها",
+    "partyInfo": "بيانات الشركة صاحبة العلامة التجارية وبيانات المصنع المنفذ",
+    "technicalFinancial": "المواصفات الفنية والتركيبات القياسية للمنتج، الحد الأدنى لكميات التشغيل (MOQ)، تكلفة التصنيع والتعبئة، مواعيد التسليم",
+    "specialConditions": "ملكية القوالب والتركيبات السرية للشركة، حظر قيام المصنع بتقليد المنتج أو بيعه للغير، رقابة الجودة ورفض التالف",
+    "documents": "السجل التجاري والبطاقة الضريبية، شهادة العلامة التجارية",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3500,
+      "launch": 1750,
+      "vipLaunch": 875,
+      "totalVipLaunch": 2625,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 962,
+      "totalBilingualLaunch": 2712,
+      "totalVipBilingualLaunch": 3587,
+      "totalBilingualRegular": 5425
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 21
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 21
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-021",
+    "catalog": "companies",
+    "number": 21,
+    "subcategoryAr": "العقود التجارية والعمليات",
+    "nameAr": "عقد نقل وشحن بضائع وخدمات لوجستية (Shipping & Logistics)",
+    "descriptionAr": "تنظيم شحن وتوصيل منتجات الشركة للعملاء أو الفروع مع تحصيل مبالغ الدفع عند الاستلام (COD)",
+    "partyInfo": "بيانات الشركة/المتجر وبيانات شركة الشحن واللوجستيات",
+    "technicalFinancial": "أسعار الشحن حسب المناطق والأوزان، مواعيد التوصيل، دورة توريد مبالغ التحصيل (COD) لحساب الشركة البنكي، رسوم المرتجعات",
+    "specialConditions": "مسؤولية شركة الشحن عن فقد أو تلف الشحنات والتعويض عنها، آليات تتبع الشحنات والتقارير الأسبوعية",
+    "documents": "السجل التجاري والبطاقة الضريبية للطرفين",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 687,
+      "totalBilingualLaunch": 1937,
+      "totalVipBilingualLaunch": 2562,
+      "totalBilingualRegular": 3875
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 22
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 22
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-022",
+    "catalog": "companies",
+    "number": 22,
+    "subcategoryAr": "العقود التجارية والعمليات",
+    "nameAr": "عقد شراكة وإدارة وتشغيل أكاديمية رياضية أو جيم",
+    "descriptionAr": "عقد تجاري بين صاحب منشأة/ملعب ومدير فني أو شركة إدارة لتشغيل أكاديمية رياضية للشباب واقتسام العوائد",
+    "partyInfo": "بيانات مالك المنشأة/الأكاديمية وبيانات شركة الإدارة أو المدير الفني والتسويقي",
+    "technicalFinancial": "اسم الأكاديمية وموقعها، التزامات التجهيز والإيجار، إدارة التدريبات والاشتراكات، نسب توزيع صافي الأرباح الشهرية، مدة العقد",
+    "specialConditions": "الحسابات البنكية ومسك الدفاتر، ملكية الاسم التجاري للأكاديمية، شروط الفسخ وتصفية الموسم التدريبي",
+    "documents": "السجل التجاري أو بطاقات الشركاء، عقد إيجار المقر/الملعب",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3000,
+      "launch": 1500,
+      "vipLaunch": 750,
+      "totalVipLaunch": 2250,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 825,
+      "totalBilingualLaunch": 2325,
+      "totalVipBilingualLaunch": 3075,
+      "totalBilingualRegular": 4650
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 23
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 23
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-023",
+    "catalog": "companies",
+    "number": 23,
+    "subcategoryAr": "التكنولوجيا والبرمجيات",
+    "nameAr": "عقد تصميم وتطوير موقع إلكتروني / تطبيق موبايل",
+    "descriptionAr": "عقد تقني يضمن تسليم الكود المصدري والمواصفات الفنية ومراحل التنفيذ والدعم الفني",
+    "partyInfo": "بيانات العميل (شركة أو مؤسس) وبيانات شركة البرمجيات أو المبرمج",
+    "technicalFinancial": "وصف المنصة/التطبيق، التقنيات (Tech Stack)، عدد الشاشات، مراحل التنفيذ والتسليم (Milestones)، التكلفة الإجمالية وجدول الدفعات",
+    "specialConditions": "انتقال الملكية الكاملة للكود المصدري (Source Code) وقواعد البيانات للعميل، فترة الضمان وإصلاح الأخطاء (Bugs) مجاناً، الشرط الجزائي",
+    "documents": "وثيقة متطلبات المشروع (PRD) أو تصميم الشاشات، السجل التجاري أو الهوية",
+    "turnaround": "2 - 3 أيام عمل",
+    "prices": {
+      "original": 3500,
+      "launch": 1750,
+      "vipLaunch": 875,
+      "totalVipLaunch": 2625,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 962,
+      "totalBilingualLaunch": 2712,
+      "totalVipBilingualLaunch": 3587,
+      "totalBilingualRegular": 5425
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 24
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 24
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-024",
+    "catalog": "companies",
+    "number": 24,
+    "subcategoryAr": "التكنولوجيا والبرمجيات",
+    "nameAr": "اتفاقية مستوى الخدمة والدعم الفني (Service Level Agreement - SLA)",
+    "descriptionAr": "ضمان استقرار الخوادم والأنظمة التقنية وتحديد زمن الاستجابة للأعطال والتعويضات",
+    "partyInfo": "بيانات مزود الخدمة التقنية وبيانات الشركة المستفيدة",
+    "technicalFinancial": "نسبة جاهزية النظام المضمونة (Uptime مثلاً 99.9%)، تصنيف الأعطال وأزمنة الاستجابة والإصلاح لكل مستوى، قيمة عقد الدعم الدوري",
+    "specialConditions": "الخصومات والتعويضات المالية عند تجاوز وقت التوقف المسموح، مواعيد الصيانة الدورية والنسخ الاحتياطي",
+    "documents": "السجل التجاري للطرفين، العقد التقني الأساسي",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 687,
+      "totalBilingualLaunch": 1937,
+      "totalVipBilingualLaunch": 2562,
+      "totalBilingualRegular": 3875
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 25
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 25
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-025",
+    "catalog": "companies",
+    "number": 25,
+    "subcategoryAr": "التكنولوجيا والبرمجيات",
+    "nameAr": "عقد ترخيص استخدام برمجيات أو نظام سحابي (SaaS / Software License)",
+    "descriptionAr": "منح الشركات حق استخدام برنامج أو نظام محاسبي/إداري باشتراك دوري مع حماية ملكية الكود",
+    "partyInfo": "بيانات الشركة المالكة للبرنامج وبيانات الشركة المرخص لها",
+    "technicalFinancial": "اسم النظام، عدد المستخدمين أو الفروع المسموح بها، مدة الاشتراك، قيمة الترخيص السنوي/الشهري، خدمات التدريب والتهيئة",
+    "specialConditions": "حظر الهندسة العكسية أو نسخ البرنامج، ملكية البيانات المدخلة للعميل، حدود المسؤولية التقنية",
+    "documents": "السجل التجاري للطرفين",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 687,
+      "totalBilingualLaunch": 1937,
+      "totalVipBilingualLaunch": 2562,
+      "totalBilingualRegular": 3875
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 26
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 26
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-026",
+    "catalog": "companies",
+    "number": 26,
+    "subcategoryAr": "عقود التجارة الإلكترونية",
+    "nameAr": "الشروط والأحكام وسياسة الاسترجاع للمواقع والمنصات (Terms & Conditions)",
+    "descriptionAr": "الدستور القانوني للموقع أو التطبيق الذي يحكم علاقة المنصة بالمستخدمين ويحميها من المسؤولية",
+    "partyInfo": "بيانات الشركة المالكة للموقع أو التطبيق، رابط الدومين، وطبيعة الخدمات أو المنتجات",
+    "technicalFinancial": "شروط التسجيل والاستخدام، آليات الطلب والدفع، سياسة الإلغاء والاستبدال والاسترجاع (وفق قانون حماية المستهلك)، مدد التسليم",
+    "specialConditions": "حدود مسؤولية المنصة، حقوق الملكية الفكرية للمحتوى، شروط حظر الحسابات المخالفة، القانون الواجب التطبيق",
+    "documents": "السجل التجاري، شرح آلية عمل المنصة",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 687,
+      "totalBilingualLaunch": 1937,
+      "totalVipBilingualLaunch": 2562,
+      "totalBilingualRegular": 3875
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 27
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 27
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-027",
+    "catalog": "companies",
+    "number": 27,
+    "subcategoryAr": "عقود التجارة الإلكترونية",
+    "nameAr": "سياسة الخصوصية وحماية البيانات للمواقع والتطبيقات (Privacy Policy)",
+    "descriptionAr": "وثيقة قانونية إلزامية لتوضيح كيفية جمع ومعالجة وحماية بيانات العملاء لمتاجر التطبيقات وبوابات الدفع",
+    "partyInfo": "بيانات المنصة أو التطبيق، والشركة المالكة",
+    "technicalFinancial": "أنواع البيانات التي يجمعها الموقع (الاسم، الهاتف، الموقع، الكوكيز)، الغرض من استخدامها، الأطراف الثالثة المشاركة (بوابات الدفع والشحن)",
+    "specialConditions": "إجراءات التشفير وحماية البيانات، حقوق المستخدم في تعديل أو حذف حسابه، التوافق مع قانون حماية البيانات الشخصية ومتطلبات Apple/Google",
+    "documents": "رابط الموقع أو وصف التطبيق",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2000,
+      "launch": 1000,
+      "vipLaunch": 500,
+      "totalVipLaunch": 1500,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 550,
+      "totalBilingualLaunch": 1550,
+      "totalVipBilingualLaunch": 2050,
+      "totalBilingualRegular": 3100
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 28
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 28
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-028",
+    "catalog": "companies",
+    "number": 28,
+    "subcategoryAr": "حماية الأعمال والملكية الفكرية",
+    "nameAr": "اتفاقية عدم إفشاء الأسرار والمعلومات السرية (NDA)",
+    "descriptionAr": "حماية الأفكار، قواعد بيانات العملاء، الأكواد، والخطط المالية من التسريب أو الاستغلال",
+    "partyInfo": "بيانات الطرف المفصح والطرف المتلقي (أو اتفاقية متبادلة بين شركتين)",
+    "technicalFinancial": "الغرض من تبادل المعلومات، التحديد الدقيق للمعلومات السرية المشمولة بالحماية، مدة سريان الالتزام بالسرية",
+    "specialConditions": "قيمة التعويض الاتفاقي (الشرط الجزائي) في حال التسريب، الالتزام بإتلاف أو رد الملفات عند انتهاء الغرض",
+    "documents": "السجل التجاري أو بطاقات الهوية للأطراف",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1500,
+      "launch": 750,
+      "vipLaunch": 375,
+      "totalVipLaunch": 1125,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 412,
+      "totalBilingualLaunch": 1162,
+      "totalVipBilingualLaunch": 1537,
+      "totalBilingualRegular": 2325
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 29
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 29
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-029",
+    "catalog": "companies",
+    "number": 29,
+    "subcategoryAr": "حماية الأعمال والملكية الفكرية",
+    "nameAr": "اتفاقية عدم المنافسة وعدم استقطاب العملاء والموظفين (Non-Compete)",
+    "descriptionAr": "منع الموظفين القياديين أو الشركاء من فتح نشاط منافس أو خطف عملاء وموظفي الشركة",
+    "partyInfo": "بيانات الشركة والطرف الملتزم (موظف، مدير، شريك، مستشار)",
+    "technicalFinancial": "تحديد النشاط المحظور منافسته بدقة، النطاق الجغرافي، المدة الزمنية للحظر بعد انتهاء العلاقة",
+    "specialConditions": "حظر التعاقد المباشر أو غير المباشر مع عملاء الشركة أو تحريض الموظفين على تركها، الشرط الجزائي الاتفاقي",
+    "documents": "بطاقة الطرف الملتزم، السجل التجاري للشركة",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2000,
+      "launch": 1000,
+      "vipLaunch": 500,
+      "totalVipLaunch": 1500,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 550,
+      "totalBilingualLaunch": 1550,
+      "totalVipBilingualLaunch": 2050,
+      "totalBilingualRegular": 3100
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 30
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 30
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-030",
+    "catalog": "companies",
+    "number": 30,
+    "subcategoryAr": "التسويق والإعلام",
+    "nameAr": "عقد إدارة حسابات التواصل الاجتماعي والتسويق الرقمي",
+    "descriptionAr": "تنظيم خدمات صناعة المحتوى، التصميمات، وإدارة الحملات الإعلانية الممولة مع مؤشرات أداء واضحة",
+    "partyInfo": "بيانات الشركة المعلنة وبيانات وكالة التسويق (Marketing Agency)",
+    "technicalFinancial": "المنصات المستهدفة، عدد التصميمات والفيديوهات والريلز شهرياً، أتعاب الإدارة الشهرية، ميزانية الإعلانات الممولة (Ad Spend)",
+    "specialConditions": "ملكية الصفحات والحسابات الإعلانية والتصميمات للعميل، التقارير الشهرية ومؤشرات الأداء (KPIs)، شروط الفسخ",
+    "documents": "عرض السعر التسويقي (Proposal)، السجل التجاري",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2000,
+      "launch": 1000,
+      "vipLaunch": 500,
+      "totalVipLaunch": 1500,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 550,
+      "totalBilingualLaunch": 1550,
+      "totalVipBilingualLaunch": 2050,
+      "totalBilingualRegular": 3100
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 31
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 31
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-031",
+    "catalog": "companies",
+    "number": 31,
+    "subcategoryAr": "التسويق والإعلام",
+    "nameAr": "عقد التعاون الإعلاني مع المؤثرين وصناع المحتوى (Influencer Agreement)",
+    "descriptionAr": "تنظيم الحملة الإعلانية مع البلوجرز والمؤثرين لتحديد عدد الفيديوهات وطريقة العرض وحقوق استخدام الفيديو",
+    "partyInfo": "بيانات الشركة/العلامة التجارية وبيانات المؤثر أو وكيله الإعلاني",
+    "technicalFinancial": "المنصات المعلن عليها (إنستجرام، تيك توك، يوتيوب)، عدد الريلز أو الاستوريز، مواعيد النشر، الأتعاب وطريقة الدفع",
+    "specialConditions": "بقاء الفيديو على حساب المؤثر وعدم حذفه، حق الشركة في استخدام الفيديو في إعلاناتها الممولة، عدم الإعلان لمنافس خلال فترة الحملة",
+    "documents": "صور الهوية أو السجل التجاري، سكريبت أو محاور الإعلان",
+    "turnaround": "1 يوم عمل",
+    "prices": {
+      "original": 1800,
+      "launch": 900,
+      "vipLaunch": 450,
+      "totalVipLaunch": 1350,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 495,
+      "totalBilingualLaunch": 1395,
+      "totalVipBilingualLaunch": 1845,
+      "totalBilingualRegular": 2790
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 32
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 32
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  },
+  {
+    "ref": "CO-032",
+    "catalog": "companies",
+    "number": 32,
+    "subcategoryAr": "العقود الاستشارية والمهنية",
+    "nameAr": "عقد تقديم خدمات استشارية دورية للشركات (Retainer Agreement)",
+    "descriptionAr": "تنظيم التعاقد السنوي أو الشهري لتقديم الاستشارات (القانونية / المالية / الإدارية) للشركات",
+    "partyInfo": "بيانات الشركة (العميل) وبيانات المكتب الاستشاري أو المستشار",
+    "technicalFinancial": "نطاق الخدمات المشمولة شهرياً (عدد الاستشارات، العقود، الاجتماعات)، الخدمات المستثناة بأتعاب مستقلة، قيمة الأتعاب الشهرية وموعد سدادها",
+    "specialConditions": "مدة العقد والتجديد، قنوات التواصل الرسمية ومواعيد الرد، سرية معلومات الشركة، شروط الإنهاء والإخطار",
+    "documents": "السجل التجاري للشركة، البطاقة الضريبية للمستشار",
+    "turnaround": "1 - 2 يوم عمل",
+    "prices": {
+      "original": 2500,
+      "launch": 1250,
+      "vipLaunch": 625,
+      "totalVipLaunch": 1875,
+      "totalVipRegular": null,
+      "bilingualAvailable": true,
+      "bilingualLaunch": 687,
+      "totalBilingualLaunch": 1937,
+      "totalVipBilingualLaunch": 2562,
+      "totalBilingualRegular": 3875
+    },
+    "provenance": {
+      "detailed": {
+        "workbook": "عقود_الشركات_واللوائح_وثنائي_اللغة_المحدث.xlsx",
+        "sheet": "Sheet1",
+        "row": 33
+      },
+      "consolidated": {
+        "workbook": "دليل_عقود_منصة_عقودي_المحدث_شامل_64_عقد_والاضافات.xlsx",
+        "sheet": "عقود الشركات واللوائح",
+        "row": 33
+      },
+      "restoredColumns": [],
+      "discrepancies": []
+    }
+  }
+]

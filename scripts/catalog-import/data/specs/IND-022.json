@@ -1,0 +1,50 @@
+{
+  "ref": "IND-022",
+  "slug": "amicable-settlement-and-report-waiver-agreement",
+  "en": {
+    "title": "Amicable Settlement Agreement to End a Dispute and Waive Police Reports",
+    "description": "A formal agreement to end a civil or criminal dispute by mutual consent, documenting the mutual waiver and the discharge of liability."
+  },
+  "partyFields": [
+    {
+      "id": "dispute_parties", "src": ["E1"], "type": "repeater", "ar": "بيانات أطراف النزاع", "en": "Details of the parties to the dispute", "req": "yes", "minItems": 2, "maxItems": 10,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم الكامل", "en": "Full name", "required": true },
+        { "id": "national_id", "type": "text", "ar": "الرقم القومي", "en": "National ID number", "required": true, "maxLength": 30 }
+      ]
+    },
+    {
+      "id": "lawyers_witnesses", "src": ["E1"], "type": "repeater", "ar": "المحامون أو الشهود", "en": "Lawyers or witnesses", "req": "no", "maxItems": 10,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم الكامل", "en": "Full name", "required": true },
+        {
+          "id": "role", "type": "select", "ar": "الصفة", "en": "Capacity", "required": true,
+          "options": [
+            { "value": "lawyer", "ar": "محامٍ", "en": "Lawyer" },
+            { "value": "witness", "ar": "شاهد", "en": "Witness" }
+          ]
+        },
+        { "id": "national_id", "type": "text", "ar": "الرقم القومي", "en": "National ID number", "maxLength": 30 }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "case_numbers", "src": ["F1"], "type": "textarea", "ar": "بيان أرقام المحاضر أو الدعاوى القضائية محل التصالح", "en": "Statement of the police report or lawsuit numbers subject to the settlement", "req": "review" },
+    { "id": "settlement_consideration", "src": ["F2"], "type": "textarea", "ar": "المقابل المالي أو الالتزامات المتبادلة لإتمام الصلح", "en": "Financial consideration or mutual obligations to complete the settlement", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "final_settlement_before_authority", "ar": "إقرار التصالح النهائي أمام النيابة أو المحكمة", "en": "Declaring the final settlement before the prosecution or the court" },
+        { "value": "no_new_disputes_same_subject", "ar": "عدم جواز تحريك نزاعات جديدة عن ذات الموضوع", "en": "No new disputes may be raised over the same subject" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" },
+    { "id": "penalty_clause", "src": ["G3"], "type": "textarea", "ar": "الشرط الجزائي", "en": "Penalty clause", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 10 },
+    { "id": "doc_reports_or_petitions", "src": ["H2"], "type": "file", "ar": "أرقام المحاضر أو صور عرائض الدعاوى", "en": "Police report numbers or copies of the lawsuit petitions", "req": "review", "maxFiles": 5 }
+  ]
+}

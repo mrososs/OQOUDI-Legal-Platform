@@ -1,0 +1,43 @@
+{
+  "ref": "IND-025",
+  "slug": "equipment-loan-for-use-contract",
+  "en": {
+    "title": "Loan for Use Contract (Lending Movables or Equipment)",
+    "description": "Lending equipment, a device or a car to a person for temporary use without consideration, with a guarantee that it is returned intact."
+  },
+  "parties": [
+    {
+      "key": "lender", "ar": "المعير (المالك)", "en": "Lender (owner)", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "borrower", "ar": "المستعير", "en": "Borrower", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    { "id": "item_description", "src": ["F1"], "type": "textarea", "ar": "وصف الشيء المعار", "en": "Description of the lent item", "req": "yes" },
+    { "id": "item_technical_condition", "src": ["F1"], "type": "textarea", "ar": "الحالة الفنية للشيء المعار", "en": "Technical condition of the lent item", "req": "review" },
+    { "id": "purpose_of_use", "src": ["F2"], "type": "text", "ar": "الغرض من الاستعمال", "en": "Purpose of use", "req": "review" },
+    { "id": "delivery_date", "src": ["F3"], "type": "date", "ar": "تاريخ التسليم", "en": "Delivery date", "req": "yes" },
+    { "id": "return_date", "src": ["F3"], "type": "date", "ar": "تاريخ الرد المحدد", "en": "Fixed return date", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "market_value", "src": ["F1"], "type": "number", "ar": "القيمة السوقية للشيء المعار (ج.م)", "en": "Market value of the lent item (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "borrower_bears_maintenance", "ar": "تحمل المستعير مصاريف الصيانة والتشغيل", "en": "The borrower bears maintenance and operating expenses" },
+        { "value": "borrower_full_liability", "ar": "مسؤوليته الكاملة عن التلف أو الهلاك", "en": "The borrower's full liability for damage or loss" },
+        { "value": "no_lending_to_third_parties", "ar": "حظر إعارتها للغير", "en": "Prohibition of lending it to others" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_ownership_or_photos", "src": ["H2"], "type": "file", "ar": "إثبات ملكية أو صور الشيء المعار", "en": "Proof of ownership or photos of the lent item", "req": "yes", "maxFiles": 5 }
+  ]
+}

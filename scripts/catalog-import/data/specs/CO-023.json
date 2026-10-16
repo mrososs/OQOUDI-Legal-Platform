@@ -1,0 +1,60 @@
+{
+  "ref": "CO-023",
+  "slug": "website-and-mobile-app-design-development-contract",
+  "en": {
+    "title": "Website / Mobile App Design and Development Contract",
+    "description": "A technical contract ensuring delivery of the source code, technical specifications, implementation stages and technical support."
+  },
+  "parties": [
+    {
+      "key": "client", "ar": "العميل (شركة أو مؤسس)", "en": "Client (company or founder)", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم أو اسم الشركة", "en": "Name or company name", "req": "yes", "maxLength": 200 },
+        { "id": "id_or_register", "type": "text", "ar": "الرقم القومي أو رقم السجل التجاري", "en": "National ID or commercial register number", "req": "yes", "maxLength": 60 }
+      ]
+    },
+    {
+      "key": "developer", "ar": "شركة البرمجيات أو المبرمج", "en": "Software company or programmer", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم أو اسم الشركة", "en": "Name or company name", "req": "yes", "maxLength": 200 },
+        { "id": "id_or_register", "type": "text", "ar": "الرقم القومي أو رقم السجل التجاري", "en": "National ID or commercial register number", "req": "yes", "maxLength": 60 }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "platform_description", "src": ["F1"], "type": "textarea", "ar": "وصف المنصة/التطبيق", "en": "Description of the platform / app", "req": "yes" },
+    { "id": "tech_stack", "src": ["F2"], "type": "textarea", "ar": "التقنيات (Tech Stack)", "en": "Technologies (Tech Stack)", "req": "review" },
+    { "id": "screens_count", "src": ["F3"], "type": "number", "ar": "عدد الشاشات", "en": "Number of screens", "req": "review", "min": 0 },
+    {
+      "id": "milestones", "src": ["F4"], "type": "repeater", "ar": "مراحل التنفيذ والتسليم (Milestones)", "en": "Implementation and delivery stages (Milestones)", "req": "review", "maxItems": 30,
+      "columns": [
+        { "id": "stage", "type": "text", "ar": "المرحلة", "en": "Stage", "required": true },
+        { "id": "delivery_date", "type": "date", "ar": "موعد التسليم", "en": "Delivery date" }
+      ]
+    }
+  ],
+  "financial": [
+    { "id": "total_cost", "src": ["F5"], "type": "number", "ar": "التكلفة الإجمالية (ج.م)", "en": "Total cost (EGP)", "req": "yes", "min": 0 },
+    {
+      "id": "payment_schedule", "src": ["F5"], "type": "repeater", "ar": "جدول الدفعات", "en": "Payment schedule", "req": "review", "maxItems": 48,
+      "columns": [
+        { "id": "due_date", "type": "date", "ar": "تاريخ الاستحقاق", "en": "Due date", "required": true },
+        { "id": "amount", "type": "number", "ar": "قيمة الدفعة (ج.م)", "en": "Payment amount (EGP)", "required": true, "min": 0 }
+      ]
+    }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "source_code_transfer", "ar": "انتقال الملكية الكاملة للكود المصدري (Source Code) وقواعد البيانات للعميل", "en": "Full ownership of the source code and databases transfers to the client" }
+      ]
+    },
+    { "id": "warranty_period", "src": ["G2"], "type": "text", "ar": "فترة الضمان وإصلاح الأخطاء (Bugs) مجاناً", "en": "Warranty period and free fixing of errors (Bugs)", "req": "no" },
+    { "id": "penalty_clause", "src": ["G3"], "type": "textarea", "ar": "الشرط الجزائي", "en": "Penalty clause", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_prd_or_designs", "src": ["H1"], "type": "file", "ar": "وثيقة متطلبات المشروع (PRD) أو تصميم الشاشات", "en": "Project requirements document (PRD) or screen designs", "req": "review", "maxFiles": 10 },
+    { "id": "doc_register_or_id", "src": ["H2"], "type": "file", "ar": "السجل التجاري أو الهوية", "en": "Commercial register or ID", "req": "yes", "maxFiles": 4 }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "ref": "IND-024",
+  "slug": "formal-gift-of-property-or-cash-contract",
+  "en": {
+    "title": "Formal Gift Contract (Real Estate / Movable / Sums of Money)",
+    "description": "Transferring ownership of money, real estate or a movable without consideration to relatives or others, with valid legal safeguards."
+  },
+  "parties": [
+    {
+      "key": "donor", "ar": "الواهب", "en": "Donor", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "donee", "ar": "الموهوب له", "en": "Donee", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "partyFields": [
+    { "id": "kinship_relation", "src": ["E1"], "type": "text", "ar": "صلة القرابة بين الواهب والموهوب له", "en": "Kinship relation between the donor and the donee", "req": "review" }
+  ],
+  "details": [
+    {
+      "id": "gifted_property_description", "src": ["F1"], "type": "textarea", "ar": "وصف المال الموهوب تفصيلاً", "en": "Detailed description of the gifted property", "req": "yes",
+      "help": { "ar": "عقار، حصة، سيارة، مبلغ", "en": "Real estate, a share, a car, a sum of money" }
+    },
+    { "id": "donor_title_deed", "src": ["F2"], "type": "text", "ar": "سند ملكية الواهب", "en": "Donor's title deed", "req": "review" }
+  ],
+  "financial": [
+    { "id": "estimated_value", "src": ["F3"], "type": "number", "ar": "القيمة التقديرية (ج.م)", "en": "Estimated value (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "donee_acceptance", "ar": "قبول الموهوب له للهبة", "en": "The donee's acceptance of the gift" },
+        { "value": "donor_lifetime_usufruct", "ar": "شرط احتفاظ الواهب بحق الانتفاع مدى الحياة", "en": "Condition that the donor keeps the right of usufruct for life" },
+        { "value": "revocation_bars", "ar": "موانع الرجوع في الهبة", "en": "Bars to revoking the gift" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور الهوية", "en": "ID copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_donor_title_deed", "src": ["H2"], "type": "file", "ar": "سند ملكية الواهب", "en": "Donor's title deed", "req": "review", "maxFiles": 5 }
+  ]
+}

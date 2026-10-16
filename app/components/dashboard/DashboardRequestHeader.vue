@@ -53,6 +53,10 @@ function submitInfo() {
       <div>
         <h1 class="title">{{ f.text(order.service.title) }}</h1>
         <div class="meta"><span class="ltr">{{ order.orderNumber }}</span> · {{ customerName }} · {{ f.dateTime(order.createdAt) }}</div>
+        <div v-if="order.hasVipDelivery || order.hasBilingualDrafting" class="addon-line">
+          <OrdersOrderAddonBadges :vip="order.hasVipDelivery" :bilingual="order.hasBilingualDrafting" />
+          <span v-if="order.hasVipDelivery" class="vip-note">{{ t('orders.vipNote') }}</span>
+        </div>
       </div>
       <div class="controls">
         <OrdersPaymentBadge :status="order.paymentStatus" prefix />
@@ -84,6 +88,8 @@ function submitInfo() {
 .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
 .title { font-size: 24px; font-weight: 800; margin: 0; }
 .meta { color: var(--text-muted); margin-top: 2px; }
+.addon-line { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 8px; }
+.vip-note { font-size: 12px; color: var(--text-muted); }
 .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .select { width: 200px; }
 .hint { margin: 0; font-size: 13px; color: var(--text-muted); }

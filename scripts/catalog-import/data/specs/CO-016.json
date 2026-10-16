@@ -1,0 +1,60 @@
+{
+  "ref": "CO-016",
+  "slug": "goods-supply-agreement",
+  "en": {
+    "title": "Goods and Products Supply Agreement (Supply Agreement)",
+    "description": "Regulates recurring supply operations or a specific deal, with quality and specification guarantees and delivery dates."
+  },
+  "parties": [
+    {
+      "key": "buyer", "ar": "الشركة المشترية", "en": "Buying company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register", "tax_card"]
+    },
+    {
+      "key": "supplier", "ar": "المورد / المصنع", "en": "Supplier / manufacturer", "src": ["E1"],
+      "fields": ["company_name", "commercial_register", "tax_card"]
+    }
+  ],
+  "partyFields": [],
+  "details": [
+    { "id": "delivery_place", "src": ["F3"], "type": "text", "ar": "مكان التسليم", "en": "Delivery place", "req": "review" },
+    { "id": "delivery_schedule", "src": ["F3"], "type": "textarea", "ar": "مواعيد التسليم", "en": "Delivery dates", "req": "review" }
+  ],
+  "financial": [
+    {
+      "id": "supply_items", "src": ["F1", "F2"], "type": "repeater", "ar": "بيان الأصناف والكميات والمواصفات القياسية وأسعار الوحدات", "en": "Statement of items, quantities, standard specifications and unit prices", "req": "yes", "minItems": 1, "maxItems": 50,
+      "columns": [
+        { "id": "item", "type": "text", "ar": "الصنف", "en": "Item", "required": true },
+        { "id": "quantity", "type": "number", "ar": "الكمية", "en": "Quantity", "required": true, "min": 0 },
+        { "id": "specifications", "type": "text", "ar": "المواصفات القياسية", "en": "Standard specifications" },
+        { "id": "unit_price", "type": "number", "ar": "سعر الوحدة (ج.م)", "en": "Unit price (EGP)", "min": 0 }
+      ]
+    },
+    {
+      "id": "payment_terms", "src": ["F4"], "type": "checkbox", "ar": "شروط الدفع", "en": "Payment terms", "req": "review",
+      "options": [
+        { "value": "cash", "ar": "كاش", "en": "Cash" },
+        { "value": "deferred", "ar": "آجل", "en": "Deferred" },
+        { "value": "cheques", "ar": "شيكات", "en": "Cheques" }
+      ]
+    },
+    { "id": "payment_terms_details", "src": ["F4"], "type": "textarea", "ar": "تفاصيل شروط الدفع", "en": "Payment terms details", "req": "review" },
+    { "id": "transport_bearer", "src": ["F5"], "type": "text", "ar": "تحمل النقل", "en": "Who bears transport", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G3", "G4"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "inspection_rejection", "ar": "حق الفحص والرفض للبضائع غير المطابقة", "en": "Right to inspect and reject non-conforming goods" },
+        { "value": "latent_defects", "ar": "ضمان العيوب الخفية", "en": "Warranty against latent defects" },
+        { "value": "price_change_force_majeure", "ar": "بند تغير الأسعار والقوة القاهرة", "en": "Price change and force majeure clause" }
+      ]
+    },
+    { "id": "late_delivery_penalty", "src": ["G2"], "type": "textarea", "ar": "غرامة التأخير في التوريد", "en": "Penalty for delay in supply", "req": "no" },
+    { "id": "clause_details", "src": ["G1", "G3", "G4"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_register_and_tax_card", "src": ["H1"], "type": "file", "ar": "السجل التجاري والبطاقة الضريبية للطرفين", "en": "Commercial register and tax card of both parties", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_price_and_specs_list", "src": ["H2"], "type": "file", "ar": "قائمة الأسعار والمواصفات", "en": "Price and specifications list", "req": "review", "maxFiles": 5 }
+  ]
+}

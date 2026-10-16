@@ -1,0 +1,45 @@
+{
+  "note": "Explicit mapping of the 9 services that existed before the 64-contract import. Nothing is deleted or archived automatically; historical orders keep their service id, form version and price snapshot.",
+  "services": [
+    {
+      "slug": "employment-contract", "decision": "reuse", "contractRef": "CO-006",
+      "reason": "Same offering: an employment contract for a company (existing price EGP 1,800 equals the client's original price for «عقد عمل فردي»). The record keeps its id and slug, receives the client's name, description, price and a NEW published form version; orders placed against form v1 keep referencing v1.",
+      "needsConfirmation": "The old service described «one or more employees»; the client's contract is the individual employment contract."
+    },
+    {
+      "slug": "lease-agreement", "decision": "reuse", "contractRef": "IND-004",
+      "reason": "Same offering as the residential lease (existing price EGP 1,200 equals the client's original price). Keeps id/slug; new published form version. The previous «residential or commercial» scope is now served by IND-006 (shop) and IND-007 (clinic/office/warehouse).",
+      "needsConfirmation": "Scope narrowed from «residential or commercial» to residential."
+    },
+    {
+      "slug": "company-governance", "decision": "reuse", "contractRef": "CO-011",
+      "reason": "Draft, never published, no orders. Same offering as the HR internal regulation (HR + disciplinary regulations). Keeps id/slug and is published with the client's data.",
+      "needsConfirmation": "Existing draft price EGP 4,500 is replaced by the client's EGP 4,000; the disciplinary part is also sold separately as CO-012."
+    },
+    {
+      "slug": "contract-drafting", "decision": "retain",
+      "reason": "Generic custom-contract drafting; the 64-contract catalog has no «custom contract» entry. Unchanged (including its seed add-ons), not launch-eligible."
+    },
+    {
+      "slug": "contract-review", "decision": "retain",
+      "reason": "Review of an existing contract — not part of the client's 64 drafting contracts. Unchanged, not launch-eligible."
+    },
+    {
+      "slug": "company-formation", "decision": "retain", "overlapsWith": ["CO-001"],
+      "reason": "Quote-based company-formation assistance (legal-form advice and incorporation documents) differs from CO-001, which drafts a partnership/founding contract. Unchanged.",
+      "needsConfirmation": "Potential overlap with CO-001 «عقد شراكة وتأسيس مشروع تجاري»: decide whether to keep both, or archive this one."
+    },
+    {
+      "slug": "legal-notice", "decision": "retain",
+      "reason": "Legal notices are not in the client's catalog. Unchanged (used by existing e2e/integration tests)."
+    },
+    {
+      "slug": "written-consultation", "decision": "retain",
+      "reason": "Consultation service — explicitly out of scope. Unchanged."
+    },
+    {
+      "slug": "video-consultation", "decision": "retain",
+      "reason": "Consultation service — explicitly out of scope. Unchanged."
+    }
+  ]
+}

@@ -18,9 +18,23 @@ function patch<K extends keyof ServiceDraft>(key: K, value: ServiceDraft[K]) {
   draft.value = { ...draft.value, [key]: value }
 }
 
-const categoryOptions = computed(() => props.categories.map(c => ({ value: c.id, label: f.text(c.title) })))
+/** Top-level categories first, each followed by its sub-categories ("Individuals › Leases"). */
+const ordered = computed(() => {
+  const tops = props.categories.filter(c => !c.parentId)
+  return tops.flatMap(top => [
+    { cat: top, label: f.text(top.title) },
+    ...props.categories.filter(c => c.parentId === top.id).map(sub => ({ cat: sub, label: `${f.text(top.title)} › ${f.text(sub.title)}` })),
+  ])
+})
+const categoryOptions = computed(() => ordered.value.map(o => ({ value: o.cat.id, label: o.label })))
+const parentOfPrimary = computed(() => props.categories.find(c => c.id === draft.value.primaryCategoryId)?.parentId ?? null)
+const translationOptions = computed(() => [
+  { value: 'approved', label: t('admin.basics.translation.approved') },
+  { value: 'pending_review', label: t('admin.basics.translation.pending_review') },
+])
 const kindOptions = computed(() => SERVICE_KINDS.map(k => ({ value: k, label: t(`admin.kinds.${k}`) })))
-const extraCategories = computed(() => props.categories.filter(c => c.id !== draft.value.primaryCategoryId))
+// the primary category's parent is always linked automatically, so it is not offered as an extra
+const extraCategories = computed(() => props.categories.filter(c => c.id !== draft.value.primaryCategoryId && c.id !== parentOfPrimary.value))
 
 function issue(path: string) {
   const code = props.issues[path]
@@ -66,6 +80,7 @@ function toggleCategory(id: string) {
       :model-value="draft.primaryCategoryId"
       :label="t('admin.basics.primaryCategory')"
       :options="categoryOptions"
+      :hint="parentOfPrimary ? t('admin.basics.parentLinked') : undefined"
       :error="issue('primaryCategoryId')"
       @update:model-value="v => patch('primaryCategoryId', String(v))"
     />
@@ -117,6 +132,13 @@ function toggleCategory(id: string) {
       type="number"
       min="0"
       @update:model-value="v => patch('sortOrder', Math.max(0, Math.trunc(Number(v) || 0)))"
+    />
+    <UiSelect
+      :model-value="draft.translationStatus"
+      :label="t('admin.basics.translationStatus')"
+      :options="translationOptions"
+      :hint="t('admin.basics.translationHint')"
+      @update:model-value="v => patch('translationStatus', v as ServiceDraft['translationStatus'])"
     />
     <div class="kh-field">
       <span class="kh-field__label">{{ t('admin.basics.visibility') }}</span>

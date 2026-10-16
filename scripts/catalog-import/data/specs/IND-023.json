@@ -1,0 +1,44 @@
+{
+  "ref": "IND-023",
+  "slug": "deposit-and-trust-custody-contract",
+  "en": {
+    "title": "Deposit and Trust Contract (Safekeeping of Money or Movables)",
+    "description": "Documenting the handing over of movables or trusts to be kept with a trustworthy person, with the obligation to return them in kind on demand."
+  },
+  "parties": [
+    {
+      "key": "depositor", "ar": "المودع (صاحب الأمانة)", "en": "Depositor (owner of the deposit)", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "custodian", "ar": "المودع لديه (الأمين)", "en": "Custodian (the trustee)", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    { "id": "deposited_item_description", "src": ["F1"], "type": "textarea", "ar": "وصف الشيء المودع أو المبلغ بدقة", "en": "Precise description of the deposited item or sum", "req": "yes" },
+    { "id": "storage_place", "src": ["F2"], "type": "text", "ar": "مكان الحفظ", "en": "Place of safekeeping", "req": "review" },
+    { "id": "deposit_term_or_return_date", "src": ["F3"], "type": "text", "ar": "مدة الإيداع أو موعد الرد", "en": "Deposit duration or return date", "req": "review" },
+    {
+      "id": "deposit_fee_basis", "src": ["F4"], "type": "radio", "ar": "هل الإيداع بدون أجر أم بأجر حفظ", "en": "Is the deposit without a fee or with a safekeeping fee", "req": "review",
+      "options": [
+        { "value": "without_fee", "ar": "بدون أجر", "en": "Without a fee" },
+        { "value": "with_custody_fee", "ar": "بأجر حفظ", "en": "With a safekeeping fee" }
+      ]
+    }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "custodian_duty_of_care", "ar": "التزام الأمين ببذل عناية الحفاظ على الوديعة", "en": "The custodian's obligation to exercise care in preserving the deposit" },
+        { "value": "no_use_without_permission", "ar": "عدم استعمالها دون إذن", "en": "Not using it without permission" },
+        { "value": "immediate_return_as_delivered", "ar": "ردها فوراً عند الطلب بالحالة المسلمة عليها", "en": "Returning it immediately on demand in the condition in which it was delivered" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_and_witness_ids", "src": ["H1"], "type": "file", "ar": "صور بطاقات الرقم القومي للطرفين والشهود", "en": "National ID card copies of the parties and the witnesses", "req": "yes", "maxFiles": 6 }
+  ]
+}

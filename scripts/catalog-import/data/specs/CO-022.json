@@ -1,0 +1,55 @@
+{
+  "ref": "CO-022",
+  "slug": "sports-academy-or-gym-partnership-and-operation-contract",
+  "en": {
+    "title": "Sports Academy or Gym Partnership, Management and Operation Contract",
+    "description": "A commercial contract between the owner of a facility/field and a technical manager or management company to operate a youth sports academy and share the revenues."
+  },
+  "parties": [
+    {
+      "key": "owner", "ar": "مالك المنشأة/الأكاديمية", "en": "Owner of the facility / academy", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم أو اسم الشركة", "en": "Name or company name", "req": "yes", "maxLength": 200 },
+        { "id": "id_or_register", "type": "text", "ar": "الرقم القومي أو رقم السجل التجاري", "en": "National ID or commercial register number", "req": "yes", "maxLength": 60 }
+      ]
+    },
+    {
+      "key": "manager", "ar": "شركة الإدارة أو المدير الفني والتسويقي", "en": "Management company or technical and marketing manager", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم أو اسم الشركة", "en": "Name or company name", "req": "yes", "maxLength": 200 },
+        { "id": "id_or_register", "type": "text", "ar": "الرقم القومي أو رقم السجل التجاري", "en": "National ID or commercial register number", "req": "yes", "maxLength": 60 }
+      ]
+    }
+  ],
+  "details": [
+    { "id": "academy_name", "src": ["F1"], "type": "text", "ar": "اسم الأكاديمية", "en": "Academy name", "req": "yes" },
+    { "id": "academy_location", "src": ["F1"], "type": "text", "ar": "موقع الأكاديمية", "en": "Academy location", "req": "yes" },
+    { "id": "equipment_and_rent", "src": ["F2"], "type": "textarea", "ar": "التزامات التجهيز والإيجار", "en": "Equipment and rent obligations", "req": "review" },
+    { "id": "training_and_subscriptions", "src": ["F3"], "type": "textarea", "ar": "إدارة التدريبات والاشتراكات", "en": "Management of training and subscriptions", "req": "review" },
+    { "id": "contract_term", "src": ["F5"], "type": "text", "ar": "مدة العقد", "en": "Contract term", "req": "yes" }
+  ],
+  "financial": [
+    {
+      "id": "profit_shares", "src": ["F4"], "type": "repeater", "ar": "نسب توزيع صافي الأرباح الشهرية", "en": "Monthly net profit distribution percentages", "req": "yes", "minItems": 2, "maxItems": 10,
+      "columns": [
+        { "id": "party", "type": "text", "ar": "الطرف", "en": "Party", "required": true },
+        { "id": "percentage", "type": "number", "ar": "النسبة (%)", "en": "Percentage (%)", "required": true, "min": 0, "max": 100 }
+      ]
+    }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "bank_accounts_bookkeeping", "ar": "الحسابات البنكية ومسك الدفاتر", "en": "Bank accounts and bookkeeping" },
+        { "value": "trade_name_ownership", "ar": "ملكية الاسم التجاري للأكاديمية", "en": "Ownership of the academy's trade name" },
+        { "value": "termination_season_settlement", "ar": "شروط الفسخ وتصفية الموسم التدريبي", "en": "Termination conditions and settlement of the training season" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_register_or_partner_ids", "src": ["H1"], "type": "file", "ar": "السجل التجاري أو بطاقات الشركاء", "en": "Commercial register or partners' ID cards", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_venue_lease", "src": ["H2"], "type": "file", "ar": "عقد إيجار المقر/الملعب", "en": "Lease contract of the premises / field", "req": "review", "maxFiles": 2 }
+  ]
+}

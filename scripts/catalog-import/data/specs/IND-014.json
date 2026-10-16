@@ -1,0 +1,41 @@
+{
+  "ref": "IND-014",
+  "slug": "inheritance-share-waiver-contract",
+  "en": {
+    "title": "Inheritance Share Release and Waiver Contract",
+    "description": "An heir's waiver of his legitimate share in the estate or a specific property in favour of the other heirs, with or without consideration."
+  },
+  "parties": [
+    {
+      "key": "releasor", "ar": "المتخارج (المتنازل)", "en": "Releasing heir (assignor)", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "releasee", "ar": "المتخارج له", "en": "Beneficiary of the release", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    { "id": "inheritance_declaration_no", "src": ["F1"], "type": "text", "ar": "رقم إعلام الوراثة", "en": "Inheritance declaration number", "req": "review", "maxLength": 60 },
+    { "id": "waived_share_description", "src": ["F2"], "type": "textarea", "ar": "وصف الحصة الميراثية المتنازل عنها بدقة", "en": "Precise description of the inherited share being waived", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "release_consideration", "src": ["F3"], "type": "number", "ar": "قيمة المقابل المالي المدفوع للتخارج (ج.م)", "en": "Value of the financial consideration paid for the release (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "full_receipt", "ar": "إقرار باستلام المقابل كاملاً", "en": "Acknowledgement of receiving the consideration in full" },
+        { "value": "estate_discharge", "ar": "إبراء ذمة التركة", "en": "Discharge of the estate" },
+        { "value": "subrogation", "ar": "حلول المتخارج له محل المتنازل في كافة الحقوق", "en": "Substitution of the beneficiary for the assignor in all rights" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_inheritance_declaration", "src": ["H1"], "type": "file", "ar": "إعلام الوراثة", "en": "Inheritance declaration", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_party_ids", "src": ["H2"], "type": "file", "ar": "بطاقات الأطراف", "en": "ID cards of the parties", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_property_or_estate_docs", "src": ["H3"], "type": "file", "ar": "مستندات العقار أو التركة", "en": "Documents of the property or the estate", "req": "review", "maxFiles": 10 }
+  ]
+}

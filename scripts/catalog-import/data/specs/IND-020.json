@@ -1,0 +1,48 @@
+{
+  "ref": "IND-020",
+  "slug": "sports-field-lease-for-academy-training-contract",
+  "en": {
+    "title": "Sports Field Lease Contract for an Academy's Training or a Youth Tournament",
+    "description": "Regulating the lease of a sports field by the hour or for a training season for a youth academy or a youth football tournament."
+  },
+  "parties": [
+    {
+      "key": "field_management", "ar": "إدارة الملعب", "en": "Field management", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "organizer", "ar": "مدير الأكاديمية أو منظم الدورة الشبابية", "en": "Academy director or youth tournament organizer", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    { "id": "field_location", "src": ["F1"], "type": "text", "ar": "موقع الملعب", "en": "Field location", "req": "yes" },
+    { "id": "weekly_booked_slots", "src": ["F2"], "type": "textarea", "ar": "الأيام والساعات المحجوزة أسبوعياً", "en": "Days and hours booked weekly", "req": "review" },
+    { "id": "contract_term", "src": ["F3"], "type": "text", "ar": "مدة التعاقد", "en": "Contract duration", "req": "yes" }
+  ],
+  "financial": [
+    {
+      "id": "pricing_basis", "src": ["F4"], "type": "radio", "ar": "أساس التسعير", "en": "Pricing basis", "req": "yes",
+      "options": [
+        { "value": "hourly_price", "ar": "سعر الساعة", "en": "Hourly price" },
+        { "value": "monthly_total", "ar": "الإجمالي الشهري", "en": "Monthly total" }
+      ]
+    },
+    { "id": "price_amount", "src": ["F4"], "type": "number", "ar": "سعر الساعة أو الإجمالي الشهري (ج.م)", "en": "Hourly price or monthly total (EGP)", "req": "yes", "min": 0 },
+    { "id": "deposit_amount", "src": ["F5"], "type": "number", "ar": "مبلغ التأمين (ج.م)", "en": "Deposit amount (EGP)", "req": "review", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "lighting_and_changing_rooms", "ar": "توفير الإضاءة وغرف الملابس", "en": "Providing lighting and changing rooms" },
+        { "value": "turf_and_nets_damage_liability", "ar": "المسؤولية عن تلفيات النجيل أو الشباك", "en": "Liability for damage to the turf or the nets" },
+        { "value": "cancelled_hours_compensation", "ar": "تعويض الساعات الملغاة بسبب الطقس أو الصيانة", "en": "Compensation for hours cancelled due to weather or maintenance" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور بطاقات الطرفين", "en": "ID card copies of both parties", "req": "yes", "maxFiles": 4 }
+  ]
+}

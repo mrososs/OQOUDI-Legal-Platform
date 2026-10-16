@@ -1,0 +1,52 @@
+{
+  "ref": "IND-010",
+  "slug": "child-maintenance-and-housing-rent-agreement",
+  "en": {
+    "title": "Amicable Agreement on Child Maintenance and Housing Rent",
+    "description": "A formal, binding arrangement regulating the monthly maintenance and the educational and medical expenses of minors."
+  },
+  "parties": [
+    {
+      "key": "father", "ar": "الأب (الملتزم بالنفقة)", "en": "Father (maintenance payer)", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "mother", "ar": "الأم (الحاضنة)", "en": "Mother (custodian)", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    {
+      "id": "children", "src": ["F1"], "type": "repeater", "ar": "أسماء الصغار وأعمارهم", "en": "Names and ages of the minors", "req": "yes", "minItems": 1, "maxItems": 20,
+      "columns": [
+        { "id": "name", "type": "text", "ar": "الاسم", "en": "Name", "required": true },
+        { "id": "age", "type": "number", "ar": "العمر", "en": "Age", "required": true, "min": 0 }
+      ]
+    }
+  ],
+  "financial": [
+    { "id": "monthly_maintenance", "src": ["F2"], "type": "number", "ar": "مبلغ النفقة الشهرية الشاملة للمأكل والملبس (ج.م)", "en": "Total monthly maintenance covering food and clothing (EGP)", "req": "yes", "min": 0 },
+    { "id": "housing_custody_wage", "src": ["F3"], "type": "number", "ar": "أجر المسكن والحضانة (ج.م)", "en": "Housing rent and custody fee (EGP)", "req": "review", "min": 0 },
+    { "id": "annual_increase", "src": ["F4"], "type": "number", "ar": "نسبة الزيادة السنوية (%)", "en": "Annual increase (%)", "req": "review", "min": 0, "max": 100 }
+  ],
+  "special": [
+    { "id": "school_medical_expenses", "src": ["G1"], "type": "textarea", "ar": "تنظيم سداد المصروفات الدراسية والعلاجية الطارئة", "en": "Arrangement for paying school and emergency medical expenses", "req": "no" },
+    {
+      "id": "payment_method", "src": ["G2"], "type": "radio", "ar": "طريقة السداد", "en": "Payment method", "req": "no",
+      "options": [
+        { "value": "bank_transfer", "ar": "التحويل البنكي", "en": "Bank transfer" },
+        { "value": "monthly_payment", "ar": "الدفع الشهري", "en": "Monthly payment" }
+      ]
+    },
+    {
+      "id": "clauses", "src": ["G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "executory_formula", "ar": "تذييله بالصيغة التنفيذية", "en": "Appending the executory formula" }
+      ]
+    }
+  ],
+  "documents": [
+    { "id": "doc_party_ids", "src": ["H1"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_children_birth_certs", "src": ["H2"], "type": "file", "ar": "شهادات ميلاد الصغار", "en": "Birth certificates of the minors", "req": "yes", "maxFiles": 10 }
+  ]
+}

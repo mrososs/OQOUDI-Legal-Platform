@@ -1,4 +1,5 @@
 import { validateAnswers, type Answers, type FieldError, type FormField } from '#shared/domain/formSchema'
+import { quoteSelection, resolveAddonPrice, resolveServicePrice } from '#shared/domain/pricing'
 import type { ServiceDetail } from '~/repositories/catalog'
 import type { UploadedFile } from '~/composables/useUpload'
 
@@ -16,6 +17,7 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
   const { call, toFailure } = useApi()
   const toast = useToast()
   const localePath = useLocalePath()
+  const { active: launchActive } = useLaunchCampaign()
 
   const isMeeting = computed(() => service.value.kind === 'video_consultation')
   const isQuote = computed(() => service.value.pricingType === 'quote')
@@ -32,10 +34,23 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
   const addonIds = ref<string[]>(initialAddons.filter(id => service.value.addons.some(a => a.id === id)))
   const submitting = shallowRef(false)
   const submitError = shallowRef('')
-  const createdOrder = shallowRef<{ id: string, orderNumber: string } | null>(null)
+  const createdOrder = shallowRef<{ id: string, orderNumber: string, totalMinor?: number } | null>(null)
 
-  const chosenAddons = computed(() => service.value.addons.filter(a => addonIds.value.includes(a.id)))
-  const totalMinor = computed(() => service.value.basePriceMinor + chosenAddons.value.reduce((n, a) => n + a.priceMinor, 0))
+  // Preview only: the server prices the order (launch prices only while the campaign is active).
+  const basePrice = computed(() => resolveServicePrice(service.value, launchActive.value))
+  const quote = computed(() => quoteSelection(service.value, service.value.addons, addonIds.value, launchActive.value))
+  const chosenAddons = computed(() => service.value.addons
+    .filter(a => addonIds.value.includes(a.id))
+    .map((a) => {
+      const price = resolveAddonPrice(a, service.value, launchActive.value)
+      return { id: a.id, kind: a.kind, title: a.title, priceMinor: price.currentMinor ?? 0, regularMinor: price.regularMinor, isLaunch: price.isLaunch }
+    }))
+  const totalMinor = computed(() => quote.value.totalMinor)
+
+  // An add-on whose price stops being in force (e.g. the launch window ended) cannot stay selected.
+  watch(() => quote.value.unavailable, (gone) => {
+    if (gone.length) addonIds.value = addonIds.value.filter(id => !gone.includes(id))
+  })
   const meetingLabel = computed(() => {
     if (!slot.value) return ''
     const end = new Date(new Date(slot.value).getTime() + (service.value.meetingDurationMinutes ?? 30) * 60000)
@@ -103,7 +118,7 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
     submitError.value = ''
     try {
       if (!createdOrder.value) {
-        createdOrder.value = await call<{ id: string, orderNumber: string }>('/api/orders', {
+        createdOrder.value = await call<{ id: string, orderNumber: string, totalMinor: number }>('/api/orders', {
           method: 'POST',
           body: {
             serviceId: service.value.id,
@@ -114,6 +129,10 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
           },
         })
         toast.success(t('request.orderCreated', { order: createdOrder.value.orderNumber }))
+        if (!isQuote.value && createdOrder.value.totalMinor !== undefined && createdOrder.value.totalMinor !== totalMinor.value) {
+          // The database clock decided the price (e.g. the offer ended while the form was open).
+          toast.info(t('launch.priceUpdated', { amount: f.money(createdOrder.value.totalMinor) }))
+        }
       }
       if (isQuote.value) {
         await navigateTo(localePath(`/checkout/${createdOrder.value.orderNumber}/confirmation`))
@@ -149,7 +168,7 @@ export function useRequestFlow(service: Ref<ServiceDetail>, form: Ref<{ id: stri
     isMeeting, isQuote, steps, stepIndex, step, stepLabels,
     answers, files, errors, formAlert, slot, addonIds,
     submitting, submitError, createdOrder,
-    chosenAddons, totalMinor, meetingLabel, fileNames, nextLabel, nextDisabled,
+    basePrice, quote, chosenAddons, totalMinor, meetingLabel, fileNames, nextLabel, nextDisabled,
     touch, back, next,
   }
 }

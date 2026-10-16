@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AnswerValue, FieldError, FormField } from '#shared/domain/formSchema'
+import type { AnswerValue, FieldError, FormField, RepeaterRow } from '#shared/domain/formSchema'
 import { acceptedExtensionsFor, DEFAULT_FIELD_MAX_MB, DEFAULT_MAX_FILES } from '#shared/domain/uploads'
 import type { UploadedFile } from '~/composables/useUpload'
 
@@ -11,6 +11,8 @@ const props = defineProps<{
   field: FormField
   error?: FieldError | null
   formVersionId: string
+  /** 1-based step number, shown on section headings of multi-step contract forms. */
+  step?: number
 }>()
 
 const emit = defineEmits<{ touch: [fieldId: string] }>()
@@ -19,7 +21,13 @@ const { t } = useI18n()
 const f = useFormat()
 const groupLabelId = useId()
 
-const label = computed(() => f.text(props.field.label))
+const baseLabel = computed(() => f.text(props.field.label))
+/** Inputs that are not required say so, so mandatory vs optional is explicit on long forms. */
+const label = computed(() =>
+  props.field.type === 'section' || props.field.type === 'help' || props.field.required
+    ? baseLabel.value
+    : `${baseLabel.value} (${t('formFields.optionalTag')})`,
+)
 const help = computed(() => f.text(props.field.help as never))
 const placeholder = computed(() => f.text(props.field.placeholder as never))
 const options = computed(() => (props.field.options ?? []).map(o => ({ value: o.value, label: f.text(o.label) })))
@@ -31,6 +39,17 @@ const errorText = computed(() => {
   )
   return t(`formErrors.${props.error.code}`, params)
 })
+/** Failing cell of a repeater (reported by validation as row/column). */
+const errorCell = computed(() => {
+  const p = props.error?.params
+  return p && typeof p.row === 'number' && typeof p.column === 'string' ? { row: p.row, column: p.column } : null
+})
+const repeaterRows = computed<RepeaterRow[]>({
+  get: () => (Array.isArray(value.value) ? (value.value as RepeaterRow[]) : []),
+  set: (rows) => {
+    value.value = rows
+  },
+})
 
 const textValue = computed({
   get: () => (value.value == null ? '' : String(value.value)),
@@ -40,7 +59,7 @@ const textValue = computed({
   },
 })
 
-const selected = computed(() => (Array.isArray(value.value) ? value.value : []))
+const selected = computed(() => (Array.isArray(value.value) ? (value.value as string[]) : []))
 
 function pick(optionValue: string) {
   const type = props.field.type
@@ -69,7 +88,7 @@ function setFiles(list: UploadedFile[]) {
 <template>
   <!-- display-only -->
   <div v-if="field.type === 'section'" class="section">
-    <h2 class="section-title-sm">{{ label }}</h2>
+    <h2 class="section-title-sm"><span v-if="step" class="step-no" aria-hidden="true">{{ f.number(step) }}</span>{{ label }}</h2>
     <p v-if="help" class="section-help">{{ help }}</p>
   </div>
   <p v-else-if="field.type === 'help'" class="help-box">{{ label }}</p>
@@ -161,6 +180,17 @@ function setFiles(list: UploadedFile[]) {
     <span v-else-if="help" class="kh-field__hint">{{ help }}</span>
   </div>
 
+  <FormsRepeaterField
+    v-else-if="field.type === 'repeater'"
+    v-model:rows="repeaterRows"
+    :field="field"
+    :label="label"
+    :help="help"
+    :error="errorText"
+    :error-cell="errorCell"
+    @touch="emit('touch', field.id)"
+  />
+
   <FormsFileDropzone
     v-else-if="field.type === 'file'"
     :model-value="files"
@@ -178,7 +208,11 @@ function setFiles(list: UploadedFile[]) {
 
 <style scoped>
 .section { padding-top: 8px; border-top: 1px solid var(--border-subtle); margin-top: 4px; }
-.section-title-sm { font-size: 18px; font-weight: 700; margin: 12px 0 2px; }
+.section-title-sm { font-size: 18px; font-weight: 700; margin: 12px 0 2px; display: flex; align-items: center; gap: 10px; }
+.step-no {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--ink-900); color: var(--cream-100); font-size: 13px; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
 .section-help { margin: 0; font-size: 13px; color: var(--text-muted); }
 .help-box { margin: 0; font-size: 14px; color: var(--text-muted); background: var(--neutral-100); padding: 12px 14px; border-radius: 10px; }
 .row-options { display: flex; gap: 8px; flex-wrap: wrap; }

@@ -8,8 +8,13 @@ import { completeSections, fetchServiceForEditor, type ServiceEditorData } from 
 export interface AddonDraft {
   key: string
   id: string | null
+  /** VIP delivery / bilingual drafting are identified by kind (shown to staff on orders). */
+  kind: 'vip_delivery' | 'bilingual_drafting' | null
   title: Localized
+  /** Regular price in EGP; blank = no regular price approved (offered only while the launch price applies). */
   priceInput: string
+  /** Price in EGP while the launch campaign is active; blank = same as regular. */
+  launchInput: string
   isActive: boolean
 }
 
@@ -34,6 +39,10 @@ export interface ServiceDraft {
   deliveryEstimate: Localized
   pricingType: ServiceInput['pricingType']
   priceInput: string
+  /** Client-approved launch price in EGP (explicit, never derived). */
+  launchInput: string
+  launchEligible: boolean
+  translationStatus: 'approved' | 'pending_review'
   meetingDurationMinutes: number | null
   isFeatured: boolean
   sortOrder: number
@@ -75,6 +84,9 @@ export function draftFromData(d: ServiceEditorData | null, defaultCategoryId: st
       deliveryEstimate: emptyL(),
       pricingType: 'fixed',
       priceInput: '',
+      launchInput: '',
+      launchEligible: false,
+      translationStatus: 'approved',
       meetingDurationMinutes: null,
       isFeatured: false,
       sortOrder: 0,
@@ -92,10 +104,21 @@ export function draftFromData(d: ServiceEditorData | null, defaultCategoryId: st
     deliveryEstimate: copyL(d.deliveryEstimate),
     pricingType: d.pricingType,
     priceInput: minorToEgpInput(d.basePriceMinor),
+    launchInput: d.launchPriceMinor === null ? '' : minorToEgpInput(d.launchPriceMinor),
+    launchEligible: d.launchEligible,
+    translationStatus: d.translationStatus,
     meetingDurationMinutes: d.meetingDurationMinutes,
     isFeatured: d.isFeatured,
     sortOrder: d.sortOrder,
-    addons: d.addons.map(a => ({ key: nextKey(), id: a.id, title: copyL(a.title), priceInput: minorToEgpInput(a.priceMinor), isActive: a.isActive })),
+    addons: d.addons.map(a => ({
+      key: nextKey(),
+      id: a.id,
+      kind: a.kind,
+      title: copyL(a.title),
+      priceInput: a.priceMinor === null ? '' : minorToEgpInput(a.priceMinor),
+      launchInput: a.launchPriceMinor === null ? '' : minorToEgpInput(a.launchPriceMinor),
+      isActive: a.isActive,
+    })),
     sections: completeSections(d.sections).map(s => sectionToDraft(s.key, s.isEnabled, s.content)),
   }
 }
@@ -128,12 +151,22 @@ export function draftToPayload(d: ServiceDraft): unknown {
     deliveryEstimate: trimL(d.deliveryEstimate),
     pricingType: d.kind === 'standard' ? d.pricingType : 'fixed',
     basePriceMinor: egpToMinor(d.priceInput) ?? -1,
+    launchPriceMinor: d.launchInput.trim() === '' ? null : (egpToMinor(d.launchInput) ?? -1),
+    launchEligible: d.kind === 'standard' && d.pricingType === 'fixed' ? d.launchEligible : false,
+    translationStatus: d.translationStatus,
     meetingDurationMinutes: d.kind === 'video_consultation' ? (d.meetingDurationMinutes ?? 30) : null,
     isFeatured: d.isFeatured,
     sortOrder: d.sortOrder,
     addons: d.addons
       .filter(a => a.id || a.title.ar.trim())
-      .map(a => ({ id: a.id, title: trimL(a.title), priceMinor: egpToMinor(a.priceInput) ?? -1, isActive: a.isActive })),
+      .map(a => ({
+        id: a.id,
+        kind: a.kind,
+        title: trimL(a.title),
+        priceMinor: a.priceInput.trim() === '' ? null : (egpToMinor(a.priceInput) ?? -1),
+        launchPriceMinor: a.launchInput.trim() === '' ? null : (egpToMinor(a.launchInput) ?? -1),
+        isActive: a.isActive,
+      })),
     sections,
   }
 }

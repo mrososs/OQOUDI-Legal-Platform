@@ -1,0 +1,49 @@
+{
+  "ref": "CO-025",
+  "slug": "saas-and-software-license-agreement",
+  "en": {
+    "title": "Software or Cloud System License Agreement (SaaS / Software License)",
+    "description": "Grants companies the right to use a software program or an accounting/management system under a periodic subscription, with protection of the code's ownership."
+  },
+  "parties": [
+    {
+      "key": "licensor", "ar": "الشركة المالكة للبرنامج", "en": "Company owning the software", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "licensee", "ar": "الشركة المرخص لها", "en": "Licensed company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "details": [
+    { "id": "system_name", "src": ["F1"], "type": "text", "ar": "اسم النظام", "en": "System name", "req": "yes" },
+    { "id": "users_allowed", "src": ["F2"], "type": "number", "ar": "عدد المستخدمين المسموح بهم", "en": "Number of users allowed", "req": "review", "min": 0 },
+    { "id": "branches_allowed", "src": ["F2"], "type": "number", "ar": "عدد الفروع المسموح بها", "en": "Number of branches allowed", "req": "review", "min": 0 },
+    { "id": "subscription_term", "src": ["F3"], "type": "text", "ar": "مدة الاشتراك", "en": "Subscription term", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "license_fee", "src": ["F4"], "type": "number", "ar": "قيمة الترخيص (ج.م)", "en": "License fee (EGP)", "req": "yes", "min": 0 },
+    {
+      "id": "license_fee_period", "src": ["F4"], "type": "radio", "ar": "دورية قيمة الترخيص", "en": "License fee period", "req": "review",
+      "options": [
+        { "value": "annual", "ar": "سنوي", "en": "Annual" },
+        { "value": "monthly", "ar": "شهري", "en": "Monthly" }
+      ]
+    },
+    { "id": "training_and_onboarding", "src": ["F5"], "type": "textarea", "ar": "خدمات التدريب والتهيئة", "en": "Training and onboarding services", "req": "review" }
+  ],
+  "special": [
+    {
+      "id": "special_clauses", "src": ["G1", "G2", "G3"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "no_reverse_engineering", "ar": "حظر الهندسة العكسية أو نسخ البرنامج", "en": "Prohibition of reverse engineering or copying the software" },
+        { "value": "customer_data_ownership", "ar": "ملكية البيانات المدخلة للعميل", "en": "Customer ownership of the data entered" },
+        { "value": "technical_liability_limits", "ar": "حدود المسؤولية التقنية", "en": "Limits of technical liability" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2", "G3"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_registers", "src": ["H1"], "type": "file", "ar": "السجل التجاري للطرفين", "en": "Commercial register of both parties", "req": "yes", "maxFiles": 4 }
+  ]
+}

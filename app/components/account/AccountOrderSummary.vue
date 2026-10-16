@@ -11,8 +11,8 @@ const f = useFormat()
   <aside class="kh-card aside">
     <div class="title">{{ t('account.summary.title') }}</div>
     <div class="row"><span class="k">{{ t('account.summary.service') }}</span><span>{{ f.text(order.service.title) }}</span></div>
-    <div class="row"><span class="k">{{ t('account.summary.amount') }}</span><strong>{{ f.money(order.totalMinor) }}</strong></div>
-    <div v-for="a in order.addons" :key="a.id" class="row sub"><span class="k">+ {{ f.text(a.title) }}</span><span>{{ f.money(a.priceMinor) }}</span></div>
+    <OrdersOrderAddonBadges :vip="order.hasVipDelivery" :bilingual="order.hasBilingualDrafting" />
+    <OrdersOrderPriceBreakdown :order="order" />
     <div class="row"><span class="k">{{ t('account.summary.payment') }}</span><OrdersPaymentBadge :status="order.paymentStatus" /></div>
     <template v-for="p in order.payments" :key="p.id">
       <div v-if="p.receiptNumber" class="row"><span class="k">{{ t('account.summary.receipt') }}</span><span class="ltr">{{ p.receiptNumber }}</span></div>

@@ -3,6 +3,7 @@ import { Check, Clock } from '@lucide/vue'
 import type { PublicReview, ServiceDetail } from '~/repositories/catalog'
 import type { Localized } from '#shared/domain/localized'
 import { LIST_SECTIONS } from '#shared/domain/serviceSections'
+import { resolveAddonPrice } from '#shared/domain/pricing'
 
 const props = defineProps<{
   service: ServiceDetail
@@ -11,6 +12,7 @@ const props = defineProps<{
 
 const { t } = useI18n()
 const f = useFormat()
+const { active: launchActive } = useLaunchCampaign()
 
 interface SectionVM {
   key: string
@@ -47,10 +49,10 @@ const sections = computed<SectionVM[]>(() => {
   return out
 })
 
-const priceLabel = computed(() => {
-  const p = f.money(props.service.basePriceMinor)
-  return props.service.pricingType === 'quote' ? t('services.startsFrom', { price: p }) : p
-})
+/** Add-ons with a price in force right now, at the price in force. */
+const addonRows = computed(() => props.service.addons
+  .map(a => ({ addon: a, price: resolveAddonPrice(a, props.service, launchActive.value) }))
+  .filter(x => x.price.available))
 
 function jump(anchor: string) {
   const el = document.getElementById(anchor)
@@ -90,10 +92,13 @@ function jump(anchor: string) {
       </div>
 
       <div v-else-if="s.kind === 'pricing'" class="pricing">
-        <div class="price-row"><span>{{ f.text(service.title) }}</span><strong>{{ priceLabel }}</strong></div>
-        <div v-for="a in service.addons" :key="a.id" class="price-row">
-          <span>{{ t('services.optionalAddon', { name: f.text(a.title) }) }}</span>
-          <span>+ {{ f.money(a.priceMinor) }}</span>
+        <div class="price-row"><span>{{ f.text(service.title) }}</span><ServicesServicePriceTag :service="service" /></div>
+        <div v-for="x in addonRows" :key="x.addon.id" class="price-row">
+          <span>{{ t('services.optionalAddon', { name: f.text(x.addon.title) }) }}</span>
+          <span class="addon-amount">
+            <s v-if="x.price.isLaunch && x.price.regularMinor" class="was">{{ f.money(x.price.regularMinor) }}</s>
+            + {{ f.money(x.price.currentMinor!) }}
+          </span>
         </div>
         <div class="small">{{ t('services.pricingNote') }}</div>
       </div>
@@ -138,6 +143,8 @@ function jump(anchor: string) {
 .pricing { display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
 .price-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); }
 .price-row strong { color: var(--text-strong); }
+.addon-amount { text-align: end; white-space: nowrap; }
+.was { color: var(--text-muted); font-size: 12px; margin-inline-end: 6px; text-decoration-color: var(--critical-500); }
 .reviews { display: flex; flex-direction: column; }
 .review { padding: 14px 0; border-bottom: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 6px; }
 .review-head { display: flex; justify-content: space-between; gap: 8px; }

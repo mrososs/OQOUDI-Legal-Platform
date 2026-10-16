@@ -1,0 +1,43 @@
+{
+  "ref": "CO-024",
+  "slug": "service-level-agreement-sla-technical-support",
+  "en": {
+    "title": "Service Level Agreement (SLA) and Technical Support",
+    "description": "Guarantees the stability of servers and technical systems and defines incident response times and compensation."
+  },
+  "parties": [
+    {
+      "key": "provider", "ar": "مزود الخدمة التقنية", "en": "Technical service provider", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    },
+    {
+      "key": "beneficiary", "ar": "الشركة المستفيدة", "en": "Beneficiary company", "src": ["E1"],
+      "fields": ["company_name", "commercial_register"]
+    }
+  ],
+  "details": [
+    {
+      "id": "uptime_percentage", "src": ["F1"], "type": "number", "ar": "نسبة جاهزية النظام المضمونة (Uptime) (%)", "en": "Guaranteed system availability (Uptime) (%)", "req": "yes", "min": 0, "max": 100,
+      "help": { "ar": "مثلاً 99.9", "en": "For example 99.9" }
+    },
+    {
+      "id": "incident_levels", "src": ["F2"], "type": "repeater", "ar": "تصنيف الأعطال وأزمنة الاستجابة والإصلاح لكل مستوى", "en": "Incident classification and response and repair times per level", "req": "review", "maxItems": 10,
+      "columns": [
+        { "id": "level", "type": "text", "ar": "تصنيف العطل / المستوى", "en": "Incident classification / level", "required": true },
+        { "id": "response_time", "type": "text", "ar": "زمن الاستجابة", "en": "Response time" },
+        { "id": "repair_time", "type": "text", "ar": "زمن الإصلاح", "en": "Repair time" }
+      ]
+    }
+  ],
+  "financial": [
+    { "id": "support_contract_value", "src": ["F3"], "type": "number", "ar": "قيمة عقد الدعم الدوري (ج.م)", "en": "Value of the periodic support contract (EGP)", "req": "yes", "min": 0 }
+  ],
+  "special": [
+    { "id": "downtime_credits", "src": ["G1"], "type": "textarea", "ar": "الخصومات والتعويضات المالية عند تجاوز وقت التوقف المسموح", "en": "Discounts and financial compensation when the permitted downtime is exceeded", "req": "no" },
+    { "id": "maintenance_and_backup", "src": ["G2"], "type": "textarea", "ar": "مواعيد الصيانة الدورية والنسخ الاحتياطي", "en": "Periodic maintenance and backup schedules", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_party_registers", "src": ["H1"], "type": "file", "ar": "السجل التجاري للطرفين", "en": "Commercial register of both parties", "req": "yes", "maxFiles": 4 },
+    { "id": "doc_base_technical_contract", "src": ["H2"], "type": "file", "ar": "العقد التقني الأساسي", "en": "The underlying technical contract", "req": "review", "maxFiles": 3 }
+  ]
+}

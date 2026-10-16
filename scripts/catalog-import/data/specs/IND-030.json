@@ -1,0 +1,52 @@
+{
+  "ref": "IND-030",
+  "slug": "residential-unit-finishing-works-contract",
+  "en": {
+    "title": "Residential Unit Finishing and Contracting Contract",
+    "description": "A tightly drafted contract with a decoration engineer or contractor to finish an apartment with technical specifications and a precise time and payment schedule."
+  },
+  "parties": [
+    {
+      "key": "owner", "ar": "المالك", "en": "Owner", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "contractor", "ar": "المهندس أو المقاول المنفذ", "en": "Executing engineer or contractor", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    { "id": "unit_address", "src": ["F1"], "type": "textarea", "ar": "عنوان الوحدة", "en": "Unit address", "req": "yes" },
+    { "id": "unit_area", "src": ["F1"], "type": "number", "ar": "مساحة الوحدة (م²)", "en": "Unit area (m²)", "req": "yes", "min": 1 },
+    {
+      "id": "contracting_system", "src": ["F2"], "type": "radio", "ar": "نظام التعاقد", "en": "Contracting system", "req": "review",
+      "options": [
+        { "value": "lump_sum", "ar": "بالمقطوعية", "en": "Lump sum" },
+        { "value": "supervision_percentage", "ar": "نسبة إشراف", "en": "Supervision percentage" }
+      ]
+    },
+    { "id": "execution_period", "src": ["F5"], "type": "text", "ar": "مدة التنفيذ", "en": "Execution period", "req": "yes" }
+  ],
+  "financial": [
+    { "id": "total_cost", "src": ["F3"], "type": "number", "ar": "إجمالي التكلفة (ج.م)", "en": "Total cost (EGP)", "req": "review", "min": 0 },
+    {
+      "id": "payment_schedule", "src": ["F4"], "type": "repeater", "ar": "جدول الدفعات المرتبط بالمراحل", "en": "Payment schedule tied to the stages", "req": "review", "maxItems": 30,
+      "columns": [
+        { "id": "stage", "type": "text", "ar": "المرحلة", "en": "Stage", "required": true },
+        { "id": "amount", "type": "number", "ar": "قيمة الدفعة (ج.م)", "en": "Payment amount (EGP)", "required": true, "min": 0 }
+      ]
+    }
+  ],
+  "special": [
+    {
+      "id": "materials_specifications", "src": ["G1"], "type": "textarea", "ar": "تحديد مواصفات الخامات", "en": "Specification of the materials", "req": "no",
+      "help": { "ar": "تأسيس سباكة وكهرباء، سيراميك، دهانات", "en": "Plumbing and electrical rough-in, ceramics, paints" }
+    },
+    { "id": "daily_delay_penalty", "src": ["G2"], "type": "number", "ar": "غرامة التأخير اليومية (ج.م)", "en": "Daily delay penalty (EGP)", "req": "no", "min": 0 },
+    { "id": "defects_warranty_period", "src": ["G3"], "type": "text", "ar": "فترة ضمان العيوب بعد التسليم", "en": "Defects warranty period after handover", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_boq", "src": ["H1"], "type": "file", "ar": "مقايسة الأعمال والكميات (BOQ)", "en": "Bill of quantities (BOQ)", "req": "review", "maxFiles": 5 },
+    { "id": "doc_party_ids", "src": ["H2"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 }
+  ]
+}

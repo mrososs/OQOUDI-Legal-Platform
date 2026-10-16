@@ -11,10 +11,6 @@ const { t } = useI18n()
 const f = useFormat()
 
 const to = computed(() => `/service/${props.service.slug}`)
-const priceLabel = computed(() => {
-  const price = f.money(props.service.basePriceMinor)
-  return props.service.pricingType === 'quote' ? t('services.startsFrom', { price }) : price
-})
 const ratingLabel = computed(() =>
   props.service.rating
     ? `${f.number(props.service.rating.avg)} (${f.number(props.service.rating.count)})`
@@ -28,13 +24,14 @@ const ratingLabel = computed(() =>
       <UiBadge tone="neutral">{{ categoryLabel }}</UiBadge>
       <span class="rating"><span class="star" aria-hidden="true">★</span> {{ ratingLabel }}</span>
     </div>
+    <ServicesLaunchBadge :service="service" class="launch" />
     <h3 class="title">
       <NuxtLinkLocale :to="to" class="title-link">{{ f.text(service.title) }}</NuxtLinkLocale>
     </h3>
     <p class="short">{{ f.text(service.shortDescription) }}</p>
     <div class="bottom">
       <div>
-        <div class="price">{{ priceLabel }}</div>
+        <ServicesServicePriceTag :service="service" />
         <div class="days">{{ f.text(service.deliveryEstimate) }}</div>
       </div>
       <UiButton v-if="variant === 'featured'" variant="ghost" size="sm" :to="to" :aria-label="`${t('services.details')} — ${f.text(service.title)}`">
@@ -59,7 +56,7 @@ const ratingLabel = computed(() =>
   display: flex; justify-content: space-between; align-items: flex-end; gap: 8px;
   padding-top: 12px; border-top: 1px solid var(--border-subtle);
 }
-.price { font-size: 18px; font-weight: 700; color: var(--text-strong); }
-.days { font-size: 12px; color: var(--text-muted); }
+.launch { align-self: flex-start; }
+.days { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
 .cta { font-size: 14px; font-weight: 600; color: var(--text-accent); }
 </style>

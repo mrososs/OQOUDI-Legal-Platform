@@ -1,0 +1,160 @@
+{
+  "ref": "CO-027",
+  "slug": "website-and-app-privacy-and-data-protection-policy",
+  "en": {
+    "title": "Privacy Policy and Data Protection for Websites and Apps",
+    "description": "A mandatory legal document explaining how customers' data is collected, processed and protected, for app stores and payment gateways."
+  },
+  "parties": [
+    {
+      "key": "owner",
+      "ar": "الشركة المالكة",
+      "en": "Owning company",
+      "src": [
+        "E2"
+      ],
+      "fields": [
+        "company_name",
+        {
+          "kind": "commercial_register",
+          "req": "review"
+        }
+      ]
+    }
+  ],
+  "partyFields": [
+    {
+      "id": "platform_name",
+      "src": [
+        "E1"
+      ],
+      "type": "text",
+      "ar": "اسم المنصة أو التطبيق",
+      "en": "Platform or app name",
+      "req": "yes"
+    }
+  ],
+  "details": [
+    {
+      "id": "data_types",
+      "src": [
+        "F1"
+      ],
+      "type": "checkbox",
+      "ar": "أنواع البيانات التي يجمعها الموقع",
+      "en": "Types of data collected by the site",
+      "req": "review",
+      "options": [
+        {
+          "value": "name",
+          "ar": "الاسم",
+          "en": "Name"
+        },
+        {
+          "value": "phone",
+          "ar": "الهاتف",
+          "en": "Phone"
+        },
+        {
+          "value": "location",
+          "ar": "الموقع",
+          "en": "Location"
+        },
+        {
+          "value": "cookies",
+          "ar": "الكوكيز",
+          "en": "Cookies"
+        }
+      ]
+    },
+    {
+      "id": "data_types_other",
+      "src": [
+        "F1"
+      ],
+      "type": "textarea",
+      "ar": "أنواع أخرى من البيانات التي يجمعها الموقع",
+      "en": "Other types of data collected by the site",
+      "req": "review"
+    },
+    {
+      "id": "data_purposes",
+      "src": [
+        "F2"
+      ],
+      "type": "textarea",
+      "ar": "الغرض من استخدامها",
+      "en": "Purpose of using the data",
+      "req": "review"
+    },
+    {
+      "id": "third_parties",
+      "src": [
+        "F3"
+      ],
+      "type": "textarea",
+      "ar": "الأطراف الثالثة المشاركة (بوابات الدفع والشحن)",
+      "en": "Third parties the data is shared with (payment and shipping gateways)",
+      "req": "review"
+    }
+  ],
+  "special": [
+    {
+      "id": "special_clauses",
+      "src": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "type": "checkbox",
+      "ar": "الشروط الخاصة التي ترغب في تضمينها",
+      "en": "Special terms you want included",
+      "req": "no",
+      "options": [
+        {
+          "value": "encryption_protection",
+          "ar": "إجراءات التشفير وحماية البيانات",
+          "en": "Encryption and data protection measures"
+        },
+        {
+          "value": "user_edit_delete_rights",
+          "ar": "حقوق المستخدم في تعديل أو حذف حسابه",
+          "en": "User's rights to edit or delete their account"
+        },
+        {
+          "value": "data_law_and_stores",
+          "ar": "التوافق مع قانون حماية البيانات الشخصية ومتطلبات Apple/Google",
+          "en": "Compliance with the Personal Data Protection Law and Apple/Google requirements"
+        }
+      ]
+    },
+    {
+      "id": "clause_details",
+      "src": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "type": "textarea",
+      "ar": "تفاصيل أو ملاحظات على الشروط المختارة",
+      "en": "Details or notes on the selected terms",
+      "req": "no"
+    }
+  ],
+  "documents": [
+    {
+      "id": "doc_site_link_or_app_description",
+      "src": [
+        "H1"
+      ],
+      "type": "textarea",
+      "ar": "رابط الموقع أو وصف التطبيق",
+      "en": "Website link or app description",
+      "req": "review",
+      "help": {
+        "ar": "اكتب رابط الموقع، أو صف التطبيق إن لم يكن له رابط.",
+        "en": "Enter the website link, or describe the app if it has no link."
+      }
+    }
+  ]
+}

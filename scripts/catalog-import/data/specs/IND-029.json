@@ -1,0 +1,44 @@
+{
+  "ref": "IND-029",
+  "slug": "motorcycle-and-scooter-sale-contract",
+  "en": {
+    "title": "Motorcycle Sale Contract (Motorbike / Scooter)",
+    "description": "Documenting the sale of a light vehicle and the transfer of its possession and its legal and traffic liability to the buyer."
+  },
+  "parties": [
+    {
+      "key": "seller", "ar": "البائع", "en": "Seller", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "buyer", "ar": "المشتري", "en": "Buyer", "src": ["E1"],
+      "fields": ["name", "national_id"]
+    }
+  ],
+  "details": [
+    { "id": "vehicle_type", "src": ["F1"], "type": "text", "ar": "النوع", "en": "Type", "req": "yes", "maxLength": 100 },
+    { "id": "vehicle_model", "src": ["F1"], "type": "text", "ar": "الموديل", "en": "Model", "req": "yes", "maxLength": 100 },
+    { "id": "chassis_number", "src": ["F2"], "type": "text", "ar": "رقم الشاسيه", "en": "Chassis number", "req": "yes", "maxLength": 60 },
+    { "id": "engine_number", "src": ["F2"], "type": "text", "ar": "رقم الموتور", "en": "Engine number", "req": "yes", "maxLength": 60 },
+    { "id": "plate_number", "src": ["F3"], "type": "text", "ar": "اللوحات المعدنية", "en": "Metal plates", "req": "review", "maxLength": 60 },
+    { "id": "delivery_date", "src": ["F5"], "type": "date", "ar": "تاريخ التسليم", "en": "Delivery date", "req": "yes" },
+    { "id": "delivery_hour", "src": ["F5"], "type": "text", "ar": "ساعة التسليم", "en": "Delivery hour", "req": "review", "maxLength": 40 }
+  ],
+  "financial": [
+    { "id": "total_price", "src": ["F4"], "type": "number", "ar": "الثمن الإجمالي (ج.م)", "en": "Total price (EGP)", "req": "yes", "min": 0 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1", "G2"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "buyer_inspected_and_accepted", "ar": "معاينة المشتري للمركبة وقبولها بحالتها", "en": "The buyer inspected the vehicle and accepted it as is" },
+        { "value": "buyer_bears_violations_from_handover", "ar": "تحمل المشتري كافة المخالفات من لحظة الاستلام", "en": "The buyer bears all violations from the moment of handover" }
+      ]
+    },
+    { "id": "clause_details", "src": ["G1", "G2"], "type": "textarea", "ar": "تفاصيل أو ملاحظات على الشروط المختارة", "en": "Details or notes on the selected terms", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_license_or_invoice", "src": ["H1"], "type": "file", "ar": "رخصة التسيير أو فاتورة الشراء", "en": "Vehicle license or purchase invoice", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_party_ids", "src": ["H2"], "type": "file", "ar": "صور البطاقات", "en": "ID card copies", "req": "yes", "maxFiles": 4 }
+  ]
+}

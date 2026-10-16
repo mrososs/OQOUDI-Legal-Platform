@@ -1,0 +1,57 @@
+{
+  "ref": "IND-016",
+  "slug": "young-athlete-talent-sponsorship-contract",
+  "en": {
+    "title": "Young Sports Talent Sponsorship and Development Contract (Juniors)",
+    "description": "An agreement between an academy/sponsor and the guardian of a talented player to sponsor him athletically and prepare him for trials and clubs."
+  },
+  "parties": [
+    {
+      "key": "sponsor", "ar": "الأكاديمية أو الراعي", "en": "Academy or sponsor", "src": ["E1"],
+      "fields": [
+        { "id": "name", "type": "text", "ar": "الاسم", "en": "Name", "req": "yes", "maxLength": 200 },
+        { "kind": "commercial_register", "req": "review" },
+        { "kind": "legal_rep", "req": "review" }
+      ]
+    },
+    {
+      "key": "guardian", "ar": "ولي الأمر (الوصي الطبيعي)", "en": "Guardian (natural guardian)", "src": ["E2"],
+      "fields": ["name", "national_id"]
+    },
+    {
+      "key": "player", "ar": "اللاعب الموهوب", "en": "Talented player", "src": ["E3"],
+      "fields": ["name", { "kind": "birth_date", "req": "review" }]
+    }
+  ],
+  "details": [
+    { "id": "sponsorship_term", "src": ["F1"], "type": "text", "ar": "مدة الرعاية", "en": "Sponsorship term", "req": "yes" },
+    {
+      "id": "academy_obligations", "src": ["F2"], "type": "checkbox", "ar": "التزامات الأكاديمية", "en": "Academy obligations", "req": "review",
+      "options": [
+        { "value": "free_training", "ar": "تدريب مجاني", "en": "Free training" },
+        { "value": "discounted_training", "ar": "تدريب مخفض", "en": "Discounted training" },
+        { "value": "nutrition", "ar": "تغذية", "en": "Nutrition" },
+        { "value": "rehabilitation", "ar": "تأهيل", "en": "Preparation and qualification" },
+        { "value": "club_marketing", "ar": "تسويق للأندية", "en": "Marketing to clubs" }
+      ]
+    },
+    { "id": "academy_obligations_details", "src": ["F2"], "type": "textarea", "ar": "تفاصيل التزامات الأكاديمية", "en": "Details of the academy obligations", "req": "review" }
+  ],
+  "financial": [
+    { "id": "academy_transfer_share", "src": ["F3"], "type": "number", "ar": "نسبة الأكاديمية عند انتقاله لنادٍ رسمي (%)", "en": "Academy's percentage upon the player's transfer to an official club (%)", "req": "review", "min": 0, "max": 100 }
+  ],
+  "special": [
+    {
+      "id": "clauses", "src": ["G1"], "type": "checkbox", "ar": "الشروط الخاصة التي ترغب في تضمينها", "en": "Special terms you want included", "req": "no",
+      "options": [
+        { "value": "exclusivity_during_sponsorship", "ar": "شرط عدم الانتقال لأكاديمية أخرى أو التوقيع لنادٍ خلال فترة الرعاية دون الرجوع للأكاديمية", "en": "Condition of not moving to another academy or signing for a club during the sponsorship period without referring to the academy" }
+      ]
+    },
+    { "id": "penalty_clause", "src": ["G2"], "type": "textarea", "ar": "الشرط الجزائي العادل", "en": "Fair penalty clause", "req": "no" }
+  ],
+  "documents": [
+    { "id": "doc_guardian_id", "src": ["H1"], "type": "file", "ar": "بطاقة ولي الأمر", "en": "Guardian's ID card", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_player_birth_cert", "src": ["H2"], "type": "file", "ar": "شهادة ميلاد اللاعب", "en": "Player's birth certificate", "req": "yes", "maxFiles": 2 },
+    { "id": "doc_participation_record", "src": ["H3"], "type": "file", "ar": "سجل مشاركات اللاعب", "en": "Player's participation record", "req": "no", "maxFiles": 4 }
+  ]
+}
