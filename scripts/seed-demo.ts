@@ -9,10 +9,14 @@ import { anon, login, payOrder, serviceBySlug, uploadPdf, type Session } from '.
 
 type Answers = Record<string, unknown>
 
-async function order(session: Session, slug: string, answers: Answers, opts: { fileField?: string, fileName?: string, addonIds?: string[], slotStart?: string } = {}) {
+async function order(session: Session, slug: string, answers: Answers, opts: { fileField?: string, fileName?: string, files?: { field: string, name: string }[], addonIds?: string[], slotStart?: string } = {}) {
   const svc = await serviceBySlug(slug)
   if (opts.fileField) {
     answers[opts.fileField] = [await uploadPdf(session, { purpose: 'form', formVersionId: svc.published_form_version_id!, fieldId: opts.fileField }, opts.fileName ?? 'مستند.pdf')]
+  }
+  // several upload fields (catalog contracts list each required document separately)
+  for (const file of opts.files ?? []) {
+    answers[file.field] = [await uploadPdf(session, { purpose: 'form', formVersionId: svc.published_form_version_id!, fieldId: file.field }, file.name)]
   }
   const res = await session.api<{ id: string, orderNumber: string }>('/api/orders', {
     method: 'POST',
@@ -65,9 +69,11 @@ async function main() {
 
   // 2) Lease: v1 → revision → v2 → accepted → reviewed
   const lease = await order(ahmed, 'lease-agreement', {
-    lease_type: 'residential', landlord: 'محمود فؤاد', tenant: 'أحمد سامي عبد الله',
-    address: 'شقة بالدور الثالث، ١٢ شارع النصر، مدينة نصر، القاهرة.', rent: 6500, start_date: '2026-11-01',
-  })
+    landlord_name: 'محمود فؤاد', landlord_national_id: '28001011234567', landlord_current_address: '٥ شارع الجمهورية، القاهرة',
+    tenant_name: 'أحمد سامي عبد الله', tenant_national_id: '29005051234567', tenant_current_address: '١٢ شارع النصر، مدينة نصر، القاهرة',
+    unit_address: 'شقة بالدور الثالث، ١٢ شارع النصر، مدينة نصر، القاهرة.', lease_start: '2026-11-01', lease_end: '2028-10-31',
+    monthly_rent: 6500, deposit_amount: 13000,
+  }, { files: [{ field: 'doc_party_ids', name: 'بطاقات-المؤجر-والمستأجر.pdf' }] })
   await payOrder(ahmed, lease.id)
   await deliver(karim, lease.id, 'عقد-إيجار-سكني-v1.pdf')
   await ok(ahmed.api(`/api/orders/${lease.id}/revision`, { method: 'POST', body: { reason: 'برجاء تعديل مدة العقد إلى سنتين.' } }), 'revision')
@@ -109,7 +115,11 @@ async function main() {
 
   console.log('nile@oqoudi.test')
   await order(nile, 'company-formation', { entity: 'llc', partners: 3, description: 'شركة برمجيات برأس مال ٥٠٠٬٠٠٠ جنيه ونشاط تطوير التطبيقات.' }, { fileField: 'files', fileName: 'بطاقات-الشركاء.pdf' })
-  const employment = await order(nile, 'employment-contract', { employees: 12, term: 'fixed', description: 'عقود لمطوري برمجيات بدوام كامل مع بند سرية وعدم منافسة.' })
+  const employment = await order(nile, 'employment-contract', {
+    company_company_name: 'شركة نيل للحلول التقنية', company_commercial_register: '123456', company_legal_rep: 'يوسف عادل',
+    employee_name: 'مها إبراهيم', employee_national_id: '29503031234567',
+    job_title: 'مطورة برمجيات', start_date: '2026-11-15', total_salary: 18000,
+  }, { files: [{ field: 'doc_employee_id', name: 'بطاقة-الموظفة.pdf' }, { field: 'doc_commercial_register', name: 'السجل-التجاري-نيل.pdf' }] })
   await payOrder(nile, employment.id)
   await ok(karim.api(`/api/orders/${employment.id}/request-info`, { method: 'POST', body: { message: 'نحتاج نسخة من اللائحة الداخلية الحالية إن وجدت.' } }), 'info')
   const nileReview = await order(nile, 'contract-review', { contract_type: 'other', pages: 14, concerns: 'اتفاقية SaaS مع عميل خارجي؛ نريد مراجعة بنود المسؤولية والتعويض.' }, { fileField: 'contract_file', fileName: 'اتفاقية-SaaS.pdf' })
