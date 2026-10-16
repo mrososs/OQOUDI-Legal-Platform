@@ -105,7 +105,8 @@
       "eyebrow": "Categories",
       "title": "Start from what you need",
       "count": "{n} services",
-      "cta": "View services →"
+      "cta": "View services →",
+      "contracts": "{n} contracts"
     },
     "featured": {
       "eyebrow": "Most requested",
@@ -192,7 +193,17 @@
     "noteQuote": "You won’t pay now. You’ll receive a final quote in your account before paying.",
     "notePay": "You pay after reviewing your order details. Follow every step from your account.",
     "ratingCount": "({n} reviews)",
-    "quoteBadge": "Price on quote"
+    "quoteBadge": "Price on quote",
+    "vipAvailable": "VIP delivery available",
+    "bilingualAvailable": "Arabic & English drafting available",
+    "translationPending": "This English copy is a presentation translation pending legal review; the Arabic text is the reference.",
+    "requirements": {
+      "title": "What you need to prepare",
+      "intro": "The request form asks for the following information and documents. You can prepare them before you start.",
+      "required": "Required",
+      "optional": "Optional",
+      "requested": "Requested information"
+    }
   },
   "sections": {
     "about": "About the service",
@@ -228,7 +239,19 @@
     "resultCount": "{n} services",
     "emptyTitle": "No matching services",
     "emptyText": "Try another word, or request a written consultation and a lawyer will point you to the right service.",
-    "clear": "Clear search"
+    "clear": "Clear search",
+    "subcategoriesLabel": "Sub-categories",
+    "allIn": "All {category}",
+    "otherServices": "Other services",
+    "offerOnly": "Launch offers only",
+    "rangeLabel": "Price range",
+    "rangeAll": "Any price",
+    "range": {
+      "lt1000": "Under EGP 1,000",
+      "1000-2000": "EGP 1,000 – 2,000",
+      "2000-3500": "EGP 2,000 – 3,500",
+      "gte3500": "EGP 3,500 and above"
+    }
   },
   "upload": {
     "dropTitle": "Drag files here or click to choose",
@@ -256,7 +279,12 @@
     "email": "Enter a valid email address.",
     "phone": "Enter a valid Egyptian mobile number, e.g. +20 100 123 4567",
     "password": "Password must be at least 8 characters with letters and digits.",
-    "passwordMatch": "Passwords do not match."
+    "passwordMatch": "Passwords do not match.",
+    "requiredRows": "Add at least one row.",
+    "minItems": "Add at least {min} rows.",
+    "maxItems": "At most {max} rows.",
+    "rowRequired": "Row {row}: complete the required fields.",
+    "rowInvalid": "Row {row}: check the entered values."
   },
   "calendar": {
     "wd0": "Sat",
@@ -400,7 +428,9 @@
       "pricing": "Pricing",
       "payments": "Payments",
       "reviews": "Reviews",
-      "settings": "Settings"
+      "settings": "Settings",
+      "campaign": "Launch campaign",
+      "catalogImport": "Catalog import"
     }
   },
   "errors": {
@@ -455,7 +485,12 @@
     "OQ422_PROOF_INVALID": "The payment proof is invalid. Please upload the image again.",
     "OQ422_PROOF_TYPE": "Unsupported file type. Upload a PNG, JPG or WEBP image.",
     "OQ422_PROOF_SIZE": "The image is larger than 5 MB.",
-    "OQ503_PAYMENT_METHOD_UNAVAILABLE": "This payment method is currently unavailable."
+    "OQ503_PAYMENT_METHOD_UNAVAILABLE": "This payment method is currently unavailable.",
+    "OQ422_CATEGORY_PARENT": "This category cannot be nested under another (two levels only).",
+    "OQ422_CAMPAIGN_DATE": "Choose a valid activation date that is not before today (Cairo time).",
+    "OQ422_CAMPAIGN_SETTING": "The launch campaign settings are incomplete.",
+    "OQ409_CAMPAIGN_ACTIVE": "The campaign is active right now; its date cannot be changed. You can only disable it.",
+    "OQ422_PRICE_INVALID": "The launch price must not exceed the original price, and is required for services in the offer."
   },
   "auth": {
     "tabsLabel": "Sign in or create an account",
@@ -1022,7 +1057,12 @@
       "invalid_section_included": "Invalid section content",
       "invalid_section_deliverables": "Invalid section content",
       "invalid_section_docs": "Invalid section content",
-      "invalid_section_steps": "Invalid section content"
+      "invalid_section_steps": "Invalid section content",
+      "launch_above_base": "The launch price must not exceed the original price.",
+      "launch_needs_price": "Set a launch price to include the service in the offer.",
+      "launch_standard_only": "The launch offer is for fixed-price standard services only (not consultations or quote-based prices).",
+      "addon_needs_price": "Set a regular price or a launch price for the add-on.",
+      "addon_kind_unique": "Only one active add-on of each kind is allowed."
     },
     "issuePaths": {
       "slug": "Slug",
@@ -1060,7 +1100,22 @@
       "formCell": "Version {v} · {n} fields",
       "archive": "Archive",
       "restore": "Restore as draft",
-      "empty": "No services in this tab."
+      "empty": "No services in this tab.",
+      "searchPlaceholder": "Search by name, slug or catalog number",
+      "allCategories": "All main categories",
+      "allSubcategories": "All sub-categories",
+      "subcategory": "Sub-category",
+      "count": "{n} of {total} services",
+      "manageCampaign": "Manage the launch campaign →",
+      "translationPending": "English translation pending review",
+      "launchPrice": "Launch: {price}",
+      "offer": {
+        "label": "Launch offer",
+        "all": "All services",
+        "eligible": "In the offer",
+        "not": "Not in the offer",
+        "pendingTranslation": "Translation pending"
+      }
     },
     "editor": {
       "back": "← Services",
@@ -1099,7 +1154,14 @@
       "minutes": "{n} minutes",
       "sortOrder": "Display order",
       "visibility": "Visibility",
-      "featured": "Show on the home page"
+      "featured": "Show on the home page",
+      "parentLinked": "The parent category is linked automatically.",
+      "translationStatus": "English translation status",
+      "translationHint": "Generated translations stay “pending review” until a lawyer approves them.",
+      "translation": {
+        "approved": "Approved",
+        "pending_review": "Pending legal review"
+      }
     },
     "pricing": {
       "type": "Pricing type",
@@ -1116,7 +1178,28 @@
       "addAddon": "+ Add-on",
       "quoteNoAddons": "Quote-based services have no paid add-ons; the quote covers everything.",
       "snapshotNote": "Price changes apply to new orders only. Existing orders keep the price they were placed at.",
-      "preview": "Customer preview"
+      "preview": "Customer preview",
+      "regularLabel": "Regular price",
+      "addonRegular": "Regular price",
+      "addonLaunch": "Launch price",
+      "addonNoRegular": "No regular price is approved: this add-on is only offered during the launch campaign.",
+      "addonLaunchOnly": "During launch only",
+      "kinds": {
+        "label": "Add-on kind",
+        "none": "Ordinary add-on",
+        "vip_delivery": "VIP Delivery Within 6 Hours",
+        "bilingual_drafting": "Arabic & English Contract Drafting"
+      },
+      "launch": {
+        "title": "Launch offer",
+        "eligible": "Included in the launch offer",
+        "price": "Launch price (EGP)",
+        "priceHint": "The client-approved price — stored as entered, never derived.",
+        "notAvailable": "The launch offer applies to fixed-price standard services only.",
+        "discountNote": "{pct}% below the regular price.",
+        "previewLabel": "Launch price",
+        "allSelected": "With all add-ons"
+      }
     },
     "sections": {
       "title": "Service page sections",
@@ -1148,7 +1231,8 @@
       "date": "Date",
       "file": "File upload",
       "section": "Section heading",
-      "help": "Help text"
+      "help": "Help text",
+      "repeater": "Row list (parties / schedule)"
     },
     "form": {
       "fieldTypes": "Field types",
@@ -1191,7 +1275,19 @@
       "previewOk": "All fields are valid.",
       "previewErrors": "{n} errors — check the highlighted fields.",
       "invalid": "The form settings are incomplete: check Arabic labels, options for choice fields, and at least one input field.",
-      "versionNote": "Publishing makes this form version {n}. Earlier orders keep the form they were submitted with and their answers unchanged."
+      "versionNote": "Publishing makes this form version {n}. Earlier orders keep the form they were submitted with and their answers unchanged.",
+      "column": "Column",
+      "columns": "List columns",
+      "columnLabel": "Column label",
+      "columnType": "Column type",
+      "columnsCount": "{n} columns",
+      "addColumn": "+ Add column",
+      "removeColumn": "Remove column",
+      "minItems": "Minimum rows",
+      "maxItems": "Maximum rows",
+      "legalReview": "Mandatory status needs legal review",
+      "legalReviewShort": "review",
+      "legalReviewHint": "The source does not say whether this field is mandatory, so it is not enforced on customers until a specialist confirms."
     },
     "pricingPage": {
       "save": "Save prices",
@@ -1397,6 +1493,78 @@
         "invalid": "Invalid value",
         "fixErrors": "Fix the highlighted fields before saving."
       }
+    },
+    "campaign": {
+      "title": "Launch campaign",
+      "lead": "The launch discount on contracts runs for exactly {days} days. It never starts by itself: it stays off until you set an explicit activation date.",
+      "settings": "Campaign settings",
+      "status": {
+        "disabled": "Disabled",
+        "scheduled": "Scheduled",
+        "active": "Active",
+        "expired": "Expired"
+      },
+      "enable": "Enable the launch campaign",
+      "startDate": "Activation date (Cairo time)",
+      "startDateHint": "Cannot be before today.",
+      "startTime": "Start time",
+      "ends": "End date (calculated automatically)",
+      "endsNote": "{days} days later",
+      "window": "The campaign starts {from} and ends {to} (Cairo time).",
+      "saveEnable": "Save and schedule the campaign",
+      "saveDisable": "Save (turn the campaign off)",
+      "disableNow": "Disable the campaign now",
+      "saved": "Campaign settings saved.",
+      "noAutoStart": "The campaign does not start on deployment. The price of each order is decided by the server when the order is created; earlier orders keep their prices.",
+      "activeNote": "The campaign is active now. Its date cannot be changed; you can only disable it. Remaining:",
+      "expiredNote": "The campaign ended and regular prices are back. You can schedule a new one with a new date.",
+      "disabledNote": "The campaign is off and customers see no discount.",
+      "contracts": "Included contracts and launch prices",
+      "contractsNote": "Launch and add-on prices are exactly as supplied by the client. The switch decides whether the offer covers a contract.",
+      "eligibleCount": "{n} included of {total} contracts with a launch price",
+      "includeAll": "Include all",
+      "excludeAll": "Exclude all",
+      "eligibleSaved": "Included contracts updated.",
+      "regular": "Regular price",
+      "launch": "Launch price",
+      "vip": "VIP (launch / regular)",
+      "bilingual": "Bilingual (launch / regular)",
+      "included": "Included",
+      "addonLegend": "Add-ons: launch price / regular price. “—” means no regular price is approved."
+    },
+    "import": {
+      "title": "Catalog import",
+      "lead": "Status of the latest import of the platform's contracts: what was created, updated, or already identical. The import runs as a repeatable database migration and is never triggered from the browser.",
+      "noneTitle": "No import yet",
+      "noneText": "The first import will be listed here once the data migration is applied.",
+      "meta": "Batch {batch} · {date}",
+      "split": "services {s} · categories {c}",
+      "runStatus": {
+        "running": "Running",
+        "succeeded": "Succeeded",
+        "failed": "Failed"
+      },
+      "outcome": {
+        "created": "Created",
+        "updated": "Updated",
+        "matched": "Matched",
+        "skipped": "Skipped",
+        "failed": "Failed"
+      },
+      "kind": {
+        "label": "Type",
+        "all": "All",
+        "service": "Services",
+        "category": "Categories"
+      },
+      "cols": {
+        "ref": "Reference",
+        "slug": "Slug",
+        "outcome": "Outcome",
+        "details": "Details"
+      },
+      "reused": "existing service reused",
+      "formVersion": "form v{v}"
     }
   },
   "toast": {
@@ -1544,5 +1712,44 @@
       "receipt": "Receipt number",
       "reason": "Reason"
     }
+  },
+  "launch": {
+    "banner": {
+      "label": "OQOUDI launch offer",
+      "title": "OQOUDI Launch Offer — 50% OFF Contracts for 15 Days Only!",
+      "text": "Start your legal journey with our exclusive limited-time launch offer.",
+      "cta": "Explore Eligible Contracts"
+    },
+    "countdownLabel": "Offer ends in:",
+    "percentOff": "{pct}% off",
+    "badge": "LAUNCH OFFER · {pct}% OFF",
+    "originalPrice": "Original price",
+    "launchPrice": "Launch price",
+    "summaryNote": "Launch price",
+    "priceUpdated": "The server set the final order price: {amount}.",
+    "detail": {
+      "title": "A special offer for the OQOUDI launch",
+      "text": "Get {pct}% off for {days} days from the offer's activation date.",
+      "cta": "Order this contract at the launch price",
+      "addonsTitle": "Optional add-ons at launch pricing",
+      "endsOn": "Offer ends {date} (Cairo time)"
+    }
+  },
+  "formFields": {
+    "optionalTag": "optional",
+    "repeater": {
+      "add": "Add row",
+      "remove": "Remove row",
+      "row": "Row {n}"
+    }
+  },
+  "orders": {
+    "vipBadge": "VIP · 6-hour delivery",
+    "bilingualBadge": "Bilingual drafting",
+    "launchPricing": "Launch price",
+    "regularPricing": "Regular price",
+    "priceSnapshot": "Price at order time",
+    "addonsHeading": "Selected add-ons",
+    "vipNote": "The customer chose VIP expedited delivery. It is handled operationally, not automatically."
   }
 }
