@@ -13,12 +13,29 @@ export const SERVICE_STATUSES = ['draft', 'published', 'archived'] as const
 
 const MAX_MINOR = 100_000_000_000
 
-export const addonInputSchema = z.object({
-  id: z.uuid().nullish(),
-  title: localizedSchema,
-  priceMinor: z.number().int().positive().max(MAX_MINOR),
-  isActive: z.boolean().default(true),
-})
+export const ADDON_KINDS = ['vip_delivery', 'bilingual_drafting'] as const
+export type AddonKind = (typeof ADDON_KINDS)[number]
+export const TRANSLATION_STATUSES = ['approved', 'pending_review'] as const
+
+const minorSchema = z.number().int().positive().max(MAX_MINOR)
+
+export const addonInputSchema = z
+  .object({
+    id: z.uuid().nullish(),
+    /** VIP delivery / bilingual drafting are identified by `kind` (shown to staff on orders). */
+    kind: z.enum(ADDON_KINDS).nullish(),
+    title: localizedSchema,
+    /** Regular price. null = no regular price approved: the add-on is only offered while its launch price applies. */
+    priceMinor: minorSchema.nullable(),
+    /** Price while the launch campaign is active. */
+    launchPriceMinor: minorSchema.nullish(),
+    isActive: z.boolean().default(true),
+  })
+  .superRefine((a, ctx) => {
+    if (a.priceMinor == null && a.launchPriceMinor == null) {
+      ctx.addIssue({ code: 'custom', message: 'addon_needs_price', path: ['priceMinor'] })
+    }
+  })
 
 export const serviceInputSchema = z
   .object({
@@ -31,6 +48,11 @@ export const serviceInputSchema = z
     deliveryEstimate: localizedSchema,
     pricingType: z.enum(PRICING_TYPES),
     basePriceMinor: z.number().int().min(0).max(MAX_MINOR),
+    /** Client-approved launch price (explicit, never derived from a percentage). */
+    launchPriceMinor: z.number().int().min(0).max(MAX_MINOR).nullish(),
+    /** The launch campaign applies to this service. Consultations / quote services can never be eligible. */
+    launchEligible: z.boolean().default(false),
+    translationStatus: z.enum(TRANSLATION_STATUSES).optional(),
     meetingDurationMinutes: z.union([z.literal(15), z.literal(30), z.literal(45), z.literal(60)]).nullish(),
     isFeatured: z.boolean().default(false),
     sortOrder: z.number().int().min(0).max(10000).default(0),
@@ -38,6 +60,19 @@ export const serviceInputSchema = z
     sections: z.array(serviceSectionInputSchema).max(10),
   })
   .superRefine((s, ctx) => {
+    if (s.launchPriceMinor != null && s.launchPriceMinor > s.basePriceMinor) {
+      ctx.addIssue({ code: 'custom', message: 'launch_above_base', path: ['launchPriceMinor'] })
+    }
+    if (s.launchEligible && s.launchPriceMinor == null) {
+      ctx.addIssue({ code: 'custom', message: 'launch_needs_price', path: ['launchPriceMinor'] })
+    }
+    if (s.launchEligible && (s.kind !== 'standard' || s.pricingType !== 'fixed')) {
+      ctx.addIssue({ code: 'custom', message: 'launch_standard_only', path: ['launchEligible'] })
+    }
+    const activeKinds = s.addons.filter(a => a.isActive && a.kind).map(a => a.kind)
+    if (new Set(activeKinds).size !== activeKinds.length) {
+      ctx.addIssue({ code: 'custom', message: 'addon_kind_unique', path: ['addons'] })
+    }
     if (s.kind !== 'standard' && s.pricingType !== 'fixed') {
       ctx.addIssue({ code: 'custom', message: 'consultation_fixed', path: ['pricingType'] })
     }
@@ -63,10 +98,23 @@ export const priceUpdateSchema = z.object({
       serviceId: z.uuid(),
       pricingType: z.enum(PRICING_TYPES),
       basePriceMinor: z.number().int().min(0).max(MAX_MINOR),
+      launchPriceMinor: z.number().int().min(0).max(MAX_MINOR).nullish(),
+      launchEligible: z.boolean().optional(),
     }))
     .min(1)
     .max(200),
 })
+
+/** Launch campaign (admin). `startDate`/`startTime` are Cairo local; the end is computed (15 calendar days later). */
+export const campaignInputSchema = z
+  .object({
+    enabled: z.boolean(),
+    startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullish(),
+    startTime: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/).default('00:00'),
+  })
+  .superRefine((c, ctx) => {
+    if (c.enabled && !c.startDate) ctx.addIssue({ code: 'custom', message: 'campaign_date_required', path: ['startDate'] })
+  })
 
 /** "600" | "600.5" | "600.50" → 60050 minor units, without float math. null when invalid. */
 export function egpToMinor(input: string | number | null | undefined): number | null {
