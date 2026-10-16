@@ -1,3 +1,20 @@
+# Progress report — milestone 2 (2026-10-16): 64-contract catalog, sub-categories, exact pricing, launch campaign
+
+Full write-up: [`docs/catalog-import/implementation-report.md`](catalog-import/implementation-report.md). **Nothing is committed or deployed; hosted Supabase is untouched; the launch campaign is disabled (no date) everywhere.**
+
+| Area | State |
+|---|---|
+| 64 contracts from the 3 client workbooks | ✅ imported (61 created, 3 existing services reused in place, 6 retained), 64/64 verified against the workbooks (13 DB checks + detail route) |
+| Sub-categories (8 individuals + 9 companies) | ✅ two-level hierarchy, SEO routes, accurate counts, mobile select |
+| Pricing (exact client values, integer piasters, server-side) | ✅ launch price/eligibility, VIP + bilingual add-ons, order snapshots; 17 supplied rounding cases and the missing company post-promotion VIP price **flagged, not invented** |
+| Launch campaign (50%, 15 Cairo days) | ✅ admin-controlled, DB-clock decided, banner/badges/countdown/detail section, live expiry; **not activated** |
+| Dynamic forms | ✅ 64 distinct forms, 666/666 source items covered, new repeater field, 254 inputs flagged pending legal review |
+| Admin | ✅ list filters, launch pricing + add-on editor, form builder (repeaters, review flag), campaign page, import status |
+| Tests | unit 97 · integration 165 · E2E see report · typecheck/lint clean · production build OK · fresh-DB proof + `db diff` clean |
+| Awaiting decisions | company VIP after launch · rounding policy · legal review of flagged fields and English copy · confirm 3 reused services · approval to apply to hosted Supabase / deploy |
+
+---
+
 # Progress report — milestone 1 (2026-10-14)
 
 Scope reached: Phase 0, Phase 1, Phase 2 (complete contract-order workflow), most of Phase 3 (written + video consultations) and most of Phase 4 (administration). Everything runs locally against a real Supabase stack (Postgres 17, Auth, Storage, Realtime in Docker).

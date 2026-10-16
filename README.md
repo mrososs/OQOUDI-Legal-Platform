@@ -38,9 +38,18 @@ Local services: Studio http://127.0.0.1:55323 · emails (confirmation / reset) h
 ### Payments (manual verification, demo mode)
 Customers pay by InstaPay, Vodafone Cash or PayPal transfer, upload a proof image to a private bucket, and an admin approves or rejects it in **Dashboard → Payments**. Only an approval marks the order paid and starts work. `PAYMENT_MODE=manual_demo` (default) labels every submission and approval as a demo and excludes it from revenue. Details: `docs/payments/manual-payment-implementation.md`.
 
+### Contract catalog (64 contracts) and launch campaign
+The client's three workbooks are the source of truth for contract names, prices, forms and documents. They are turned into a repeatable, idempotent database migration — see [`docs/catalog-import/implementation-report.md`](docs/catalog-import/implementation-report.md) and [`scripts/catalog-import/SPEC-AUTHORING.md`](scripts/catalog-import/SPEC-AUTHORING.md).
+The 50% launch offer (15 Cairo days) is **disabled until an admin enables it** at *Dashboard → Launch campaign*; it never starts on deployment.
+
 ## Scripts
 | Script | Purpose |
 |---|---|
+| `npm run catalog:extract -- --consolidated <xlsx> --individuals <xlsx> --companies <xlsx>` | read the workbooks → `data/source/*.json` (stops on any price conflict) |
+| `npm run catalog:validate` | validate the 64 form specs (every source item covered) |
+| `npm run catalog:build` / `catalog:check` | generate / check the data migration `…174500_catalog_contracts_data.sql` |
+| `npm run catalog:verify` | source → database check of all 64 contracts (read-only; `-- --http http://localhost:3000` adds the detail routes) |
+| `npm run catalog:report` | regenerate the data-derived reports in `docs/catalog-import/` |
 | `npm run dev` / `build` / `preview` | Nuxt |
 | `npm run typecheck` / `lint` | vue-tsc / ESLint |
 | `npm run db:start` / `db:stop` / `db:reset` | local Supabase (reset re-applies migrations + seed) |
