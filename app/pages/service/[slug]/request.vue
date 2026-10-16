@@ -89,7 +89,8 @@ useSeoMeta({ title, robots: 'noindex' })
 
       <CheckoutOrderSummaryAside
         :title="service.title"
-        :base-minor="service.basePriceMinor"
+        :base-minor="flow.basePrice.value.currentMinor"
+        :regular-base-minor="flow.basePrice.value.isLaunch ? flow.basePrice.value.regularMinor : null"
         :is-quote="flow.isQuote.value"
         :addons="flow.chosenAddons.value"
         :total-minor="flow.totalMinor.value"

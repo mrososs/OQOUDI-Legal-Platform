@@ -1,5 +1,6 @@
 <template>
   <div class="shell">
+    <LayoutLaunchOfferBanner />
     <LayoutPublicHeader />
     <main id="main" class="main">
       <slot />
