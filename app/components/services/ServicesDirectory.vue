@@ -61,6 +61,16 @@ watch(q, (v) => {
 
 const currentPrice = (s: ServiceSummary) => resolveServicePrice(s, launchActive.value).currentMinor
 
+/**
+ * Badge on a card. A service can be listed under several top-level categories while having a single
+ * primary one (e.g. a generic "contract drafting" linked to Individuals and Companies). Inside a top-level
+ * category, anything that isn't one of its contracts is labelled with the category being browsed,
+ * never with the unrelated primary one ("Companies" on the Individuals page).
+ */
+const subIds = computed(() => new Set(subs.value.map(c => c.id)))
+const cardLabel = (s: ServiceSummary) =>
+  top.value && !subIds.value.has(s.primaryCategoryId) ? f.text(top.value.title) : categoryLabel(s.primaryCategoryId)
+
 const base = computed(() => (current.value ? servicesIn(current.value.id) : services.data.value))
 
 const results = computed(() => {
@@ -90,8 +100,7 @@ const grouped = computed(() => {
   const out = subs.value
     .map(c => ({ id: c.id, slug: c.slug, title: f.text(c.title), items: results.value.filter(s => s.primaryCategoryId === c.id) }))
     .filter(g => g.items.length)
-  const subIds = new Set(subs.value.map(c => c.id))
-  const others = results.value.filter(s => !subIds.has(s.primaryCategoryId))
+  const others = results.value.filter(s => !subIds.value.has(s.primaryCategoryId))
   if (others.length) out.push({ id: 'other', slug: '', title: t('directory.otherServices'), items: others })
   return out
 })
@@ -233,7 +242,7 @@ useHead({
             <span class="group-count">{{ f.number(g.items.length) }}</span>
           </h2>
           <div class="grid">
-            <ServicesServiceCard v-for="s in g.items" :key="s.id" :service="s" :category-label="categoryLabel(s.primaryCategoryId)" />
+            <ServicesServiceCard v-for="s in g.items" :key="s.id" :service="s" :category-label="cardLabel(s)" />
           </div>
         </section>
       </template>
@@ -242,7 +251,7 @@ useHead({
           v-for="s in results"
           :key="s.id"
           :service="s"
-          :category-label="categoryLabel(s.primaryCategoryId)"
+          :category-label="cardLabel(s)"
         />
       </div>
       <UiEmptyState v-else :title="t('directory.emptyTitle')" :description="t('directory.emptyText')">

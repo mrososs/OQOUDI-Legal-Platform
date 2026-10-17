@@ -118,6 +118,16 @@ test.describe('browsing the hierarchy', () => {
     await expect(page.getByRole('navigation', { name: 'التصنيفات الفرعية' }).getByRole('link')).toHaveCount(10) // "all" + 9
   })
 
+  test('a service listed under both top-level categories is badged with the one being browsed', async ({ page }) => {
+    // «صياغة عقد» is linked to Individuals and Companies but its primary category is Companies:
+    // the Individuals page must not call it a company service.
+    for (const [path, badge] of [['/services/individuals', 'خدمات الأفراد'], ['/services/companies', 'خدمات الشركات']] as const) {
+      await open(page, path)
+      const card = page.locator('article.kh-card', { has: page.getByRole('link', { name: 'صياغة عقد', exact: true }) })
+      await expect(card.locator('.kh-badge').first()).toHaveText(badge)
+    }
+  })
+
   test('English LTR sub-category page', async ({ page }) => {
     await open(page, '/en/services/companies/hr-and-employment')
     await expect(page.getByRole('heading', { level: 1, name: 'HR & Employment' })).toBeVisible()

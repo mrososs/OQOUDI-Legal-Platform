@@ -1,4 +1,5 @@
 import type { PublicCampaign } from '#shared/domain/pricing'
+import { SILENT_HEADER } from '#shared/domain/loading'
 
 const TICK_MS = 1000
 const RESYNC_MS = 60_000
@@ -28,7 +29,8 @@ export default defineNuxtPlugin({
       if (syncing) return
       syncing = true
       try {
-        const res = await $fetch<PublicCampaign>('/api/campaign')
+        // Runs on a timer, not on user action: keep it out of the global loader.
+        const res = await $fetch<PublicCampaign>('/api/campaign', { headers: { [SILENT_HEADER]: '1' } })
         campaign.value = res
         anchor()
         nowMs.value = Date.now() + offset

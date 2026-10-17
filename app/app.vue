@@ -17,5 +17,6 @@ useHead({
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <LayoutGlobalLoading />
   <UiToaster />
 </template>
