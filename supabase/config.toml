@@ -336,6 +336,19 @@ skip_nonce_check = false
 # If enabled, it will allow the user to successfully authenticate when the provider does not return an email address.
 email_optional = false
 
+# Google sign-in. Off by default locally; the hosted project already has it enabled in the dashboard.
+# To try it locally: create a "Web application" OAuth client in Google Cloud Console with the authorised
+# redirect URI  http://127.0.0.1:55321/auth/v1/callback  (the API url + /auth/v1/callback), export the two
+# variables below, and set enabled = true. Never commit the secret. See docs/auth/google-sign-in-onboarding.md.
+[auth.external.google]
+enabled = false
+client_id = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID)"
+secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_SECRET)"
+redirect_uri = ""
+url = ""
+skip_nonce_check = true
+email_optional = false
+
 # Allow Solana wallet holders to sign in to your project via the Sign in with Solana (SIWS, EIP-4361) standard.
 # You can configure "web3" rate limit in the [auth.rate_limit] section and set up [auth.captcha] if self-hosting.
 [auth.web3.solana]

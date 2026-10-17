@@ -6,9 +6,9 @@ definePageMeta({ middleware: ['guest'] })
 const { t } = useI18n()
 const supabase = useSupabaseClient()
 const user = useSupabaseUser()
-const session = useSessionStore()
 const route = useRoute()
 const localePath = useLocalePath()
+const { settle } = usePostAuth()
 
 const form = reactive({ email: '', password: '' })
 const errors = reactive<{ email?: string, password?: string }>({})
@@ -21,11 +21,6 @@ function validate(): boolean {
   errors.email = EMAIL_RE.test(form.email.trim()) ? undefined : t('formErrors.email')
   errors.password = form.password ? undefined : t('formErrors.required')
   return !errors.email && !errors.password
-}
-
-function safeRedirect(): string | null {
-  const r = route.query.redirect
-  return typeof r === 'string' && r.startsWith('/') && !r.startsWith('//') ? r : null
 }
 
 async function submit() {
@@ -48,10 +43,13 @@ async function submit() {
   // The Supabase module fills `useSupabaseUser()` from an un-awaited getClaims()
   // after SIGNED_IN (a JWKS fetch on hosted projects). Populate it before
   // navigating so the auth middleware doesn't bounce back to the login page.
-  const [{ data: claims }] = await Promise.all([supabase.auth.getClaims(), session.load(data.user.id, true)])
+  const [{ data: claims }, target] = await Promise.all([
+    supabase.auth.getClaims(),
+    settle(data.user.id, route.query.redirect),
+  ])
   user.value = claims?.claims ?? null
   busy.value = false
-  await navigateTo(safeRedirect() ?? localePath(session.isStaff ? '/dashboard' : '/account'))
+  await navigateTo(target, { replace: true })
 }
 
 async function resend() {
@@ -79,6 +77,7 @@ useSeoMeta({ title: () => t('auth.loginTitle'), robots: 'noindex' })
       <NuxtLinkLocale to="/auth/forgot-password" class="forgot">{{ t('auth.forgot') }}</NuxtLinkLocale>
       <UiButton type="submit" size="lg" block :loading="busy">{{ busy ? t('auth.signingIn') : t('auth.signIn') }}</UiButton>
     </form>
+    <AuthGoogleSignIn :redirect="route.query.redirect" />
   </AuthCard>
 </template>
 

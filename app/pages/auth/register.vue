@@ -7,6 +7,7 @@ const { t, locale } = useI18n()
 const supabase = useSupabaseClient()
 const localePath = useLocalePath()
 const runtime = useRuntimeConfig()
+const route = useRoute()
 
 type Kind = 'individual' | 'company'
 const form = reactive({ fullName: '', kind: 'individual' as Kind, companyName: '', phone: '', email: '', password: '' })
@@ -68,40 +69,20 @@ useSeoMeta({ title: () => t('auth.registerTitle'), robots: 'noindex' })
       <UiAlert v-if="failure">{{ failure }}</UiAlert>
       <form class="form" novalidate @submit.prevent="submit">
         <UiInput v-model="form.fullName" :label="t('auth.fullName')" autocomplete="name" required :error="errors.fullName" />
-        <div class="kh-field">
-          <span id="kind-label" class="kh-field__label">{{ t('auth.accountType') }}</span>
-          <div class="kinds" role="radiogroup" aria-labelledby="kind-label">
-            <button
-              v-for="k in (['individual', 'company'] as const)"
-              :key="k"
-              type="button"
-              role="radio"
-              class="kind"
-              :aria-checked="form.kind === k"
-              @click="form.kind = k"
-            >
-              {{ t(`auth.kind.${k}`) }}
-            </button>
-          </div>
-        </div>
+        <AuthAccountKindPicker v-model="form.kind" />
         <UiInput v-if="form.kind === 'company'" v-model="form.companyName" :label="t('auth.companyName')" autocomplete="organization" required :error="errors.companyName" />
         <UiInput v-model="form.phone" :label="t('auth.phone')" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" placeholder="+20 1X XXXX XXXX" required :error="errors.phone" />
         <UiInput v-model="form.email" :label="t('auth.email')" type="email" dir="ltr" autocomplete="email" required :error="errors.email" />
         <UiInput v-model="form.password" :label="t('auth.password')" type="password" dir="ltr" autocomplete="new-password" required :hint="t('auth.passwordHint')" :error="errors.password" />
         <UiButton type="submit" size="lg" block :loading="busy">{{ busy ? t('auth.creating') : t('auth.createAccount') }}</UiButton>
       </form>
+      <AuthGoogleSignIn :redirect="route.query.redirect" :hint="t('auth.googleRegisterHint')" />
     </template>
   </AuthCard>
 </template>
 
 <style scoped>
 .form { display: flex; flex-direction: column; gap: 14px; }
-.kinds { display: flex; gap: 8px; }
-.kind {
-  flex: 1; padding: 10px; border-radius: 10px; border: 1.5px solid var(--border-default); background: #fff;
-  font-size: 14px; cursor: pointer; color: var(--text-strong);
-}
-.kind[aria-checked='true'] { border-color: var(--ink-900); background: var(--gold-50); }
 .sent { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 .sent-title { font-size: 22px; font-weight: 700; margin: 0; }
 .sent-text { margin: 0; line-height: 1.8; }

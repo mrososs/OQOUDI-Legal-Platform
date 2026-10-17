@@ -1,11 +1,7 @@
-/** Login/register pages: signed-in users go to their area. */
+/** Login/register pages: signed-in users go where the post-auth rules send them. */
 export default defineNuxtRouteMiddleware(async (to) => {
   const user = useSupabaseUser()
   if (!user.value) return
-  const session = useSessionStore()
-  await session.load(user.value.sub)
-  const redirect = typeof to.query.redirect === 'string' && to.query.redirect.startsWith('/') && !to.query.redirect.startsWith('//')
-    ? to.query.redirect
-    : null
-  return navigateTo(redirect ?? useLocalePath()(session.isStaff ? '/dashboard' : '/account'))
+  const { settle } = usePostAuth()
+  return navigateTo(await settle(user.value.sub, to.query.redirect, false), { replace: true })
 })
