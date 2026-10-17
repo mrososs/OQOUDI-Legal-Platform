@@ -663,14 +663,14 @@ isOneToOne: false
                   ]
                 },"profiles": {
                   Row: {
-                    "created_at": string,"email": string,"full_name": string,"id": string,"phone": string | null,"preferred_locale": string,"updated_at": string
+                    "created_at": string,"email": string,"full_name": string,"id": string,"onboarding_completed_at": string | null,"phone": string | null,"preferred_locale": string,"updated_at": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "created_at"?: string,"email": string,"full_name": string,"id": string,"phone"?: string | null,"preferred_locale"?: string,"updated_at"?: string
+                    "created_at"?: string,"email": string,"full_name": string,"id": string,"onboarding_completed_at"?: string | null,"phone"?: string | null,"preferred_locale"?: string,"updated_at"?: string
                   }
                   Update: {
-                    "created_at"?: string,"email"?: string,"full_name"?: string,"id"?: string,"phone"?: string | null,"preferred_locale"?: string,"updated_at"?: string
+                    "created_at"?: string,"email"?: string,"full_name"?: string,"id"?: string,"onboarding_completed_at"?: string | null,"phone"?: string | null,"preferred_locale"?: string,"updated_at"?: string
                   }
                   Relationships: [
                     
@@ -1045,6 +1045,9 @@ isOneToOne: false
                            },
 "booking_set_meeting_link":
 { Args: { "p_actor": string,"p_order": string,"p_url": string }; Returns: undefined
+                           },
+"complete_customer_onboarding":
+{ Args: { "p_account_kind": Database["public"]['Enums']["account_kind"],"p_actor": string,"p_company_name"?: string,"p_full_name": string,"p_locale"?: string,"p_phone": string }; Returns: Json
                            },
 "dashboard_kpis":
 { Args: Record<PropertyKey, never>; Returns: Json
