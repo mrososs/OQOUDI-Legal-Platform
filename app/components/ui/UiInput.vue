@@ -12,6 +12,7 @@ const props = defineProps<{
   inputmode?: 'text' | 'numeric' | 'tel' | 'email' | 'decimal' | 'search' | 'url'
   dir?: 'ltr' | 'rtl' | 'auto'
   disabled?: boolean
+  readonly?: boolean
   min?: number | string
   max?: number | string
   maxlength?: number
@@ -40,6 +41,7 @@ const message = computed(() => props.error || props.hint)
       :inputmode="inputmode"
       :dir="dir"
       :disabled="disabled"
+      :readonly="readonly"
       :min="min"
       :max="max"
       :maxlength="maxlength"

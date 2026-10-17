@@ -490,7 +490,10 @@
     "OQ422_CAMPAIGN_DATE": "Choose a valid activation date that is not before today (Cairo time).",
     "OQ422_CAMPAIGN_SETTING": "The launch campaign settings are incomplete.",
     "OQ409_CAMPAIGN_ACTIVE": "The campaign is active right now; its date cannot be changed. You can only disable it.",
-    "OQ422_PRICE_INVALID": "The launch price must not exceed the original price, and is required for services in the offer."
+    "OQ422_PRICE_INVALID": "The launch price must not exceed the original price, and is required for services in the offer.",
+    "OQ403_ONBOARDING": "Complete your account details first so you can place a request.",
+    "OQ422_ONBOARDING": "Some details are invalid. Check your name, mobile number and company name.",
+    "OQ409_ACCOUNT_KIND_LOCKED": "The account type can’t be changed because this account already has requests."
   },
   "auth": {
     "tabsLabel": "Sign in or create an account",
@@ -538,7 +541,25 @@
     "resetLinkInvalid": "The reset link is invalid or expired.",
     "confirmTitle": "Email confirmation",
     "confirming": "Confirming your email…",
-    "confirmFailed": "The confirmation link is invalid or expired. Sign in to request a new one."
+    "confirmFailed": "The confirmation link is invalid or expired. Sign in to request a new one.",
+    "or": "or",
+    "continueWithGoogle": "Continue with Google",
+    "googleRedirecting": "Redirecting to Google…",
+    "googleError": "We couldn’t start Google sign-in. Please try again.",
+    "googleRegisterHint": "After signing in we’ll ask you to complete your details, just once.",
+    "callback": {
+      "title": "Signing in",
+      "signingIn": "Signing you in…",
+      "retry": "Try again",
+      "failed": {
+        "cancelled": "Google sign-in was cancelled. You can try again or use your email and password.",
+        "expired": "The sign-in link has expired or is invalid. Please start again.",
+        "invalid": "We didn’t receive valid sign-in details. Please start again.",
+        "emailNotVerified": "Google hasn’t verified this email address, so it can’t be linked to an account. Use your email and password instead.",
+        "accountExists": "An account with this email already exists. Sign in with your email and password, or use “Forgot your password?”, then try Google again.",
+        "generic": "We couldn’t complete sign-in. Please try again."
+      }
+    }
   },
   "faqPage": {
     "title": "Everything you need to know",
@@ -1751,5 +1772,17 @@
     "priceSnapshot": "Price at order time",
     "addonsHeading": "Selected add-ons",
     "vipNote": "The customer chose VIP expedited delivery. It is handled operationally, not automatically."
+  },
+  "onboarding": {
+    "title": "Complete your account details",
+    "lead": "One last step before you start. We need a few details to process your requests and reach you.",
+    "fullName": "Full name",
+    "email": "Email",
+    "emailHint": "Linked to your account and can’t be changed here.",
+    "phone": "Mobile number",
+    "phoneHint": "Egyptian mobile, e.g. 01001234567",
+    "submit": "Save and continue",
+    "saving": "Saving…",
+    "failed": "We couldn’t save your details. Check your connection and try again."
   }
 }

@@ -2,16 +2,14 @@
 /** Email-confirmation landing: the browser client exchanges the code, then we continue. */
 const { t } = useI18n()
 const user = useSupabaseUser()
-const session = useSessionStore()
-const localePath = useLocalePath()
 const route = useRoute()
+const { settle } = usePostAuth()
 
 const failed = computed(() => typeof route.query.error_description === 'string')
 
 watch(() => user.value?.sub, async (id) => {
   if (!id) return
-  await session.load(id, true)
-  await navigateTo(localePath(session.isStaff ? '/dashboard' : '/account'))
+  await navigateTo(await settle(id), { replace: true })
 }, { immediate: true })
 
 useSeoMeta({ title: () => t('auth.confirmTitle'), robots: 'noindex' })

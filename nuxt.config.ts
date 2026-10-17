@@ -75,6 +75,10 @@ export default defineNuxtConfig({
     '/dashboard/**': { headers: { 'cache-control': 'no-store' } },
     '/en/dashboard/**': { headers: { 'cache-control': 'no-store' } },
     '/api/**': { headers: { 'cache-control': 'no-store' } },
+    // OAuth return page: decided in the browser (the PKCE code exchange happens
+    // in the client), never cached, and never leaks its URL via Referer.
+    '/auth/callback': { ssr: false, headers: { 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } },
+    '/en/auth/callback': { ssr: false, headers: { 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } },
   },
 
   nitro: {

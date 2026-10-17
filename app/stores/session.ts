@@ -10,6 +10,8 @@ export interface SessionProfile {
   email: string
   phone: string | null
   preferredLocale: string
+  /** `null` until first-time onboarding is finished (customers only; staff are exempt). */
+  onboardingCompletedAt: string | null
 }
 
 export interface SessionAccount {
@@ -35,6 +37,14 @@ export const useSessionStore = defineStore('session', () => {
   const isLawyer = computed(() => roles.value.includes('lawyer'))
   const isStaff = computed(() => isAdmin.value || isLawyer.value)
   const firstName = computed(() => profile.value?.fullName.split(' ')[0] ?? '')
+  /**
+   * A customer whose profile is loaded but whose onboarding is unfinished.
+   * UX routing only — `orders` inserts are also blocked in the database.
+   * False while the profile is unknown so a slow load never causes a redirect.
+   */
+  const needsOnboarding = computed(() =>
+    profile.value !== null && !isStaff.value && profile.value.onboardingCompletedAt === null,
+  )
 
   function reset() {
     profile.value = null
@@ -51,7 +61,7 @@ export const useSessionStore = defineStore('session', () => {
     if (!force && loadedFor.value === userId) return
 
     const [profileRes, rolesRes, membershipRes] = await Promise.all([
-      supabase.from('profiles').select('id, full_name, email, phone, preferred_locale').eq('id', userId).maybeSingle(),
+      supabase.from('profiles').select('id, full_name, email, phone, preferred_locale, onboarding_completed_at').eq('id', userId).maybeSingle(),
       supabase.from('user_roles').select('role').eq('user_id', userId),
       supabase
         .from('customer_account_members')
@@ -64,7 +74,7 @@ export const useSessionStore = defineStore('session', () => {
 
     const p = profileRes.data
     profile.value = p
-      ? { id: p.id, fullName: p.full_name, email: p.email, phone: p.phone, preferredLocale: p.preferred_locale }
+      ? { id: p.id, fullName: p.full_name, email: p.email, phone: p.phone, preferredLocale: p.preferred_locale, onboardingCompletedAt: p.onboarding_completed_at }
       : null
     roles.value = (rolesRes.data ?? []).map(r => r.role)
     const acc = membershipRes.data?.customer_accounts
@@ -72,5 +82,5 @@ export const useSessionStore = defineStore('session', () => {
     loadedFor.value = userId
   }
 
-  return { profile, roles, account, loadedFor, isAdmin, isLawyer, isStaff, firstName, load, reset }
+  return { profile, roles, account, loadedFor, isAdmin, isLawyer, isStaff, firstName, needsOnboarding, load, reset }
 })
